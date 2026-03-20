@@ -1,133 +1,133 @@
 {
-  "settings": {
-    "fontSize": 18,
-    "width": 1000,
-    "height": 600,
-    "theme": "Dracula",
-    "typingSpeed": "60ms",
-    "framerate": 10,
-    "startupWait": 5,
-    "responseWait": 40,
-    "exitWait": 3
+  "configuracoes": {
+    "tamanhoDaFonte": 18,
+    "largura": 1000,
+    "altura": 600,
+    "tema": "Dracula",
+    "velocidadeDeDigitacao": "60ms",
+    "taxaDeQuadros": 10,
+    "esperaDeInicializacao": 5,
+    "esperaDaResposta": 40,
+    "esperaDeSaida": 3
   },
-  "demos": [
+  "demonstracoes": [
     {
-      "chapter": "00-quick-start",
-      "name": "hello-demo",
-      "description": "Say hello to Copilot and explore what it can help with",
-      "prompt": "Say hello and tell me what you can help with"
+      "capitulo": "00-quick-start",
+      "nome": "hello-demo",
+      "descricao": "Diga olá ao Copilot e explore como ele pode ajudar",
+      "prompt": "Diga olá e me conte como você pode me ajudar"
     },
     {
-      "chapter": "01-setup-and-first-steps",
-      "name": "code-review-demo",
-      "description": "Review a file for code quality issues and suggest improvements",
-      "prompt": "Review @samples/book-app-project/book_app.py for code quality issues and suggest improvements"
+      "capitulo": "01-setup-and-first-steps",
+      "nome": "code-review-demo",
+      "descricao": "Revise um arquivo em busca de problemas de qualidade de código e sugira melhorias",
+      "prompt": "Revise o @samples/book-app-project/book_app.py buscando problemas de qualidade de código e sugira melhorias"
     },
     {
-      "chapter": "01-setup-and-first-steps",
-      "name": "explain-code-demo",
-      "description": "Explain what a Python file does in simple terms",
-      "prompt": "Explain what @samples/book-app-project/books.py does in simple terms"
+      "capitulo": "01-setup-and-first-steps",
+      "nome": "explain-code-demo",
+      "descricao": "Explique o que um arquivo Python faz em termos simples",
+      "prompt": "Explique o que @samples/book-app-project/books.py faz em termos simples"
     },
     {
-      "chapter": "01-setup-and-first-steps",
-      "name": "generate-code-demo",
-      "description": "Generate a Python function from a natural language description",
-      "responseWait": 35,
-      "prompt": "Write a Python function that takes a list of books and returns statistics: total count, number read, number unread, oldest and newest book"
+      "capitulo": "01-setup-and-first-steps",
+      "nome": "generate-code-demo",
+      "descricao": "Gere uma função Python a partir de uma descrição em linguagem natural",
+      "esperaDaResposta": 35,
+      "prompt": "Escreva uma função Python que recebe uma lista de livros e retorna estatísticas: contagem total, número de lidos, número de não lidos, livro mais antigo e mais novo"
     },
     {
-      "chapter": "02-context-conversations",
-      "name": "file-context-demo",
-      "description": "Use @file to ask about a specific file",
-      "prompt": "What does @samples/book-app-project/utils.py do? Summarize briefly."
+      "capitulo": "02-context-conversations",
+      "nome": "file-context-demo",
+      "descricao": "Use @arquivo para perguntar sobre um arquivo específico",
+      "prompt": "O que @samples/book-app-project/utils.py faz? Resuma brevemente"
     },
     {
-      "chapter": "02-context-conversations",
-      "name": "multi-file-demo",
-      "description": "Reference multiple files to understand data flow",
-      "prompt": "Compare @samples/book-app-project/book_app.py and @samples/book-app-project/books.py - how do they work together? What's the data flow?"
+      "capitulo": "02-context-conversations",
+      "nome": "multi-file-demo",
+      "descricao": "Faça referência a vários arquivos para entender o fluxo de dados",
+      "prompt": "Compare @samples/book-app-project/book_app.py e @samples/book-app-project/books.py - como eles funcionam juntos? Qual é o fluxo de dados?"
     },
     {
-      "chapter": "02-context-conversations",
-      "name": "multi-turn-demo",
-      "description": "Multi-turn conversation building on previous context",
+      "capitulo": "02-context-conversations",
+      "nome": "multi-turn-demo",
+      "descricao": "Conversa de múltiplos turnos com base em contexto anterior",
       "prompts": [
-        "@samples/book-app-project/ Give me an overview of this project",
-        "What are the main code quality issues?",
-        { "text": "Which issue should I fix first and show me how?", "responseWait": 45 }
+        "@samples/book-app-project/ Me dê uma visão geral deste projeto",
+        "Quais são os principais problemas de qualidade de código?",
+        { "texto": "Qual problema devo corrigir primeiro e me mostre como?", "esperaDaResposta": 45 }
       ]
     },
     {
-      "chapter": "03-development-workflows",
-      "name": "code-review-demo",
-      "description": "Workflow 1: Code Review - review a file for code quality",
-      "responseWait": 30,
-      "prompt": "Review @samples/book-app-project/book_app.py for code quality"
+      "capitulo": "03-development-workflows",
+      "nome": "code-review-demo",
+      "descricao": "Fluxo de Trabalho 1: Revisão de Código - revisar um arquivo quanto à qualidade de código",
+      "esperaDaResposta": 30,
+      "prompt": "Revise o @samples/book-app-project/book_app.py buscando problemas de qualidade"
     },
     {
-      "chapter": "03-development-workflows",
-      "name": "refactor-demo",
-      "description": "Workflow 2: Refactoring - refactor command handling to dictionary dispatch",
-      "responseWait": 60,
-      "prompt": "@samples/book-app-project/book_app.py Refactor the command handling to use a dictionary dispatch pattern instead of if/elif chains"
+      "capitulo": "03-development-workflows",
+      "nome": "refactor-demo",
+      "descricao": "Fluxo de Trabalho 2: Refatoração - refatore o tratamento de comandos para usar um padrão de dispatch em dicionário",
+      "esperaDaResposta": 60,
+      "prompt": "@samples/book-app-project/book_app.py Refatore o tratamento de comandos para usar um padrão de dispatch por dicionário ao invés de cadeias de if/elif"
     },
     {
-      "chapter": "03-development-workflows",
-      "name": "fix-bug-demo",
-      "description": "Workflow 3: Debugging - debug a search issue",
-      "responseWait": 60,
-      "prompt": "@samples/book-app-buggy/books_buggy.py Users report that searching for 'The Hobbit' returns no results even though it's in the data. Debug why."
+      "capitulo": "03-development-workflows",
+      "nome": "fix-bug-demo",
+      "descricao": "Fluxo de Trabalho 3: Debugando - depurar um problema de pesquisa",
+      "esperaDaResposta": 60,
+      "prompt": "@samples/book-app-buggy/books_buggy.py Usuários relatam que buscar por 'The Hobbit' não traz resultados mesmo ele estando nos dados. Depure o motivo."
     },
     {
-      "chapter": "03-development-workflows",
-      "name": "test-gen-demo",
-      "description": "Workflow 4: Test Generation - generate comprehensive pytest tests",
-      "responseWait": 60,
-      "prompt": "@samples/book-app-project/books.py Generate comprehensive pytest tests. Include tests for: Adding books, Removing books, Finding by title, Finding by author, Marking as read, Edge cases with empty data"
+      "capitulo": "03-development-workflows",
+      "nome": "test-gen-demo",
+      "descricao": "Fluxo de Trabalho 4: Geração de Testes - gerar testes abrangentes no pytest",
+      "esperaDaResposta": 60,
+      "prompt": "@samples/book-app-project/books.py Gere testes abrangentes em pytest. Inclua testes para: Adicionar livros, Remover livros, Buscar por título, Buscar por autor, Marcar como lido, Casos atípicos com dados vazios"
     },
     {
-      "chapter": "03-development-workflows",
-      "name": "git-integration-demo",
-      "description": "Workflow 5: Git Integration - generate a conventional commit message",
-      "responseWait": 30,
-      "prompt": "Generate a conventional commit message for: $(git diff --staged)"
+      "capitulo": "03-development-workflows",
+      "nome": "git-integration-demo",
+      "descricao": "Fluxo de Trabalho 5: Integração com Git - gerar uma mensagem de commit convencional",
+      "esperaDaResposta": 30,
+      "prompt": "Gere uma mensagem de commit convencional para: $(git diff --staged)"
     },
     {
-      "chapter": "04-agents-custom-instructions",
-      "name": "python-reviewer-demo",
-      "description": "Agent-based Python code review for type hints, error handling, and PEP 8",
-      "prompt": "As a Python code quality expert, review @samples/book-app-project/books.py for type hints, error handling, and PEP 8 compliance"
+      "capitulo": "04-agents-custom-instructions",
+      "nome": "python-reviewer-demo",
+      "descricao": "Revisão de código Python baseada em agente para dicas de tipo, tratamento de erros e PEP 8",
+      "prompt": "Como um especialista em qualidade de código Python, revise @samples/book-app-project/books.py focando em type hints, tratamento de erros e conformidade com a PEP 8"
     },
     {
-      "chapter": "05-skills",
-      "name": "list-skills-demo",
-      "description": "List available slash commands and skills",
-      "responseWait": 25,
-      "prompt": "What slash commands and skills are available? List the main ones."
+      "capitulo": "05-skills",
+      "nome": "list-skills-demo",
+      "descricao": "Liste slash commands e skills disponíveis",
+      "esperaDaResposta": 25,
+      "prompt": "Quais slash commands e skills estão disponíveis? Liste os principais."
     },
     {
-      "chapter": "05-skills",
-      "name": "skill-trigger-demo",
-      "description": "Copilot detects and triggers a matching skill",
-      "responseWait": 120,
-      "prompt": "Check the book collection code for quality issues"
+      "capitulo": "05-skills",
+      "nome": "skill-trigger-demo",
+      "descricao": "Copilot detecta e aciona uma skill corresondente",
+      "esperaDaResposta": 120,
+      "prompt": "Verifique o código da coleção de livros em busca de problemas de qualidade"
     },
     {
-      "chapter": "06-mcp-servers",
-      "name": "mcp-status-demo",
-      "description": "Check connected MCP servers with /mcp show",
-      "responseWait": 25,
+      "capitulo": "06-mcp-servers",
+      "nome": "mcp-status-demo",
+      "descricao": "Verifique os servidores MCP conectados com /mcp show",
+      "esperaDaResposta": 25,
       "prompt": "/mcp show"
     },
     {
-      "chapter": "06-mcp-servers",
-      "name": "mcp-workflow-demo",
-      "description": "Multi-step MCP workflow with issues and code analysis",
+      "capitulo": "06-mcp-servers",
+      "nome": "mcp-workflow-demo",
+      "descricao": "Fluxo de trabalho MCP de vários passos com issues e análise de código",
       "prompts": [
-        "List open issues on this repository",
-        { "text": "@samples/book-app-project/books.py What code handles the search functionality?", "responseWait": 20 },
-        { "text": "Based on the code, suggest improvements for the search feature", "responseWait": 30 }
+        "Liste as issues abertas neste repositório",
+        { "texto": "@samples/book-app-project/books.py Qual trecho do código cuida da funcionalidade de busca?", "esperaDaResposta": 20 },
+        { "texto": "Baseado no código, sugira melhorias para a funcionalidade de busca", "esperaDaResposta": 30 }
       ]
     }
   ]

@@ -1,160 +1,160 @@
 #!/usr/bin/env node
 /**
- * Generate .tape files from demos.json configuration
+ * Gera arquivos .tape da configuração demos.json
  *
- * Supports single-prompt and multi-prompt demos:
- *   - "prompt": "text"              → single prompt
- *   - "prompts": ["a", "b"]         → multi-prompt (default responseWait each)
- *   - "prompts": [{ "text": "a", "responseWait": 10 }, "b"]  → mixed with overrides
+ * Suporta demos de prompt único e de múltiplos prompts:
+ *   - "prompt": "texto"              → prompt único
+ *   - "prompts": ["a", "b"]         → múltiplos prompts (esperaDaResposta como padrão em cada um)
+ *   - "prompts": [{ "texto": "a", "esperaDaResposta": 10 }, "b"]  → misto com substituição (overrides)
  *
- * Usage: npm run create:tapes
+ * Uso: npm run create:tapes
  */
 
 const { writeFileSync, mkdirSync, existsSync } = require('fs');
 const { join } = require('path');
 
-const rootDir = join(__dirname, '..', '..');
-const config = require('./demos.json');
+const diretorioRaiz = join(__dirname, '..', '..');
+const configuracao = require('./demos.json');
 
-function generatePromptBlock(entry, defaultWait, index) {
-  const text = typeof entry === 'string' ? entry : entry.text;
-  const wait = (typeof entry === 'object' && entry.responseWait) || defaultWait;
-  const agentSelect = typeof entry === 'object' && entry.agentSelect;
-  const label = index != null ? `Prompt ${index + 1}` : 'Execute the prompt';
+function gerarBlocoDePrompt(entrada, esperaPadrao, indice) {
+  const texto = typeof entrada === 'string' ? entrada : entrada.texto;
+  const espera = (typeof entrada === 'object' && entrada.esperaDaResposta) || esperaPadrao;
+  const selecionarAgente = typeof entrada === 'object' && entrada.selecionarAgente;
+  const rotulo = indice != null ? `Prompt ${indice + 1}` : 'Executar o prompt';
 
-  // Agent selection: type /agent, wait for picker, arrow down to agent, select
-  if (agentSelect) {
-    const arrowDown = (typeof entry === 'object' && entry.arrowDown) || 0;
-    const arrowBlock = arrowDown > 0 ? `Down ${arrowDown}\nSleep 1s\n` : '';
-    return `# ${label} - Select ${agentSelect} agent
-Type "${text}"
+  // Seleção de agente: digite /agent, espere pelo seletor, seta pra baixo até o agente, selecione
+  if (selecionarAgente) {
+    const setaPraBaixo = (typeof entrada === 'object' && entrada.setaPraBaixo) || 0;
+    const blocoDeSeta = setaPraBaixo > 0 ? `Down ${setaPraBaixo}\nSleep 1s\n` : '';
+    return `# ${rotulo} - Selecionar agente ${selecionarAgente}
+Type "${texto}"
 Sleep 1s
 Enter
 
-# Wait for agent picker
+# Esperar pelo seletor de agentes
 Sleep 3s
-${arrowBlock}Enter
+${blocoDeSeta}Enter
 
-# Wait for agent to load
-Sleep ${wait}s`;
+# Esperar o agente carregar
+Sleep ${espera}s`;
   }
 
-  // If prompt ends with a file reference (@path), the file picker will be open.
-  // Need an extra Enter to select the file before submitting the prompt.
-  const endsWithFileRef = /@\S+$/.test(text);
-  const enterBlock = endsWithFileRef
+  // Se o prompt terminar com referência a um arquivo (@caminho), o seletor de arquivos irá abrir.
+  // Precisamos de um Enter extra para selecionar o arquivo antes de submeter o prompt.
+  const terminaComReferenciaDeArquivo = /@\S+$/.test(texto);
+  const blocoDeEnter = terminaComReferenciaDeArquivo
     ? 'Enter\nSleep 1s\nEnter'
     : 'Enter';
 
-  // VHS Type command must be single-line; split multi-line prompts
-  const lines = text.split('\n');
-  let typeBlock;
-  if (lines.length > 1) {
-    typeBlock = lines
-      .map((line, i) => i < lines.length - 1 ? `Type "${line}"\nEnter` : `Type "${line}"`)
+  // Comando Type do VHS precisa ser em linha única; separa prompts de múltiplas linhas
+  const linhas = texto.split('\n');
+  let blocoDeDigitacao;
+  if (linhas.length > 1) {
+    blocoDeDigitacao = linhas
+      .map((linha, i) => i < linhas.length - 1 ? `Type "${linha}"\nEnter` : `Type "${linha}"`)
       .join('\n');
   } else {
-    typeBlock = `Type "${text}"`;
+    blocoDeDigitacao = `Type "${texto}"`;
   }
 
-  // Break response wait into chunks with periodic hidden nudges.
-  // A hidden space+backspace forces copilot's TUI to scroll to the input area.
-  const nudgeInterval = 3;
-  let waitBlock = '';
-  let remaining = wait;
-  while (remaining > nudgeInterval) {
-    waitBlock += `Sleep ${nudgeInterval}s\nHide\nType " "\nBackspace\nShow\n`;
-    remaining -= nudgeInterval;
+  // Quebra a espera da resposta em partes separadas com pequenos empurrões visuais (nudges) ocultos.
+  // Um espaço + backspace invisível obriga a TUI do copilot a rolar para a área do input.
+  const intervaloDeImpulso = 3;
+  let blocoDeEspera = '';
+  let restante = espera;
+  while (restante > intervaloDeImpulso) {
+    blocoDeEspera += `Sleep ${intervaloDeImpulso}s\nHide\nType " "\nBackspace\nShow\n`;
+    restante -= intervaloDeImpulso;
   }
-  if (remaining > 0) {
-    waitBlock += `Sleep ${remaining}s`;
+  if (restante > 0) {
+    blocoDeEspera += `Sleep ${restante}s`;
   }
 
-  return `# ${label}
-${typeBlock}
+  return `# ${rotulo}
+${blocoDeDigitacao}
 Sleep 2s
-${enterBlock}
+${blocoDeEnter}
 
-# Wait for response (with periodic nudges to keep input visible)
-${waitBlock}`;
+# Esperar a resposta (com toques periódicos para manter o input visível)
+${blocoDeEspera}`;
 }
 
-function generateTapeContent(demo, settings) {
-  const s = { ...settings, ...demo }; // Allow per-demo overrides
+function gerarConteudoTape(demonstracao, configuracoes) {
+  const c = { ...configuracoes, ...demonstracao }; // Permite redefinições específicas por demonstação
 
-  // Build prompt blocks from either "prompt" (single) or "prompts" (array)
-  let promptBlocks;
-  if (demo.prompts && Array.isArray(demo.prompts)) {
-    promptBlocks = demo.prompts
-      .map((entry, i) => generatePromptBlock(entry, s.responseWait, i))
+  // Montar os blocos de prompt tanto a partir do "prompt" (único) quanto dos "prompts" (array)
+  let blocosDePrompt;
+  if (demonstracao.prompts && Array.isArray(demonstracao.prompts)) {
+    blocosDePrompt = demonstracao.prompts
+      .map((entrada, i) => gerarBlocoDePrompt(entrada, c.esperaDaResposta, i))
       .join('\n\n');
   } else {
-    promptBlocks = generatePromptBlock(demo.prompt, s.responseWait);
+    blocosDePrompt = gerarBlocoDePrompt(demonstracao.prompt, c.esperaDaResposta);
   }
 
-  return `# ${demo.chapter}: ${demo.description}
-# Auto-generated from demos.json - Real copilot execution
+  return `# ${demonstracao.capitulo}: ${demonstracao.descricao}
+# Gerado automaticamente a partir de demos.json - Execução real do copilot
 
-Output ${demo.name}.gif
+Output ${demonstracao.nome}.gif
 
-Set FontSize ${s.fontSize}
-Set Width ${s.width}
-Set Height ${s.height}
-Set Theme "${s.theme}"
+Set FontSize ${c.tamanhoDaFonte}
+Set Width ${c.largura}
+Set Height ${c.altura}
+Set Theme "${c.tema}"
 Set Padding 20
 Set BorderRadius 8
 Set Margin 10
 Set MarginFill "#282a36"
-Set Framerate ${s.framerate}
+Set Framerate ${c.taxaDeQuadros}
 
-# Human typing speed
-Set TypingSpeed ${s.typingSpeed}
+# Velocidade de digitação humana
+Set TypingSpeed ${c.velocidadeDeDigitacao}
 
-# Launch copilot
+# Iniciar copilot
 Type "copilot"
 Enter
 
-# Wait for copilot to start
-Sleep ${s.startupWait}s
+# Esperar o copilot iniciar
+Sleep ${c.esperaDeInicializacao}s
 
-${promptBlocks}
+${blocosDePrompt}
 
-# Nudge TUI to scroll to input area
+# Pequeno toque visual (Nudge) para manter a TUI na área de texto
 Type " "
 Backspace
-Sleep ${s.exitWait}s
+Sleep ${c.esperaDeSaida}s
 
-# Exit cleanly
+# Sair de maneira limpa
 Ctrl+C
 Sleep 1s
 `;
 }
 
-// Main
-console.log('📝 Creating tape files from demos.json...\n');
+// Principal
+console.log('📝 Criando arquivos de gravação tape a partir do demos.json...\n');
 
-let created = 0;
+let criados = 0;
 
-for (const demo of config.demos) {
-  const imagesDir = join(rootDir, demo.chapter, 'images');
-  const tapePath = join(imagesDir, `${demo.name}.tape`);
+for (const demonstracao of configuracao.demonstracoes) {
+  const diretorioImagens = join(diretorioRaiz, demonstracao.capitulo, 'images');
+  const caminhoTape = join(diretorioImagens, `${demonstracao.nome}.tape`);
 
-  // Ensure images directory exists
-  if (!existsSync(imagesDir)) {
-    mkdirSync(imagesDir, { recursive: true });
-    console.log(`  Created: ${demo.chapter}/images/`);
+  // Certifique-se de que a pasta de imagens exista
+  if (!existsSync(diretorioImagens)) {
+    mkdirSync(diretorioImagens, { recursive: true });
+    console.log(`  Criado: ${demonstracao.capitulo}/images/`);
   }
 
-  // Generate tape content
-  const content = generateTapeContent(demo, config.settings);
+  // Gere o conteúdo da gravacao (tape)
+  const conteudo = gerarConteudoTape(demonstracao, configuracao.configuracoes);
 
-  // Write tape file
-  writeFileSync(tapePath, content);
-  console.log(`  ✓ ${demo.chapter}/images/${demo.name}.tape`);
-  created++;
+  // Escrever arquivo tape
+  writeFileSync(caminhoTape, conteudo);
+  console.log(`  ✓ ${demonstracao.capitulo}/images/${demonstracao.nome}.tape`);
+  criados++;
 }
 
 console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-console.log(`✓ Created ${created} tape file(s)`);
+console.log(`✓ Criado(s) ${criados} arquivo(s) tape`);
 console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-console.log(`\nNext: npm run generate:vhs`);
+console.log(`\nPróximo passo: npm run generate:vhs`);

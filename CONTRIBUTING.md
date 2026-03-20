@@ -1,10 +1,10 @@
-## Contributing
+## Contribuindo
 
 [fork]: https://github.com/github/REPO/fork
 [pr]: https://github.com/github/REPO/compare
 
-Hi there! We're thrilled that you'd like to contribute to this project. Your help is essential for keeping it great.
+Olá! Ficamos felizes que você queira contribuir com este projeto. Sua ajuda é essencial para mantê-lo excelente.
 
-Contributions to this project are [released](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license) to the public under the [project's open source license](LICENSE.txt).
+As contribuições para este projeto são [disponibilizadas](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license) ao público sob a [licença de código aberto do projeto](LICENSE.txt).
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Por favor, note que este projeto é disponibilizado com um [Código de Conduta do Contribuidor](CODE_OF_CONDUCT.md). Ao participar deste projeto, você concorda em seguir seus termos.

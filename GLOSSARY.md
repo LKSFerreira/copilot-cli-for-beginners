@@ -1,18 +1,18 @@
-# Glossary
+# Glossário
 
-Quick reference for technical terms used throughout this course. Don't worry about memorizing these now - refer back as needed.
+Referência rápida para termos técnicos usados ao longo deste curso. Não se preocupe em memorizá-los agora - volte aqui sempre que necessário.
 
 ---
 
 ## A
 
-### Agent
+### Agente (Agent)
 
-A specialized AI personality with domain expertise (e.g., frontend, security). Defined in `.agent.md` files with YAML frontmatter containing at minimum a `description` field.
+Uma personalidade especializada de IA com expertise em um domínio (ex: frontend, segurança). Definidos em arquivos `.agent.md` com YAML frontmatter contendo, no mínimo, o campo `description` (descrição).
 
 ### API
 
-Application Programming Interface. A way for programs to communicate with each other.
+Application Programming Interface (Interface de Programação de Aplicações). Uma forma de os programas se comunicarem uns com os outros.
 
 ---
 
@@ -20,27 +20,27 @@ Application Programming Interface. A way for programs to communicate with each o
 
 ### CI/CD
 
-Continuous Integration/Continuous Deployment. Automated testing and deployment pipelines.
+Integração Contínua/Entrega Contínua. Pipelines automatizados de testes e implantação.
 
 ### CLI
 
-Command Line Interface. A text-based way to interact with software (like this tool!).
+Command Line Interface (Interface de Linha de Comando). Uma maneira baseada em texto para interagir com softwares (como esta ferramenta!).
 
-### Context Window
+### Janela de Contexto (Context Window)
 
-The amount of text an AI can consider at once. Like a desk that can only hold so much. When you add files, conversation history, and system prompts, they all take up space in this window.
+A quantidade de texto que uma IA pode considerar de uma vez só. É como uma mesa de trabalho que só tem espaço para uma certa quantidade de coisas. Quando você adiciona arquivos, histórico de conversas e prompts de sistema, tudo isso ocupa espaço nesta janela.
 
-### Context Manager
+### Gerenciador de Contexto (Context Manager)
 
-A Python construct using the `with` statement that automatically handles setup and cleanup (like opening and closing files). Example: `with open("file.txt") as f:` ensures the file is closed even if an error occurs.
+Uma construção em Python usando a declaração `with` que lidam automaticamente com configuração e limpeza (como abrir e fechar arquivos). Exemplo: `with open("file.txt") as f:` garante que o arquivo será fechado mesmo que ocorra um erro.
 
-### Conventional Commit
+### Commit Convencional (Conventional Commit)
 
-A commit message format that follows a standardized structure: `type(scope): description`. Common types include `feat` (new feature), `fix` (bug fix), `docs` (documentation), `refactor`, and `test`. Example: `feat(auth): add password reset flow`.
+Um formato de mensagem de commit que segue uma estrutura padronizada: `tipo(escopo): descrição`. Tipos comuns incluem `feat` (nova funcionalidade), `fix` (correção de bug), `docs` (documentação), `refactor` e `test`. Exemplo: `feat(auth): add password reset flow`.
 
 ### Dataclass
 
-A Python decorator (`@dataclass`) that automatically generates `__init__`, `__repr__`, and other methods for classes that primarily store data. Used in the book app to define the `Book` class with fields like `title`, `author`, `year`, and `read`.
+Um decorador Python (`@dataclass`) que gera automaticamente métodos como `__init__`, `__repr__` e outros para classes que servem primariamente para armazenar dados. Usado no aplicativo de livros para definir a classe `Book` com atributos como `title`, `author`, `year` e `read`.
 
 ---
 
@@ -48,15 +48,15 @@ A Python decorator (`@dataclass`) that automatically generates `__init__`, `__re
 
 ### Frontmatter
 
-Metadata at the top of a Markdown file enclosed in `---` delimiters. Used in agent and skill files to define properties like `description` and `name` in YAML format.
+Metadados no topo de um arquivo Markdown delimitados por `---`. Usado em arquivos de agentes e skills para definir propriedades como `description` (descrição) e `name` (nome) no formato YAML.
 
 ---
 
 ## G
 
-### Glob Pattern
+### Padrão Glob (Glob Pattern)
 
-A pattern using wildcards to match file paths (e.g., `*.py` matches all Python files, `*.js` matches all JavaScript files).
+Um padrão que usa curingas para combinar caminhos de arquivos (ex: `*.py` corresponde a todos os arquivos Python, `*.js` a todos os arquivos JavaScript).
 
 ---
 
@@ -64,7 +64,7 @@ A pattern using wildcards to match file paths (e.g., `*.py` matches all Python f
 
 ### JWT
 
-JSON Web Token. A secure way to transmit authentication information between systems.
+JSON Web Token. Uma maneira segura de transmitir informações de autenticação entre sistemas.
 
 ---
 
@@ -72,7 +72,7 @@ JSON Web Token. A secure way to transmit authentication information between syst
 
 ### MCP
 
-Model Context Protocol. A standard for connecting AI assistants to external data sources.
+Model Context Protocol. Um padrão para conectar assistentes de IA a fontes de dados externas.
 
 ---
 
@@ -80,7 +80,7 @@ Model Context Protocol. A standard for connecting AI assistants to external data
 
 ### npx
 
-A Node.js tool that runs npm packages without installing them globally. Used in MCP server configurations to launch servers (e.g., `npx @modelcontextprotocol/server-filesystem`).
+Uma ferramenta Node.js que executa pacotes npm sem instalá-los globalmente. Usado em configurações de servidores MCP para iniciar os servidores (ex: `npx @modelcontextprotocol/server-filesystem`).
 
 ---
 
@@ -88,7 +88,7 @@ A Node.js tool that runs npm packages without installing them globally. Used in 
 
 ### OWASP
 
-Open Web Application Security Project. An organization that publishes security best practices and maintains the "OWASP Top 10" list of most critical web application security risks.
+Open Web Application Security Project. Uma organização que publica as melhores práticas de segurança e mantém a lista "OWASP Top 10" sobre os riscos de segurança em aplicações web mais críticos.
 
 ---
 
@@ -96,43 +96,43 @@ Open Web Application Security Project. An organization that publishes security b
 
 ### PEP 8
 
-Python Enhancement Proposal 8. The official style guide for Python code, covering naming conventions (snake_case for functions, PascalCase for classes), indentation (4 spaces), and code layout. Following PEP 8 makes Python code consistent and readable.
+A Proposta de Melhoria do Python N° 8 (Python Enhancement Proposal 8). O guia oficial de estilo para código Python, cobrindo convenções de nomenclatura (snake_case para funções, PascalCase para classes), recuo (4 espaços) e estrutura do código. Seguir a PEP 8 torna o código Python consistente e legível.
 
-### Pre-commit Hook
+### Hook de Pre-commit
 
-A script that runs automatically before each `git commit`. Can be used to run Copilot security reviews or code quality checks before code is committed.
+Um script que executa automaticamente antes de cada `git commit`. Pode ser usado para rodar revisões de segurança do Copilot ou verificações de qualidade de código antes que ele seja commitado.
 
 ### pytest
 
-A popular Python testing framework known for its simple syntax, powerful fixtures, and rich plugin ecosystem. Used throughout this course for testing the book app. Tests are run with `python -m pytest tests/`.
+Um popular framework de testes em Python conhecido pela sua sintaxe simples, fixtures poderosas e um vasto ecossistema de plugins. Usado durante este curso para testar o aplicativo de livros. Os testes são executados com `python -m pytest tests/`.
 
-### Programmatic Mode
+### Modo Programático (Programmatic Mode)
 
-Running Copilot with `-p` flag for single commands without interaction.
+Execução do Copilot com a flag `-p` para comandos únicos sem interação de chat.
 
 ---
 
 ## R
 
-### Rate Limiting
+### Limite de Requisições (Rate Limiting)
 
-Restrictions on how many requests you can make to an API within a time period. Copilot may temporarily limit responses if you exceed your plan's usage quota.
+Restrições sobre quantas chamadas você pode fazer a uma API dentro de um determinado período. O Copilot pode limitar temporariamente as respostas caso você exceda a cota de uso do seu plano.
 
 ---
 
 ## S
 
-### Session
+### Sessão (Session)
 
-A conversation with Copilot that maintains context and can be resumed later.
+Uma conversa com o Copilot que mantém o contexto e pode ser continuada mais tarde.
 
 ### Skill
 
-A folder with instructions that Copilot automatically loads when relevant to your prompt. Defined in `SKILL.md` files with YAML frontmatter.
+Uma pasta com instruções que o Copilot carrega automaticamente quando são relevantes para o seu prompt. Definida através de arquivos `SKILL.md` que contêm YAML frontmatter.
 
-### Slash Command
+### Comando Slash (Slash Command)
 
-Commands starting with `/` that control Copilot (e.g., `/help`, `/clear`, `/model`).
+Comandos iniciados por `/` que controlam o Copilot (ex: `/help`, `/clear`, `/model`).
 
 ---
 
@@ -140,11 +140,11 @@ Commands starting with `/` that control Copilot (e.g., `/help`, `/clear`, `/mode
 
 ### Token
 
-A unit of text that AI models process. Roughly 4 characters or 0.75 words. Used to measure both input (your prompts and context) and output (AI responses).
+Uma unidade de texto que modelos de IA processam. Correspondem a cerca de 4 caracteres ou 0.75 palavras. Usados para quantificar as entradas (seus prompts e contextos) e saídas (respostas da IA).
 
-### Type Hints
+### Dicas de Tipo (Type Hints)
 
-Python annotations that indicate the expected types of function parameters and return values (e.g., `def add_book(title: str, year: int) -> Book:`). They don't enforce types at runtime but help with code clarity, IDE support, and static analysis tools like mypy.
+Anotações num código Python que indicam os tipos esperados de parâmetros de função e valores de retorno (ex: `def add_book(title: str, year: int) -> Book:`). Elas não impõem os tipos em tempo de execução, mas ajudam na clareza do código, oferecem suporte às IDEs e ferramentas de análise estática como o `mypy`.
 
 ---
 
@@ -152,7 +152,7 @@ Python annotations that indicate the expected types of function parameters and r
 
 ### WCAG
 
-Web Content Accessibility Guidelines. Standards published by W3C for making web content accessible to people with disabilities. WCAG 2.1 AA is a common compliance target.
+Web Content Accessibility Guidelines (Diretrizes de Acessibilidade para Conteúdo Web). Padrões publicados pela W3C para garantir que os conteúdos na web sejam acessíveis para pessoas com deficiências. A versão WCAG 2.1 nível AA é um objetivo de conformidade muito comum.
 
 ---
 
@@ -160,4 +160,4 @@ Web Content Accessibility Guidelines. Standards published by W3C for making web 
 
 ### YAML
 
-YAML Ain't Markup Language. A human-readable data format used for configuration. In this course, YAML appears in agent and skill frontmatter (the `---` delimited block at the top of `.agent.md` and `SKILL.md` files).
+YAML Ain't Markup Language. Um formato de leitura humana para dados usado em configurações. Neste curso, o YAML aparece nos frontmatters de agentes e skills (o bloco entre limites `---` no início de arquivos `.agent.md` e `SKILL.md`).

@@ -1,38 +1,38 @@
 #!/usr/bin/env python3
 """
-Generate chapter header images with baked-in text.
-Usage: python .github/scripts/generate-chapter-headers.py
+Gera as imagens de cabeçalho dos capítulos com textos integrados.
+Uso: python .github/scripts/generate-chapter-headers.py
 """
 
 from PIL import Image, ImageDraw, ImageFont
 import os
 import sys
 
-# Configuration
-CHAPTERS = {
-    "00-quick-start": "Chapter 00: Quick Start",
-    "01-setup-and-first-steps": "Chapter 01: First Steps",
-    "02-context-conversations": "Chapter 02: Context and Conversations",
-    "03-development-workflows": "Chapter 03: Development Workflows",
-    "04-agents-custom-instructions": "Chapter 04: Agents and Custom Instructions",
-    "05-skills": "Chapter 05: Skills System",
-    "06-mcp-servers": "Chapter 06: MCP Servers",
-    "07-putting-it-together": "Chapter 07: Putting It All Together",
+# Configuração
+CAPITULOS = {
+    "00-quick-start": "Capítulo 00: Início Rápido",
+    "01-setup-and-first-steps": "Capítulo 01: Primeiros Passos",
+    "02-context-conversations": "Capítulo 02: Contexto e Conversas",
+    "03-development-workflows": "Capítulo 03: Fluxos de Desenvolvimento",
+    "04-agents-custom-instructions": "Capítulo 04: Agentes e Instruções Personalizadas",
+    "05-skills": "Capítulo 05: Sistema de Skills",
+    "06-mcp-servers": "Capítulo 06: Servidores MCP",
+    "07-putting-it-together": "Capítulo 07: Juntando Tudo",
 }
 
-# Get project root (parent of scripts folder)
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
-BACKGROUND_IMAGE = os.path.join(PROJECT_ROOT, "images", "chapter-header-bg.png")
+# Obter raiz do projeto (parente da pasta de scripts)
+DIRETORIO_DO_SCRIPT = os.path.dirname(os.path.abspath(__file__))
+RAIZ_DO_PROJETO = os.path.dirname(os.path.dirname(DIRETORIO_DO_SCRIPT))
+IMAGEM_DE_FUNDO = os.path.join(RAIZ_DO_PROJETO, "images", "chapter-header-bg.png")
 
-# Font settings - 25% larger than original 36px
-FONT_SIZE = 45
-RIGHT_PADDING = 30
+# Configurações de fonte - 25% maior que o original de 36px
+TAMANHO_DA_FONTE = 45
+PREENCHIMENTO_DIREITO = 30
 
 
-def find_font():
-    """Find a suitable system font."""
-    font_paths = [
+def encontrar_fonte():
+    """Encontra uma fonte de sistema adequada."""
+    caminhos_de_fontes = [
         "/System/Library/Fonts/Helvetica.ttc",
         "/System/Library/Fonts/SFNSMono.ttf",
         "/Library/Fonts/Arial.ttf",
@@ -41,112 +41,112 @@ def find_font():
         "C:\\Windows\\Fonts\\arial.ttf",  # Windows
     ]
 
-    for fp in font_paths:
-        if os.path.exists(fp):
+    for caminho_fonte in caminhos_de_fontes:
+        if os.path.exists(caminho_fonte):
             try:
-                return ImageFont.truetype(fp, FONT_SIZE)
+                return ImageFont.truetype(caminho_fonte, TAMANHO_DA_FONTE)
             except Exception:
                 continue
 
-    print("Warning: Using default font (may look different)")
+    print("Aviso: Usando fonte padrão (pode parecer diferente)")
     return ImageFont.load_default()
 
 
-def generate_header(chapter_folder, title, font):
-    """Generate a header image for a chapter."""
-    # Load background
-    bg = Image.open(BACKGROUND_IMAGE)
-    bg = bg.convert("RGB")
-    draw = ImageDraw.Draw(bg)
+def gerar_cabecalho(pasta_do_capitulo, titulo, fonte):
+    """Gera uma imagem de cabeçalho para um capítulo."""
+    # Carregar fundo
+    fundo = Image.open(IMAGEM_DE_FUNDO)
+    fundo = fundo.convert("RGB")
+    desenho = ImageDraw.Draw(fundo)
 
-    width, height = bg.size
+    largura, altura = fundo.size
 
-    # Minimum x position to avoid overlapping the copilot logo (logo is ~320px wide)
-    MIN_X_POSITION = 350
+    # Posição X mínima para evitar sobreposição com o logo do copilot (logo tem aprox. 320px de largura)
+    POSICAO_X_MINIMA = 350
 
-    # Calculate text width for full title
-    bbox = draw.textbbox((0, 0), title, font=font)
-    text_width = bbox[2] - bbox[0]
-    text_height = bbox[3] - bbox[1]
+    # Calcular largura do texto para o título completo
+    caixa_de_texto = desenho.textbbox((0, 0), titulo, font=fonte)
+    largura_do_texto = caixa_de_texto[2] - caixa_de_texto[0]
+    altura_do_texto = caixa_de_texto[3] - caixa_de_texto[1]
 
-    x = width - text_width - RIGHT_PADDING
+    x = largura - largura_do_texto - PREENCHIMENTO_DIREITO
 
-    # Check if text would overlap with logo
-    if x < MIN_X_POSITION:
-        # Need to wrap - split at the colon
-        if ": " in title:
-            line1, line2 = title.split(": ", 1)
-            line1 = line1 + ":"
+    # Verificar se o texto se sobrepõe ao logo
+    if x < POSICAO_X_MINIMA:
+        # Precisamos de quebra de linha - dividir no dois pontos
+        if ": " in titulo:
+            linha1, linha2 = titulo.split(": ", 1)
+            linha1 = linha1 + ":"
         else:
-            # Fallback: split at middle space
-            words = title.split()
-            mid = len(words) // 2
-            line1 = " ".join(words[:mid])
-            line2 = " ".join(words[mid:])
+            # Em último caso: dividir no espaço do meio
+            palavras = titulo.split()
+            meio = len(palavras) // 2
+            linha1 = " ".join(palavras[:meio])
+            linha2 = " ".join(palavras[meio:])
 
-        # Calculate dimensions for both lines
-        bbox1 = draw.textbbox((0, 0), line1, font=font)
-        bbox2 = draw.textbbox((0, 0), line2, font=font)
+        # Calcular dimensões de ambas as linhas
+        caixa1 = desenho.textbbox((0, 0), linha1, font=fonte)
+        caixa2 = desenho.textbbox((0, 0), linha2, font=fonte)
 
-        line1_width = bbox1[2] - bbox1[0]
-        line2_width = bbox2[2] - bbox2[0]
-        line_height = bbox1[3] - bbox1[1]
+        largura_linha1 = caixa1[2] - caixa1[0]
+        largura_linha2 = caixa2[2] - caixa2[0]
+        altura_da_linha = caixa1[3] - caixa1[1]
 
-        # Line spacing
-        line_gap = 5
-        total_height = line_height * 2 + line_gap
+        # Espaçamento entre linhas
+        espaco_entre_linhas = 5
+        altura_total = altura_da_linha * 2 + espaco_entre_linhas
 
-        # Right-align both lines
-        x1 = width - line1_width - RIGHT_PADDING
-        x2 = width - line2_width - RIGHT_PADDING
+        # Alinhar à direita ambas as linhas
+        x1 = largura - largura_linha1 - PREENCHIMENTO_DIREITO
+        x2 = largura - largura_linha2 - PREENCHIMENTO_DIREITO
 
-        # Vertically center the two lines
-        y1 = (height - total_height) // 2
-        y2 = y1 + line_height + line_gap
+        # Centralizar verticalmente as duas linhas
+        y1 = (altura - altura_total) // 2
+        y2 = y1 + altura_da_linha + espaco_entre_linhas
 
-        # Draw both lines
-        draw.text((x1, y1), line1, fill=(255, 255, 255), font=font)
-        draw.text((x2, y2), line2, fill=(255, 255, 255), font=font)
+        # Desenhar as duas linhas
+        desenho.text((x1, y1), linha1, fill=(255, 255, 255), font=fonte)
+        desenho.text((x2, y2), linha2, fill=(255, 255, 255), font=fonte)
     else:
-        # Single line - fits fine
-        y = (height - text_height) // 2
-        draw.text((x, y), title, fill=(255, 255, 255), font=font)
+        # Linha única - tem um encaixe bom
+        y = (altura - altura_do_texto) // 2
+        desenho.text((x, y), titulo, fill=(255, 255, 255), font=fonte)
 
-    # Save to chapter's images folder
-    output_dir = os.path.join(PROJECT_ROOT, chapter_folder, "images")
-    os.makedirs(output_dir, exist_ok=True)
+    # Slvar na pasta de imagens do capítulo correspondente
+    diretorio_de_saida = os.path.join(RAIZ_DO_PROJETO, pasta_do_capitulo, "images")
+    os.makedirs(diretorio_de_saida, exist_ok=True)
 
-    output_path = os.path.join(output_dir, "chapter-header.png")
-    bg.save(output_path)
+    caminho_de_saida = os.path.join(diretorio_de_saida, "chapter-header.png")
+    fundo.save(caminho_de_saida)
 
-    return output_path
+    return caminho_de_saida
 
 
-def main():
-    print("Generating chapter headers...")
-    print(f"Background: {BACKGROUND_IMAGE}")
-    print(f"Font size: {FONT_SIZE}px")
+def principal():
+    print("Gerando cabeçalhos dos capítulos...")
+    print(f"Fundo (Background): {IMAGEM_DE_FUNDO}")
+    print(f"Tamanho da fonte: {TAMANHO_DA_FONTE}px")
     print()
 
-    if not os.path.exists(BACKGROUND_IMAGE):
-        print(f"Error: Background image not found: {BACKGROUND_IMAGE}")
+    if not os.path.exists(IMAGEM_DE_FUNDO):
+        print(f"Erro: Imagem de fundo não encontrada: {IMAGEM_DE_FUNDO}")
         sys.exit(1)
 
-    font = find_font()
+    fonte = encontrar_fonte()
 
-    for chapter_folder, title in CHAPTERS.items():
-        chapter_path = os.path.join(PROJECT_ROOT, chapter_folder)
-        if not os.path.exists(chapter_path):
-            print(f"  Skipping {chapter_folder} (folder not found)")
+    for pasta_do_capitulo, titulo in CAPITULOS.items():
+        caminho_do_capitulo = os.path.join(RAIZ_DO_PROJETO, pasta_do_capitulo)
+        if not os.path.exists(caminho_do_capitulo):
+            print(f"  Pulando {pasta_do_capitulo} (pasta não foi encontrada)")
             continue
 
-        output_path = generate_header(chapter_folder, title, font)
-        print(f"  {title}")
-        print(f"    -> {os.path.relpath(output_path, PROJECT_ROOT)}")
+        caminho_de_saida = gerar_cabecalho(pasta_do_capitulo, titulo, fonte)
+        print(f"  {titulo}")
+        print(f"    -> {os.path.relpath(caminho_de_saida, RAIZ_DO_PROJETO)}")
 
     print()
-    print("Done! Headers generated for all chapters.")
+    print("Concluído! Cabeçalhos gerados para todos os capítulos.")
 
 
 if __name__ == "__main__":
-    main()
+    principal()

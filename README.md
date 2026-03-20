@@ -1,99 +1,128 @@
-![GitHub Copilot CLI for Beginners](./images/copilot-banner.png)
+![GitHub Copilot CLI para Iniciantes](./images/copilot-banner.png)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)&ensp;
-[![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/github/copilot-cli-for-beginners?hide_repo_select=true&ref=main&quickstart=true)&ensp;
-[![Official Copilot CLI documentation](https://img.shields.io/badge/GitHub-CLI_Documentation-00a3ee?style=flat-square&logo=github)](https://docs.github.com/en/copilot/how-tos/copilot-cli)&ensp;
-[![Join AI Foundry Discord](https://img.shields.io/badge/Discord-AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![Licença: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)&ensp;
+[![Abrir projeto no GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/github/copilot-cli-for-beginners?hide_repo_select=true&ref=main&quickstart=true)&ensp;
+[![Documentação oficial do Copilot CLI](https://img.shields.io/badge/GitHub-CLI_Documentation-00a3ee?style=flat-square&logo=github)](https://docs.github.com/en/copilot/how-tos/copilot-cli)&ensp;
+[![Junte-se ao Discord da AI Foundry](https://img.shields.io/badge/Discord-AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-🎯 [What You'll Learn](#what-youll-learn) &ensp; ✅ [Prerequisites](#prerequisites) &ensp; 🤖 [Copilot Family](#understanding-the-github-copilot-family) &ensp; 📚 [Course Structure](#course-structure) &ensp; 📋 [Command Reference](#-github-copilot-cli-command-reference)
+🎯 [O Que Você Vai Aprender](#o-que-você-vai-aprender) &ensp; ✅ [Pré-requisitos](#pré-requisitos) &ensp; 🤖 [Família Copilot](#entendendo-a-família-github-copilot) &ensp; 📚 [Estrutura do Curso](#estrutura-do-curso) &ensp; 📋 [Referência de Comandos](#-referência-de-comandos-do-github-copilot-cli)
 
-# GitHub Copilot CLI for Beginners
+# GitHub Copilot CLI para Iniciantes
 
-> **✨ Learn to supercharge your development workflow with AI-powered command-line assistance.**
+> **✨ Aprenda a turbinar o seu fluxo de trabalho de desenvolvimento com assistência por IA baseada em linha de comando.**
 
-GitHub Copilot CLI brings AI assistance directly to your terminal. Instead of switching to a browser or code editor, you can ask questions, generate full-featured applications, review code, generate tests, and debug issues without leaving your command line.
+O GitHub Copilot CLI traz a assistência da IA diretamente para o seu terminal. Ao invés de alternar para um navegador ou editor de código, você pode fazer perguntas, gerar aplicações completas, revisar código, gerar testes e depurar problemas sem sair da sua linha de comando.
 
-Think of it as having a knowledgeable colleague available 24/7 who can read your code, explain confusing patterns, and help you work faster!
+Pense nisso como ter um colega experiente disponível 24/7 que pode ler o seu código, explicar padrões confusos e ajudar você a trabalhar mais rápido!
 
-This course is designed for:
+Este curso foi criado para:
 
-- **Software Developers** who want to use AI from the command line
-- **Terminal users** who prefer keyboard-driven workflows over IDE integrations
-- **Teams looking to standardize** AI-assisted code review and development practices
+- **Desenvolvedores de Software** que desejam usar IA a partir da linha de comando
+- **Usuários de terminal** que preferem fluxos baseados em teclado em vez de integrações de IDE
+- **Equipes buscando padronizar** práticas de desenvolvimento e revisão de código assistidas por IA
 
 <a href="https://aka.ms/githubcopilotdevdays" target="_blank">
   <picture>
-    <img src="./images/copilot-dev-days.png" alt="GitHub Copilot Dev Days - Find or host an event" width="100%" />
+    <img src="./images/copilot-dev-days.png" alt="GitHub Copilot Dev Days - Encontre ou hospede um evento" width="100%" />
   </picture>
 </a>
 
-## 🎯 What You'll Learn
+## 🎯 O Que Você Vai Aprender
 
-This hands-on course takes you from zero to productive with GitHub Copilot CLI. You'll work with a single Python book collection app throughout all chapters, progressively improving it using AI-assisted workflows. By the end, you'll confidently use AI to review code, generate tests, debug issues, and automate workflows: all from your terminal.
+Este curso prático leva você do zero à produtividade com o GitHub Copilot CLI. Você trabalhará com um único aplicativo Python de coleção de livros em todos os capítulos, melhorando-o progressivamente usando fluxos de trabalho assistidos por IA. Ao final, você usará a IA com confiança para revisar código, gerar testes, depurar problemas e automatizar fluxos: tudo no seu terminal.
 
-**No AI experience required.** If you can use a terminal, you can learn this.
+**Nenhuma experiência prévia com IA é necessária.** Se você consegue usar um terminal, você consegue aprender isso.
 
-**Perfect for:** Developers, students, and anyone who has experience with software development.
+**Perfeito para:** Desenvolvedores, estudantes e qualquer pessoa que tenha experiência com desenvolvimento de software.
 
-## ✅ Prerequisites
+## ✅ Pré-requisitos
 
-Before starting, ensure you have:
+Antes de começar, certifique-se de que você tem:
 
-- **GitHub account**: [Create one free](https://github.com/signup)<br>
-- **GitHub Copilot access**: [Free offering](https://github.com/features/copilot/plans), [Monthly subscription](https://github.com/features/copilot/plans), or [Free for students/teachers](https://education.github.com/pack)<br>
-- **Terminal basics**: Comfortable with `cd`, `ls`, running commands
+- **Conta no GitHub**: [Crie a sua gratuitamente](https://github.com/signup)<br>
+- **Acesso ao GitHub Copilot**: [Plano Gratuito](https://github.com/features/copilot/plans), [Assinatura Mensal](https://github.com/features/copilot/plans), ou [Gratuito para estudantes/professores](https://education.github.com/pack)<br>
+- **GitHub Copilot CLI Instalado**:
+  - **NPM (Global)**: `npm install -g @githubnext/github-copilot-cli`
+  - **macOS / Linux**: `brew install github/gh/copilot`
+  - **Windows**: `winget install --id GitHub.copilot`
+  - _Ou siga a [documentação oficial de instalação](https://docs.github.com/en/copilot/github-copilot-in-the-cli) para o seu sistema._
+- **Noções básicas de terminal**: Conforto com `cd`, `ls`, executar comandos
 
-## 🤖 Understanding the GitHub Copilot Family
+## 🤖 Entendendo a Família GitHub Copilot
 
-GitHub Copilot has evolved into a family of AI-powered tools. Here's where each one lives:
+O GitHub Copilot evoluiu para uma família de ferramentas alimentadas por IA. Veja onde cada uma delas atua:
 
-| Product | Where It Runs | Description |
+| Produto | Onde Atua | Descrição |
 |---------|---------------|----------|
-| [**GitHub Copilot CLI**](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started)<br>(this course) | Your terminal |  Terminal-native AI coding assistant  |
-| [**GitHub Copilot**](https://docs.github.com/copilot) | VS Code, Visual Studio, JetBrains, etc. | Agent mode, chat, inline suggestions  |
-| [**Copilot on GitHub.com**](https://github.com/copilot) | GitHub | Immersive chat about your repos, create agents, and more |
-| [**GitHub Copilot coding agent**](https://docs.github.com/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks) | GitHub  | Assign issues to agents, get PRs back |
+| [**GitHub Copilot CLI**](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started)<br>(este curso) | Seu terminal |  Assistente nativo de codificação por IA via terminal  |
+| [**GitHub Copilot**](https://docs.github.com/copilot) | VS Code, Visual Studio, JetBrains, etc. | Modo agente, chat, sugestões inline  |
+| [**Copilot no GitHub.com**](https://github.com/copilot) | GitHub | Chat imersivo sobre seus repositórios, criação de agentes e mais |
+| [**Agente de codificação GitHub Copilot**](https://docs.github.com/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks) | GitHub  | Atribua issues a agentes e receba PRs de volta |
 
-This course focuses on **GitHub Copilot CLI**, bringing AI assistance directly to your terminal.
+Este curso foca no **GitHub Copilot CLI**, trazendo a assistência da IA diretamente para o seu terminal.
 
-## 📚 Course Structure
+## 📚 Estrutura do Curso
 
-![GitHub Copilot CLI Learning Path](images/learning-path.png)
+![Trilha de Aprendizagem do GitHub Copilot CLI](images/learning-path.png)
 
-| Chapter | Title | What You'll Build |
+| Capítulo | Título | O Que Você Vai Construir |
 |:-------:|-------|-------------------|
-| 00 | 🚀 [Quick Start](./00-quick-start/README.md) | Installation and verification |
-| 01 | 👋 [First Steps](./01-setup-and-first-steps/README.md) | Live demos + three interaction modes |
-| 02 | 🔍 [Context and Conversations](./02-context-conversations/README.md) | Multi-file project analysis |
-| 03 | ⚡ [Development Workflows](./03-development-workflows/README.md) | Code review, debug, test generation |
-| 04 | 🤖 [Create Specialized AI Assistants](./04-agents-custom-instructions/README.md) | Custom agents for your workflow |
-| 05 | 🛠️ [Automate Repetitive Tasks](./05-skills/README.md) | Skills that load automatically |
-| 06 | 🔌 [Connect to GitHub, Databases & APIs](./06-mcp-servers/README.md) | MCP server integration |
-| 07 | 🎯 [Putting It All Together](./07-putting-it-together/README.md) | Complete feature workflows |
+| 00 | 🚀 [Início Rápido](./00-quick-start/README.md) | Instalação e verificação |
+| 01 | 👋 [Primeiros Passos](./01-setup-and-first-steps/README.md) | Demonstrações ao vivo + três modos de interação |
+| 02 | 🔍 [Contexto e Conversas](./02-context-conversations/README.md) | Análise de projetos com múltiplos arquivos |
+| 03 | ⚡ [Fluxos de Desenvolvimento](./03-development-workflows/README.md) | Revisão de código, debug, geração de testes |
+| 04 | 🤖 [Crie Assistentes de IA Especializados](./04-agents-custom-instructions/README.md) | Agentes personalizados para o seu fluxo |
+| 05 | 🛠️ [Automatize Tarefas Repetitivas](./05-skills/README.md) | Skills que são carregadas automaticamente |
+| 06 | 🔌 [Conecte-se ao GitHub, Bancos de Bancos e APIs](./06-mcp-servers/README.md) | Integração com Servidores MCP |
+| 07 | 🎯 [Juntando Tudo](./07-putting-it-together/README.md) | Fluxos completos de funcionalidades |
 
-## 📖 How This Course Works
+## 📖 Como Este Curso Funciona
 
-Each chapter follows the same pattern:
+Cada capítulo segue o mesmo padrão:
 
-1. **Real-World Analogy**: Understand the concept through familiar comparisons
-2. **Core Concepts**: Learn the essential knowledge
-3. **Hands-On Examples**: Run actual commands and see results
-4. **Assignment**: Practice what you learned
-5. **What's Next**: Preview of the following chapter
+1. **Analogia do Mundo Real**: Entenda o conceito através de comparações familiares
+2. **Conceitos Principais**: Aprenda o conhecimento essencial
+3. **Exemplos Práticos**: Execute comandos reais e veja os resultados
+4. **Tarefa**: Pratique o que você aprendeu
+5. **O Que Vem a Seguir**: Uma prévia do próximo capítulo
 
-**Code examples are runnable.** Every copilot text block in this course can be copied and run in your terminal.
+**Estes exemplos de código são executáveis.** Cada bloco de texto de copilot neste curso pode ser copiado e executado no seu terminal.
 
-## 📋 GitHub Copilot CLI Command Reference
+## 📋 Referência de Comandos do GitHub Copilot CLI
 
-The **[GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference)** helps you find commands and keyboard shortcuts to help you use Copilot CLI effectively.
+A **[Referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/cli-command-reference)** ajuda você a encontrar comandos e atalhos de teclado para utilizar o Copilot CLI de forma eficaz.
 
-## 🙋 Getting Help
+## 🛠️ Build e Contribuição
 
-- 🐛 **Found a bug?** [Open an Issue](https://github.com/github/copilot-cli-for-beginners/issues)
-- 🤝 **Want to contribute?** PRs welcome!
-- 📚 **Official Docs:** [GitHub Copilot CLI Documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+Se você deseja contribuir para o curso e precisa gerar as demonstrações em GIF localmente (`npm run release`), precisará instalar algumas ferramentas adicionais usadas pelo script de build:
 
-## License
+- **[VHS](https://github.com/charmbracelet/vhs)**: Usado para gravar as interações do terminal.
+  - **Windows**: `winget install charmbracelet.vhs`
+  - **macOS / Linux**: `brew install vhs`
+- **Tesseract OCR**: Dependência necessária para o funcionamento estrutural do VHS.
+  - **Windows**: `winget install -e --id UB-Mannheim.TesseractOCR`
+    - *(Nota 1: Após instalar, verifique se `C:\Program Files\Tesseract-OCR` foi adicionado às Variáveis de Ambiente do sistema em `PATH`)*
+    - *(Nota 2: se o `winget` retornar erro `403 Proibido`, [baixe o instalador 64-bits manualmente aqui](https://github.com/UB-Mannheim/tesseract/wiki))*
+  - **macOS**: `brew install tesseract`
+  - **Linux**: `sudo apt install tesseract-ocr`
+- **FFmpeg**: Necessário para manipular e encapsular os arquivos de vídeo/GIF finais gerados pelo VHS.
+  - **Windows**: `winget install ffmpeg`
+  - **macOS**: `brew install ffmpeg`
+  - **Linux**: `sudo apt install ffmpeg`
 
-This project is licensed under the terms of the MIT open source license. Please refer to the [LICENSE](./LICENSE) file for the full terms.
+**Como fazer o Build:**
+```bash
+npm install
+npm run release
+```
+
+## 🙋 Obtendo Ajuda
+
+- 🐛 **Encontrou um erro?** [Abra uma Issue](https://github.com/github/copilot-cli-for-beginners/issues)
+- 🤝 **Quer contribuir?** PRs são bem-vindos!
+- 📚 **Documentação Oficial:** [Documentação do GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+
+## Licença
+
+Este projeto é licenciado sob os termos da licença de código aberto MIT. Por favor, consulte o arquivo [LICENSE](./LICENSE) para ver os termos completos.
 

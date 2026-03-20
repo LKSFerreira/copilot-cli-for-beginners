@@ -1,27 +1,27 @@
 #!/usr/bin/env node
 /**
- * Scan chapter README files and extract copilot demo commands
- * Updates .github/scripts/demos.json with found commands
+ * Faz varredura nos arquivos README dos capítulos e extrai comandos de demonstração do copilot
+ * Atualiza .github/scripts/demos.json com os comandos encontrados
  *
- * Usage: npm run scan:demos
+ * Uso: npm run scan:demos
  *
- * To mark a command as the primary demo for a chapter, add a comment:
- *   <!-- demo: chapter-name-demo -->
+ * Para marcar um comando como a demonstração principal do capítulo, adicione um comentário:
+ *   <!-- demo: nome-da-demo-do-capitulo -->
  *   ```bash
- *   copilot -p "your command"
+ *   copilot -p "seu comando"
  *   ```
  *
- * Or it will use the first copilot -p command found in each chapter.
+ * Ou ele usará o primeiro comando 'copilot -p' encontrado em cada capítulo.
  */
 
 const { readFileSync, writeFileSync, readdirSync, existsSync } = require('fs');
 const { join } = require('path');
 
-const rootDir = join(__dirname, '..', '..');
-const demosJsonPath = join(__dirname, 'demos.json');
+const diretorioRaiz = join(__dirname, '..', '..');
+const caminhoDemosJson = join(__dirname, 'demos.json');
 
-// Default settings for generated tapes
-const defaultSettings = {
+// Configurações padrão para as gravações (tapes) geradas
+const configuracoesPadrao = {
   fontSize: 18,
   width: 1000,
   height: 600,
@@ -33,119 +33,139 @@ const defaultSettings = {
   exitWait: 2
 };
 
-// Find all chapter directories (XX-chapter-name pattern)
-function findChapters() {
-  return readdirSync(rootDir)
-    .filter(name => /^\d{2}-/.test(name))
-    .filter(name => existsSync(join(rootDir, name, 'README.md')))
+// Encontrar todos os diretórios de capítulo (padrão XX-nome-do-capitulo)
+function encontrarCapitulos() {
+  return readdirSync(diretorioRaiz)
+    .filter(nome => /^\\d{2}-/.test(nome))
+    .filter(nome => existsSync(join(diretorioRaiz, nome, 'README.md')))
     .sort();
 }
 
-// Extract copilot commands from markdown content
-function extractCopilotCommands(content) {
-  const commands = [];
+// Extrai comandos de comando do copilot a partir do conteúdo markdown
+function extrairComandosCopilot(conteudo) {
+  const comandos = [];
 
-  // Look for marked demos first: <!-- demo: name -->
-  const markedDemoRegex = /<!--\s*demo:\s*([^\s]+)\s*-->\s*```(?:bash|shell)?\s*([\s\S]*?)```/gi;
-  let match;
-  while ((match = markedDemoRegex.exec(content)) !== null) {
-    const name = match[1];
-    const codeBlock = match[2].trim();
-    const copilotMatch = codeBlock.match(/copilot(?:\s+-p\s+["'](.+?)["']|\s*$)/);
-    if (copilotMatch) {
-      commands.push({
-        name,
-        prompt: copilotMatch[1] || null,
-        isInteractive: !copilotMatch[1],
+  // Procura primeiro por demos marcadas: <!-- demo: nome -->
+  const regexDemoMarcadas = /<!--\\s*demo:\\s*([^\\s]+)\\s*-->\\s*```(?:bash|shell)?\\s*([\\s\\S]*?)```/gi;
+  let correspondencia;
+  while ((correspondencia = regexDemoMarcadas.exec(conteudo)) !== null) {
+    const nome = correspondencia[1];
+    const blocoDeCodigo = correspondencia[2].trim();
+    const correspondenciaCopilot = blocoDeCodigo.match(/copilot(?:\\s+-p\\s+["'](.+?)["']|\\s*$)/);
+    if (correspondenciaCopilot) {
+      comandos.push({
+        name: nome,
+        prompt: correspondenciaCopilot[1] || null,
+        isInteractive: !correspondenciaCopilot[1],
         marked: true
       });
     }
   }
 
-  // If no marked demos, find all copilot -p commands
-  if (commands.length === 0) {
-    // Match copilot -p "..." or copilot -p '...'
-    const programmaticRegex = /copilot\s+-p\s+["']([^"']+)["']/g;
-    while ((match = programmaticRegex.exec(content)) !== null) {
-      commands.push({
-        prompt: match[1],
+  // Se não ouver demos marcadas, procura por todos os comandos copilot -p
+  if (comandos.length === 0) {
+    // Corresponde a copilot -p "..." ou copilot -p '...'
+    const regexProgramatica = /copilot\\s+-p\\s+["']([^"']+)["']/g;
+    while ((correspondencia = regexProgramatica.exec(conteudo)) !== null) {
+      comandos.push({
+        prompt: correspondencia[1],
         isInteractive: false,
         marked: false
       });
     }
   }
 
-  return commands;
+  return comandos;
 }
 
-// Generate demo name from chapter name
-function generateDemoName(chapter) {
+// Gera nome de demo a partir do nome do capítulo
+function gerarNomeDemo(capitulo) {
   // 00-quick-start -> quick-start-demo
-  return chapter.replace(/^\d+-/, '') + '-demo';
+  return capitulo.replace(/^\\d+-/, '') + '-demo';
 }
 
-// Extract description from chapter title
-function extractDescription(content) {
-  const titleMatch = content.match(/^#\s+(.+)$/m);
-  if (titleMatch) {
-    // "Chapter 01: First Steps" -> "First Steps"
-    return titleMatch[1].replace(/^Chapter\s+\d+:\s*/, '').trim();
+// Extrai descrição do título do capítulo
+function extrairDescricao(conteudo) {
+  const correspondenciaDeTitulo = conteudo.match(/^#\\s+(.+)$/m);
+  if (correspondenciaDeTitulo) {
+    // "Capítulo 01: Primeiros Passos" -> "Primeiros Passos" (Chapter 01...)
+    return correspondenciaDeTitulo[1].replace(/^(Chapter|Capítulo)\\s+\\d+:\\s*/, '').trim();
   }
-  return 'Demo';
+  return 'Demonstração';
 }
 
-// Main
-console.log('🔍 Scanning chapters for copilot commands...\n');
+// Principal
+console.log('🔍 Escaneando capítulos procurando por comandos do copilot...\\n');
 
-const chapters = findChapters();
-const demos = [];
+const capitulos = encontrarCapitulos();
+const demonstracoes = [];
 
-for (const chapter of chapters) {
-  const readmePath = join(rootDir, chapter, 'README.md');
-  const content = readFileSync(readmePath, 'utf8');
+for (const capitulo of capitulos) {
+  const caminhoReadme = join(diretorioRaiz, capitulo, 'README.md');
+  const conteudo = readFileSync(caminhoReadme, 'utf8');
 
-  const commands = extractCopilotCommands(content);
-  const description = extractDescription(content);
+  const comandos = extrairComandosCopilot(conteudo);
+  const descricao = extrairDescricao(conteudo);
 
-  if (commands.length > 0) {
-    // Use the first (or marked) command
-    const cmd = commands.find(c => c.marked) || commands[0];
-    const demoName = cmd.name || generateDemoName(chapter);
+  if (comandos.length > 0) {
+    // Usa o primeiro (ou o comando marcado)
+    const cmd = comandos.find(c => c.marked) || comandos[0];
+    const demoNome = cmd.name || gerarNomeDemo(capitulo);
 
     const demo = {
-      chapter,
-      name: demoName,
-      description: description + ' demo'
+      chapter: capitulo,
+      name: demoNome,
+      description: descricao + ' demo'
     };
 
     if (cmd.prompt) {
       demo.prompt = cmd.prompt;
     } else {
-      demo.prompt = "What can you help me with? Give a brief summary.";
-      demo.note = "Interactive mode - customize this prompt";
+      demo.prompt = "No que você pode me ajudar? Dê um breve resumo.";
+      demo.note = "Modo interativo - personalize este prompt";
     }
 
-    demos.push(demo);
-    console.log(`  ✓ ${chapter}`);
+    demonstracoes.push(demo);
+    console.log(`  ✓ ${capitulo}`);
     console.log(`    └─ "${demo.prompt.substring(0, 60)}${demo.prompt.length > 60 ? '...' : ''}"`);
   } else {
-    console.log(`  ⚠ ${chapter} - No copilot commands found`);
+    console.log(`  ⚠ ${capitulo} - Nenhum comando copilot encontrado`);
   }
 }
 
-// Write demos.json
-const output = {
-  settings: defaultSettings,
-  demos
+// Escrever demos.json
+// Perceba que as chaves usadas aqui correspondem às do idioma do repositório para o script.
+// Se mudarmos essas chaves que são escritas para pt, então geraria o arquivo demos.json com as chaves em ingles que não funcionariam dps com o pt (chapter/name/description).
+// Como alteramos no demos.json para ("capitulo", "nome", "descricao"), precisamos fazer essa alteracao também no json gerado.
+
+const saida = {
+  configuracoes: {
+    tamanhoDaFonte: configuracoesPadrao.fontSize,
+    largura: configuracoesPadrao.width,
+    altura: configuracoesPadrao.height,
+    tema: configuracoesPadrao.theme,
+    velocidadeDeDigitacao: configuracoesPadrao.typingSpeed,
+    taxaDeQuadros: configuracoesPadrao.framerate,
+    esperaDeInicializacao: configuracoesPadrao.startupWait,
+    esperaDaResposta: configuracoesPadrao.responseWait,
+    esperaDeSaida: configuracoesPadrao.exitWait
+  },
+  demonstracoes: demonstracoes.map(d => ({
+    capitulo: d.chapter,
+    nome: d.name,
+    descricao: d.description.replace('demo', 'demonstração'),
+    prompt: d.prompt,
+    ...(d.note ? { nota: d.note.replace('Interactive mode - customize this prompt', 'Modo interativo - personalize esse prompt') } : {})
+  }))
 };
 
-writeFileSync(demosJsonPath, JSON.stringify(output, null, 2) + '\n');
+writeFileSync(caminhoDemosJson, JSON.stringify(saida, null, 2) + '\\n');
 
-console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-console.log(`✓ Found ${demos.length} demos`);
-console.log(`✓ Updated .github/scripts/demos.json`);
+console.log(`\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+console.log(`✓ Encontrada(s) ${demonstracoes.length} demonstrações`);
+console.log(`✓ .github/scripts/demos.json atualizado`);
 console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-console.log(`\nNext steps:`);
-console.log(`  1. Review/edit .github/scripts/demos.json`);
+console.log(`\\nPróximos passos:`);
+console.log(`  1. Revise/edite .github/scripts/demos.json`);
 console.log(`  2. npm run create:tapes`);
 console.log(`  3. npm run generate:vhs`);

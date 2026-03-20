@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * Verify demo GIFs completed successfully by checking their last frame.
+ * Verifica se os GIFs de demonstração foram concluídos com sucesso avaliando o último quadro.
  *
- * Extracts the last frame of each GIF, runs OCR via tesseract, and checks
- * for known failure/success patterns to determine if the demo completed.
+ * Extrai o último frame de cada GIF, roda o OCR via tesseract e checa
+ * os padrões de falha/sucesso conhecidos para determinar se a demonstração foi concluída.
  *
- * Usage:
- *   npm run verify:gifs              # check all GIFs
- *   npm run verify:gifs -- --save    # also save last-frame PNGs to /tmp/gif-last-frames/
+ * Uso:
+ *   npm run verify:gifs              # checa todos os GIFs
+ *   npm run verify:gifs -- --save    # também salva os PNGs dos últimos frames em /tmp/gif-last-frames/
  *
- * Requirements:
+ * Requisitos:
  *   - ffmpeg + ffprobe: brew install ffmpeg
  *   - tesseract: brew install tesseract
  */
@@ -17,35 +17,41 @@
 const { execSync } = require('child_process');
 const { readdirSync, statSync, existsSync, mkdirSync, rmSync } = require('fs');
 const { join, basename, dirname } = require('path');
+const os = require('os');
 
-const rootDir = join(__dirname, '..', '..');
-const tmpDir = '/tmp/gif-last-frames';
-const saveFrames = process.argv.includes('--save');
+const diretorioRaiz = join(__dirname, '..', '..');
+const diretorioTmp = join(os.tmpdir(), 'gif-last-frames');
+const salvarFrames = process.argv.includes('--save');
 
-// Patterns that indicate the response was cut off or incomplete
-const FAILURE_PATTERNS = [
+// Padrões que indicam que a resposta foi cortada ou ficou incompleta
+const PADROES_DE_FALHA = [
   'operation cancelled by user',
   'ctrl+c again to exit',
   'thinking (esc to cancel',
+  'operação cancelada pelo usuário',
+  'ctrl+c novamente para sair',
+  'pensando (esc para cancelar'
 ];
 
-// Patterns that indicate a completed response (positive signals)
-const SUCCESS_PATTERNS = [
+// Padrões que indicam uma resposta concluída (sinais positivos)
+const PADROES_DE_SUCESSO = [
   'type @ to mention files',
   'remaining requests',
+  'digite @ para referenciar arquivos',
+  'requisições restantes'
 ];
 
-function findGifs(dir) {
+function encontrarGifs(dir) {
   const gifs = [];
-  for (const entry of readdirSync(dir)) {
-    const fullPath = join(dir, entry);
-    const stat = statSync(fullPath);
-    if (stat.isDirectory() && !entry.startsWith('.') && entry !== 'node_modules') {
-      const imagesDir = join(fullPath, 'images');
-      if (existsSync(imagesDir)) {
-        for (const file of readdirSync(imagesDir)) {
-          if (file.endsWith('-demo.gif')) {
-            gifs.push(join(imagesDir, file));
+  for (const entrada of readdirSync(dir)) {
+    const caminhoCompleto = join(dir, entrada);
+    const estato = statSync(caminhoCompleto);
+    if (estato.isDirectory() && !entrada.startsWith('.') && entrada !== 'node_modules') {
+      const diretorioImagens = join(caminhoCompleto, 'images');
+      if (existsSync(diretorioImagens)) {
+        for (const arquivo of readdirSync(diretorioImagens)) {
+          if (arquivo.endsWith('-demo.gif')) {
+             gifs.push(join(diretorioImagens, arquivo));
           }
         }
       }
@@ -54,156 +60,157 @@ function findGifs(dir) {
   return gifs.sort();
 }
 
-function getFrameCount(gifPath) {
+function obterContagemDeQuadros(caminhoGif) {
   try {
-    const result = execSync(
-      `ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "${gifPath}"`,
+    const resultado = execSync(
+      `ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "${caminhoGif}"`,
       { encoding: 'utf8', timeout: 30000 }
     );
-    return parseInt(result.trim(), 10);
+    return parseInt(resultado.trim(), 10);
   } catch {
     return -1;
   }
 }
 
-function extractLastFrame(gifPath, outputPath) {
-  const frames = getFrameCount(gifPath);
+function extrairUltimoQuadro(caminhoGif, caminhoSaida) {
+  const frames = obterContagemDeQuadros(caminhoGif);
   if (frames <= 0) return false;
-  const lastFrame = frames - 1;
+  const ultimoQuadro = frames - 1;
   try {
     execSync(
-      `ffmpeg -y -i "${gifPath}" -vf "select=eq(n\\,${lastFrame})" -frames:v 1 "${outputPath}" 2>/dev/null`,
+      `ffmpeg -y -i "${caminhoGif}" -vf "select=eq(n\\\\,${ultimoQuadro})" -frames:v 1 "${caminhoSaida}" 2>/dev/null`,
       { timeout: 30000 }
     );
-    return existsSync(outputPath);
+    return existsSync(caminhoSaida);
   } catch {
     return false;
   }
 }
 
-function extractTextFromFrame(pngPath) {
-  const dir = dirname(pngPath);
-  const file = basename(pngPath);
+function extrairTextoDoQuadro(caminhoPng) {
+  const dir = dirname(caminhoPng);
+  const arquivo = basename(caminhoPng);
   try {
-    // tesseract needs to run from the file's directory (macOS path issue)
-    const text = execSync(`tesseract "${file}" stdout 2>/dev/null`, {
+    // tesseract precisa rodar a partir do diretório do arquivo (problema de path no macOS)
+    const texto = execSync(`tesseract "${arquivo}" stdout 2>/dev/null`, {
       encoding: 'utf8', timeout: 15000, cwd: dir
     });
-    return text.toLowerCase();
+    return texto.toLowerCase();
   } catch {
     return '';
   }
 }
 
-function checkLastFrame(gifPath) {
-  const name = basename(gifPath, '.gif');
-  const chapter = basename(join(gifPath, '..', '..'));
-  const chNum = chapter.substring(0, 2);
-  const pngPath = join(tmpDir, `${chNum}-${name}.png`);
+function verificarUltimoQuadro(caminhoGif) {
+  const nome = basename(caminhoGif, '.gif');
+  const capitulo = basename(join(caminhoGif, '..', '..'));
+  const numCapitulo = capitulo.substring(0, 2);
+  const caminhoPng = join(diretorioTmp, `${numCapitulo}-${nome}.png`);
 
-  if (!extractLastFrame(gifPath, pngPath)) {
-    return { name: `${chNum}/${name}`, status: 'ERROR', reason: 'Could not extract last frame' };
+  if (!extrairUltimoQuadro(caminhoGif, caminhoPng)) {
+    return { nome: `${numCapitulo}/${nome}`, status: 'ERRO', motivo: 'Não foi possível extrair o último quadro' };
   }
 
-  const text = extractTextFromFrame(pngPath);
+  const texto = extrairTextoDoQuadro(caminhoPng);
 
-  if (!text.trim()) {
-    return { name: `${chNum}/${name}`, status: 'UNKNOWN', reason: 'OCR returned no text' };
+  if (!texto.trim()) {
+    return { nome: `${numCapitulo}/${nome}`, status: 'DESCONHECIDO', motivo: 'O OCR não retornou nenhum texto' };
   }
 
-  // Check for failure patterns
-  for (const pattern of FAILURE_PATTERNS) {
-    if (text.includes(pattern)) {
-      return { name: `${chNum}/${name}`, status: 'INCOMPLETE', reason: `Found: "${pattern}"` };
+  // Verificar padrões de falha
+  for (const padrao of PADROES_DE_FALHA) {
+    if (texto.includes(padrao)) {
+      return { nome: `${numCapitulo}/${nome}`, status: 'INCOMPLETO', motivo: `Encontrado: "${padrao}"` };
     }
   }
 
-  // Check for the copilot prompt (indicates it returned to prompt = completed)
-  const hasPrompt = SUCCESS_PATTERNS.some(p => text.includes(p));
-  if (hasPrompt) {
-    return { name: `${chNum}/${name}`, status: 'OK', reason: 'Response completed' };
+  // Verificar o prompt do copilot (indica que retornou ao prompt = sucesso)
+  const possuiPrompt = PADROES_DE_SUCESSO.some(p => texto.includes(p));
+  if (possuiPrompt) {
+    return { nome: `${numCapitulo}/${nome}`, status: 'OK', motivo: 'Resposta completa' };
   }
 
-  // Has text but no known patterns - likely OK but uncertain
-  return { name: `${chNum}/${name}`, status: 'OK?', reason: 'Has text, no failure patterns detected' };
+  // Tem texto mas sem padrões conhecidos - provável que esteja OK, mas incerto
+  return { nome: `${numCapitulo}/${nome}`, status: 'OK?', motivo: 'Possui texto, sem padrões de falha detectados' };
 }
 
-// Main
-function main() {
-  // Check dependencies
+// Principal
+function principal() {
+  // Verificar dependências
+  const isWin = process.platform === 'win32' && !process.env.BASH;
   try {
-    execSync('which tesseract', { encoding: 'utf8' });
+    execSync(isWin ? 'where tesseract' : 'which tesseract', { encoding: 'utf8', stdio: 'ignore' });
   } catch {
-    console.error('Error: tesseract is required. Install with: brew install tesseract');
+    console.error('Erro: tesseract é necessário. Para instalar use: brew install tesseract');
     process.exit(1);
   }
   try {
-    execSync('which ffprobe', { encoding: 'utf8' });
+    execSync(isWin ? 'where ffprobe' : 'which ffprobe', { encoding: 'utf8', stdio: 'ignore' });
   } catch {
-    console.error('Error: ffmpeg/ffprobe is required. Install with: brew install ffmpeg');
+    console.error('Erro: ffmpeg/ffprobe é obrigatório. Para instalar use: brew install ffmpeg');
     process.exit(1);
   }
 
-  console.log('🔍 Verifying demo GIFs...\n');
+  console.log('🔍 Verificando os GIFs de demonstração...\\n');
 
-  // Set up temp directory
-  if (existsSync(tmpDir)) rmSync(tmpDir, { recursive: true });
-  mkdirSync(tmpDir, { recursive: true });
+  // Configurar diretório temporário
+  if (existsSync(diretorioTmp)) rmSync(diretorioTmp, { recursive: true });
+  mkdirSync(diretorioTmp, { recursive: true });
 
-  const gifs = findGifs(rootDir);
+  const gifs = encontrarGifs(diretorioRaiz);
 
   if (gifs.length === 0) {
-    console.log('No GIF files found');
+    console.log('Nenhum arquivo GIF foi encontrado');
     process.exit(0);
   }
 
-  console.log(`Found ${gifs.length} GIF(s)\n`);
+  console.log(`Encontrado(s) ${gifs.length} GIF(s)\\n`);
 
-  const results = [];
+  const resultados = [];
   for (const gif of gifs) {
-    const result = checkLastFrame(gif);
-    results.push(result);
+    const resultado = verificarUltimoQuadro(gif);
+    resultados.push(resultado);
   }
 
-  // Print results table
-  const nameWidth = Math.max(32, ...results.map(r => r.name.length + 2));
-  const statusWidth = 14;
+  // Imprimir tabela de resultados
+  const larguraNome = Math.max(32, ...resultados.map(r => r.nome.length + 2));
+  const larguraStatus = 14;
 
-  const header = 'GIF'.padEnd(nameWidth) + 'Status'.padEnd(statusWidth) + 'Details';
-  const separator = '─'.repeat(header.length + 10);
+  const cabecalho = 'GIF'.padEnd(larguraNome) + 'Status'.padEnd(larguraStatus) + 'Detalhes';
+  const separador = '─'.repeat(cabecalho.length + 10);
 
-  console.log(separator);
-  console.log(header);
-  console.log(separator);
+  console.log(separador);
+  console.log(cabecalho);
+  console.log(separador);
 
-  for (const r of results) {
-    const icon = r.status === 'OK' ? '✓' :
+  for (const r of resultados) {
+    const icone = r.status === 'OK' ? '✓' :
                  r.status === 'OK?' ? '~' :
-                 r.status === 'INCOMPLETE' ? '✗' : '?';
-    const statusStr = `${icon} ${r.status}`.padEnd(statusWidth);
-    console.log(`${r.name.padEnd(nameWidth)}${statusStr}${r.reason}`);
+                 r.status === 'INCOMPLETO' ? '✗' : '?';
+    const statusString = `${icone} ${r.status}`.padEnd(larguraStatus);
+    console.log(`${r.nome.padEnd(larguraNome)}${statusString}${r.motivo}`);
   }
 
-  console.log(separator);
+  console.log(separador);
 
-  const ok = results.filter(r => r.status === 'OK' || r.status === 'OK?').length;
-  const incomplete = results.filter(r => r.status === 'INCOMPLETE').length;
-  const unknown = results.filter(r => r.status === 'UNKNOWN' || r.status === 'ERROR').length;
+  const ok = resultados.filter(r => r.status === 'OK' || r.status === 'OK?').length;
+  const incompleto = resultados.filter(r => r.status === 'INCOMPLETO').length;
+  const desconhecido = resultados.filter(r => r.status === 'DESCONHECIDO' || r.status === 'ERRO').length;
 
-  console.log(`\n✓ Complete: ${ok}  ✗ Incomplete: ${incomplete}  ? Unknown: ${unknown}`);
+  console.log(`\\n✓ Concluído: ${ok}  ✗ Incompleto: ${incompleto}  ? Desconhecido: ${desconhecido}`);
 
-  if (incomplete > 0) {
-    console.log('\nIncomplete GIFs need increased responseWait in .github/scripts/demos.json');
+  if (incompleto > 0) {
+    console.log('\\nGIFs incompletos precisam de um "esperaDaResposta" maior no .github/scripts/demos.json');
   }
 
-  // Clean up unless --save
-  if (!saveFrames) {
-    rmSync(tmpDir, { recursive: true });
+  // Limpar a não ser que tenha --save
+  if (!salvarFrames) {
+    rmSync(diretorioTmp, { recursive: true });
   } else {
-    console.log(`\nLast-frame PNGs saved to: ${tmpDir}`);
+    console.log(`\\nPNGs dos últimos frames foram salvos em: ${diretorioTmp}`);
   }
 
-  process.exit(incomplete > 0 ? 1 : 0);
+  process.exit(incompleto > 0 ? 1 : 0);
 }
 
-main();
+principal();

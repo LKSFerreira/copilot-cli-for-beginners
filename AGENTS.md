@@ -1,36 +1,36 @@
 # AGENTS.md
 
-Beginner-friendly course teaching GitHub Copilot CLI. Educational content, not software.
+Curso amigável para iniciantes ensinando o GitHub Copilot CLI. Conteúdo educacional, não de software.
 
-## Structure
+## Estrutura
 
-| Path | Purpose |
+| Caminho | Propósito |
 |------|---------|
-| `00-07/` | Chapters: analogy → concepts → hands-on → assignment → next |
-| `samples/book-app-project/` | **Primary sample**: Python CLI book collection app used throughout all chapters |
-| `samples/book-app-project-cs/` | C# version of the book collection app |
-| `samples/book-app-project-js/` | JavaScript version of the book collection app |
-| `samples/book-app-buggy/` | **Intentional bugs** for debugging exercises (Ch 03) |
-| `samples/agents/` | Agent template examples (python-reviewer, pytest-helper, hello-world) |
-| `samples/skills/` | Skill template examples (code-checklist, pytest-gen, commit-message, hello-world) |
-| `samples/mcp-configs/` | MCP server configuration examples |
-| `samples/buggy-code/` | **Optional extra**: Security-focused buggy code (JS and Python) |
-| `samples/src/` | **Optional extra**: Legacy JS/React samples from earlier course version |
-| `appendices/` | Supplementary reference material |
+| `00-07/` | Capítulos: analogia → conceitos → prática → tarefa → próximo |
+| `samples/book-app-project/` | **Exemplo principal**: App CLI em Python de coleção de livros, usado em todos os capítulos |
+| `samples/book-app-project-cs/` | Versão em C# do app de coleção de livros |
+| `samples/book-app-project-js/` | Versão em JavaScript do app de coleção de livros |
+| `samples/book-app-buggy/` | **Bugs intencionais** para exercícios de depuração (Capítulo 03) |
+| `samples/agents/` | Exemplos de templates de agentes (python-reviewer, pytest-helper, hello-world) |
+| `samples/skills/` | Exemplos de templates de skills (code-checklist, pytest-gen, commit-message, hello-world) |
+| `samples/mcp-configs/` | Exemplos de configuração de servidor MCP |
+| `samples/buggy-code/` | **Extra opcional**: Código bugado com foco em segurança (JS e Python) |
+| `samples/src/` | **Extra opcional**: Aplicações legadas em JS/React de uma versão anterior do curso |
+| `appendices/` | Material de referência complementar |
 
-## Do
+## O que Fazer (Do)
 
-- Keep explanations beginner-friendly; explain AI/ML jargon when used
-- Ensure bash examples are copy-paste ready
-- Tone: friendly, encouraging, practical
-- Use `samples/book-app-project/` paths in all primary examples
-- Use Python/pytest context for code examples
+- Mantenha as explicações amigáveis para iniciantes; explique o jargão de IA/ML quando utilizado
+- Garanta que os exemplos em bash estejam prontos para copiar e colar
+- Tom: amigável, encorajador, prático
+- Use os caminhos `samples/book-app-project/` em todos os exemplos principais
+- Use o contexto de Python/pytest para os exemplos de código
 
-## Don't
+## O que Não Fazer (Don't)
 
-- Fix bugs in `samples/book-app-buggy/` or `samples/buggy-code/` — they're intentional
-- Add chapters without updating README.md course table
-- Assume readers know AI/ML terminology
+- Consertar bugs em `samples/book-app-buggy/` ou `samples/buggy-code/` — eles são intencionais
+- Adicionar capítulos sem atualizar a tabela do curso no README.md
+- Assumir que os leitores conhecem a terminologia de IA/ML
 
 ## Build
 
