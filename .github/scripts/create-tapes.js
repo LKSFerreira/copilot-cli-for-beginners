@@ -142,7 +142,7 @@ for (const demonstracao of configuracao.demonstracoes) {
   // Certifique-se de que a pasta de imagens exista
   if (!existsSync(diretorioImagens)) {
     mkdirSync(diretorioImagens, { recursive: true });
-    console.log(`  Criado: ${demonstracao.capitulo}/images/`);
+    console.log(`  🟢 ${demonstracao.capitulo}/images/`);
   }
 
   // Gere o conteúdo da gravacao (tape)
@@ -150,11 +150,11 @@ for (const demonstracao of configuracao.demonstracoes) {
 
   // Escrever arquivo tape
   writeFileSync(caminhoTape, conteudo);
-  console.log(`  ✓ ${demonstracao.capitulo}/images/${demonstracao.nome}.tape`);
+  console.log(`  ✅ ${demonstracao.capitulo}/images/${demonstracao.nome}.tape`);
   criados++;
 }
 
 console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-console.log(`✓ Criado(s) ${criados} arquivo(s) tape`);
+console.log(`✅ Criado(s) ${criados} arquivo(s) tape`);
 console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
 console.log(`\nPróximo passo: npm run generate:vhs`);

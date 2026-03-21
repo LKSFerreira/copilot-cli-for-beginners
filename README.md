@@ -42,10 +42,15 @@ Antes de começar, certifique-se de que você tem:
 - **Conta no GitHub**: [Crie a sua gratuitamente](https://github.com/signup)<br>
 - **Acesso ao GitHub Copilot**: [Plano Gratuito](https://github.com/features/copilot/plans), [Assinatura Mensal](https://github.com/features/copilot/plans), ou [Gratuito para estudantes/professores](https://education.github.com/pack)<br>
 - **GitHub Copilot CLI Instalado**:
-  - **NPM (Global)**: `npm install -g @githubnext/github-copilot-cli`
+  - **NPM (Global)**: `npm install -g @github/copilot`
   - **macOS / Linux**: `brew install github/gh/copilot`
-  - **Windows**: `winget install --id GitHub.copilot`
+  - **Windows**: `winget install --id GitHub.Copilot -e`
+  - **Não use** o pacote legado `@githubnext/github-copilot-cli`: ele é incompatível com o modo interativo usado neste curso
   - _Ou siga a [documentação oficial de instalação](https://docs.github.com/en/copilot/github-copilot-in-the-cli) para o seu sistema._
+- **GitHub Copilot CLI Autenticado**:
+  - Depois de instalar, autentique o CLI: `copilot login`
+  - Alternativa: autentique pelo GitHub CLI com `gh auth login`
+  - Teste rápido de autenticação: `copilot -p "diga olá em uma frase curta" --allow-all-tools --allow-all-paths --no-color`
 - **Noções básicas de terminal**: Conforto com `cd`, `ls`, executar comandos
 
 ## 🤖 Entendendo a Família GitHub Copilot
@@ -94,26 +99,52 @@ A **[Referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/c
 
 ## 🛠️ Build e Contribuição
 
-Se você deseja contribuir para o curso e precisa gerar as demonstrações em GIF localmente (`npm run release`), precisará instalar algumas ferramentas adicionais usadas pelo script de build:
+Se você deseja contribuir para o curso e precisa gerar as demonstrações em GIF localmente (`npm run release`), confirme estes pré-requisitos antes de começar:
 
-- **[VHS](https://github.com/charmbracelet/vhs)**: Usado para gravar as interações do terminal.
-  - **Windows**: `winget install charmbracelet.vhs`
+- **GitHub Copilot CLI**: precisa estar instalado, autenticado e acessível no `PATH`.
+  - Teste rápido: `copilot --help`
+  - Teste de autenticação: `copilot -p "diga olá em uma frase curta" --allow-all-tools --allow-all-paths --no-color`
+  - Se você instalou `@githubnext/github-copilot-cli`, remova esse pacote legado e instale `@github/copilot`
+- **[VHS](https://github.com/charmbracelet/vhs)**: grava as interações do terminal.
+  - **Windows**: `winget install -e --id charmbracelet.vhs`
   - **macOS / Linux**: `brew install vhs`
-- **Tesseract OCR**: Dependência necessária para o funcionamento estrutural do VHS.
+  - **Aviso para Windows**: a build `v0.11.0` do VHS está com problemas conhecidos upstream e pode travar ou produzir saída quebrada. Veja: [issue #721](https://github.com/charmbracelet/vhs/issues/721) e [issue #671](https://github.com/charmbracelet/vhs/issues/671)
+  - **Workaround nativo no Windows**: se você tiver um binário corrigido do VHS, exporte `VHS_BINARY=/caminho/para/vhs.exe` antes de rodar `npm run release`
+- **`ttyd`**: no **Windows**, o VHS depende dele para abrir o terminal da gravação.
+  - **Windows**: `winget install -e --id tsl0922.ttyd`
+- **Tesseract OCR**: usado pelo script `npm run verify:gifs` para ler o último frame de cada GIF.
   - **Windows**: `winget install -e --id UB-Mannheim.TesseractOCR`
-    - *(Nota 1: Após instalar, verifique se `C:\Program Files\Tesseract-OCR` foi adicionado às Variáveis de Ambiente do sistema em `PATH`)*
+    - *(Nota 1: após instalar, verifique se `C:\Program Files\Tesseract-OCR` foi adicionado ao `PATH`)*
     - *(Nota 2: se o `winget` retornar erro `403 Proibido`, [baixe o instalador 64-bits manualmente aqui](https://github.com/UB-Mannheim/tesseract/wiki))*
   - **macOS**: `brew install tesseract`
   - **Linux**: `sudo apt install tesseract-ocr`
-- **FFmpeg**: Necessário para manipular e encapsular os arquivos de vídeo/GIF finais gerados pelo VHS.
-  - **Windows**: `winget install ffmpeg`
+- **FFmpeg**: usado para extrair e inspecionar quadros dos GIFs gerados.
+  - **Windows**: `winget install -e --id Gyan.FFmpeg`
   - **macOS**: `brew install ffmpeg`
   - **Linux**: `sudo apt install ffmpeg`
 
-**Como fazer o Build:**
+**Como fazer o build:**
 ```bash
 npm install
 npm run release
+```
+
+**Diagnóstico rápido no Windows:**
+```bash
+copilot --help
+copilot -p "diga olá em uma frase curta" --allow-all-tools --allow-all-paths --no-color
+vhs --version
+ttyd --version
+ffmpeg -version
+tesseract --version
+```
+
+Se o comando do Copilot retornar `No authentication information found`, rode `copilot login` antes de tentar `npm run release`.
+
+Se você estiver no Windows com `vhs version v0.11.0`, a geração dos GIFs pode falhar mesmo com tudo instalado corretamente. Nesse caso, o caminho mais confiável hoje é gerar as demos em macOS, Linux, WSL ou Codespaces.
+Se você tiver um binário corrigido do VHS no Windows, pode usá-lo assim:
+```bash
+VHS_BINARY=/caminho/para/vhs.exe npm run release
 ```
 
 ## 🙋 Obtendo Ajuda
@@ -125,4 +156,3 @@ npm run release
 ## Licença
 
 Este projeto é licenciado sob os termos da licença de código aberto MIT. Por favor, consulte o arquivo [LICENSE](./LICENSE) para ver os termos completos.
-

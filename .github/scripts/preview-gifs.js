@@ -1,24 +1,24 @@
 #!/usr/bin/env node
 /**
- * Extrai um quadro (frame) de pré-visualização de cada GIF de demonstração para inspeção visual rápida.
- * Salva quadros PNG individuais no diretório demo-previews/.
+ * Extrai um quadro de pre-visualizacao de cada GIF de demonstracao para inspecao visual rapida.
+ * Salva quadros PNG individuais no diretorio demo-previews/.
  *
- * Requisitos: ffmpeg, gifsicle (para informações de atraso de quadros)
+ * Requisitos: ffmpeg, gifsicle
  *
  * Uso:
- *   node preview-gifs.js                  # padrão: 3s antes do fim
- *   node preview-gifs.js --before 5       # 5s antes do fim
+ *   node preview-gifs.js            # padrao: 3s antes do fim
+ *   node preview-gifs.js --before 5 # 5s antes do fim
  */
 
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 const { readdirSync, existsSync, mkdirSync, rmSync } = require('fs');
 const { join, basename } = require('path');
 
 const diretorioRaiz = join(__dirname, '..', '..');
 const diretorioPreview = join(diretorioRaiz, 'demo-previews');
-
-// Analisar argumentos CLI
 const argumentosCLI = process.argv.slice(2);
+const BARRA = '━'.repeat(66);
+
 let segundosAntes = 3;
 
 for (let i = 0; i < argumentosCLI.length; i++) {
@@ -27,82 +27,104 @@ for (let i = 0; i < argumentosCLI.length; i++) {
   }
 }
 
-// Encontrar todos os GIFs de demonstração
 function encontrarGifs() {
   const gifs = [];
+
   for (const entrada of readdirSync(diretorioRaiz)) {
-    if (!/^\\d{2}-/.test(entrada)) continue;
+    if (!/^\d{2}-/.test(entrada)) continue;
+
     const diretorioImagens = join(diretorioRaiz, entrada, 'images');
     if (!existsSync(diretorioImagens)) continue;
+
     for (const arquivo of readdirSync(diretorioImagens)) {
       if (arquivo.endsWith('-demo.gif')) {
         gifs.push({ caminho: join(diretorioImagens, arquivo), capitulo: entrada });
       }
     }
   }
+
   return gifs.sort((a, b) => a.caminho.localeCompare(b.caminho));
 }
 
-// Obter os atrasos (delays) dos quadros a partir de um GIF
 function obterAtrasosDosQuadros(caminhoGif) {
-  const saida = execSync(`gifsicle --info "${caminhoGif}"`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
+  const saida = execFileSync('gifsicle', ['--info', caminhoGif], {
+    encoding: 'utf8',
+    maxBuffer: 50 * 1024 * 1024,
+    stdio: ['ignore', 'pipe', 'ignore']
+  });
+
   const atrasos = [];
-  const regexAtraso = /delay (\\d+(?:\\.\\d+)?)s/g;
+  const regexAtraso = /delay (\d+(?:\.\d+)?)s/g;
   let correspondencia;
+
   while ((correspondencia = regexAtraso.exec(saida)) !== null) {
     atrasos.push(parseFloat(correspondencia[1]));
   }
+
   return atrasos;
 }
 
-// Encontrar índice do quadro N segundos antes do final
 function quadroAosSegundosAntesDoFim(atrasos, segundos) {
   const tempoTotal = atrasos.reduce((a, b) => a + b, 0);
   const tempoAlvo = tempoTotal - segundos;
-  if (tempoAlvo <= 0) return 0;
+
+  if (tempoAlvo <= 0) {
+    return 0;
+  }
 
   let acumulativo = 0;
   for (let i = 0; i < atrasos.length; i++) {
     acumulativo += atrasos[i];
-    if (acumulativo >= tempoAlvo) return i;
+    if (acumulativo >= tempoAlvo) {
+      return i;
+    }
   }
+
   return atrasos.length - 1;
 }
 
-// Principal
-if (existsSync(diretorioPreview)) rmSync(diretorioPreview, { recursive: true });
+if (existsSync(diretorioPreview)) {
+  rmSync(diretorioPreview, { recursive: true, force: true });
+}
 mkdirSync(diretorioPreview, { recursive: true });
 
 const gifs = encontrarGifs();
 if (gifs.length === 0) {
-  console.log('Nenhum GIF de demonstração encontrado');
+  console.log('⚠️ Nenhum GIF de demonstracao encontrado.');
   process.exit(0);
 }
 
-console.log(`\\nExtraindo quadros (${segundosAntes}s antes do fim) de ${gifs.length} GIFs...\\n`);
+console.log(`🖼️ Extraindo quadros (${segundosAntes}s antes do fim) de ${gifs.length} GIF(s)\n`);
 
 let contagem = 0;
 for (const { caminho: gif, capitulo } of gifs) {
   const nome = basename(gif, '.gif');
   const atrasos = obterAtrasosDosQuadros(gif);
   const indiceDoQuadro = quadroAosSegundosAntesDoFim(atrasos, segundosAntes);
-  const prefixo = capitulo.replace(/^(\\d+)-.+/, '$1');
+  const prefixo = capitulo.replace(/^(\d+)-.+/, '$1');
   const nomeDeSaida = `${prefixo}-${nome}.png`;
   const caminhoDeSaida = join(diretorioPreview, nomeDeSaida);
 
   try {
-    execSync(
-      `ffmpeg -y -i "${gif}" -vf "select=eq(n\\\\,${indiceDoQuadro})" -vframes 1 -update 1 "${caminhoDeSaida}" 2>/dev/null`,
-      { stdio: 'pipe' }
-    );
-    console.log(`  ✓ ${nomeDeSaida} (quadro #${indiceDoQuadro}/${atrasos.length})`);
+    execFileSync('ffmpeg', [
+      '-y',
+      '-i', gif,
+      '-vf', `select=eq(n\\,${indiceDoQuadro})`,
+      '-vframes', '1',
+      '-update', '1',
+      caminhoDeSaida
+    ], {
+      stdio: ['ignore', 'ignore', 'ignore']
+    });
+
+    console.log(`✅ ${nomeDeSaida} (quadro #${indiceDoQuadro}/${atrasos.length})`);
     contagem++;
-  } catch (e) {
-    console.log(`  ✗ ${nome}: extração falhou`);
+  } catch {
+    console.log(`❌ ${nome}: extracao falhou`);
   }
 }
 
-console.log(`\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-console.log(`✓ ${contagem} quadros de pré-visualização salvos em demo-previews/`);
-console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-console.log(`\\nAbrir no Finder/Explorer: open demo-previews/`);
+console.log(`\n${BARRA}`);
+console.log(`✅ ${contagem} quadro(s) de pre-visualizacao salvo(s) em demo-previews/`);
+console.log(BARRA);
+console.log('\n👉 Abrir no Explorer/Finder: demo-previews/');
