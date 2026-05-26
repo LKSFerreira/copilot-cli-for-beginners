@@ -1,4 +1,4 @@
-# CI/CD Integration
+# Integración CI/CD
 
 > 📖 **Requisito previo**: Completa [Capítulo 07: Poniéndolo todo junto](../07-putting-it-together/README.md) antes de leer este apéndice.
 >

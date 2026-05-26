@@ -16,7 +16,7 @@ Al final de este capítulo, habrás:
 
 ## ✅ Requisitos previos
 
-- **Cuenta de GitHub** con acceso a Copilot. [See subscription options](https://github.com/features/copilot/plans). Students/Teachers can access Copilot Pro for [free via GitHub Education](https://education.github.com/pack).
+- **Cuenta de GitHub** con acceso a Copilot. [Ver opciones de suscripción](https://github.com/features/copilot/plans). Los estudiantes y profesores pueden acceder a Copilot Pro de forma [gratuita a través de GitHub Education](https://education.github.com/pack).
 - **Conceptos básicos de terminal**: Cómodo con comandos como `cd` y `ls`
 
 ### Qué significa "Copilot Access"
@@ -40,10 +40,10 @@ Si ves "You don't have access to GitHub Copilot", necesitarás usar la opción g
 
 Si no quieres instalar ninguno de los prerrequisitos, puedes usar GitHub Codespaces, que tiene GitHub Copilot CLI listo para usar (necesitarás iniciar sesión) y preinstala Python y pytest.
 
-1. [Fork this repository](https://github.com/github/copilot-cli-for-beginners/fork) to your GitHub account
-2. Select **Code** > **Codespaces** > **Create codespace on main**
-3. Wait a few minutes for the container to build
-4. You're ready to go! The terminal will open automatically in the Codespace environment.
+1. [Haz un fork de este repositorio](https://github.com/github/copilot-cli-for-beginners/fork) en tu cuenta de GitHub
+2. Selecciona **Code** > **Codespaces** > **Create codespace on main**
+3. Espera unos minutos a que se construya el contenedor
+4. ¡Ya estás listo! El terminal se abrirá automáticamente en el entorno Codespace.
 
 > 💡 **Verificar en Codespace**: Ejecuta `cd samples/book-app-project && python book_app.py help` para confirmar que Python y la aplicación de ejemplo funcionan.
 
@@ -222,7 +222,7 @@ Eso es todo para la instalación. La verdadera diversión comienza en el Capítu
 - Aprenderás tres maneras diferentes de usar Copilot CLI
 - Generarás código funcional a partir de inglés sencillo
 
-**[Continue to Chapter 01: First Steps →](../01-setup-and-first-steps/README.md)**
+**[Continuar al Capítulo 01: Primeros pasos →](../01-setup-and-first-steps/README.md)**
 
 ---
 
@@ -287,7 +287,7 @@ copilot
 
 ---
 
-**[Continue to Chapter 01: First Steps →](../01-setup-and-first-steps/README.md)**
+**[Continuar al Capítulo 01: Primeros pasos →](../01-setup-and-first-steps/README.md)**
 
 ---
 

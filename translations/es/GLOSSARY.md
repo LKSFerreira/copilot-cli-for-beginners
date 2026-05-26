@@ -1,6 +1,6 @@
-# Glossary
+# Glosario
 
-Quick reference for technical terms used throughout this course. No te preocupes por memorizarlos ahora - consúltalos según sea necesario.
+Referencia rápida para los términos técnicos usados a lo largo de este curso. No te preocupes por memorizarlos ahora - consúltalos según sea necesario.
 
 ---
 
@@ -8,7 +8,7 @@ Quick reference for technical terms used throughout this course. No te preocupes
 
 ### Agent
 
-A specialized AI personality with domain expertise (e.g., frontend, security). Defined in `.agent.md` files with YAML frontmatter containing at minimum a `description` field.
+Una personalidad de IA especializada con experiencia en un dominio (por ejemplo, frontend, seguridad). Se define en archivos `.agent.md` con frontmatter YAML que contiene como mínimo un campo `description`.
 
 ### API
 

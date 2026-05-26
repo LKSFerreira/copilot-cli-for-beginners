@@ -412,7 +412,7 @@ copilot
 > /init
 ```
 
-Copilot will scan your project and create tailored instruction files. You can edit them afterwards.
+Copilot escaneará tu proyecto y creará archivos de instrucciones personalizados. Puedes editarlos después.
 
 ### Instruction File Formats
 
@@ -423,7 +423,7 @@ Copilot will scan your project and create tailored instruction files. You can ed
 | `.github/instructions/*.instructions.md` | Project | Granular, topic-specific instructions |
 | `CLAUDE.md`, `GEMINI.md` | Project root | Supported for compatibility |
 
-> 🎯 **Just getting started?** Use `AGENTS.md` for project instructions. You can explore the other formats later as needed.
+> 🎯 **¿Empezando desde cero?** Usa `AGENTS.md` para las instrucciones del proyecto. Puedes explorar los otros formatos más adelante según lo necesites.
 
 ### AGENTS.md
 
@@ -545,7 +545,7 @@ Use these names in the `tools` list:
 
 > 📖 **Official docs**: [Custom agents configuration](https://docs.github.com/copilot/reference/custom-agents-configuration)
 >
-> ⚠️ **VS Code Only**: The `model` property (for selecting AI models) works in VS Code but is not supported in GitHub Copilot CLI. You can safely include it for cross-platform agent files. GitHub Copilot CLI will ignore it.
+> ⚠️ **Solo VS Code**: La propiedad `model` (para seleccionar modelos de IA) funciona en VS Code pero no es compatible con GitHub Copilot CLI. Puedes incluirla de forma segura en archivos de agente multiplataforma. GitHub Copilot CLI la ignorará.
 
 ### More Agent Templates
 
@@ -805,7 +805,7 @@ In **[Chapter 05: Skills System](../05-skills/README.md)**, you'll learn:
 
 ---
 
-**[← Back to Chapter 03](../03-development-workflows/README.md)** | **[Continue to Chapter 05 →](../05-skills/README.md)**
+**[← Volver al Capítulo 03](../03-development-workflows/README.md)** | **[Continuar al Capítulo 05 →](../05-skills/README.md)**
 
 ---
 

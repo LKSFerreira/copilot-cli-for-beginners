@@ -280,7 +280,7 @@ copilot
 
 > 💡 **Consejo**: **Shift+Tab** alterna entre modos: Interactivo → Plan → Autopilot. Púlsalo en cualquier momento durante una sesión interactiva para cambiar de modo sin escribir un comando.
 
-You can also launch Copilot CLI directly in plan mode using the `--plan` flag:
+También puedes iniciar Copilot CLI directamente en modo plan usando la bandera `--plan`:
 
 ```bash
 copilot --plan

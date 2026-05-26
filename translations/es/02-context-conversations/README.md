@@ -876,7 +876,7 @@ Then resume with: `copilot --continue`
 
 ### Solución de problemas
 
-**"File not found" errors** - Make sure you're in the correct directory:
+**Errores de "Archivo no encontrado"** - Asegúrate de estar en el directorio correcto:
 
 ```bash
 pwd  # Comprobar el directorio actual

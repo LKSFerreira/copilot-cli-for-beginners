@@ -4,7 +4,7 @@ tools:
 - read
 - edit
 - search
-description: Python code quality specialist for reviewing Python projects
+description: Especialista en calidad de código Python para revisar proyectos Python
 ---
 # Revisor de código Python
 
