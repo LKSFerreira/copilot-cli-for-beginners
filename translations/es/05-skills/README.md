@@ -577,10 +577,10 @@ The easiest way to install a skill from a GitHub repository is using the `gh ski
 gh skill install github/awesome-copilot
 
 # O instalar directamente una habilidad específica
-gh skill install github/awesome-copilot code-checklist
+gh skill install github/awesome-copilot ai-ready
 
 # Instalar para uso personal en todos los proyectos (ámbito de usuario)
-gh skill install github/awesome-copilot code-checklist --scope user
+gh skill install github/awesome-copilot ai-ready --scope user
 ```
 
 > ⚠️ **Revisa antes de instalar**: Siempre lee el `SKILL.md` de una skill antes de instalarla. Las skills controlan lo que hace Copilot, y una skill maliciosa podría indicarle ejecutar comandos dañinos o modificar código de maneras inesperadas.
