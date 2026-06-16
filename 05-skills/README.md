@@ -81,15 +81,15 @@ Agent Skills são pastas que contêm instruções, scripts e recursos que o Copi
 ```bash
 copilot
 
-> Check books.py against our quality checklist
+> Verifique books.py em relação à nossa lista de verificação de qualidade
 # Copilot detects this matches your "code-checklist" skill
 # and automatically applies its Python quality checklist
 
-> Generate tests for the BookCollection class
+> Gere testes para a classe BookCollection
 # Copilot loads your "pytest-gen" skill
 # and applies your preferred test structure
 
-> What are the code quality issues in this file?
+> Quais são os problemas de qualidade de código neste arquivo?
 # Copilot loads your "code-checklist" skill
 # and checks against your team's standards
 ```
@@ -117,9 +117,9 @@ Isso dá controle explícito quando você quer garantir que uma skill específic
 Você pode invocar **mais de uma skill em uma única mensagem**, e o comando com barra da skill pode aparecer em qualquer lugar do seu prompt — não apenas no início. Isso é útil quando você quer realizar duas verificações diferentes de uma vez:
 
 ```bash
-> Check @samples/book-app-project/book_app.py with /code-checklist and also run /generate-tests for it
+> Verifique @samples/book-app-project/book_app.py com /code-checklist e também execute /generate-tests para ele
 
-> Review the auth module /security-audit then /code-checklist the result
+> Revise o módulo de autenticação /security-audit e depois /code-checklist o resultado
 ```
 
 O Copilot aplicará cada skill nomeada na mesma resposta, poupando você de enviar várias mensagens separadas.
@@ -137,9 +137,9 @@ O Copilot aplicará cada skill nomeada na mesma resposta, poupando você de envi
 Você pode perguntar diretamente ao Copilot:
 
 ```bash
-> What skills did you use for that response?
+> Quais skills você usou para essa resposta?
 
-> What skills do you have available for security reviews?
+> Quais skills você tem disponíveis para revisões de segurança?
 ```
 
 ### Skills vs Agents vs MCP
@@ -173,16 +173,16 @@ A cada revisão de código, você pode esquecer algo:
 ```bash
 copilot
 
-> Review this code for issues
+> Revise este código procurando por problemas
 # Generic review - might miss your team's specific concerns
 ```
 
 Ou você escreve um prompt longo toda vez:
 
 ```bash
-> Review this code checking for bare except clauses, missing type hints,
-> mutable default arguments, missing context managers for file I/O,
-> functions over 50 lines, print statements in production code...
+> Revise este código procurando por cláusulas except nuas, type hints ausentes,
+> argumentos padrão mutáveis, context managers ausentes para I/O de arquivo,
+> funções com mais de 50 linhas, instruções print em código de produção...
 ```
 
 Tempo: **30+ segundos** para digitar. Consistência: **varia conforme a memória**.
@@ -194,7 +194,7 @@ Com uma skill `code-checklist` instalada, basta perguntar naturalmente:
 ```bash
 copilot
 
-> Check the book collection code for quality issues
+> Verifique o código da coleção de livros procurando por problemas de qualidade
 ```
 
 **O que acontece nos bastidores**:
@@ -472,7 +472,7 @@ Skills e agents trabalham juntos. O agent fornece expertise; a skill fornece ins
 # Start with a code-reviewer agent
 copilot --agent code-reviewer
 
-> Check the book app for quality issues
+> Verifique o app de livros procurando por problemas de qualidade
 # code-reviewer agent's expertise combines
 # with your code-checklist skill's checklist
 ```

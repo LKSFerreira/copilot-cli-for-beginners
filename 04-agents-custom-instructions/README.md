@@ -96,7 +96,7 @@ copilot
 > /review
 
 # Explore and Task agents are invoked automatically when relevant:
-> Run the test suite        # Uses Task agent
+> Execute a suite de testes        # Usa Task agent
 
 > Explore how book data is loaded    # Uses Explore agent
 ```
@@ -193,7 +193,7 @@ Inicie diretamente uma nova sessão com um agent.
 
 ```bash
 copilot --agent python-reviewer
-> Review @samples/book-app-project/books.py
+> Revise @samples/book-app-project/books.py
 ```
 
 > 💡 **Alternar agents**: você pode mudar para um agent diferente a qualquer momento usando `/agent` ou `--agent` novamente. Para voltar à experiência padrão do Copilot CLI, use `/agent` e selecione **nenhum agent**.
@@ -233,7 +233,7 @@ Selecione um cenário abaixo para expandi-lo.
 ```bash
 copilot
 
-> Add a function to search books by year range in the book app
+> Adicione uma função para pesquisar livros por intervalo de ano no app de livros
 ```
 
 **Saída genérica**:
@@ -254,11 +254,10 @@ Básico. Funciona. Mas falta muita coisa.
 
 ```bash
 copilot
-
 > /agent
 # Select "python-reviewer"
 
-> Add a function to search books by year range in the book app
+> Adicione uma função para pesquisar livros por intervalo de ano no app de livros
 ```
 
 **Saída especializada**:
@@ -339,10 +338,10 @@ copilot
 # Select "pytest-helper"
 
 > @samples/book-app-project/tests/test_books.py Design test cases for a find_by_year_range method.
-> What edge cases should we cover?
+> Quais casos extremos devemos cobrir?
 
 # Synthesize both designs
-> Create an implementation plan that includes the method implementation and comprehensive tests.
+> Crie um plano de implementação que inclua a implementação do método e testes abrangentes.
 ```
 
 **O insight principal**: você é o arquiteto dirigindo especialistas. Eles lidam com os detalhes; você cuida da visão.

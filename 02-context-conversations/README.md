@@ -67,16 +67,16 @@ Você pode testar isso com qualquer arquivo em seu computador:
 copilot
 
 # Aponte para qualquer arquivo que você tenha
-> Explain what @package.json does
-> Summarize @README.md
-> What's in @.gitignore and why?
+> Explique o que @package.json faz
+> Resuma @README.md
+> O que há em @.gitignore e por quê?
 ```
 
 > 💡 **Não tem um projeto à mão?** Crie um arquivo de teste rápido:
 > ```bash
 > echo "def greet(name): return 'Hello ' + name" > test.py
 > copilot
-> > What does @test.py do?
+> > O que @test.py faz?
 > ```
 
 ### Padrões básicos com @
@@ -92,7 +92,7 @@ copilot
 ```bash
 copilot
 
-> Explain what @samples/book-app-project/utils.py does
+> Explique o que @samples/book-app-project/utils.py faz
 ```
 
 ---
@@ -113,7 +113,7 @@ copilot
 ```bash
 copilot
 
-> Compare @samples/book-app-project/book_app.py and @samples/book-app-project/books.py for consistency
+> Compare @samples/book-app-project/book_app.py e @samples/book-app-project/books.py por consistência
 ```
 
 ### Referenciar um diretório inteiro
@@ -121,7 +121,7 @@ copilot
 ```bash
 copilot
 
-> Review all files in @samples/book-app-project/ for error handling
+> Revise todos os arquivos em @samples/book-app-project/ para tratamento de erros
 ```
 
 ---
@@ -139,13 +139,13 @@ copilot
 
 > @samples/book-app-project/book_app.py @samples/book-app-project/books.py
 >
-> How do these files work together? What's the data flow?
+> Como esses arquivos funcionam juntos? Qual é o fluxo de dados?
 ```
 
 > 💡 **Opção avançada**: Para análise entre arquivos com foco em segurança, experimente os exemplos Python de segurança:
 > ```bash
 > > @samples/buggy-code/python/user_service.py @samples/buggy-code/python/payment_processor.py
-> > Find security vulnerabilities that span BOTH files
+> > Encontre vulnerabilidades de segurança que abrangem AMBOS os arquivos
 > ```
 
 ---
@@ -205,7 +205,7 @@ copilot
 
 > @samples/book-app-project/
 >
-> In one paragraph, what does this app do and what are its biggest quality issues?
+> Em um parágrafo, o que este app faz e quais são seus maiores problemas de qualidade?
 ```
 
 **O que você obtém**:
@@ -232,13 +232,13 @@ Priority fix: Consolidate duplicate display functions and add input validation.
 ```bash
 copilot
 
-> @samples/book-app-project/books.py Review this file for potential bugs
+> @samples/book-app-project/books.py Revise este arquivo procurando por possíveis bugs
 
 # Copilot CLI now has the full file content and can give specific feedback:
 # "Line 49: Case-sensitive comparison may miss books..."
 # "Line 29: JSON decode errors are caught but data corruption isn't logged..."
 
-> What about @samples/book-app-project/book_app.py?
+> E quanto a @samples/book-app-project/book_app.py?
 
 # Now reviewing book_app.py, but still aware of books.py context
 ```
@@ -248,15 +248,15 @@ copilot
 ```bash
 copilot
 
-> @samples/book-app-project/books.py What does this module do?
+> @samples/book-app-project/books.py O que este módulo faz?
 
 # Copilot CLI reads books.py and understands the BookCollection class
 
-> @samples/book-app-project/ Give me an overview of the code structure
+> @samples/book-app-project/ Me dê uma visão geral da estrutura do código
 
 # Copilot CLI scans the directory and summarizes
 
-> How does the app save and load books?
+> Como o app salva e carrega livros?
 
 # Copilot CLI can trace through the code it's already seen
 ```
@@ -276,7 +276,7 @@ copilot
 copilot
 
 > @samples/book-app-project/book_app.py @samples/book-app-project/utils.py
-> I see duplicate display functions: show_books() and print_books(). Help me consolidate these.
+> Vejo funções de exibição duplicadas: show_books() e print_books(). Ajude-me a consolidar estas.
 
 # Copilot CLI sees both files and can suggest how to merge the duplicate code
 ```
@@ -294,7 +294,7 @@ Toda conversa é salva automaticamente. Basta sair normalmente:
 ```bash
 copilot
 
-> @samples/book-app-project/ Let's improve error handling across all modules
+> @samples/book-app-project/ Vamos melhorar o tratamento de erros em todos os módulos
 
 [... do some work ...]
 

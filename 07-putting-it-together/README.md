@@ -68,7 +68,7 @@ copilot
 # Select "python-reviewer"
 
 > @samples/book-app-project/books.py Design a get_unread_books method.
-> What is the best approach?
+> Qual é a melhor abordagem?
 
 # Python-reviewer agent produces:
 # - Method signature and return type
@@ -88,12 +88,12 @@ copilot
 # - Test cases with all books read
 
 # IMPLEMENT
-> Add a get_unread_books method to BookCollection in books.py
-> Add a "list unread" command option in book_app.py
+> Adicione um método get_unread_books a BookCollection em books.py
+> Adicione uma opção de comando "list unread" em book_app.py
 > Update the help text in the show_help function
 
 # TEST
-> Generate comprehensive tests for the new feature
+> Gere testes abrangentes para o novo recurso
 
 # Multiple tests are generated similar to the following:
 # - Happy path (3 tests) — filters correctly, excludes read, includes unread
@@ -108,7 +108,7 @@ copilot
 > /pr [view|create|fix|auto]
 
 # Or ask naturally if you want Copilot to draft it from the terminal
-> Create a pull request titled "Feature: Add list unread books command"
+> Crie um pull request intitulado "Feature: Add list unread books command"
 ```
 
 **Abordagem tradicional**: alternar entre editor, terminal, test runner, documentação e GitHub UI. Cada troca causa perda de contexto e atrito.
@@ -142,7 +142,7 @@ Correção de bugs do mundo real com integração total de ferramentas:
 copilot
 
 # PHASE 1: Understand the bug from GitHub (MCP provides this)
-> Get the details of issue #1
+> Obtenha os detalhes da issue #1
 
 # Learn: "find_by_author doesn't work with partial names"
 
@@ -156,24 +156,24 @@ copilot
 > /agent
 # Select "python-reviewer"
 
-> Analyze this method for issues with partial name matching
+> Analise este método procurando por problemas com correspondência de nomes parciais
 
 # Agent identifies: Method uses exact equality instead of substring matching
 
 # PHASE 5: Fix with agent guidance
-> Implement the fix using lowercase comparison and 'in' operator
+> Implemente a correção usando comparação em minúsculas e operador 'in'
 
 # PHASE 6: Generate tests
 > /agent
 # Select "pytest-helper"
 
-> Generate pytest tests for find_by_author with partial matches
+> Gere testes pytest para find_by_author com correspondências parciais
 > Include test cases: partial name, case variations, no matches
 
 # PHASE 7: Commit and PR
-> Generate a commit message for this fix
+> Gere uma mensagem de commit para esta correção
 
-> Create a pull request linking to issue #1
+> Crie um pull request vinculado à issue #1
 ```
 
 ---
@@ -273,7 +273,7 @@ copilot
 > missing error handling, or improvements you would recommend?
 
 # PHASE 4: Find something to work on (MCP provides GitHub access)
-> List open issues labeled "good first issue"
+> Liste issues abertas rotuladas como "good first issue"
 
 # FASE 5: Começar a contribuir
 > Pick the simplest open issue and outline a plan to fix it
@@ -297,15 +297,15 @@ Sempre reúna contexto antes de pedir análise:
 
 ```bash
 # Good
-> Get the details of issue #42
+> Obtenha os detalhes da issue #42
 > /agent
 # Select python-reviewer
-> Analyze this issue
+> Analise esta issue
 
 # Less effective
 > /agent
 # Select python-reviewer
-> Fix login bug
+> Corrija o bug de login
 # Agent doesn't have issue context
 ```
 
@@ -317,11 +317,11 @@ Cada ferramenta tem seu ponto ideal:
 # Agents: Specialized personas you explicitly activate
 > /agent
 # Select python-reviewer
-> Review this authentication code for security issues
+> Revise este código de autenticação procurando por problemas de segurança
 
 # Skills: Modular capabilities that auto-activate when your prompt
 # matches the skill's description (you must create them first — see Ch 05)
-> Generate comprehensive tests for this code
+> Gere testes abrangentes para este código
 # If you have a testing skill configured, it activates automatically
 
 # Custom instructions (.github/copilot-instructions.md): Always-on

@@ -166,7 +166,7 @@ Após confiar na pasta, você pode entrar com sua conta GitHub.
 Agora que você está conectado, vamos verificar se o Copilot CLI está funcionando para você. No terminal, inicie o CLI se ainda não o fez:
 
 ```bash
-> Say hello and tell me what you can help with
+> Diga oi e me conte com o que você pode ajudar
 ```
 
 Após receber uma resposta, você pode sair do CLI:
@@ -210,7 +210,7 @@ Navegue de volta para a raiz do repositório primeiro (se você executou o Passo
 ```bash
 cd ../..   # Back to the repository root if needed
 copilot 
-> What does @samples/book-app-project/book_app.py do?
+> O que @samples/book-app-project/book_app.py faz?
 ```
 
 **Saída esperada**: Um resumo das principais funções e comandos do app de livros.

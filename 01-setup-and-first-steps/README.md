@@ -48,13 +48,13 @@ copilot
 Experimente estes prompts para iniciantes:
 
 ```
-> Explain what a dataclass is in Python in simple terms
+> Explique o que é uma dataclass em Python em termos simples
 
-> Write a function that sorts a list of dictionaries by a specific key
+> Escreva uma função que ordene uma lista de dicionários por uma chave específica
 
-> What's the difference between a list and a tuple in Python?
+> Qual é a diferença entre uma list e uma tuple em Python?
 
-> Give me 5 best practices for writing clean Python code
+> Me dê 5 melhores práticas para escrever código Python limpo
 ```
 
 Não usa Python? Sem problema! Faça perguntas sobre a linguagem de sua preferência.
@@ -87,7 +87,7 @@ copilot
 Dentro da sessão interativa do Copilot CLI, execute o seguinte:
 
 ```
-> Review @samples/book-app-project/book_app.py for code quality issues and suggest improvements
+> Revise @samples/book-app-project/book_app.py para problemas de qualidade de código e sugira melhorias
 ```
 
 > 💡 **Para que serve o símbolo `@`?** O símbolo `@` indica ao Copilot CLI que leia um arquivo. Você aprenderá tudo sobre isso no Capítulo 02. Por enquanto, copie o comando exatamente como mostrado.
@@ -169,7 +169,7 @@ Common pattern: Read from JSON → Work with Python objects → Write back to JS
 Precisa de uma função que você gastaria 15 minutos procurando no Google? Ainda na sua sessão:
 
 ```
-> Write a Python function that takes a list of books and returns statistics: 
+> Escreva uma função Python que recebe uma lista de livros e retorna estatísticas: 
   total count, number read, number unread, oldest and newest book
 ```
 
@@ -264,11 +264,11 @@ Como você viu até aqui, verá um prompt em que pode digitar naturalmente. Para
 ```bash
 copilot
 
-> Review @samples/book-app-project/utils.py and suggest improvements
+> Revise @samples/book-app-project/utils.py e sugira melhorias
 
-> Add type hints to all functions
+> Adicione type hints em todas as funções
 
-> Make the error handling more robust
+> Torne o tratamento de erros mais robusto
 
 > /exit
 ```
@@ -288,7 +288,7 @@ O modo Plano ajuda você a criar um plano passo a passo antes de escrever qualqu
 ```bash
 copilot
 
-> /plan Add a "mark as read" command to the book app
+> /plan Adicione um comando "marcar como lido" ao app de livros
 ```
 
 > 💡 **Dica**: **Shift+Tab** alterna entre modos: Interativo → Plano → Autopilot. Pressione a qualquer momento durante uma sessão interativa para mudar de modo sem digitar um comando.
@@ -527,11 +527,11 @@ Inicie o Copilot e use prompts de acompanhamento para melhorar iterativamente o 
 ```bash
 copilot
 
-> Review @samples/book-app-project/book_app.py - what could be improved?
+> Revise @samples/book-app-project/book_app.py - o que poderia melhorar?
 
 > Refactor the if/elif chain into a more maintainable structure
 
-> Add type hints to all the handler functions
+> Adicione type hints em todas as funções de handler
 
 > /exit
 ```
@@ -629,9 +629,9 @@ Os exemplos práticos focaram em revisar e refatorar `book_app.py`. Agora pratiq
 **Prompts de exemplo para tentar:**
 ```bash
 > @samples/book-app-project/utils.py What does each function in this file do?
-> Add validation to get_user_choice() so it handles empty input and non-numeric entries
-> What happens if get_book_details() receives an empty string for the title? Add guards for that.
-> Add a comprehensive docstring to get_book_details() with parameter descriptions and return values
+> Adicione validação a get_user_choice() para que ela trate entrada vazia e entradas não numéricas
+> O que acontece se get_book_details() receber uma string vazia como título? Adicione proteções para isso.
+> Adicione uma docstring abrangente a get_book_details() com descrições de parâmetros e valores de retorno
 ```
 
 **Problemas comuns:**

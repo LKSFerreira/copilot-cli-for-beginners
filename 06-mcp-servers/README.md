@@ -65,7 +65,7 @@ O servidor MCP do GitHub está incluído por padrão. Experimente:
 
 ```bash
 copilot
-> List the recent commits in this repository
+> Liste os commits recentes neste repositório
 ```
 
 Se o Copilot retornar dados reais de commits, você acabou de ver o MCP em ação. Esse é o servidor GitHub MCP consultando o GitHub em seu nome. Mas o GitHub é apenas *um* servidor. Este capítulo mostra como adicionar mais (acesso ao sistema de arquivos, documentação atualizada e outros) para que o Copilot possa fazer ainda mais.
@@ -431,7 +431,7 @@ copilot
 copilot
 
 # See recent activity in this repo
-> List the last 5 commits in this repository
+> Liste os 5 últimos commits neste repositório
 
 Recent commits:
 1. abc1234 - Update chapter 05 skills examples (2 days ago)
@@ -440,14 +440,14 @@ Recent commits:
 ...
 
 # Explore the repo structure
-> What branches exist in this repository?
+> Quais branches existem neste repositório?
 
 Branches:
 - main (default)
 - chapter6 (current)
 
 # Search for code patterns across the repo
-> Search this repository for files that import pytest
+> Pesquise neste repositório por arquivos que importam pytest
 
 Found 1 file:
 - samples/book-app-project/tests/test_books.py
@@ -470,18 +470,18 @@ Depois de configurado, o filesystem MCP fornece ferramentas que o Copilot pode u
 ```bash
 copilot
 
-> How many Python files are in the book-app-project directory?
+> Quantos arquivos Python estão no diretório book-app-project?
 
 Found 3 Python files in samples/book-app-project/:
 - book_app.py
 - books.py
 - utils.py
 
-> What's the total size of the data.json file?
+> Qual é o tamanho total do arquivo data.json?
 
 samples/book-app-project/data.json: 2.4 KB
 
-> Find all functions that don't have type hints in the book app
+> Encontre todas as funções que não têm type hints no app de livros
 
 Found 2 functions without type hints:
 - samples/book-app-project/utils.py:10 - get_user_choice()
@@ -499,7 +499,7 @@ Found 2 functions without type hints:
 ```bash
 copilot
 
-> What are the best practices for using pytest fixtures?
+> Quais são as melhores práticas para usar fixtures pytest?
 
 From pytest Documentation:
 
@@ -544,7 +544,7 @@ Best practices:
 ```bash
 copilot
 
-> Look up information about "1984" using the book lookup server. Search for books by George Orwell
+> Procure informações sobre "1984" usando o servidor de lookup de livros. Pesquise por livros de George Orwell
 ```
 
 **Microsoft Learn MCP**: se você instalou o [servidor Microsoft Learn MCP](#microsoft-learn-mcp-server), pode consultar a documentação oficial da Microsoft diretamente:
@@ -552,7 +552,7 @@ copilot
 ```bash
 copilot
 
-> How do I configure managed identity for an Azure Function? Search Microsoft Learn.
+> Como faço para configurar identidade gerenciada para uma Azure Function? Pesquise no Microsoft Learn.
 ```
 
 **Web Fetch**: use a ferramenta embutida `web_fetch` para trazer conteúdo de qualquer URL:
@@ -560,7 +560,7 @@ copilot
 ```bash
 copilot
 
-> Fetch and summarize the README from https://github.com/facebook/react
+> Busque e resuma o README de https://github.com/facebook/react
 ```
 
 </details>
@@ -593,8 +593,8 @@ Cada exemplo abaixo é autocontido. **Escolha um que interesse ou leia todos.**
 copilot
 
 # Step 1: Use filesystem MCP to explore the book app
-> List all Python files in samples/book-app-project/ and summarize
-> what each file does
+> Liste todos os arquivos Python em samples/book-app-project/ e resuma
+> o que cada arquivo faz
 
 Found 3 Python files:
 - book_app.py: CLI entry point with command routing (list, add, remove, find)
@@ -602,7 +602,7 @@ Found 3 Python files:
 - utils.py: Helper functions for user input and display
 
 # Step 2: Use GitHub MCP to check recent changes
-> What were the last 3 commits that touched files in samples/book-app-project/?
+> Quais foram os 3 últimos commits que tocaram arquivos em samples/book-app-project/?
 
 Recent commits affecting book app:
 1. abc1234 - Add test fixtures for BookCollection (2 days ago)
@@ -610,7 +610,7 @@ Recent commits affecting book app:
 3. ghi9012 - Initial book app setup (1 week ago)
 
 # Step 3: Use Context7 MCP for best practices
-> What are Python best practices for JSON data persistence?
+> Quais são as melhores práticas do Python para persistência de dados JSON?
 
 From Python Documentation:
 - Use context managers (with statements) for file I/O
@@ -654,7 +654,7 @@ Isso funciona melhor em seu próprio fork ou repositório em que você tem acess
 ```bash
 copilot
 
-> Get the details of GitHub issue #1
+> Obtenha os detalhes da issue #1 do GitHub
 
 Issue #1: Add input validation for book year
 Status: Open
@@ -664,11 +664,11 @@ Description: The add_book function accepts any year value...
 
 [Copilot implements year validation in add_book()]
 
-> Run the tests to make sure the fix works
+> Execute os testes para certificar-se de que a correção funciona
 
 All 8 tests passed ✓
 
-> Create a pull request titled "Add year validation to book app"
+> Crie um pull request intitulado "Add year validation to book app"
 
 ✓ Created PR #2: Add year validation to book app
 ```
@@ -686,11 +686,11 @@ All 8 tests passed ✓
 ```bash
 copilot
 
-> Give me a health report for the book app project:
-> 1. List all functions across the Python files in samples/book-app-project/
-> 2. Check which functions have type hints and which don't
-> 3. Show what tests exist in samples/book-app-project/tests/
-> 4. Check the recent commit history for this directory
+> Dê-me um relatório de saúde do projeto de app de livros:
+> 1. Liste todas as funções nos arquivos Python em samples/book-app-project/
+> 2. Verifique quais funções têm type hints e quais não têm
+> 3. Mostre quais testes existem em samples/book-app-project/tests/
+> 4. Verifique o histórico de commits recentes para este diretório
 
 Book App Health Report
 ======================
@@ -754,8 +754,8 @@ Se você configurou o servidor filesystem, use-o para explorar o app de livros:
 ```bash
 copilot
 
-> How many Python files are in samples/book-app-project/?
-> What functions are defined in each file?
+> Quantos arquivos Python estão em samples/book-app-project/?
+> Quais funções são definidas em cada arquivo?
 ```
 
 **Resultado esperado**: o Copilot lista `book_app.py`, `books.py` e `utils.py` com suas funções.
@@ -771,9 +771,9 @@ Use o GitHub MCP embutido para explorar este repositório do curso:
 ```bash
 copilot
 
-> List the last 5 commits in this repository
+> Liste os 5 últimos commits neste repositório
 
-> What branches exist in this repository?
+> Quais branches existem neste repositório?
 ```
 
 **Resultado esperado**: o Copilot mostra mensagens de commit recentes e nomes de branch a partir do remote do GitHub.

@@ -80,7 +80,7 @@ Este exemplo usa o símbolo `@` para referenciar um arquivo, dando ao Copilot CL
 ```bash
 copilot
 
-> Review @samples/book-app-project/book_app.py for code quality
+> Revise @samples/book-app-project/book_app.py para qualidade de código
 ```
 
 ---
@@ -103,7 +103,7 @@ Peça ao Copilot CLI que foque a revisão em uma preocupação específica (aqui
 ```text
 copilot
 
-> Review @samples/book-app-project/utils.py for input validation issues. Check for: missing validation, error handling gaps, and edge cases
+> Revise @samples/book-app-project/utils.py para problemas de validação de entrada. Verifique: validação ausente, lacunas no tratamento de erros e casos extremos
 ```
 
 
@@ -135,7 +135,7 @@ copilot
 
 # Copilot CLI shows potential issues with empty strings, special characters
 
-> Create a checklist of all issues found, prioritized by severity
+> Crie uma lista de verificação de todos os problemas encontrados, priorizada por gravidade
 
 # Copilot CLI generates prioritized action items
 ```
@@ -147,7 +147,7 @@ Peça ao Copilot CLI para estruturar a saída em um formato específico (aqui, u
 ```bash
 copilot
 
-> Review @samples/book-app-project/ and create a markdown checklist of issues found, categorized by:
+> Revise @samples/book-app-project/ e crie uma lista de verificação em markdown dos problemas encontrados, categorizada por:
 > - Critical (data loss risks, crashes)
 > - High (bugs, incorrect behavior)
 > - Medium (performance, maintainability)
@@ -335,7 +335,7 @@ copilot
 > @samples/book-app-buggy/books_buggy.py
 >
 > Users report: "Finding books by author name doesn't work for partial names"
-> Debug why this happens
+> Depure por que isso acontece
 ```
 
 **O que o Copilot CLI faz**:
@@ -569,7 +569,7 @@ Peça testes *adicionais* para uma única função para que o Copilot CLI gere n
 copilot
 
 > @samples/book-app-project/books.py
-> Generate additional tests for the find_by_author function with edge cases:
+> Gere testes adicionais para a função find_by_author com casos extremos:
 > - Author name with hyphens (e.g., "Jean-Paul Sartre")
 > - Author with multiple first names
 > - Empty string as author
@@ -740,7 +740,7 @@ copilot
 # 2. Debug the issue and fix (continuing in same session)
 > Based on the analysis, show me the find_by_author function and explain the issue
 
-> Fix the find_by_author function to handle partial name matches
+> Corrija a função find_by_author para lidar com correspondências de nomes parciais
 
 # 3. Generate tests for the fix
 > @samples/book-app-project/books.py Generate pytest tests specifically for:
@@ -840,7 +840,7 @@ copilot
 > Improve remove_book() to use case-insensitive matching and return a clear message when the book isn't found. Show me the before and after code.
 
 # Step 3: Test
-> Generate pytest tests for the improved remove_book() function, including:
+> Gere testes pytest para a função remove_book() melhorada, incluindo:
 > - Removing a book that exists
 > - Case-insensitive matching ("dune" should remove "Dune")
 > - Book not found returns appropriate response
@@ -850,7 +850,7 @@ copilot
 > /review
 
 # Step 5: Commit
-> Generate a conventional commit message for this refactor
+> Gere uma mensagem de commit convencional para este refactor
 ```
 
 **Dica:** Depois de melhorar `remove_book()`, tente perguntar ao Copilot CLI: "Are there any other functions in this file that could benefit from the same improvements?". Ele pode sugerir mudanças semelhantes em `find_book_by_title()` ou `find_by_author()`.
@@ -887,10 +887,10 @@ O exercício mostra aos desenvolvedores como usar o GitHub Copilot CLI para cria
 copilot
 
 # Instead of:
-> Review @samples/book-app-project/book_app.py
+> Revise @samples/book-app-project/book_app.py
 
 # Try:
-> Review @samples/book-app-project/book_app.py for input validation, error handling, and edge cases
+> Revise @samples/book-app-project/book_app.py para validação de entrada, tratamento de erros e casos extremos
 ```
 
 **Os testes não correspondem ao meu framework** - Especifique o framework:
