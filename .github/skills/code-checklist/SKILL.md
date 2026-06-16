@@ -3,47 +3,47 @@ name: code-checklist
 description: Team code quality checklist - use for checking Python code quality, bugs, security issues, and best practices
 ---
 
-# Code Checklist Skill
+# Skill de Checklist de Código
 
-Apply this checklist when checking Python code.
+Aplique este checklist ao revisar código Python.
 
-## Code Quality Checklist
+## Checklist de Qualidade de Código
 
-- [ ] All functions have type hints
-- [ ] No bare except clauses
-- [ ] No mutable default arguments
-- [ ] Context managers used for file I/O
-- [ ] Functions are under 50 lines
-- [ ] Variable and function names follow PEP 8 (snake_case)
+- [ ] Todas as funções possuem type hints
+- [ ] Sem cláusulas "bare except"
+- [ ] Sem argumentos padrão mutáveis
+- [ ] Gerenciadores de contexto (context managers) usados para I/O de arquivos
+- [ ] Funções com menos de 50 linhas
+- [ ] Nomes de variáveis e funções seguem PEP 8 (snake_case)
 
-## Input Validation Checklist
+## Checklist de Validação de Entrada
 
-- [ ] User input is validated before processing
-- [ ] Edge cases handled (empty strings, None, out-of-range values)
-- [ ] Error messages are clear and helpful
+- [ ] Entrada do usuário é validada antes do processamento
+- [ ] Casos de borda tratados (strings vazias, None, valores fora do intervalo)
+- [ ] Mensagens de erro são claras e úteis
 
-## Testing Checklist
+## Checklist de Testes
 
-- [ ] New code has corresponding pytest tests
-- [ ] Edge cases are covered
-- [ ] Tests use descriptive names
+- [ ] Novo código possui testes pytest correspondentes
+- [ ] Casos de borda estão cobertos
+- [ ] Testes usam nomes descritivos
 
-## Output Format
+## Formato de Saída
 
-Present findings as:
+Apresente as descobertas como:
 
 ```
 ## Code Checklist: [filename]
 
-### Code Quality
-- [PASS/FAIL] Description of finding
+### Qualidade de Código
+- [PASS/FAIL] Descrição da descoberta
 
-### Input Validation
-- [PASS/FAIL] Description of finding
+### Validação de Entrada
+- [PASS/FAIL] Descrição da descoberta
 
-### Testing
-- [PASS/FAIL] Description of finding
+### Testes
+- [PASS/FAIL] Descrição da descoberta
 
-### Summary
-[X] items need attention before merge
+### Resumo
+[X] itens precisam de atenção antes do merge
 ```
