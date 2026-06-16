@@ -11,35 +11,35 @@ weight: 4
 
 ![Chapter 03: Development Workflows](assets/chapter-header.png)
 
-> **What if the AI could find bugs you didn't even know to ask about?**
+> **E se a IA pudesse encontrar bugs que você nem sabia que deveria procurar?**
 
-In this chapter, GitHub Copilot CLI becomes your daily driver. You'll use it inside the workflows you already rely on every day: testing, refactoring, debugging, and Git.
+Neste capítulo, o GitHub Copilot CLI se tornará sua ferramenta diária. Você o usará nos fluxos de trabalho que já utiliza: testes, refatoração, depuração e Git.
 
-## 🎯 Learning Objectives
+## 🎯 Objetivos de Aprendizagem
 
 By the end of this chapter, you'll be able to:
 
-- Run comprehensive code reviews with Copilot CLI
-- Refactor legacy code safely
-- Debug issues with AI assistance
-- Generate tests automatically
-- Integrate Copilot CLI with your git workflow
+- Executar revisões de código abrangentes com o Copilot CLI
+- Refatorar código legado com segurança
+- Depurar problemas com assistência da IA
+- Gerar testes automaticamente
+- Integrar o Copilot CLI ao seu fluxo de trabalho com git
 
-> ⏱️ **Estimated Time**: ~60 minutes (15 min reading + 45 min hands-on)
+> ⏱️ **Tempo estimado**: ~60 minutos (15 min leitura + 45 min prático)
 
 ---
 
-## 🧩 Real-World Analogy: A Carpenter's Workflow
+## 🧩 Analogia do mundo real: Fluxo de trabalho de um marceneiro
 
 A carpenter doesn't just know how to use tools, they have *workflows* for different jobs:
 
 <img src="assets/carpenter-workflow-steps.png" alt="Craftsman workshop showing three workflow lanes: Building Furniture (Measure, Cut, Assemble, Finish), Fixing Damage (Assess, Remove, Repair, Match), and Quality Check (Inspect, Test Joints, Check Alignment)" width="800"/>
 
-Similarly, developers have workflows for different tasks. GitHub Copilot CLI enhances each of these workflows, making you more efficient and effective in your daily coding tasks.
+Da mesma forma, desenvolvedores têm fluxos de trabalho para diferentes tarefas. O GitHub Copilot CLI aprimora cada um deles, tornando você mais eficiente e eficaz nas tarefas diárias de codificação.
 
 ---
 
-# The Five Workflows
+# Os Cinco Fluxos de Trabalho
 
 <img src="assets/five-workflows.png" alt="Five glowing neon icons representing code review, testing, debugging, refactoring, and git integration workflows" width="800"/>
 
@@ -47,9 +47,9 @@ Each workflow below is self-contained. Pick the ones that match your current nee
 
 ---
 
-## Choose Your Own Adventure
+## Escolha seu próprio percurso
 
-This chapter covers five workflows that developers typically use. **However, you don't need to read them all at once!** Each workflow is self-contained in a collapsible section below. Pick the ones that match what you need and that fits best with your current project. You can always come back and explore the others later.
+Este capítulo aborda cinco fluxos de trabalho típicos de desenvolvedores. **No entanto, você não precisa ler todos de uma vez!** Cada fluxo está em uma seção recolhível abaixo. Escolha os que correspondem às suas necessidades e ao seu projeto. Você sempre pode voltar e explorar os outros depois.
 
 <img src="assets/five-workflows-swimlane.png" alt="Five Development Workflows: Code Review, Refactoring, Debugging, Test Generation, and Git Integration shown as horizontal swimlanes" width="800"/>
 
@@ -63,7 +63,7 @@ This chapter covers five workflows that developers typically use. **However, you
 | Research before coding | [Quick Tip: Research Before You Plan or Code](#quick-tip-research-before-you-plan-or-code) |
 | See a full bug-fix workflow end to end | [Putting It All Together](#putting-it-all-together-bug-fix-workflow) |
 
-**Select a workflow below to expand it** and see how GitHub Copilot CLI can enhance your development process in that area. 
+**Selecione um fluxo abaixo para expandi-lo** e veja como o GitHub Copilot CLI pode aprimorar seu processo de desenvolvimento nessa área.
 
 ---
 
@@ -73,9 +73,9 @@ This chapter covers five workflows that developers typically use. **However, you
 
 <img src="assets/code-review-swimlane-single.png" alt="Code review workflow: review, identify issues, prioritize, generate checklist." width="800"/>
 
-### Basic Review
+### Revisão Básica
 
-This example uses the `@` symbol to reference a file, giving Copilot CLI direct access to its contents for review.
+Este exemplo usa o símbolo `@` para referenciar um arquivo, dando ao Copilot CLI acesso direto ao seu conteúdo para revisão.
 
 ```bash
 copilot
@@ -96,9 +96,9 @@ copilot
 
 ---
 
-### Input Validation Review
+### Revisão de Validação de Entrada
 
-Ask Copilot CLI to focus its review on a specific concern (here, input validation) by listing the categories you care about in the prompt.
+Peça ao Copilot CLI que foque a revisão em uma preocupação específica (aqui, validação de entrada), listando as categorias que você quer que sejam verificadas no prompt.
 
 ```text
 copilot
@@ -107,9 +107,9 @@ copilot
 ```
 
 
-### Cross-File Project Review
+### Revisão de Projeto entre Arquivos
 
-Reference an entire directory with `@` to let Copilot CLI scan every file in the project at once.
+Referencie um diretório inteiro com `@` para permitir que o Copilot CLI analise todos os arquivos do projeto de uma vez.
 
 ```bash
 copilot
@@ -117,9 +117,9 @@ copilot
 > @samples/book-app-project/ Review this entire project. Create a markdown checklist of issues found, categorized by severity
 ```
 
-### Interactive Code Review
+### Revisão de Código Interativa
 
-Use a multi-turn conversation to drill deeper. Start with a broad review, then ask follow-up questions without restarting.
+Use uma conversa multitorno para aprofundar a análise. Comece com uma revisão ampla e faça perguntas de acompanhamento sem reiniciar.
 
 ```bash
 copilot
@@ -140,7 +140,7 @@ copilot
 # Copilot CLI generates prioritized action items
 ```
 
-### Review Checklist Template
+### Modelo de Checklist de Revisão
 
 Ask Copilot CLI to structure its output in a specific format (here, a severity-categorized markdown checklist you can paste into an issue).
 
@@ -154,9 +154,9 @@ copilot
 > - Low (style, minor improvements)
 ```
 
-### Understanding Git Changes (Important for /review)
+### Entendendo mudanças no Git (Importante para /review)
 
-Before using the `/review` command, you need to understand two types of changes in git:
+Antes de usar o comando `/review`, você precisa entender dois tipos de alterações no git:
 
 | Change Type | What It Means | How to See |
 |-------------|---------------|------------|
@@ -171,9 +171,9 @@ git diff             # Shows unstaged changes
 git diff --staged    # Shows staged changes
 ```
 
-### Using the /review Command
+### Usando o comando /review
 
-The `/review` command invokes the built-in **code-review agent**, which is optimized for analyzing staged and unstaged changes with high signal-to-noise output. Use a slash command to trigger a specialized built-in agent instead of writing a free-form prompt.
+O comando `/review` invoca o **agente code-review** interno, otimizado para analisar alterações staged e unstaged com saída de alto sinal e baixo ruído. Use um comando com barra para acionar um agente especializado em vez de escrever um prompt livre.
 
 ```bash
 copilot
