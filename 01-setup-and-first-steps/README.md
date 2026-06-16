@@ -11,25 +11,25 @@ weight: 2
 
 ![Chapter 01: First Steps](assets/chapter-header.png)
 
-> **Watch AI find bugs instantly, explain confusing code, and generate working scripts. Then learn three different ways to use GitHub Copilot CLI.**
+> **Veja a IA encontrar bugs instantaneamente, explicar código confuso e gerar scripts funcionais. Depois, aprenda três maneiras diferentes de usar o GitHub Copilot CLI.**
 
-This chapter is where the magic starts! You'll experience firsthand why developers describe GitHub Copilot CLI as having a senior engineer on speed dial. You'll watch AI find security bugs in seconds, get complex code explained in plain English, and generate working scripts instantly. Then you'll master the three interaction modes (Interactive, Plan, and Programmatic) so you know exactly which one to use for any task.
+Este capítulo é onde a mágica começa! Você verá por que desenvolvedores descrevem o GitHub Copilot CLI como ter um engenheiro sênior a um toque de distância. A IA encontrará bugs de segurança em segundos, explicará código complexo em linguagem simples e gerará scripts funcionais instantaneamente. Em seguida, você dominará os três modos de interação (Interativo, Plano e Programático) para saber exatamente qual usar em cada tarefa.
 
-> ⚠️ **Prerequisites**: Make sure you've completed **[Chapter 00: Quick Start](../00-quick-start/README.md)** first. You'll need GitHub Copilot CLI installed and authenticated before running the demos below.
+> ⚠️ **Pré-requisitos**: Certifique-se de ter concluído **[Capítulo 00: Quick Start](../00-quick-start/README.md)** primeiro. Você precisará do GitHub Copilot CLI instalado e autenticado antes de executar as demos abaixo.
 
-## 🎯 Learning Objectives
+## 🎯 Objetivos de Aprendizagem
 
-By the end of this chapter, you'll be able to:
+Ao final deste capítulo, você será capaz de:
 
-- Experience the productivity boost GitHub Copilot CLI provides through hands-on demos
-- Choose the right mode (Interactive, Plan, or Programmatic) for any task
-- Use slash commands to control your sessions
+- Experimentar o aumento de produtividade que o GitHub Copilot CLI oferece por meio de demos práticas
+- Escolher o modo certo (Interativo, Plano ou Programático) para cada tarefa
+- Usar comandos com barra (slash commands) para controlar suas sessões
 
-> ⏱️ **Estimated Time**: ~45 minutes (15 min reading + 30 min hands-on)
+> ⏱️ **Tempo estimado**: ~45 minutos (15 min leitura + 30 min prático)
 
 ---
 
-# Your First Copilot CLI Experience
+# Sua primeira experiência com o Copilot CLI
 
 <img src="assets/first-copilot-experience.png" alt="Developer sitting at a desk with code on the monitor and glowing particles representing AI assistance" width="800"/>
 
@@ -37,15 +37,15 @@ Jump right in and see what Copilot CLI can do.
 
 ---
 
-## Getting Comfortable: Your First Prompts
+## Fique à vontade: Seus primeiros prompts
 
-Before diving into the impressive demos, let's start with some simple prompts you can try right now. **No code repository needed**! Just open a terminal and start Copilot CLI:
+Antes de mergulhar nas demos, comece com alguns prompts simples que você pode testar agora. **Não é necessário um repositório de código**! Abra um terminal e inicie o Copilot CLI:
 
 ```bash
 copilot
 ```
 
-Try these beginner-friendly prompts:
+Experimente estes prompts para iniciantes:
 
 ```
 > Explain what a dataclass is in Python in simple terms
@@ -57,19 +57,19 @@ Try these beginner-friendly prompts:
 > Give me 5 best practices for writing clean Python code
 ```
 
-Don't use Python? No problem! Just ask questions about your language of choice.
+Não usa Python? Sem problema! Faça perguntas sobre a linguagem de sua preferência.
 
 Notice how natural it feels. Just ask questions like you would to a colleague. When you're done exploring, type `/exit` to leave the session.
 
 **The key insight**: GitHub Copilot CLI is conversational. You don't need special syntax to get started. Just ask questions in plain English.
 
-## See It In Action
+## Veja em ação
 
-Now let's see why developers are calling this "having a senior engineer on speed dial."
+Agora veja por que desenvolvedores chamam isso de "ter um engenheiro sênior a um toque de distância".
 
-> 📖 **Reading the Examples**: Lines starting with `>` are prompts you type inside an interactive Copilot CLI session. Lines without a `>` prefix are shell commands you run in your terminal.
+> 📖 **Lendo os exemplos**: Linhas que começam com `>` são prompts que você digita dentro de uma sessão interativa do Copilot CLI. Linhas sem o prefixo `>` são comandos de shell que você executa no terminal.
 
-> 💡 **About Example Outputs**: The sample outputs shown throughout this course are illustrative. Because Copilot CLI's responses vary each time, your results will differ in wording, formatting, and detail. Focus on the *type* of information returned, not the exact text.
+> 💡 **Sobre as saídas de exemplo**: As saídas mostradas ao longo do curso são ilustrativas. Como as respostas do Copilot CLI variam a cada execução, seus resultados podem diferir em redação, formatação e nível de detalhe. Foque no *tipo* de informação retornada, não no texto exato.
 
 ### Demo 1: Code Review in Seconds
 
@@ -198,7 +198,7 @@ When you're done exploring, exit the session:
 
 ---
 
-# Modes and Commands
+# Modos e Comandos
 
 <img src="assets/modes-and-commands.png" alt="Futuristic control panel with glowing screens, dials, and equalizers representing Copilot CLI modes and commands" width="800"/>
 
