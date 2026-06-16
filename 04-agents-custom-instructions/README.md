@@ -11,27 +11,27 @@ weight: 5
 
 ![Chapter 04: Agents and Custom Instructions](assets/chapter-header.png)
 
-> **What if you could hire a Python code reviewer, testing expert, and security reviewer... all in one tool?**
+> **E se você pudesse contratar um revisor de código Python, um especialista em testes e um revisor de segurança... tudo em uma única ferramenta?**
 
-In Chapter 03, you mastered the essential workflows: code review, refactoring, debugging, test generation, and git integration. Those make you highly productive with GitHub Copilot CLI. Now, let's take it further.
+No Capítulo 03, você dominou os fluxos essenciais: revisão de código, refatoração, depuração, geração de testes e integração com git. Isso torna você altamente produtivo com o GitHub Copilot CLI. Agora vamos além.
 
-So far, you've been using Copilot CLI as a general-purpose assistant. Agents let you give it a specific persona with built-in standards, like a code reviewer that enforces type hints and PEP 8, or a testing helper that writes pytest cases. You'll see how the same prompt gets noticeably better results when handled by an agent with targeted instructions.
+Até agora, você tem usado o Copilot CLI como um assistente de uso geral. Agents permitem atribuir uma persona específica com padrões incorporados, como um revisor de código que aplica type hints e PEP 8, ou um assistente de testes que escreve casos pytest. Você verá como o mesmo prompt produz resultados melhores quando tratado por um agente com instruções direcionadas.
 
-## 🎯 Learning Objectives
+## 🎯 Objetivos de Aprendizagem
 
 By the end of this chapter, you'll be able to:
 
-- Use built-in agents: Plan (`/plan`), Code-review (`/review`), and understand automatic agents (Explore, Task)
-- Create specialized agents using agent files (`.agent.md`)
-- Use agents for domain-specific tasks
-- Switch between agents using `/agent` and `--agent`
-- Write custom instruction files for project-specific standards
+- Usar agentes embutidos: Plan (`/plan`), Code-review (`/review`) e entender agentes automáticos (Explore, Task)
+- Criar agentes especializados usando arquivos de agente (`.agent.md`)
+- Usar agentes para tarefas específicas de domínio
+- Alternar entre agentes usando `/agent` e `--agent`
+- Escrever arquivos de instruções customizadas para padrões do projeto
 
-> ⏱️ **Estimated Time**: ~55 minutes (20 min reading + 35 min hands-on)
+> ⏱️ **Tempo estimado**: ~55 minutos (20 min leitura + 35 min prático)
 
 ---
 
-## 🧩 Real-World Analogy: Hiring Specialists
+## 🧩 Analogia do mundo real: Contratando especialistas
 
 When you need help with your house, you don't call one "general helper." You call specialists:
 
@@ -47,28 +47,28 @@ Agents work the same way. Instead of a generic AI, use agents that focus on spec
 
 ---
 
-# Using Agents
+# Usando Agents
 
 Get started with built-in and custom agents right away.
 
 ---
 
-## *New to Agents?* Start Here!
+## *Novo nos Agents?* Comece aqui!
 Never used or made an agent? Here's all you need to know to get started for this course.
 
-1. **Try a *built-in* agent right now:**
+1. **Experimente um agente *embutido* agora:**
    ```bash
    copilot
    > /plan Add input validation for book year in the book app
    ```
    This invokes the Plan agent to create a step-by-step implementation plan.
 
-2. **See one of our custom agent examples:** It's simple to define an agent's instructions, look at our provided [python-reviewer.agent.md](../.github/agents/python-reviewer.agent.md) file to see the pattern.
+2. **Veja um de nossos exemplos de agente personalizado:** É simples definir as instruções de um agente; consulte o arquivo fornecido [python-reviewer.agent.md](../.github/agents/python-reviewer.agent.md) para ver o padrão.
 
-3. **Understand the core concept:** Agents are like consulting a specialist instead of a generalist. A "frontend agent" will focus on accessibility and component patterns automatically, you don't have to remind it because it is already specified in the agent's instructions.
+3. **Entenda o conceito central:** Agents são como consultar um especialista em vez de um generalista. Um "frontend agent" focará automaticamente em acessibilidade e padrões de componentes — você não precisa reinformar porque isso já está especificado nas instruções do agente.
 
 
-## Built-in Agents
+## Agents embutidos
 
 **You've already used some built-in agents in Chapter 03 Development Workflow!**
 <br>`/plan` and `/review` are actually built-in agents. Now you know what's happening under the hood. Here's the full list:
