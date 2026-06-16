@@ -59,9 +59,9 @@ Experimente estes prompts para iniciantes:
 
 Não usa Python? Sem problema! Faça perguntas sobre a linguagem de sua preferência.
 
-Notice how natural it feels. Just ask questions like you would to a colleague. When you're done exploring, type `/exit` to leave the session.
+Repare como é natural. Faça perguntas como se estivesse conversando com um colega. Quando terminar de explorar, digite `/exit` para sair da sessão.
 
-**The key insight**: GitHub Copilot CLI is conversational. You don't need special syntax to get started. Just ask questions in plain English.
+**O insight principal**: o GitHub Copilot CLI é conversacional. Você não precisa de sintaxe especial para começar. Faça perguntas em linguagem natural.
 
 ## Veja em ação
 
@@ -73,7 +73,7 @@ Agora veja por que desenvolvedores chamam isso de "ter um engenheiro sênior a u
 
 ### Demo 1: Code Review in Seconds
 
-The course includes sample files with intentional code quality issues. If you're working on your local machine and haven't already cloned the repo, please run the `git clone` command below, navigate to the `copilot-cli-for-beginners` folder, and then run the `copilot` command.
+O curso inclui arquivos de exemplo com problemas intencionais de qualidade de código. Se você estiver trabalhando localmente e ainda não tiver clonado o repositório, execute o comando `git clone` abaixo, navegue até a pasta `copilot-cli-for-beginners` e então execute o comando `copilot`.
 
 ```bash
 # Clone the course repository if you're working locally and haven't already
@@ -84,13 +84,13 @@ cd copilot-cli-for-beginners
 copilot
 ```
 
-Once inside the interactive Copilot CLI session, run the following:
+Dentro da sessão interativa do Copilot CLI, execute o seguinte:
 
 ```
 > Review @samples/book-app-project/book_app.py for code quality issues and suggest improvements
 ```
 
-> 💡 **What's the `@` symbol used for?** The `@` symbol tells Copilot CLI to read a file. You'll learn all about this in Chapter 02. For now, just copy the command exactly as shown.
+> 💡 **Para que serve o símbolo `@`?** O símbolo `@` indica ao Copilot CLI que leia um arquivo. Você aprenderá tudo sobre isso no Capítulo 02. Por enquanto, copie o comando exatamente como mostrado.
 
 ---
 
@@ -130,7 +130,7 @@ Já ficou olhando para um código sem entender o que ele faz? Tente isto na sua 
 
 ---
 
-**What happens**: (your output will differ) Copilot CLI reads the file, understands the code, and explains it in plain English.
+**O que acontece**: (sua saída pode variar) O Copilot CLI lê o arquivo, entende o código e o explica em linguagem simples.
 
 ```
 This is a book collection management module using Python dataclasses.
@@ -160,7 +160,7 @@ Key components:
 Common pattern: Read from JSON → Work with Python objects → Write back to JSON
 ```
 
-**The takeaway**: Complex code explained like a patient mentor would explain it.
+**Conclusão**: Código complexo explicado como um mentor paciente faria.
 
 ---
 
@@ -186,7 +186,7 @@ Need a function you'd otherwise spend 15 minutes googling? Still in your session
 
 ---
 
-**What happens**: A complete, working function in seconds that you can copy-paste-run.
+**O que acontece**: Uma função completa e funcional em segundos que você pode copiar, colar e executar.
 
 When you're done exploring, exit the session:
 
@@ -194,7 +194,7 @@ When you're done exploring, exit the session:
 > /exit
 ```
 
-**The takeaway**: Instant gratification, and you stayed in one continuous session the whole time.
+**Conclusão**: Gratificação instantânea, e você permaneceu em uma sessão contínua o tempo todo.
 
 ---
 
@@ -202,25 +202,25 @@ When you're done exploring, exit the session:
 
 <img src="assets/modes-and-commands.png" alt="Futuristic control panel with glowing screens, dials, and equalizers representing Copilot CLI modes and commands" width="800"/>
 
-You've just seen what Copilot CLI can do. Now let's understand *how* to use these capabilities effectively. The key is knowing which of the three interaction modes to use for different situations.
+Você acaba de ver o que o Copilot CLI pode fazer. Agora vamos entender *como* usar essas capacidades de forma eficaz. O ponto-chave é saber qual dos três modos de interação usar em cada situação.
 
-> 💡 **Note**: Copilot CLI also has an **Autopilot** mode where it works through tasks without waiting for your input. It's powerful but requires granting full permissions and uses premium requests autonomously. This course focuses on the three modes below. We'll point you to Autopilot once you're comfortable with the basics.
+> 💡 **Observação**: O Copilot CLI também possui um modo **Autopilot** que executa tarefas sem aguardar sua entrada. É poderoso, mas exige concessão de permissões completas e pode usar requisições premium de forma autônoma. Este curso foca nos três modos abaixo. Abordaremos o Autopilot quando você estiver confortável com o básico.
 
 ---
 
-## 🧩 Real-World Analogy: Dining Out
+## 🧩 Analogia do mundo real: Sair para comer
 
-Think of using GitHub Copilot CLI like going out to eat. From planning the trip to placing your order, different situations call for different approaches:
+Pense em usar o GitHub Copilot CLI como sair para comer. Desde planejar a viagem até fazer o pedido, diferentes situações pedem abordagens diferentes:
 
 | Modo | Analogia (refeição) | Quando usar |
 |------|----------------|-------------|
-| **Plan** | GPS route to the restaurant | Complex tasks - map out the route, review stops, agree on the plan, then drive |
-| **Interactive** | Talking to the waiter | Exploration and iteration - ask questions, customize, get real-time feedback |
-| **Programmatic** | Drive-through ordering | Quick, specific tasks - stay in your environment, get a result fast |
+| **Plano** | Rota GPS até o restaurante | Tarefas complexas — mapear a rota, revisar etapas, concordar no plano e então executar |
+| **Interativo** | Conversar com o garçom | Exploração e iteração — fazer perguntas, personalizar, obter feedback em tempo real |
+| **Programático** | Pedido no drive-through | Tarefas rápidas e específicas — permaneça no seu ambiente e obtenha o resultado rapidamente |
 
-Just like dining out, you'll naturally learn when each approach feels right.
+Assim como ao sair para comer, você naturalmente aprenderá quando cada abordagem for a mais adequada.
 
-<img src="assets/ordering-food-analogy.png" alt="Three Ways to Use GitHub Copilot CLI - Plan Mode (GPS route to restaurant), Interactive Mode (talking to waiter), Programmatic Mode (drive-through)" width="800"/>
+<img src="assets/ordering-food-analogy.png" alt="Três formas de usar o GitHub Copilot CLI - Modo Plano (rota GPS até o restaurante), Modo Interativo (conversar com o garçom), Modo Programático (drive-through)" width="800"/>
 
 *Choose your mode based on the task: Plan for mapping it out first, Interactive for back-and-forth collaboration, Programmatic for quick one-shot results*
 
@@ -392,7 +392,7 @@ These commands are great to learn initially as you're getting started with Copil
 
 That's it for getting started! As you become comfortable, you can explore additional commands.
 
-> 📚 **Official Documentation**: [CLI command reference](https://docs.github.com/copilot/reference/cli-command-reference) for the complete list of commands and flags.
+> 📚 **Documentação oficial**: [Referência de comandos do CLI](https://docs.github.com/copilot/reference/cli-command-reference) para a lista completa de comandos e flags.
 
 <details>
 <summary>📚 <strong>Comandos adicionais</strong> (clique para expandir)</summary>

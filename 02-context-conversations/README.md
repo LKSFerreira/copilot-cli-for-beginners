@@ -17,7 +17,7 @@ Neste capítulo, você desbloqueará o verdadeiro poder do GitHub Copilot CLI: c
 
 ## 🎯 Objetivos de Aprendizagem
 
-By the end of this chapter, you'll be able to:
+Ao final deste capítulo, você será capaz de:
 
 - Usar a sintaxe `@` para referenciar arquivos, diretórios e imagens
 - Retomar sessões anteriores com `--resume` e `--continue`
@@ -161,7 +161,7 @@ copilot
 
 ---
 
-**What Copilot CLI discovers**:
+**O que o Copilot CLI descobre**:
 
 ```
 Cross-Module Analysis
@@ -196,9 +196,9 @@ Cross-Module Analysis
 
 ### Demo: Understand a Codebase in 60 Seconds
 
-<img src="assets/codebase-understanding.png" alt="Split-screen comparison showing manual code review taking 1 hour versus AI-assisted analysis taking 10 seconds" width="800" />
+<img src="assets/codebase-understanding.png" alt="Comparação em tela dividida mostrando revisão manual levando 1 hora versus análise assistida por IA levando 10 segundos" width="800" />
 
-New to a project? Learn about it quickly using Copilot CLI.
+Novo em um projeto? Conheça-o rapidamente usando o Copilot CLI.
 
 ```bash
 copilot
@@ -208,7 +208,7 @@ copilot
 > In one paragraph, what does this app do and what are its biggest quality issues?
 ```
 
-**What you get**:
+**O que você obtém**:
 ```
 This is a CLI book collection manager that lets users add, list, remove, and
 search books stored in a JSON file. The biggest quality issues are:
@@ -221,7 +221,7 @@ search books stored in a JSON file. The biggest quality issues are:
 Priority fix: Consolidate duplicate display functions and add input validation.
 ```
 
-**Result**: What takes an hour of code reading compressed into 10 seconds. You know exactly where to focus.
+**Resultado**: O que levaria uma hora de leitura de código é comprimido em 10 segundos. Você sabe exatamente onde focar.
 
 ---
 

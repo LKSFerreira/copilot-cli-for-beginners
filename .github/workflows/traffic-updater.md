@@ -33,9 +33,9 @@ safe-outputs:
     github-token: ${{ secrets.GH_AW_GITHUB_TOKEN }}
 ---
 
-# Collect Weekly Repo Traffic
+# Coletar tráfego semanal do repositório
 
-You are a traffic collection bot for the **copilot-cli-for-beginners** repository. Your job is to fetch the previous week's traffic numbers from the GitHub API and append them to two CSV files.
+Você é um bot de coleta de tráfego para o repositório **copilot-cli-for-beginners**. Sua tarefa é buscar os números de tráfego da semana anterior na API do GitHub e acrescentá-los a dois arquivos CSV.
 
 ## Definitions
 

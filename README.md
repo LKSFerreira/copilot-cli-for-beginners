@@ -22,9 +22,9 @@ weight: 0
 
 > **✨ Aprenda a potencializar seu fluxo de desenvolvimento com assistência por IA diretamente no terminal.**
 
-GitHub Copilot CLI brings AI assistance directly to your terminal. Instead of switching to a browser or code editor, you can ask questions, generate full-featured applications, review code, generate tests, and debug issues without leaving your command line.
+O GitHub Copilot CLI traz assistência por IA diretamente ao seu terminal. Em vez de alternar para um navegador ou editor de código, você pode fazer perguntas, gerar aplicações completas, revisar código, gerar testes e depurar problemas sem sair da linha de comando.
 
-Think of it as having a knowledgeable colleague available 24/7 who can read your code, explain confusing patterns, and help you work faster!
+Pense nele como um colega experiente disponível 24/7 que pode ler seu código, explicar padrões confusos e ajudar você a trabalhar mais rápido!
 
 > 📘 **Prefer a web experience?** You can follow this course right here on GitHub, or view it on [Awesome Copilot](https://awesome-copilot.github.com/learning-hub/cli-for-beginners/) for a more traditional browsing experience.
 
@@ -37,7 +37,7 @@ This course is designed for:
 <a name="what-youll-learn"></a>
 ## 🎯 O que você vai aprender
 
-This hands-on course takes you from zero to productive with GitHub Copilot CLI. You'll work with a single Python book collection app throughout all chapters, progressively improving it using AI-assisted workflows. By the end, you'll confidently use AI to review code, generate tests, debug issues, and automate workflows: all from your terminal.
+Este curso prático leva você do zero à produtividade com o GitHub Copilot CLI. Você trabalhará com um único app Python de coleção de livros ao longo de todos os capítulos, melhorando-o progressivamente com fluxos de trabalho assistidos por IA. Ao final, você usará com confiança a IA para revisar código, gerar testes, depurar problemas e automatizar fluxos — tudo a partir do terminal.
 
 **No AI experience required.** If you can use a terminal, you can learn this.
 
@@ -85,38 +85,38 @@ This course focuses on **GitHub Copilot CLI**, bringing AI assistance directly t
 <a name="how-this-course-works"></a>
 ## 📖 Como este curso funciona
 
-Each chapter follows the same pattern:
+Cada capítulo segue o mesmo padrão:
 
-1. **Real-World Analogy**: Understand the concept through familiar comparisons
-2. **Core Concepts**: Learn the essential knowledge
-3. **Hands-On Examples**: Run actual commands and see results
-4. **Assignment**: Practice what you learned
-5. **What's Next**: Preview of the following chapter
+1. **Analogia do mundo real**: Entenda o conceito por comparações familiares
+2. **Conceitos principais**: Aprenda o conhecimento essencial
+3. **Exemplos práticos**: Execute comandos reais e veja os resultados
+4. **Exercício**: Pratique o que aprendeu
+5. **O que vem a seguir**: Prévia do próximo capítulo
 
-**Code examples are runnable.** Every copilot text block in this course can be copied and run in your terminal.
+**Os exemplos de código são executáveis.** Todo bloco de texto do Copilot neste curso pode ser copiado e executado no seu terminal.
 
 ## 📋 Referência de comandos do GitHub Copilot CLI
 
-The **[GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference)** helps you find commands and keyboard shortcuts to help you use Copilot CLI effectively.
+A **[referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/cli-command-reference)** ajuda você a encontrar comandos e atalhos de teclado para usar o Copilot CLI de forma eficaz.
 
 <a name="getting-help"></a>
 ## 🙋 Obter ajuda
 
-- 🐛 **Found a bug?** [Open an Issue](https://github.com/github/copilot-cli-for-beginners/issues)
-- 📚 **Official Docs:** [GitHub Copilot CLI Documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+- 🐛 **Encontrou um bug?** [Abra uma issue](https://github.com/github/copilot-cli-for-beginners/issues)
+- 📚 **Documentação oficial:** [Documentação do GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
 
 <a name="contributing"></a>
 ## Como contribuir
 
-> **Note**: The code used in the course is designed to generate specific types of output during reviews, explanations, and debugging so we aren't able to accept PRs that change the existing code.
+> **Observação**: O código usado no curso foi projetado para gerar tipos específicos de saída durante revisões, explicações e depuração, portanto não podemos aceitar PRs que alterem o código existente.
 
-**How to contribute:**
+**Como contribuir:**
 
-1. Fork this repository and clone it to your machine
-2. Create a feature branch (`git checkout -b my-improvement`)
-3. Make your changes
-4. Submit a pull request
+1. Faça um fork deste repositório e clone-o na sua máquina
+2. Crie uma branch de funcionalidade (`git checkout -b minha-melhoria`)
+3. Faça suas alterações
+4. Envie um pull request
 
 ## License
 
-This project is licensed under the terms of the MIT open source license. Please refer to the [LICENSE](./LICENSE) file for the full terms.
+Este projeto é licenciado sob os termos da licença open source MIT. Consulte o arquivo [LICENSE](./LICENSE) para os termos completos.

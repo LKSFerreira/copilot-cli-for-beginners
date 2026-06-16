@@ -11,9 +11,9 @@ weight: 91
 
 # CI/CD Integration
 
-> 📖 **Prerequisite**: Complete [Chapter 07: Putting It All Together](../07-putting-it-together/README.md) before reading this appendix.
+> 📖 **Pré-requisito**: Conclua o [Capítulo 07: Colocando tudo junto](../07-putting-it-together/README.md) antes de ler este apêndice.
 >
-> ⚠️ **This appendix is for teams with existing CI/CD pipelines.** If you're new to GitHub Actions or CI/CD concepts, start with the simpler pre-commit hook approach in Chapter 07's [Code Review Automation](../07-putting-it-together/README.md#workflow-3-code-review-automation-optional) section.
+> ⚠️ **Este apêndice é para equipes que já possuem pipelines de CI/CD.** Se você é novo em GitHub Actions ou em conceitos de CI/CD, comece com a abordagem mais simples de pre-commit hook na seção [Code Review Automation](../07-putting-it-together/README.md#workflow-3-code-review-automation-optional) do Capítulo 07.
 
 This appendix shows how to integrate GitHub Copilot CLI into your CI/CD pipelines for automated code review on pull requests.
 
@@ -21,7 +21,7 @@ This appendix shows how to integrate GitHub Copilot CLI into your CI/CD pipeline
 
 ## GitHub Actions Workflow
 
-This workflow automatically reviews changed files when a pull request is opened or updated:
+Este workflow revisa automaticamente os arquivos alterados quando um pull request é aberto ou atualizado:
 
 ```yaml
 # .github/workflows/copilot-review.yml
@@ -89,9 +89,9 @@ jobs:
 
 ---
 
-## Configuration Options
+## Opções de Configuração
 
-### Limiting Review Scope
+### Limitando o Escopo da Revisão
 
 You can focus the review on specific types of issues:
 
@@ -103,7 +103,7 @@ copilot --allow-all -p "Security review of @$file. Check for: SQL injection, XSS
 copilot --allow-all -p "Performance review of @$file. Check for: N+1 queries, memory leaks, blocking operations." --silent
 ```
 
-### Handling Large PRs
+### Lidando com PRs grandes
 
 For PRs with many files, consider batching or limiting:
 
@@ -172,7 +172,7 @@ jobs:
 
 ---
 
-## Troubleshooting
+## Solução de problemas
 
 ### "Authentication failed" in CI
 

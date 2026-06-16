@@ -22,7 +22,7 @@ weight: 61
 
 ---
 
-Want to connect Copilot to your own APIs? Here's how to build a simple MCP server in Python that looks up book information, tying back to the book app project you've been using throughout this course.
+Quer conectar o Copilot às suas próprias APIs? Veja como construir um servidor MCP simples em Python que consulta informações sobre livros, integrando-se ao projeto do app de livros usado ao longo deste curso.
 
 ## Project Setup
 
@@ -32,7 +32,7 @@ cd book-lookup-mcp-server
 pip install mcp
 ```
 
-> 💡 **What is the `mcp` package?** It's the official Python SDK for building MCP servers. It handles the protocol details so you can focus on your tools.
+> 💡 **O que é o pacote `mcp`?** É o SDK oficial em Python para construir servidores MCP. Ele cuida dos detalhes do protocolo para que você possa focar nas suas ferramentas.
 
 ## Server Implementation
 

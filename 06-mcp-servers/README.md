@@ -21,7 +21,7 @@ Até agora, o Copilot só consegue trabalhar com o que você fornece diretamente
 
 ## 🎯 Objetivos de Aprendizagem
 
-By the end of this chapter, you'll be able to:
+Ao final deste capítulo, você será capaz de:
 
 - Entender o que é MCP e por que importa
 - Gerenciar servidores MCP usando os comandos `/mcp`
@@ -29,7 +29,7 @@ By the end of this chapter, you'll be able to:
 - Usar fluxos de trabalho com MCP no projeto do book app
 - Saber quando e como construir um servidor MCP customizado (opcional)
 
-> ⏱️ **Estimated Time**: ~50 minutes (15 min reading + 35 min hands-on)
+> ⏱️ **Tempo estimado**: ~50 minutos (15 min leitura + 35 min prático)
 
 ---
 
@@ -130,13 +130,13 @@ O MCP torna o Copilot ciente do seu ambiente de desenvolvimento.
 
 <img src="assets/configuring-mcp-servers.png" alt="Hands adjusting knobs and sliders on a professional audio mixing board representing MCP server configuration" width="800"/>
 
-Now that you've seen MCP in action, let's set up additional servers. You can add servers in two ways: **from the built-in registry** (easiest — guided setup right in the CLI) or by **editing the config file** manually (more flexible). Start with the registry option if you're not sure which to choose.
+Agora que você viu o MCP em ação, vamos configurar servidores adicionais. Você pode adicionar servidores de duas maneiras: **pelo registro embutido** (mais fácil — configuração guiada diretamente na CLI) ou **editando o arquivo de configuração** manualmente (mais flexível). Comece pelo registro se não souber qual escolher.
 
 ---
 
 ## Instalando servidores MCP a partir do registro
 
-The CLI has a built-in MCP server registry that lets you discover and install popular servers with a guided setup — no JSON editing required.
+A CLI possui um registro embutido de servidores MCP que permite descobrir e instalar servidores populares com configuração guiada — não é necessário editar JSON.
 
 ```bash
 copilot
@@ -146,7 +146,7 @@ copilot
 
 Copilot opens an interactive picker showing available servers. Select one, and the CLI walks you through any required configuration (API keys, paths, etc.) and adds it to your config automatically.
 
-> 💡 **Why use the registry?** It's the easiest way to get started — you don't need to know the npm package name, command arguments, or JSON structure. The CLI handles all of that for you.
+> 💡 **Por que usar o registro?** É a forma mais fácil de começar — você não precisa saber o nome do pacote npm, os argumentos de comando ou a estrutura JSON. A CLI cuida de tudo isso para você.
 
 ---
 
@@ -194,7 +194,7 @@ MCP servers are configured in `~/.copilot/mcp-config.json` (user-level, applies 
 
 ## Adicionando servidores MCP
 
-The GitHub MCP server is built-in and requires no setup. Below are additional servers you can add. **Pick what interests you, or work through them in order.**
+O servidor GitHub MCP é embutido e não requer configuração. Abaixo estão servidores adicionais que você pode adicionar. **Escolha o que mais lhe interessar ou percorra-os na ordem sugerida.**
 
 | I want to... | Jump to |
 |---|---|
@@ -221,7 +221,7 @@ The GitHub MCP server is built-in and requires no setup. Below are additional se
 }
 ```
 
-> 💡 **The `.` path**: The `.` means "current directory". Copilot can access files relative to where you launched it. In a Codespace, this is your workspace root. You can also use an absolute path like `/workspaces/copilot-cli-for-beginners` if you prefer.
+> 💡 **O caminho `.`**: O `.` significa "diretório atual". O Copilot pode acessar arquivos relativos ao local onde foi iniciado. Em um Codespace, este é o diretório raiz do workspace. Você também pode usar um caminho absoluto como `/workspaces/copilot-cli-for-beginners` se preferir.
 
 Add this to your `~/.copilot/mcp-config.json` and restart Copilot.
 

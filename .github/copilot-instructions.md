@@ -1,14 +1,14 @@
 # Copilot Instructions
 
-These instructions guide GitHub Copilot when working in this repository.
+Estas instruções orientam o GitHub Copilot ao trabalhar neste repositório.
 
-## Project Context
+## Contexto do projeto
 
-This is a **beginner-friendly educational course** teaching GitHub Copilot CLI. The repo contains Markdown chapters (00–07), Python/C#/JavaScript sample apps, and supporting assets (images, demo GIFs, glossary). It is **not** a software product — it is technical courseware.
+Este é um **curso educacional voltado a iniciantes** que ensina o GitHub Copilot CLI. O repositório contém capítulos em Markdown (00–07), apps de exemplo em Python/C#/JavaScript e recursos de apoio (imagens, GIFs de demonstração, glossário). Não é um produto de software — é material didático técnico.
 
-## Writing Conventions
+## Convenções de escrita
 
-- **Audience**: Beginners with no AI/ML experience. Explain every technical term on first use.
+- **Público**: Iniciantes sem experiência em AI/ML. Explique cada termo técnico na primeira aparição.
 - **Tone**: Friendly, encouraging, practical. Avoid jargon without explanation.
 - **Examples**: All code blocks and `copilot` commands must be copy-paste ready. Test them mentally before including.
 - **Naming**: Use kebab-case for session names, file names, and identifiers (e.g., `book-app-review`, not `book app review`).

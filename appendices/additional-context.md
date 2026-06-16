@@ -9,19 +9,19 @@ weight: 92
 ---
 -->
 
-# Additional Context Features
+# Recursos Adicionais de Contexto
 
-> 📖 **Prerequisite**: Complete [Chapter 02: Context and Conversations](../02-context-conversations/README.md) before reading this appendix.
+> 📖 **Pré-requisito**: Conclua o [Capítulo 02: Contexto e Conversas](../02-context-conversations/README.md) antes de ler este apêndice.
 
-This appendix covers two additional context features: working with images and managing permissions across multiple directories.
+Este apêndice aborda duas funcionalidades adicionais de contexto: trabalhar com imagens e gerenciar permissões em múltiplos diretórios.
 
 ---
 
-## Working with Images
+## Trabalhando com imagens
 
 You can include images in your conversations using the `@` syntax. Copilot can analyze screenshots, mockups, diagrams, and other visual content.
 
-### Basic Image Reference
+### Referência básica de imagem
 
 ```bash
 copilot
@@ -35,9 +35,9 @@ copilot
 # You can also drag and drop images or paste from clipboard
 ```
 
-### Supported Image Formats
+### Formatos de imagem suportados
 
-| Format | Best For |
+| Formato | Melhor para |
 |--------|----------|
 | PNG | Screenshots, UI mockups, diagrams |
 | JPG/JPEG | Photos, complex images |
@@ -82,7 +82,7 @@ copilot
 > The header looks wrong in the screenshot. What's causing it in the code?
 ```
 
-### Image Tips
+### Dicas para imagens
 
 - **Crop screenshots** to show only relevant portions (saves context tokens)
 - **Use high contrast** for UI elements you want analyzed
@@ -91,11 +91,11 @@ copilot
 
 ---
 
-## Permission Patterns
+## Padrões de Permissão
 
 By default, Copilot can access files in your current directory. For files elsewhere, you need to grant access.
 
-### Add Directories
+### Adicionar diretórios
 
 ```bash
 # Add a directory to the allowed list
@@ -105,14 +105,14 @@ copilot --add-dir /path/to/other/project
 copilot --add-dir ~/workspace --add-dir /tmp
 ```
 
-### Allow All Paths
+### Permitir todos os caminhos
 
 ```bash
 # Disable path restrictions entirely (use with caution)
 copilot --allow-all-paths
 ```
 
-### Inside a Session
+### Dentro de uma sessão
 
 ```bash
 copilot
@@ -127,7 +127,7 @@ copilot
 # Quick alias for /allow-all on — auto-approves all permission prompts
 ```
 
-### For Automation
+### Para automação
 
 ```bash
 # Allow all permissions for non-interactive scripts
@@ -137,7 +137,7 @@ copilot -p "Review @src/" --allow-all
 copilot -p "Review @src/" --yolo
 ```
 
-### When You Need Multi-Directory Access
+### Quando precisar de acesso a múltiplos diretórios
 
 Common scenarios where you'll need these permissions:
 
@@ -148,4 +148,4 @@ Common scenarios where you'll need these permissions:
 
 ---
 
-**[← Back to Chapter 02](../02-context-conversations/README.md)** | **[Return to Appendices](README.md)**
+**[← Voltar ao Capítulo 02](../02-context-conversations/README.md)** | **[Voltar aos Apêndices](README.md)**

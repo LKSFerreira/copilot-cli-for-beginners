@@ -19,7 +19,7 @@ Até agora, você tem usado o Copilot CLI como um assistente de uso geral. Agent
 
 ## 🎯 Objetivos de Aprendizagem
 
-By the end of this chapter, you'll be able to:
+Ao final deste capítulo, você será capaz de:
 
 - Usar agentes embutidos: Plan (`/plan`), Code-review (`/review`) e entender agentes automáticos (Explore, Task)
 - Criar agentes especializados usando arquivos de agente (`.agent.md`)
@@ -49,7 +49,7 @@ Agents work the same way. Instead of a generic AI, use agents that focus on spec
 
 # Usando Agents
 
-Get started with built-in and custom agents right away.
+Comece agora com agentes embutidos e personalizados.
 
 ---
 
@@ -100,7 +100,7 @@ copilot
 > Explore how book data is loaded    # Uses Explore agent
 ```
 
-What about the Task Agent? It works behind the scenes to manage and track what is going on and to report back in a clean and clear format:
+E o Agent Task? Ele atua nos bastidores para gerenciar e acompanhar as atividades, retornando resultados de forma clara e concisa:
 
 | Outcome | What You See |
 |---------|--------------|
@@ -108,7 +108,7 @@ What about the Task Agent? It works behind the scenes to manage and track what i
 | ❌ **Failure** | Full output with stack traces, compiler errors, and detailed logs |
 
 
-> 📚 **Official Documentation**: [GitHub Copilot CLI Agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents)
+> 📚 **Documentação oficial**: [Agentes do GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents)
 
 ---
 

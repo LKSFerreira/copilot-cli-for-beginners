@@ -1,10 +1,10 @@
-# Support
+# Suporte
 
-## How to file issues and get help
+## Como abrir issues e obter ajuda
 
-This project uses GitHub issues to track bugs and feature requests. Please search the existing issues before filing new issues to avoid duplicates. For new issues, file your bug or feature request as a new issue.
+Este projeto usa o sistema de Issues do GitHub para rastrear bugs e solicitações de recursos. Por favor, pesquise as issues existentes antes de abrir uma nova para evitar duplicatas. Para novos problemas, abra uma issue descrevendo o bug ou solicitação de recurso.
 
-For help or questions about using this project, please file an issue.
+Para ajuda ou dúvidas sobre o uso deste projeto, por favor abra uma issue.
 
 ## GitHub Support Policy
 

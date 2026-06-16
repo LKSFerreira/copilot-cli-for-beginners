@@ -99,7 +99,7 @@ Siga estes passos se quiser executar o Copilot CLI em sua máquina local com os 
     ```
 
 <details>
-<summary>Optional: Enable shell tab completion</summary>
+<summary>Opcional: Ativar conclusão por tabulação no shell</summary>
 
 Shell tab completion lets you press **Tab** to complete `copilot` subcommands, command options, and some option values. This is optional, but it can be handy once you're comfortable using the CLI.
 
@@ -109,7 +109,7 @@ Copilot CLI currently supports completion scripts for Bash, Zsh, and Fish:
 # Bash, somente na sessão atual
 source <(copilot completion bash)
 
-# Bash, persistent on Linux
+# Bash, persistente no Linux
 copilot completion bash | sudo tee /etc/bash_completion.d/copilot
 
 # Zsh
@@ -146,16 +146,16 @@ Após confiar na pasta, você pode entrar com sua conta GitHub.
 **O que acontece em seguida:**
 
 1. O Copilot CLI exibe um código temporário (ex.: `ABCD-1234`)
-2. Your browser opens to GitHub's device authorization page. Sign in to GitHub if you haven't already.
-3. Enter the code when prompted
-4. Select "Authorize" to grant GitHub Copilot CLI access
-5. Return to your terminal - you're now signed in!
+2. Seu navegador abrirá a página de autorização de dispositivo do GitHub. Faça login no GitHub se ainda não o fez.
+3. Insira o código quando solicitado
+4. Selecione "Authorize" (Autorizar) para conceder acesso ao GitHub Copilot CLI
+5. Retorne ao terminal — você agora está autenticado!
 
 <img src="assets/auth-device-flow.png" alt="Device Authorization Flow - showing the 5-step process from terminal login to signed-in confirmation" width="800"/>
 
 *Fluxo de autorização de dispositivo: seu terminal gera um código, você o verifica no navegador e o Copilot CLI é autenticado.*
 
-**Tip**: The sign-in persists across sessions. You only need to do this once unless your token expires or you explicitly sign out.
+**Dica**: O login persiste entre as sessões. Você só precisa fazer isso uma vez, a menos que seu token expire ou você faça logout explicitamente.
 
 ---
 
@@ -213,11 +213,11 @@ copilot
 > What does @samples/book-app-project/book_app.py do?
 ```
 
-**Expected output**: A summary of the book app's main functions and commands.
+**Saída esperada**: Um resumo das principais funções e comandos do app de livros.
 
 Se você vir um erro, verifique a seção de [solução de problemas](#troubleshooting) abaixo.
 
-Once you're done you can exit the Copilot CLI:
+Quando terminar, você pode sair do Copilot CLI:
 
 ```bash
 > /exit
@@ -241,7 +241,7 @@ Isso é tudo para a instalação. A parte prática começa no Capítulo 01, onde
 
 ### "copilot: comando não encontrado"
 
-The CLI isn't installed. Try a different installation method:
+A CLI não está instalada. Tente um método de instalação diferente:
 
 ```bash
 # If brew failed, try npm:
@@ -253,12 +253,12 @@ curl -fsSL https://gh.io/copilot-install | bash
 
 ### "Você não tem acesso ao GitHub Copilot"
 
-1. Verify you have a Copilot subscription at [github.com/settings/copilot](https://github.com/settings/copilot)
-2. Check that your organization permits CLI access if using a work account
+1. Verifique se você possui uma assinatura do Copilot em [github.com/settings/copilot](https://github.com/settings/copilot)
+2. Verifique se a sua organização permite acesso ao CLI caso esteja usando uma conta de trabalho
 
 ### "Autenticação falhou"
 
-Re-authenticate:
+Reautenticar:
 
 ```bash
 copilot
@@ -267,34 +267,34 @@ copilot
 
 ### O navegador não abre automaticamente
 
-Manually visit [github.com/login/device](https://github.com/login/device) and enter the code shown in your terminal.
+Visite manualmente [github.com/login/device](https://github.com/login/device) e insira o código exibido no seu terminal.
 
 ### Token expirado
 
-Simply run `/login` again:
+Basta executar `/login` novamente:
 
 ```bash
 copilot
 > /login
 ```
 
-### Still stuck?
+### Ainda com problemas?
 
-- Check the [GitHub Copilot CLI documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
-- Search [GitHub Issues](https://github.com/github/copilot-cli/issues)
+- Verifique a [documentação do GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+- Pesquise por problemas em [GitHub Issues](https://github.com/github/copilot-cli/issues)
 
 ---
 
-## 🔑 Key Takeaways
+## 🔑 Principais aprendizados
 
-1. **A GitHub Codespace is a quick way to get started** - Python, pytest, and GitHub Copilot CLI are all pre-installed so you can jump right into the demos
-2. **Multiple installation methods** - Choose what works for your system (Homebrew, WinGet, npm, or install script)
-3. **One-time authentication** - Login persists until token expires
-4. **The book app works** - You'll use `samples/book-app-project` throughout the entire course
+1. **Um GitHub Codespace é uma forma rápida de começar** — Python, pytest e o GitHub Copilot CLI já vêm pré-instalados, permitindo iniciar as demos imediatamente
+2. **Múltiplos métodos de instalação** — Escolha o que funciona para o seu sistema (Homebrew, WinGet, npm ou script de instalação)
+3. **Autenticação única** — O login persiste até que o token expire
+4. **O app de livros funciona** — Você usará `samples/book-app-project` ao longo de todo o curso
 
-> 📚 **Official Documentation**: [Install Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started) for installation options and requirements.
+> 📚 **Documentação oficial**: [Instalar o Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started) para opções de instalação e requisitos.
 
-> 📋 **Quick Reference**: See the [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference) for a complete list of commands and shortcuts.
+> 📋 **Referência rápida**: Veja a [referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/cli-command-reference) para a lista completa de comandos e atalhos.
 
 ---
 

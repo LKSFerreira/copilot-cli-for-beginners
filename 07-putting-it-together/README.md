@@ -19,14 +19,14 @@ Neste capítulo, você reunirá tudo o que aprendeu em fluxos de trabalho comple
 
 ## 🎯 Objetivos de Aprendizagem
 
-By the end of this chapter, you'll be able to:
+Ao final deste capítulo, você será capaz de:
 
 - Combinar agents, skills e MCP (Model Context Protocol) em fluxos unificados
 - Construir funcionalidades completas usando abordagens multi-ferramenta
 - Configurar automações básicas com hooks
 - Aplicar as melhores práticas para desenvolvimento profissional
 
-> ⏱️ **Estimated Time**: ~75 minutes (15 min reading + 60 min hands-on)
+> ⏱️ **Tempo estimado**: ~75 minutos (15 min leitura + 60 min prático)
 
 ---
 
@@ -114,7 +114,7 @@ copilot
 
 **The key insight**: You directed specialists like an architect. They handled the details. You handled the vision.
 
-> 💡 **Going further**: For large multi-step plans like this, try `/fleet` to let Copilot run independent subtasks in parallel. See the [official docs](https://docs.github.com/copilot/concepts/agents/copilot-cli/fleet) for details.
+> 💡 **Indo além**: Para planos multi-etapa grandes como este, experimente `/fleet` para permitir que o Copilot execute subtarefas independentes em paralelo. Consulte a [documentação oficial](https://docs.github.com/copilot/concepts/agents/copilot-cli/fleet) para mais detalhes.
 
 ---
 

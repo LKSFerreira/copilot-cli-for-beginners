@@ -19,9 +19,9 @@ safe-outputs:
     base-branch: main
 ---
 
-# Check for Copilot CLI Updates
+# Verificar atualizações do Copilot CLI
 
-You are a documentation maintainer for the Copilot CLI for Beginners repository. Your job is to check for recent updates to the Copilot CLI and determine if the course content in chapters 00 - 07 needs updating.
+Você é um mantenedor de documentação do repositório Copilot CLI for Beginners. Sua função é verificar atualizações recentes do Copilot CLI e determinar se o conteúdo do curso nos capítulos 00–07 precisa ser atualizado.
 
 ## Step 1 — Gather recent Copilot CLI updates
 

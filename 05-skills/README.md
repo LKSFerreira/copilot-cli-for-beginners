@@ -207,28 +207,28 @@ copilot
 
 *Just ask naturally. Copilot matches your prompt to the right skill and applies it automatically.*
 
-**Output**:
+**Saída**:
 ```
-## Code Checklist: books.py
+## Checklist de Código: books.py
 
-### Code Quality
-- [PASS] All functions have type hints
-- [PASS] No bare except clauses
-- [PASS] No mutable default arguments
-- [PASS] Context managers used for file I/O
-- [PASS] Functions are under 50 lines
-- [PASS] Variable and function names follow PEP 8
+### Qualidade de Código
+- [PASS] Todas as funções possuem type hints
+- [PASS] Sem cláusulas "bare except"
+- [PASS] Sem argumentos padrão mutáveis
+- [PASS] Context managers usados para I/O de arquivos
+- [PASS] Funções com menos de 50 linhas
+- [PASS] Nomes de variáveis e funções seguem PEP 8
 
-### Input Validation
-- [FAIL] User input is not validated - add_book() accepts any year value
-- [FAIL] Edge cases not fully handled - empty strings accepted for title/author
-- [PASS] Error messages are clear and helpful
+### Validação de Entrada
+- [FAIL] A entrada do usuário não é validada - add_book() aceita qualquer valor de ano
+- [FAIL] Casos de borda não tratados completamente - strings vazias aceitas para título/autor
+- [PASS] Mensagens de erro são claras e úteis
 
-### Testing
-- [FAIL] No corresponding pytest tests found
+### Testes
+- [FAIL] Nenhum teste pytest correspondente encontrado
 
-### Summary
-3 items need attention before merge
+### Resumo
+3 itens precisam de atenção antes do merge
 ```
 
 **The difference**: Your team's standards are applied automatically, every time, without typing them out.

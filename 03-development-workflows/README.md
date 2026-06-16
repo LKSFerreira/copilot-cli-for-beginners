@@ -17,7 +17,7 @@ Neste capítulo, o GitHub Copilot CLI se tornará sua ferramenta diária. Você 
 
 ## 🎯 Objetivos de Aprendizagem
 
-By the end of this chapter, you'll be able to:
+Ao final deste capítulo, você será capaz de:
 
 - Executar revisões de código abrangentes com o Copilot CLI
 - Refatorar código legado com segurança
@@ -43,7 +43,7 @@ Da mesma forma, desenvolvedores têm fluxos de trabalho para diferentes tarefas.
 
 <img src="assets/five-workflows.png" alt="Five glowing neon icons representing code review, testing, debugging, refactoring, and git integration workflows" width="800"/>
 
-Each workflow below is self-contained. Pick the ones that match your current needs, or work through them all.
+Cada fluxo abaixo é autocontido. Escolha os que correspondem às suas necessidades atuais ou percorra todos.
 
 ---
 
@@ -53,15 +53,15 @@ Este capítulo aborda cinco fluxos de trabalho típicos de desenvolvedores. **No
 
 <img src="assets/five-workflows-swimlane.png" alt="Five Development Workflows: Code Review, Refactoring, Debugging, Test Generation, and Git Integration shown as horizontal swimlanes" width="800"/>
 
-| I want to... | Jump to |
+| Quero... | Ir para |
 |---|---|
-| Review code before merging | [Workflow 1: Code Review](#workflow-1-code-review) |
-| Clean up messy or legacy code | [Workflow 2: Refactoring](#workflow-2-refactoring) |
-| Track down and fix a bug | [Workflow 3: Debugging](#workflow-3-debugging) |
-| Generate tests for my code | [Workflow 4: Test Generation](#workflow-4-test-generation) |
-| Write better commits and PRs | [Workflow 5: Git Integration](#workflow-5-git-integration) |
-| Research before coding | [Quick Tip: Research Before You Plan or Code](#quick-tip-research-before-you-plan-or-code) |
-| See a full bug-fix workflow end to end | [Putting It All Together](#putting-it-all-together-bug-fix-workflow) |
+| Revisar código antes de mesclar | [Fluxo 1: Revisão de Código](#workflow-1-code-review) |
+| Limpar código confuso ou legado | [Fluxo 2: Refatoração](#workflow-2-refactoring) |
+| Localizar e corrigir um bug | [Fluxo 3: Depuração](#workflow-3-debugging) |
+| Gerar testes para meu código | [Fluxo 4: Geração de Testes](#workflow-4-test-generation) |
+| Escrever commits e PRs melhores | [Fluxo 5: Integração com Git](#workflow-5-git-integration) |
+| Pesquisar antes de codar | [Dica Rápida: Pesquisar antes de planejar ou codar](#quick-tip-research-before-you-plan-or-code) |
+| Ver um fluxo de correção de bug completo | [Colocando tudo junto](#putting-it-all-together-bug-fix-workflow) |
 
 **Selecione um fluxo abaixo para expandi-lo** e veja como o GitHub Copilot CLI pode aprimorar seu processo de desenvolvimento nessa área.
 
@@ -69,7 +69,7 @@ Este capítulo aborda cinco fluxos de trabalho típicos de desenvolvedores. **No
 
 <a id="workflow-1-code-review"></a>
 <details>
-<summary><strong>Workflow 1: Code Review</strong> - Review files, use the /review agent, create severity checklists</summary>
+<summary><strong>Fluxo 1: Revisão de Código</strong> - Revisar arquivos, usar o agente /review, criar checklists por severidade</summary>
 
 <img src="assets/code-review-swimlane-single.png" alt="Code review workflow: review, identify issues, prioritize, generate checklist." width="800"/>
 
@@ -158,10 +158,10 @@ copilot
 
 Antes de usar o comando `/review`, você precisa entender dois tipos de alterações no git:
 
-| Change Type | What It Means | How to See |
+| Tipo de alteração | O que significa | Como ver |
 |-------------|---------------|------------|
-| **Staged changes** | Files you've marked for the next commit with `git add` | `git diff --staged` |
-| **Unstaged changes** | Files you've modified but haven't added yet | `git diff` |
+| **Staged changes** | Arquivos marcados para o próximo commit com `git add` | `git diff --staged` |
+| **Unstaged changes** | Arquivos modificados que ainda não foram adicionados | `git diff` |
 
 ```bash
 # Quick reference
@@ -186,7 +186,7 @@ copilot
 # Run review with specific focus area
 ```
 
-> 💡 **Tip**: The code-review agent works best when you have pending changes. Stage your files with `git add` for more focused reviews.
+> 💡 **Dica**: O agente de revisão de código funciona melhor quando há mudanças pendentes. Adicione seus arquivos com `git add` para revisões mais focadas.
 
 </details>
 

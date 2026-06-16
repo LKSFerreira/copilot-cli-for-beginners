@@ -1,7 +1,7 @@
 I18N pt-BR — Diretrizes de Tradução
 
 Escopo
-- Traduzir somente material didático (.md): capítulos (00–07), README.md, AGENTS.md, GLOSSARY.md, SKILL.md, arquivos de samples com documentação. Não traduzir código, nomes de ficheiros, variáveis, nomes de funções, ou samples intencionalmente buggy.
+- Traduzir somente material didático, Exemplo: capítulos (00–07), README.md, AGENTS.md, GLOSSARY.md, SKILL.md, arquivos de samples com documentação. Não traduzir código, nomes de ficheiros, variáveis, nomes de funções, A tradução deve ser feito em tudo que é necessário para leitura e compreensão do usuário, a parte do front-end.
 - Preservar blocos de código, YAML frontmatter, anchors e links relativos.
 
 Terminologia e escolhas de tradução
@@ -13,7 +13,7 @@ Terminologia e escolhas de tradução
 Estilo e tom
 - Explicar termos técnicos na primeira ocorrência; use linguagem simples para iniciantes.
 - Manter estrutura dos capítulos: Analogia → Conceitos → Hands-on → Assignment → Next.
-- Preserve exemplos copy-paste prontos (comandos `--flag=value` etc.) exatamente como aparecem.
+- Links de conexão de arquivo, referencias devem ser mantidos, mas templates, label, texto e tudo que for mostrado para o usário deve ser traduzido.
 
 Formato e qualidade
 - Não editar código nos exemplos. Se uma explicação referir-se a uma palavra em inglês, pode-se inserir a tradução entre parênteses sem remover o original.
