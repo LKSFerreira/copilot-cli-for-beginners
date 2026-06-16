@@ -3,25 +3,25 @@ name: pytest-gen
 description: Generate comprehensive pytest tests - use when generating tests, creating test suites, or testing Python code
 ---
 
-# Pytest Generation Skill
+# Geração de testes com pytest
 
-When generating tests, follow this structure.
+Ao gerar testes, siga esta estrutura.
 
-## Test Organization
+## Organização dos Testes
 
-- Group tests by function under test
-- Use `@pytest.mark.parametrize` for multiple inputs
-- Use fixtures for shared setup
-- Follow arrange/act/assert pattern
+- Agrupe os testes pela função que está sendo testada
+- Use `@pytest.mark.parametrize` para múltiplas entradas
+- Use fixtures para setup compartilhado
+- Siga o padrão arrange/act/assert (organizar/agir/afirmar)
 
-## Coverage Requirements
+## Requisitos de Cobertura
 
-- Happy path (expected usage)
-- Edge cases (empty strings, None, boundary values)
-- Error cases (invalid input, file not found, wrong types)
-- Integration (functions working together)
+- Cenário de sucesso (uso esperado)
+- Casos de borda (strings vazias, None, valores limite)
+- Casos de erro (entrada inválida, arquivo não encontrado, tipos incorretos)
+- Integração (funções trabalhando em conjunto)
 
-## Template
+## Modelo (Template)
 
 ```python
 import pytest
@@ -30,12 +30,12 @@ from module_under_test import function_to_test
 
 @pytest.fixture
 def sample_data():
-    """Provide shared test data."""
+    """Fornece dados de teste compartilhados."""
     return {"key": "value"}
 
 
 class TestFunctionName:
-    """Tests for function_name."""
+    """Testes para function_name."""
 
     def test_happy_path(self, sample_data):
         result = function_to_test(valid_input)

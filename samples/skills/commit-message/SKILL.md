@@ -3,49 +3,49 @@ name: commit-message
 description: Generate conventional commit messages - use when creating commits, writing commit messages, or asking for git commit help
 ---
 
-# Commit Message Skill
+# Skill de Mensagens de Commit
 
-Generate commit messages following the Conventional Commits specification.
+Gere mensagens de commit seguindo a especificação Conventional Commits.
 
-## Format
+## Formato
 
 ```
 <type>(<scope>): <description>
 
-[optional body]
+[corpo opcional]
 
-[optional footer]
+[rodapé opcional]
 ```
 
-## Types
+## Tipos
 
-| Type | When to Use |
+| Tipo | Quando usar |
 |------|-------------|
-| `feat` | New feature |
-| `fix` | Bug fix |
-| `docs` | Documentation only |
-| `style` | Formatting (no code change) |
-| `refactor` | Code change that neither fixes nor adds |
-| `perf` | Performance improvement |
-| `test` | Adding or updating tests |
-| `chore` | Maintenance tasks |
+| `feat` | Nova funcionalidade |
+| `fix` | Correção de bug |
+| `docs` | Somente documentação |
+| `style` | Formatação (sem mudança de código) |
+| `refactor` | Mudança de código que não corrige nem adiciona funcionalidade |
+| `perf` | Melhoria de desempenho |
+| `test` | Adição ou atualização de testes |
+| `chore` | Tarefas de manutenção |
 
-## Rules
+## Regras
 
-1. Subject line maximum 72 characters
-2. Use imperative mood ("add" not "added" or "adds")
-3. No period at the end of subject line
-4. Separate subject from body with blank line
-5. Body explains **what** and **why**, not how
+1. Linha de assunto com no máximo 72 caracteres
+2. Use o imperativo ("add" em vez de "added" ou "adds")
+3. Sem ponto final na linha de assunto
+4. Separe assunto e corpo com uma linha em branco
+5. O corpo explica **o que** e **por que**, não como
 
-## Examples
+## Exemplos
 
-Simple:
+Simples:
 ```
 fix(auth): prevent redirect loop on expired sessions
 ```
 
-With body:
+Com corpo:
 ```
 feat(api): add rate limiting to public endpoints
 

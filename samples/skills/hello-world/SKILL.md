@@ -3,18 +3,18 @@ name: hello-world
 description: A minimal skill example - use when learning the skill format
 ---
 
-# Hello World Skill
+# Skill Hello World
 
-This is the simplest possible skill. It demonstrates the required format.
+Esta é a skill mais simples possível. Demonstra o formato obrigatório.
 
-## When This Skill Activates
+## Quando esta Skill é ativada
 
-This skill loads when you mention "hello world skill" or "test my skills setup".
+Esta skill é carregada quando você menciona "hello world skill" ou "test my skills setup".
 
-## What It Does
+## O que ela faz
 
-Responds with a friendly confirmation that skills are working.
+Responde com uma confirmação amigável de que as skills estão funcionando.
 
-## Try It
+## Teste
 
-Ask Copilot: "Test my skills setup" or "Use the hello world skill"
+Peça ao Copilot: "Test my skills setup" ou "Use the hello world skill"
