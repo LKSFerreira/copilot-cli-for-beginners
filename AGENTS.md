@@ -28,6 +28,10 @@ Curso voltado para iniciantes que ensina o GitHub Copilot CLI. Conteúdo educaci
 - Use caminhos em `samples/book-app-project/` em todos os exemplos principais
 - Use contexto Python/pytest para exemplos de código
 
+## Regra para leitura de arquivos
+
+Quando usar a ferramenta `read`, prefira ler arquivos inteiros sempre que possível com `offset=1` e `limit=700`. Para arquivos grandes, leia em blocos de 700 linhas e informe claramente o intervalo lido. Não use `limit` pequeno de forma conservadora quando o arquivo parece ter poucas linhas.
+
 ## Não Fazer
 
 - Corrigir bugs em `samples/book-app-buggy/` ou `samples/buggy-code/` — são intencionais

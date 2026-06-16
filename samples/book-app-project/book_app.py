@@ -7,12 +7,12 @@ collection = BookCollection()
 
 
 def show_books(books):
-    """Display books in a user-friendly format."""
+    """Exibe livros em um formato amigável ao usuário."""
     if not books:
-        print("No books found.")
+        print("Nenhum livro encontrado.")
         return
 
-    print("\nYour Book Collection:\n")
+    print("\nSua Coleção de Livros:\n")
 
     for index, book in enumerate(books, start=1):
         status = "✓" if book.read else " "
@@ -27,33 +27,33 @@ def handle_list():
 
 
 def handle_add():
-    print("\nAdd a New Book\n")
+    print("\nAdicionar um Novo Livro\n")
 
-    title = input("Title: ").strip()
-    author = input("Author: ").strip()
-    year_str = input("Year: ").strip()
+    title = input("Título: ").strip()
+    author = input("Autor: ").strip()
+    year_str = input("Ano: ").strip()
 
     try:
         year = int(year_str) if year_str else 0
         collection.add_book(title, author, year)
-        print("\nBook added successfully.\n")
+        print("\nLivro adicionado com sucesso.\n")
     except ValueError as e:
-        print(f"\nError: {e}\n")
+        print(f"\nErro: {e}\n")
 
 
 def handle_remove():
-    print("\nRemove a Book\n")
+    print("\nRemover um Livro\n")
 
-    title = input("Enter the title of the book to remove: ").strip()
+    title = input("Digite o título do livro a remover: ").strip()
     collection.remove_book(title)
 
-    print("\nBook removed if it existed.\n")
+    print("\nLivro removido, se existia.\n")
 
 
 def handle_find():
-    print("\nFind Books by Author\n")
+    print("\nEncontrar Livros por Autor\n")
 
-    author = input("Author name: ").strip()
+    author = input("Nome do autor: ").strip()
     books = collection.find_by_author(author)
 
     show_books(books)
@@ -61,14 +61,14 @@ def handle_find():
 
 def show_help():
     print("""
-Book Collection Helper
+Assistente de Coleção de Livros
 
-Commands:
-  list     - Show all books
-  add      - Add a new book
-  remove   - Remove a book by title
-  find     - Find books by author
-  help     - Show this help message
+Comandos:
+  list     - Mostrar todos os livros
+  add      - Adicionar um novo livro
+  remove   - Remover um livro por título
+  find     - Encontrar livros por autor
+  help     - Mostrar esta mensagem de ajuda
 """)
 
 
@@ -90,7 +90,7 @@ def main():
     elif command == "help":
         show_help()
     else:
-        print("Unknown command.\n")
+        print("Comando desconhecido.\n")
         show_help()
 
 

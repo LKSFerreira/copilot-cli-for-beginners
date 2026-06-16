@@ -1,25 +1,25 @@
 def print_menu():
-    print("\n📚 Book Collection App")
-    print("1. Add a book")
-    print("2. List books")
-    print("3. Mark book as read")
-    print("4. Remove a book")
-    print("5. Exit")
+    print("\n📚 Aplicativo Coleção de Livros")
+    print("1. Adicionar um livro")
+    print("2. Listar livros")
+    print("3. Marcar livro como lido")
+    print("4. Remover um livro")
+    print("5. Sair")
 
 
 def get_user_choice() -> str:
-    return input("Choose an option (1-5): ").strip()
+    return input("Escolha uma opção (1-5): ").strip()
 
 
 def get_book_details():
-    title = input("Enter book title: ").strip()
-    author = input("Enter author: ").strip()
+    title = input("Digite o título do livro: ").strip()
+    author = input("Digite o autor: ").strip()
 
-    year_input = input("Enter publication year: ").strip()
+    year_input = input("Digite o ano de publicação: ").strip()
     try:
         year = int(year_input)
     except ValueError:
-        print("Invalid year. Defaulting to 0.")
+        print("Ano inválido. Usando padrão 0.")
         year = 0
 
     return title, author, year
@@ -27,10 +27,10 @@ def get_book_details():
 
 def print_books(books):
     if not books:
-        print("No books in your collection.")
+        print("Nenhum livro na sua coleção.")
         return
 
-    print("\nYour Books:")
+    print("\nSeus Livros:")
     for index, book in enumerate(books, start=1):
-        status = "✅ Read" if book.read else "📖 Unread"
-        print(f"{index}. {book.title} by {book.author} ({book.year}) - {status}")
+        status = "✅ Lido" if book.read else "📖 Não lido"
+        print(f"{index}. {book.title} por {book.author} ({book.year}) - {status}")

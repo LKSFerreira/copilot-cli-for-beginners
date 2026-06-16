@@ -9,7 +9,7 @@ from books import BookCollection
 
 @pytest.fixture(autouse=True)
 def use_temp_data_file(tmp_path, monkeypatch):
-    """Use a temporary data file for each test."""
+    """Use um arquivo de dados temporário para cada teste."""
     temp_file = tmp_path / "data.json"
     temp_file.write_text("[]")
     monkeypatch.setattr(books, "DATA_FILE", str(temp_file))

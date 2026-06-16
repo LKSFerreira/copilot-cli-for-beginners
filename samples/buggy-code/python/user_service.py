@@ -1,15 +1,15 @@
-# user_service.py - Sample code with intentional bugs for practice
-# Use this file to practice code review and debugging with GitHub Copilot CLI
+# user_service.py - Código de exemplo com bugs intencionais para prática
+# Use este arquivo para praticar revisão de código e depuração com GitHub Copilot CLI
 #
-# Try these commands:
-#   copilot --allow-all -p "Review @samples/buggy-code/python/user_service.py for security issues"
-#   copilot --allow-all -p "Find all bugs in @samples/buggy-code/python/user_service.py"
+# Tente estes comandos:
+#   copilot --allow-all -p "Revise @samples/buggy-code/python/user_service.py para problemas de segurança"
+#   copilot --allow-all -p "Encontre todos os bugs em @samples/buggy-code/python/user_service.py"
 
 import sqlite3
 import hashlib
 
-# BUG 1: SQL Injection
-# The user_id is directly interpolated into the query string
+# BUG 1: Injeção de SQL
+# O user_id é interpolado diretamente na string de consulta
 def get_user(user_id):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -17,8 +17,8 @@ def get_user(user_id):
     return cursor.fetchone()
 
 
-# BUG 2: Race Condition
-# Multiple requests can trigger parallel database calls before cache is set
+# BUG 2: Condição de corrida
+# Múltiplas requisições podem acionarem chamadas paralelas ao banco de dados antes que o cache seja definido
 user_cache = {}
 
 def get_cached_user(user_id):
@@ -27,8 +27,8 @@ def get_cached_user(user_id):
     return user_cache[user_id]
 
 
-# BUG 3: SQL Injection + No Error Handling
-# String interpolation in SQL and no try/except
+# BUG 3: Injeção de SQL + Sem tratamento de erro
+# Interpolação de string em SQL e sem try/except
 def update_user(user_id, data):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -37,8 +37,8 @@ def update_user(user_id, data):
     return get_user(user_id)
 
 
-# BUG 4: Sensitive Data in Logs
-# Password is logged in plain text
+# BUG 4: Dados sensíveis em logs
+# A senha é registrada em texto plano
 def login(email, password):
     print(f"Login attempt: {email} / {password}")
     conn = sqlite3.connect('users.db')
@@ -50,14 +50,14 @@ def login(email, password):
     return {"success": False}
 
 
-# BUG 5: Weak Password Comparison
-# Using == for password comparison (timing attack vulnerable) and plain text passwords
+# BUG 5: Comparação de senha fraca
+# Usando == para comparação de senha (vulnerável a ataques de timing) e senhas em texto plano
 def verify_password(input_password, stored_password):
     return input_password == stored_password
 
 
-# BUG 6: No Input Validation
-# Directly using user input without any validation
+# BUG 6: Sem validação de entrada
+# Usando entrada do usuário diretamente sem validação
 def create_user(user_data):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -66,8 +66,8 @@ def create_user(user_data):
     conn.commit()
 
 
-# BUG 7: Hardcoded Secret
-# JWT secret should be in environment variables
+# BUG 7: Segredo hardcoded
+# A chave secreta do JWT deve estar em variáveis de ambiente
 JWT_SECRET = "super-secret-key-12345"
 
 def generate_token(user_id):
@@ -75,8 +75,8 @@ def generate_token(user_id):
     return jwt.encode({"user_id": user_id}, JWT_SECRET, algorithm="HS256")
 
 
-# BUG 8: Missing Authentication Check
-# This function should verify the user is authorized to delete
+# BUG 8: Verificação de autenticação ausente
+# Esta função deveria verificar se o usuário está autorizado a deletar
 def delete_user(user_id):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -84,17 +84,17 @@ def delete_user(user_id):
     conn.commit()
 
 
-# BUG 9: Weak Hashing (Python-specific)
-# MD5 is cryptographically broken for password hashing
+# BUG 9: Hash fraco (específico de Python)
+# MD5 é criptograficamente quebrado para hash de senha
 def hash_password(password):
     return hashlib.md5(password.encode()).hexdigest()
 
 
-# BUG 10: Pickle Deserialization (Python-specific)
-# Deserializing untrusted data with pickle is dangerous
+# BUG 10: Desserialização com Pickle (específico de Python)
+# Desserializar dados não confiáveis com pickle é perigoso
 import pickle
 import base64
 
 def load_user_preferences(encoded_data):
     decoded = base64.b64decode(encoded_data)
-    return pickle.loads(decoded)  # Remote code execution vulnerability!
+    return pickle.loads(decoded)  # Vulnerabilidade de execução remota de código!
