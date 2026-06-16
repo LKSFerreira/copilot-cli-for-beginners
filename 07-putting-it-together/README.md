@@ -11,20 +11,20 @@ weight: 8
 
 ![Chapter 07: Putting It All Together](assets/chapter-header.png)
 
-> **Everything you learned combines here. Go from idea to merged PR in a single session.**
+> **Tudo o que você aprendeu se combina aqui. Vá da ideia ao PR mesclado em uma única sessão.**
 
-In this chapter, you'll bring together everything you've learned into complete workflows. You'll build features using multi-agent collaboration, set up pre-commit hooks that catch security issues before they're committed, integrate Copilot into CI/CD pipelines, and go from feature idea to merged PR in a single terminal session. This is where GitHub Copilot CLI becomes a genuine force multiplier.
+Neste capítulo, você reunirá tudo o que aprendeu em fluxos de trabalho completos. Você desenvolverá funcionalidades usando colaboração com múltiplos agentes, configurará hooks de pre-commit que detectam problemas de segurança antes do commit, integrará o Copilot em pipelines de CI/CD e avançará da ideia até o PR mesclado em uma única sessão de terminal. É aqui que o GitHub Copilot CLI se torna um multiplicador real de produtividade.
 
-> 💡 **Note**: This chapter shows how to combine everything you've learned. **You don't need agents, skills, or MCP to be productive (although they can be very helpful).** The core workflow — describe, plan, implement, test, review, ship — works with just the built-in features from Chapters 00-03.
+> 💡 **Observação**: Este capítulo mostra como combinar tudo o que você aprendeu. **Você não precisa de agents, skills ou MCP para ser produtivo (embora possam ser muito úteis).** O fluxo principal — descrever, planejar, implementar, testar, revisar, entregar — funciona apenas com os recursos básicos dos Capítulos 00-03.
 
-## 🎯 Learning Objectives
+## 🎯 Objetivos de Aprendizagem
 
 By the end of this chapter, you'll be able to:
 
-- Combine agents, skills, and MCP (Model Context Protocol) in unified workflows
-- Build complete features using multi-tool approaches
-- Set up basic automation with hooks
-- Apply best practices for professional development
+- Combinar agents, skills e MCP (Model Context Protocol) em fluxos unificados
+- Construir funcionalidades completas usando abordagens multi-ferramenta
+- Configurar automações básicas com hooks
+- Aplicar as melhores práticas para desenvolvimento profissional
 
 > ⏱️ **Estimated Time**: ~75 minutes (15 min reading + 60 min hands-on)
 
@@ -118,7 +118,7 @@ copilot
 
 ---
 
-# Additional Workflows
+# Fluxos de trabalho adicionais
 
 <img src="assets/combined-workflows.png" alt="People assembling a colorful giant jigsaw puzzle with gears, representing how agents, skills, and MCP combine into unified workflows" width="800"/>
 
