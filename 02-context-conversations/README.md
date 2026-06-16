@@ -11,41 +11,41 @@ weight: 3
 
 ![Chapter 02: Context and Conversations](assets/chapter-header.png)
 
-> **What if AI could see your entire codebase, not just one file at a time?**
+> **E se a IA pudesse ver todo o seu código, e não apenas um arquivo por vez?**
 
-In this chapter, you'll unlock the real power of GitHub Copilot CLI: context. You'll learn to use the `@` syntax to reference files and directories, giving Copilot CLI deep understanding of your codebase. You'll discover how to maintain conversations across sessions, resume work days later exactly where you left off, and see how cross-file analysis catches bugs that single-file reviews miss entirely.
+Neste capítulo, você desbloqueará o verdadeiro poder do GitHub Copilot CLI: contexto. Você aprenderá a usar a sintaxe `@` para referenciar arquivos e diretórios, dando ao Copilot CLI uma compreensão profunda do seu código. Descobrirá como manter conversas entre sessões, retomar o trabalho dias depois exatamente de onde parou, e verá como a análise entre arquivos identifica bugs que a revisão por arquivo único não detecta.
 
-## 🎯 Learning Objectives
+## 🎯 Objetivos de Aprendizagem
 
 By the end of this chapter, you'll be able to:
 
-- Use the `@` syntax to reference files, directories, and images
-- Resume previous sessions with `--resume` and `--continue`
-- Understand how [context windows](../GLOSSARY.md#context-window) work
-- Write effective multi-turn conversations
-- Manage directory permissions for multi-project workflows
+- Usar a sintaxe `@` para referenciar arquivos, diretórios e imagens
+- Retomar sessões anteriores com `--resume` e `--continue`
+- Entender como funcionam as [janelas de contexto](../GLOSSARY.md#context-window)
+- Escrever conversas multitorno (multi-turn) eficazes
+- Gerenciar permissões de diretório para fluxos de trabalho com múltiplos projetos
 
-> ⏱️ **Estimated Time**: ~50 minutes (20 min reading + 30 min hands-on)
+> ⏱️ **Tempo estimado**: ~50 minutos (20 min leitura + 30 min prático)
 
 ---
 
-## 🧩 Real-World Analogy: Working with a Colleague
+## 🧩 Analogia do mundo real: Trabalhando com um colega
 
 <img src="assets/colleague-context-analogy.png" alt="Context Makes the Difference - Without vs With Context" width="800"/>
 
-*Just like your colleagues, Copilot CLI isn't a mind reader. Providing more information helps humans and Copilot alike provide targeted support!*
+*Assim como seus colegas, o Copilot CLI não é um leitor de mentes. Fornecer mais informações ajuda tanto humanos quanto o Copilot a oferecer suporte mais direcionado!*
 
 Imagine explaining a bug to a colleague:
 
-> **Without context**: "The book app doesn't work."
+> **Sem contexto**: "O app de livros não funciona."
 
-> **With context**: "Look at `books.py`, especially the `find_book_by_title` function. It's not doing case-insensitive matching."
+> **Com contexto**: "Veja `books.py`, especialmente a função `find_book_by_title`. Ela não faz correspondência sem distinguir maiúsculas/minúsculas."
 
-To provide context to Copilot CLI use *the `@` syntax* to point Copilot CLI at specific files.
+Para fornecer contexto ao Copilot CLI, use *a sintaxe `@`* para apontar o Copilot CLI para arquivos específicos.
 
 ---
 
-# Essential: Basic Context
+# Essencial: Contexto Básico
 
 <img src="assets/essential-basic-context.png" alt="Glowing code blocks connected by light trails representing how context flows through Copilot CLI conversations" width="800"/>
 
@@ -53,33 +53,33 @@ This section covers everything you need to work effectively with context. Master
 
 ---
 
-## The @ Syntax
+## A sintaxe @
 
-The `@` symbol references files and directories in your prompts. It's how you tell Copilot CLI "look at this file."
+O símbolo `@` referencia arquivos e diretórios em seus prompts. É assim que você diz ao Copilot CLI "olhe este arquivo."
 
-> 💡 **Note**: All examples in this course use the `samples/` folder included in this repository, so you can try every command directly.
+> 💡 **Observação**: Todos os exemplos deste curso usam a pasta `samples/` incluída neste repositório, então você pode testar todos os comandos diretamente.
 
-### Try It Now (No Setup Required)
+### Teste agora (sem configuração necessária)
 
-You can try this with any file on your computer:
+Você pode testar isso com qualquer arquivo em seu computador:
 
 ```bash
 copilot
 
-# Point at any file you have
+# Aponte para qualquer arquivo que você tenha
 > Explain what @package.json does
 > Summarize @README.md
 > What's in @.gitignore and why?
 ```
 
-> 💡 **Don't have a project handy?** Create a quick test file:
+> 💡 **Não tem um projeto à mão?** Crie um arquivo de teste rápido:
 > ```bash
 > echo "def greet(name): return 'Hello ' + name" > test.py
 > copilot
 > > What does @test.py do?
 > ```
 
-### Basic @ Patterns
+### Padrões básicos com @
 
 | Pattern | What It Does | Example Use |
 |---------|--------------|-------------|
