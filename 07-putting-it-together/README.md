@@ -1,15 +1,15 @@
 <!--
 ---
 id: CopilotCLI-07
-title: !translate Putting It All Together
-description: !translate Combine context, workflows, agents, skills, and MCP into complete feature development workflows from idea to pull request.
-audience: Developers / Students / Terminal users
+title: !translate Unindo Tudo
+description: !translate Combine contexto, fluxos de trabalho, agents, skills e MCP em fluxos completos de desenvolvimento de funcionalidades, da ideia ao pull request.
+audience: Desenvolvedores / Estudantes / Usuários de terminal
 slug: putting-it-all-together
 weight: 8
 ---
 -->
 
-![Chapter 07: Putting It All Together](assets/chapter-header.png)
+![Capítulo 07: Unindo Tudo](assets/chapter-header.png)
 
 > **Tudo o que você aprendeu se combina aqui. Vá da ideia ao PR mesclado em uma única sessão.**
 
@@ -30,28 +30,29 @@ Ao final deste capítulo, você será capaz de:
 
 ---
 
-## 🧩 Real-World Analogy: The Orchestra
+## 🧩 Analogia do mundo real: A orquestra
 
-<img src="assets/orchestra-analogy.png" alt="Orchestra Analogy - Unified Workflow" width="800"/>
+<img src="assets/orchestra-analogy.png" alt="Analogia da orquestra — fluxo de trabalho unificado" width="800"/>
 
-A symphony orchestra has many sections:
-- **Strings** provide the foundation (like your core workflows)
-- **Brass** adds power (like agents with specialized expertise)
-- **Woodwinds** add color (like skills that extend capabilities)
-- **Percussion** keeps rhythm (like MCP connecting to external systems)
+Uma orquestra sinfônica tem muitas seções:
+- **Cordas** fornecem a base (como seus fluxos principais)
+- **Metais** acrescentam potência (como agents com expertise especializada)
+- **Madeiras** acrescentam cor (como skills que ampliam capacidades)
+- **Percussão** mantém o ritmo (como MCP conectando-se a sistemas externos)
 
-Individually, each section sounds limited. Together, conducted well, they create something magnificent.
+Individualmente, cada seção parece limitada. Juntas, bem regidas, criam algo magnífico.
 
-**That's what this chapter teaches!**<br>
-*Like a conductor with an orchestra, you orchestrate agents, skills, and MCP into unified workflows*
+**É isso que este capítulo ensina!**<br>
+*Como um maestro com uma orquestra, você orquestra agents, skills e MCP em fluxos unificados*
 
-Let's start by walking through a scenario that modifies code, generates tests, reviews it, and creates a PR - all in one session.
+Vamos começar percorrendo um cenário que modifica código, gera testes, faz revisão e cria um PR — tudo em uma sessão.
 
 ---
 
-## Idea to Merged PR in One Session
+<a id="idea-to-merged-pr-in-one-session"></a>
+## Da ideia ao PR mesclado em uma sessão
 
-Instead of switching between your editor, terminal, test runner, and GitHub UI and losing context each time, you can combine all your tools in one terminal session. We'll break down this pattern in the [Integration Pattern](#the-integration-pattern-for-power-users) section below.
+Em vez de alternar entre seu editor, terminal, test runner e GitHub UI e perder contexto a cada troca, você pode combinar todas as suas ferramentas em uma sessão de terminal. Vamos detalhar esse padrão na seção [Padrão de integração](#the-integration-pattern-for-power-users) abaixo.
 
 ```bash
 # Start Copilot in interactive mode
@@ -110,9 +111,9 @@ copilot
 > Create a pull request titled "Feature: Add list unread books command"
 ```
 
-**Traditional approach**: Switching between editor, terminal, test runner, docs, and GitHub UI. Each switch causes context loss and friction.
+**Abordagem tradicional**: alternar entre editor, terminal, test runner, documentação e GitHub UI. Cada troca causa perda de contexto e atrito.
 
-**The key insight**: You directed specialists like an architect. They handled the details. You handled the vision.
+**O insight principal**: você dirigiu especialistas como um arquiteto. Eles cuidaram dos detalhes. Você cuidou da visão.
 
 > 💡 **Indo além**: Para planos multi-etapa grandes como este, experimente `/fleet` para permitir que o Copilot execute subtarefas independentes em paralelo. Consulte a [documentação oficial](https://docs.github.com/copilot/concepts/agents/copilot-cli/fleet) para mais detalhes.
 
@@ -120,21 +121,22 @@ copilot
 
 # Fluxos de trabalho adicionais
 
-<img src="assets/combined-workflows.png" alt="People assembling a colorful giant jigsaw puzzle with gears, representing how agents, skills, and MCP combine into unified workflows" width="800"/>
+<img src="assets/combined-workflows.png" alt="Pessoas montando um quebra-cabeça gigante colorido com engrenagens, representando como agents, skills e MCP se combinam em fluxos unificados" width="800"/>
 
-For power users who completed Chapters 04-06, these workflows show how agents, skills, and MCP multiply your effectiveness.
+Para usuários avançados que concluíram os Capítulos 04-06, estes fluxos mostram como agents, skills e MCP multiplicam sua eficácia.
 
-## The Integration Pattern
+<a id="the-integration-pattern-for-power-users"></a>
+## O padrão de integração
 
-Here's the mental model for combining everything:
+Este é o modelo mental para combinar tudo:
 
-<img src="assets/integration-pattern.png" alt="The Integration Pattern - A 4-phase workflow: Gather Context (MCP), Analyze and Plan (Agents), Execute (Skills + Manual), Complete (MCP)" width="800"/>
+<img src="assets/integration-pattern.png" alt="O padrão de integração — um fluxo de 4 fases: reunir contexto (MCP), analisar e planejar (agents), executar (skills + manual), concluir (MCP)" width="800"/>
 
 ---
 
-## Workflow 1: Bug Investigation and Fix
+## Fluxo 1: Investigação e correção de bugs
 
-Real-world bug fixing with full tool integration:
+Correção de bugs do mundo real com integração total de ferramentas:
 
 ```bash
 copilot
@@ -176,13 +178,15 @@ copilot
 
 ---
 
-## Workflow 2: Code Review Automation (Optional)
+<a id="workflow-2-code-review-automation-optional"></a>
+<a id="workflow-3-code-review-automation-optional"></a>
+## Fluxo 2: Automação de revisão de código (opcional)
 
-> 💡 **This section is optional.** Pre-commit hooks are useful for teams but not required to be productive. Skip this if you're just getting started.
+> 💡 **Esta seção é opcional.** Hooks de pre-commit são úteis para equipes, mas não são necessários para ser produtivo. Pule esta parte se você está apenas começando.
 >
-> ⚠️ **Performance note**: This hook calls `copilot -p` for each staged file, which takes several seconds per file. For large commits, consider limiting to critical files or running reviews manually with `/review` instead.
+> ⚠️ **Observação de desempenho**: este hook chama `copilot -p` para cada arquivo staged, o que leva alguns segundos por arquivo. Para commits grandes, considere limitar a arquivos críticos ou executar revisões manualmente com `/review`.
 
-A **git hook** is a script that Git runs automatically at certain points, For example, right before a commit. You can use this to run automated checks on your code. Here's how to set up an automated Copilot review on your commits:
+Um **git hook** é um script que o Git executa automaticamente em determinados momentos, por exemplo, imediatamente antes de um commit. Você pode usá-lo para executar verificações automatizadas no seu código. Veja como configurar uma revisão automatizada do Copilot em seus commits:
 
 ```bash
 # Create a pre-commit hook
@@ -223,13 +227,13 @@ EOF
 chmod +x .git/hooks/pre-commit
 ```
 
-> ⚠️ **macOS users**: The `timeout` command is not included by default on macOS. Install it with `brew install coreutils` or replace `timeout 60` with a simple invocation without a timeout guard.
+> ⚠️ **Usuários de macOS**: o comando `timeout` não vem incluído por padrão no macOS. Instale-o com `brew install coreutils` ou substitua `timeout 60` por uma invocação simples sem proteção de timeout.
 
-> 📚 **Official Documentation**: [Use hooks](https://docs.github.com/copilot/how-tos/copilot-cli/use-hooks) and [Hooks configuration reference](https://docs.github.com/copilot/reference/hooks-configuration) for the complete hooks API.
+> 📚 **Documentação oficial**: [Use hooks](https://docs.github.com/copilot/how-tos/copilot-cli/use-hooks) e [Referência de configuração de hooks](https://docs.github.com/copilot/reference/hooks-configuration) para a API completa de hooks.
 >
-> 💡 **Built-in alternative**: Copilot CLI also has a built-in hooks system (`copilot hooks`) that can run automatically on events like pre-commit. The manual git hook above gives you full control, while the built-in system is simpler to configure. See the docs above to decide which approach fits your workflow.
+> 💡 **Alternativa embutida**: o Copilot CLI também tem um sistema de hooks embutido (`copilot hooks`) que pode ser executado automaticamente em eventos como pre-commit. O git hook manual acima dá controle total, enquanto o sistema embutido é mais simples de configurar. Veja a documentação acima para decidir qual abordagem se encaixa melhor no seu fluxo.
 
-Now every commit gets a quick security review:
+Agora todo commit recebe uma revisão rápida de segurança:
 
 ```bash
 git add samples/book-app-project/books.py
@@ -246,9 +250,9 @@ git commit -m "Update book collection methods"
 
 ---
 
-## Workflow 3: Onboarding to a New Codebase
+## Fluxo 3: Integração a uma nova base de código
 
-When joining a new project, combine context, agents, and MCP to ramp up fast:
+Ao entrar em um novo projeto, combine contexto, agents e MCP para se integrar rapidamente:
 
 ```bash
 # Start Copilot in interactive mode
@@ -275,21 +279,21 @@ copilot
 > Pick the simplest open issue and outline a plan to fix it
 ```
 
-This workflow combines `@` context, agents, and MCP into a single onboarding session, exactly the integration pattern from earlier in this chapter.
+Este fluxo combina contexto com `@`, agents e MCP em uma única sessão de integração, exatamente o padrão de integração visto anteriormente neste capítulo.
 
 ---
 
-# Best Practices & Automation
+# Melhores práticas e automação
 
-Patterns and habits that make your workflows more effective.
+Padrões e hábitos que tornam seus fluxos mais eficazes.
 
 ---
 
-## Best Practices
+## Melhores práticas
 
-### 1. Start with Context Before Analysis
+### 1. Comece pelo contexto antes da análise
 
-Always gather context before asking for analysis:
+Sempre reúna contexto antes de pedir análise:
 
 ```bash
 # Good
@@ -305,9 +309,9 @@ Always gather context before asking for analysis:
 # Agent doesn't have issue context
 ```
 
-### 2. Know the Difference: Agents, Skills, and Custom Instructions
+### 2. Conheça a diferença: agents, skills e instruções customizadas
 
-Each tool has a sweet spot:
+Cada ferramenta tem seu ponto ideal:
 
 ```bash
 # Agents: Specialized personas you explicitly activate
@@ -324,11 +328,11 @@ Each tool has a sweet spot:
 # guidance that applies to every session without switching or triggering
 ```
 
-> 💡 **Key point**: Agents and skills can both analyze AND generate code. The real difference is **how they activate** — agents are explicit (`/agent`), skills are automatic (prompt-matched), and custom instructions are always on.
+> 💡 **Ponto principal**: agents e skills podem analisar E gerar código. A diferença real é **como eles são ativados** — agents são explícitos (`/agent`), skills são automáticas (correspondência de prompt) e instruções customizadas ficam sempre ativas.
 
-### 3. Keep Sessions Focused
+### 3. Mantenha as sessões focadas
 
-Use `/rename` to label your session (makes it easy to find in history) and `/exit` to end it cleanly:
+Use `/rename` para rotular sua sessão (facilita encontrá-la no histórico) e `/exit` para encerrá-la corretamente:
 
 ```bash
 # Good: One feature per session
@@ -344,24 +348,24 @@ copilot
 # Less effective: Everything in one long session
 ```
 
-### 4. Make Workflows Reusable with Copilot
+### 4. Torne os fluxos reutilizáveis com o Copilot
 
-Instead of just documenting workflows in a wiki, encode them directly in your repo where Copilot can use them:
+Em vez de apenas documentar fluxos em uma wiki, codifique-os diretamente no seu repositório, onde o Copilot pode usá-los:
 
-- **Custom instructions** (`.github/copilot-instructions.md`): Always-on guidance for coding standards, architecture rules, and build/test/deploy steps. Every session follows them automatically.
-- **Prompt files** (`.github/prompts/`): Reusable, parameterized prompts your team can share — like templates for code reviews, component generation, or PR descriptions.
-- **Custom agents** (`.github/agents/`): Encode specialized personas (e.g., a security reviewer or a docs writer) that anyone on the team can activate with `/agent`.
-- **Custom skills** (`.github/skills/`): Package step-by-step workflow instructions that auto-activate when relevant.
+- **Instruções customizadas** (`.github/copilot-instructions.md`): orientação sempre ativa para padrões de código, regras de arquitetura e etapas de build/teste/deploy. Toda sessão as segue automaticamente.
+- **Arquivos de prompt** (`.github/prompts/`): prompts reutilizáveis e parametrizáveis que sua equipe pode compartilhar — como templates para revisões de código, geração de componentes ou descrições de PR.
+- **Agents personalizados** (`.github/agents/`): codificam personas especializadas (por exemplo, um revisor de segurança ou um redator de documentação) que qualquer pessoa da equipe pode ativar com `/agent`.
+- **Skills personalizadas** (`.github/skills/`): empacotam instruções de fluxo passo a passo que são ativadas automaticamente quando relevantes.
 
-> 💡 **The payoff**: New team members get your workflows for free — they're built into the repo, not locked in someone's head.
+> 💡 **A recompensa**: novos membros da equipe recebem seus fluxos automaticamente — eles estão incorporados ao repositório, não presos na cabeça de alguém.
 
 ---
 
-## Bonus: Production Patterns
+## Bônus: padrões de produção
 
-These patterns are optional but valuable for professional environments.
+Esses padrões são opcionais, mas valiosos para ambientes profissionais.
 
-### PR Description Generator
+### Gerador de descrição de PR
 
 ```bash
 # Generate comprehensive PR descriptions
@@ -376,119 +380,119 @@ $COMMITS
 Include: Summary, Changes Made, Testing Done, Screenshots Needed"
 ```
 
-### CI/CD Integration
+### Integração com CI/CD
 
-For teams with existing CI/CD pipelines, you can automate Copilot reviews on every pull request using GitHub Actions. This includes posting review comments automatically and filtering for critical issues.
+Para equipes com pipelines de CI/CD existentes, você pode automatizar revisões do Copilot em cada pull request usando GitHub Actions. Isso inclui publicar comentários de revisão automaticamente e filtrar problemas críticos.
 
-> 📖 **Learn more**: See [CI/CD Integration](../appendices/ci-cd-integration.md) for complete GitHub Actions workflows, configuration options, and troubleshooting tips.
-
----
-
-# Practice
-
-<img src="../assets/practice.png" alt="Warm desk setup with monitor showing code, lamp, coffee cup, and headphones ready for hands-on practice" width="800"/>
-
-Put the complete workflow into practice.
+> 📖 **Saiba mais**: veja [Integração com CI/CD](../appendices/ci-cd-integration.md) para fluxos completos do GitHub Actions, opções de configuração e dicas de solução de problemas.
 
 ---
 
-## ▶️ Try It Yourself
+# Prática
 
-After completing the demos, try these variations:
+<img src="../assets/practice.png" alt="Ambiente de mesa aconchegante com monitor mostrando código, luminária, xícara de café e fones de ouvido prontos para prática" width="800"/>
 
-1. **End-to-End Challenge**: Pick a small feature (e.g., "list unread books" or "export to CSV"). Use the full workflow:
-   - Plan with `/plan`
-   - Design with agents (python-reviewer, pytest-helper)
-   - Implement
-   - Generate tests
-   - Create PR
+Coloque o fluxo completo em prática.
 
-2. **Automation Challenge**: Set up the pre-commit hook from the Code Review Automation workflow. Make a commit with an intentional file path vulnerability. Does it get blocked?
+---
 
-3. **Your Production Workflow**: Design your own workflow for a common task you do. Write it down as a checklist. What parts could be automated with skills, agents, or hooks?
+## ▶️ Experimente você mesmo
+
+Depois de concluir as demonstrações, experimente estas variações:
+
+1. **Desafio de ponta a ponta**: escolha uma pequena funcionalidade (por exemplo, "list unread books" ou "export to CSV"). Use o fluxo completo:
+   - Planeje com `/plan`
+   - Projete com agents (python-reviewer, pytest-helper)
+   - Implemente
+   - Gere testes
+   - Crie um PR
+
+2. **Desafio de automação**: configure o hook de pre-commit do fluxo de automação de revisão de código. Faça um commit com uma vulnerabilidade intencional de file path. Ele será bloqueado?
+
+3. **Seu fluxo de produção**: crie seu próprio fluxo para uma tarefa comum. Escreva-o como uma checklist. Quais partes poderiam ser automatizadas com skills, agents ou hooks?
 
 **Autoavaliação**: Você concluiu o curso quando conseguir explicar a um colega como agentes, skills e MCP funcionam juntos — e quando usar cada um.
 
 ---
 
-## 📝 Assignment
+## 📝 Tarefa
 
-### Main Challenge: End-to-End Feature
+### Desafio principal: funcionalidade de ponta a ponta
 
-The hands-on examples walked through building a "list unread books" feature. Now practice the full workflow on a different feature: **search books by year range**:
+Os exemplos práticos percorreram a criação da funcionalidade "list unread books". Agora pratique o fluxo completo em uma funcionalidade diferente: **search books by year range**:
 
-1. Start Copilot and gather context: `@samples/book-app-project/books.py`
-2. Plan with `/plan Add a "search by year" command that lets users find books published between two years`
-3. Implement a `find_by_year_range(start_year, end_year)` method in `BookCollection`
-4. Add a `handle_search_year()` function in `book_app.py` that prompts the user for start and end years
-5. Generate tests: `@samples/book-app-project/books.py @samples/book-app-project/tests/test_books.py Generate tests for find_by_year_range() including edge cases like invalid years, reversed range, and no results.`
-6. Review with `/review`
-7. Update the README: `@samples/book-app-project/README.md Add documentation for the new "search by year" command.`
-8. Generate a commit message
+1. Inicie o Copilot e reúna contexto: `@samples/book-app-project/books.py`
+2. Planeje com `/plan Add a "search by year" command that lets users find books published between two years`
+3. Implemente um método `find_by_year_range(start_year, end_year)` em `BookCollection`
+4. Adicione uma função `handle_search_year()` em `book_app.py` que peça ao usuário os anos inicial e final
+5. Gere testes: `@samples/book-app-project/books.py @samples/book-app-project/tests/test_books.py Generate tests for find_by_year_range() including edge cases like invalid years, reversed range, and no results.`
+6. Revise com `/review`
+7. Atualize o README: `@samples/book-app-project/README.md Add documentation for the new "search by year" command.`
+8. Gere uma mensagem de commit
 
-Document your workflow as you go.
+Documente seu fluxo conforme avança.
 
-**Success criteria**: You've completed the feature from idea to commit using Copilot CLI, including planning, implementation, tests, documentation, and review.
+**Critérios de sucesso**: você concluiu a funcionalidade da ideia ao commit usando o Copilot CLI, incluindo planejamento, implementação, testes, documentação e revisão.
 
-> 💡 **Bonus**: If you have agents set up from Chapter 04, try creating and using custom agents. For example, an error-handler agent for implementation review and a doc-writer agent for the README update.
+> 💡 **Bônus**: se você configurou agents no Capítulo 04, experimente criar e usar agents personalizados. Por exemplo, um agent error-handler para revisar a implementação e um agent doc-writer para atualizar o README.
 
 <details>
-<summary>💡 Hints (click to expand)</summary>
+<summary>💡 Dicas (clique para expandir)</summary>
 
-**Follow the pattern from the ["Idea to Merged PR"](#idea-to-merged-pr-in-one-session) example** at the top of this chapter. The key steps are:
+**Siga o padrão do exemplo ["Da ideia ao PR mesclado"](#idea-to-merged-pr-in-one-session)** no início deste capítulo. As etapas principais são:
 
-1. Gather context with `@samples/book-app-project/books.py`
-2. Plan with `/plan Add a "search by year" command`
-3. Implement the method and command handler
-4. Generate tests with edge cases (invalid input, empty results, reversed range)
-5. Review with `/review`
-6. Update README with `@samples/book-app-project/README.md`
-7. Generate commit message with `-p`
+1. Reúna contexto com `@samples/book-app-project/books.py`
+2. Planeje com `/plan Add a "search by year" command`
+3. Implemente o método e o handler do comando
+4. Gere testes com casos de borda (entrada inválida, resultados vazios, intervalo invertido)
+5. Revise com `/review`
+6. Atualize o README com `@samples/book-app-project/README.md`
+7. Gere uma mensagem de commit com `-p`
 
-**Edge cases to think about:**
-- What if the user enters "2000" and "1990" (reversed range)?
-- What if no books match the range?
-- What if the user enters non-numeric input?
+**Casos de borda para considerar:**
+- E se o usuário digitar "2000" e "1990" (intervalo invertido)?
+- E se nenhum livro corresponder ao intervalo?
+- E se o usuário digitar uma entrada não numérica?
 
-**The key is practicing the full workflow** from idea → context → plan → implement → test → document → commit.
+**O essencial é praticar o fluxo completo** da ideia → contexto → plano → implementação → teste → documentação → commit.
 
 </details>
 
 ---
 
 <details>
-<summary>🔧 <strong>Common Mistakes</strong> (click to expand)</summary>
+<summary>🔧 <strong>Erros comuns</strong> (clique para expandir)</summary>
 
-| Mistake | What Happens | Fix |
+| Erro | O que acontece | Correção |
 |---------|--------------|-----|
-| Jumping straight to implementation | Miss design issues that are costly to fix later | Use `/plan` first to think through the approach |
-| Using one tool when multiple would help | Slower, less thorough results | Combine: Agent for analysis → Skill for execution → MCP for integration |
-| Not reviewing before committing | Security issues or bugs slip through | Always run `/review` or use a [pre-commit hook](#workflow-2-code-review-automation-optional) |
-| Forgetting to share workflows with team | Each person reinvents the wheel | Document patterns in shared agents, skills, and instructions |
+| Ir direto para a implementação | Deixa passar problemas de design caros de corrigir depois | Use `/plan` primeiro para pensar na abordagem |
+| Usar uma ferramenta quando várias ajudariam | Resultados mais lentos e menos completos | Combine: agent para análise → skill para execução → MCP para integração |
+| Não revisar antes de fazer commit | Problemas de segurança ou bugs passam | Sempre execute `/review` ou use um [hook de pre-commit](#workflow-2-code-review-automation-optional) |
+| Esquecer de compartilhar fluxos com a equipe | Cada pessoa reinventa a roda | Documente padrões em agents, skills e instruções compartilhados |
 
 </details>
 
 ---
 
-# Summary
+# Resumo
 
-## 🔑 Key Takeaways
+## 🔑 Principais aprendizados
 
-1. **Integration > Isolation**: Combine tools for maximum impact
-2. **Context first**: Always gather required context before analysis
-3. **Agents analyze, Skills execute**: Use the right tool for the job
-4. **Automate repetition**: Hooks and scripts multiply your effectiveness
-5. **Document workflows**: Shareable patterns benefit the whole team
+1. **Integração > isolamento**: combine ferramentas para máximo impacto
+2. **Contexto primeiro**: sempre reúna o contexto necessário antes da análise
+3. **Agents analisam, skills executam**: use a ferramenta certa para a tarefa
+4. **Automatize repetições**: hooks e scripts multiplicam sua eficácia
+5. **Documente fluxos**: padrões compartilháveis beneficiam toda a equipe
 
-> 📋 **Quick Reference**: See the [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference) for a complete list of commands and shortcuts.
+> 📋 **Referência rápida**: veja a [referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/cli-command-reference) para uma lista completa de comandos e atalhos.
 
 ---
 
-## 🎓 Course Complete!
+## 🎓 Curso concluído!
 
-Congratulations! You've learned:
+Parabéns! Você aprendeu:
 
-| Chapter | What You Learned |
+| Capítulo | O que você aprendeu |
 |---------|-------------------|
 | 00 | Instalação do Copilot CLI e Início Rápido |
 | 01 | Três modos de interação |
@@ -499,25 +503,25 @@ Congratulations! You've learned:
 | 06 | Conexões externas com MCP |
 | 07 | Fluxos de produção unificados |
 
-You're now equipped to use GitHub Copilot CLI as a genuine force multiplier in your development workflow.
+Você agora está preparado para usar o GitHub Copilot CLI como um verdadeiro multiplicador de força no seu fluxo de desenvolvimento.
 
-## ➡️ What's Next
+## ➡️ O que vem a seguir
 
-Your learning doesn't stop here:
+Seu aprendizado não para aqui:
 
-1. **Practice daily**: Use Copilot CLI for real work
-2. **Build custom tools**: Create agents and skills for your specific needs
-3. **Share knowledge**: Help your team adopt these workflows
-4. **Stay updated**: Follow GitHub Copilot updates for new features
+1. **Pratique diariamente**: use o Copilot CLI no trabalho real
+2. **Crie ferramentas personalizadas**: crie agents e skills para suas necessidades específicas
+3. **Compartilhe conhecimento**: ajude sua equipe a adotar estes fluxos
+4. **Mantenha-se atualizado**: acompanhe as atualizações do GitHub Copilot para novos recursos
 
-### Resources
+### Recursos
 
-- [GitHub Copilot CLI Documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
-- [MCP Server Registry](https://github.com/modelcontextprotocol/servers)
-- [Community Skills](https://github.com/topics/copilot-skill)
+- [Documentação do GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+- [Registro de servidores MCP](https://github.com/modelcontextprotocol/servers)
+- [Skills da comunidade](https://github.com/topics/copilot-skill)
 
 ---
 
-**Great job! Now go build something amazing.**
+**Bom trabalho! Agora vá construir algo incrível.**
 
-**[← Back to Chapter 06](../06-mcp-servers/README.md)** | **[Return to Course Home →](../README.md)**
+**[← Voltar ao Capítulo 06](../06-mcp-servers/README.md)** | **[Voltar ao início do curso →](../README.md)**

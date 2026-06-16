@@ -1,9 +1,9 @@
 <!--
 ---
 id: CopilotCLI-Appendix-Additional-Context
-title: !translate Additional Context Features
-description: !translate Learn how to use image context and manage permissions across multiple directories in GitHub Copilot CLI.
-audience: Developers / Students / Terminal users
+title: !translate Funcionalidades adicionais de contexto
+description: !translate Aprenda a usar contexto de imagens e gerenciar permissões em vários diretórios no GitHub Copilot CLI.
+audience: Desenvolvedores / Estudantes / Usuários de terminal
 slug: additional-context-features
 weight: 92
 ---
@@ -17,9 +17,10 @@ Este apêndice aborda duas funcionalidades adicionais de contexto: trabalhar com
 
 ---
 
+<a id="working-with-images"></a>
 ## Trabalhando com imagens
 
-You can include images in your conversations using the `@` syntax. Copilot can analyze screenshots, mockups, diagrams, and other visual content.
+Você pode incluir imagens nas suas conversas usando a sintaxe `@`. O Copilot pode analisar capturas de tela, mockups, diagramas e outros conteúdos visuais.
 
 ### Referência básica de imagem
 
@@ -39,41 +40,41 @@ copilot
 
 | Formato | Melhor para |
 |--------|----------|
-| PNG | Screenshots, UI mockups, diagrams |
-| JPG/JPEG | Photos, complex images |
-| GIF | Simple diagrams (first frame only) |
-| WebP | Web screenshots |
+| PNG | Capturas de tela, mockups de interface de usuário (UI), diagramas |
+| JPG/JPEG | Fotos, imagens complexas |
+| GIF | Diagramas simples (apenas o primeiro quadro) |
+| WebP | Capturas de tela de páginas web |
 
-### Practical Image Use Cases
+### Casos de uso práticos com imagens
 
-**1. UI Debugging**
+**1. Depuração de interface de usuário**
 ```bash
 > @bug-screenshot.png The button doesn't align properly. What CSS might cause this?
 ```
 
-**2. Design Implementation**
+**2. Implementação de design**
 ```bash
 > @figma-export.png Write the HTML and Tailwind CSS to match this design
 ```
 
-**3. Error Analysis**
+**3. Análise de erro**
 ```bash
 > @error-screenshot.png What does this error mean and how do I fix it?
 ```
 
-**4. Architecture Review**
+**4. Revisão de arquitetura**
 ```bash
 > @whiteboard-diagram.png Convert this architecture diagram to a Mermaid diagram I can put in docs
 ```
 
-**5. Before/After Comparison**
+**5. Comparação antes/depois**
 ```bash
 > @before.png @after.png What changed between these two versions of the UI?
 ```
 
-### Combining Images with Code
+### Combinando imagens com código
 
-Images become even more powerful when combined with code context:
+As imagens ficam ainda mais úteis quando combinadas com contexto de código:
 
 ```bash
 copilot
@@ -84,16 +85,16 @@ copilot
 
 ### Dicas para imagens
 
-- **Crop screenshots** to show only relevant portions (saves context tokens)
-- **Use high contrast** for UI elements you want analyzed
-- **Annotate if needed** - circle or highlight problem areas before uploading
-- **One image per concept** - multiple images work, but be focused
+- **Recorte capturas de tela** para mostrar apenas as partes relevantes (economiza tokens de contexto)
+- **Use alto contraste** nos elementos de interface que você quer que sejam analisados
+- **Faça anotações se necessário** - circule ou destaque áreas problemáticas antes de enviar
+- **Uma imagem por conceito** - múltiplas imagens funcionam, mas mantenha o foco
 
 ---
 
-## Padrões de Permissão
+## Padrões de permissão
 
-By default, Copilot can access files in your current directory. For files elsewhere, you need to grant access.
+Por padrão, o Copilot pode acessar arquivos no seu diretório atual. Para arquivos em outro local, você precisa conceder acesso.
 
 ### Adicionar diretórios
 
@@ -139,12 +140,12 @@ copilot -p "Review @src/" --yolo
 
 ### Quando precisar de acesso a múltiplos diretórios
 
-Common scenarios where you'll need these permissions:
+Cenários comuns em que você precisará dessas permissões:
 
-1. **Monorepo work** - Comparing code across packages
-2. **Cross-project refactoring** - Updating shared libraries
-3. **Documentation projects** - Referencing multiple codebases
-4. **Migration work** - Comparing old and new implementations
+1. **Trabalho em monorepo** - Comparar código entre pacotes
+2. **Refatoração entre projetos** - Atualizar bibliotecas compartilhadas
+3. **Projetos de documentação** - Referenciar várias bases de código
+4. **Trabalho de migração** - Comparar implementações antigas e novas
 
 ---
 

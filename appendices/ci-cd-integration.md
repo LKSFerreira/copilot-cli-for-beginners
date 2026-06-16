@@ -1,25 +1,25 @@
 <!--
 ---
 id: CopilotCLI-Appendix-CI-CD-Integration
-title: !translate CI/CD Integration
-description: !translate Integrate GitHub Copilot CLI into GitHub Actions workflows for automated pull request reviews.
-audience: Developers / Students / Terminal users
+title: !translate Integração CI/CD
+description: !translate Integre o GitHub Copilot CLI a workflows do GitHub Actions para revisões automatizadas de pull requests.
+audience: Desenvolvedores / Estudantes / Usuários de terminal
 slug: ci-cd-integration
 weight: 91
 ---
 -->
 
-# CI/CD Integration
+# Integração CI/CD
 
 > 📖 **Pré-requisito**: Conclua o [Capítulo 07: Colocando tudo junto](../07-putting-it-together/README.md) antes de ler este apêndice.
 >
-> ⚠️ **Este apêndice é para equipes que já possuem pipelines de CI/CD.** Se você é novo em GitHub Actions ou em conceitos de CI/CD, comece com a abordagem mais simples de pre-commit hook na seção [Code Review Automation](../07-putting-it-together/README.md#workflow-3-code-review-automation-optional) do Capítulo 07.
+> ⚠️ **Este apêndice é para equipes que já possuem pipelines de CI/CD.** Se você é novo em GitHub Actions ou em conceitos de CI/CD, comece com a abordagem mais simples de pre-commit hook na seção [Automação de revisão de código](../07-putting-it-together/README.md#workflow-2-code-review-automation-optional) do Capítulo 07.
 
-This appendix shows how to integrate GitHub Copilot CLI into your CI/CD pipelines for automated code review on pull requests.
+Este apêndice mostra como integrar o GitHub Copilot CLI aos seus pipelines de CI/CD para revisão automatizada de código em pull requests.
 
 ---
 
-## GitHub Actions Workflow
+## Workflow do GitHub Actions
 
 Este workflow revisa automaticamente os arquivos alterados quando um pull request é aberto ou atualizado:
 
@@ -89,11 +89,11 @@ jobs:
 
 ---
 
-## Opções de Configuração
+## Opções de configuração
 
-### Limitando o Escopo da Revisão
+### Limitando o escopo da revisão
 
-You can focus the review on specific types of issues:
+Você pode concentrar a revisão em tipos específicos de problemas:
 
 ```yaml
 # Security-only review
@@ -105,7 +105,7 @@ copilot --allow-all -p "Performance review of @$file. Check for: N+1 queries, me
 
 ### Lidando com PRs grandes
 
-For PRs with many files, consider batching or limiting:
+Para PRs com muitos arquivos, considere fazer lotes ou limitar a quantidade:
 
 ```yaml
 # Limit to first 10 files
@@ -115,9 +115,9 @@ FILES=$(git diff --name-only origin/main...HEAD | grep -E '\.(js|ts)$' | head -1
 timeout 60 copilot --allow-all -p "Review @$file" --silent || echo "Review timed out"
 ```
 
-### Team Configuration
+### Configuração da equipe
 
-For consistent reviews across your team, create a shared configuration:
+Para manter revisões consistentes em sua equipe, crie uma configuração compartilhada:
 
 ```json
 // .copilot/config.json (committed to repo)
@@ -132,9 +132,9 @@ For consistent reviews across your team, create a shared configuration:
 
 ---
 
-## Alternative: PR Review Bot
+## Alternativa: bot de revisão de PR
 
-For more sophisticated review workflows, consider using the GitHub Copilot cloud agent:
+Para workflows de revisão mais sofisticados, considere usar o GitHub Copilot cloud agent:
 
 ```yaml
 # .github/workflows/copilot-agent-review.yml
@@ -162,21 +162,21 @@ jobs:
 
 ---
 
-## Best Practices for CI/CD Integration
+## Boas práticas para integração CI/CD
 
-1. **Use `--silent` flag** - Suppresses progress output for cleaner logs
-2. **Set timeouts** - Prevent hung reviews from blocking your pipeline
-3. **Filter file types** - Only review relevant files (skip generated code, dependencies)
-4. **Rate limit awareness** - Space out reviews for large PRs
-5. **Fail gracefully** - Don't block merges on review failures; log and continue
+1. **Use a flag `--silent`** - Suprime a saída de progresso para logs mais limpos
+2. **Defina timeouts** - Evita que reviews travadas bloqueiem seu pipeline
+3. **Filtre tipos de arquivo** - Revise apenas arquivos relevantes (ignore código gerado e dependências)
+4. **Esteja ciente dos limites de taxa** - Espace reviews para PRs grandes
+5. **Falhe de forma graciosa** - Não bloqueie merges por falhas na revisão; registre em log e continue
 
 ---
 
 ## Solução de problemas
 
-### "Authentication failed" in CI
+### `"Authentication failed"` em CI
 
-Ensure your workflow has the correct permissions:
+Garanta que seu workflow tenha as permissões corretas:
 
 ```yaml
 permissions:
@@ -185,17 +185,17 @@ permissions:
   issues: write
 ```
 
-### Reviews timing out
+### Reviews com timeout
 
-Increase timeout or reduce scope:
+Aumente o timeout ou reduza o escopo:
 
 ```bash
 timeout 120 copilot --allow-all -p "Quick review of @$file - critical issues only" --silent
 ```
 
-### Token limits in large files
+### Limites de token em arquivos grandes
 
-Skip very large files:
+Ignore arquivos muito grandes:
 
 ```bash
 if [ $(wc -l < "$file") -lt 500 ]; then
@@ -207,4 +207,4 @@ fi
 
 ---
 
-**[← Back to Chapter 07](../07-putting-it-together/README.md)** | **[Return to Appendices](README.md)**
+**[← Voltar ao Capítulo 07](../07-putting-it-together/README.md)** | **[Voltar aos Apêndices](README.md)**

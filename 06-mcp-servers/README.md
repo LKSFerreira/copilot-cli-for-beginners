@@ -1,15 +1,15 @@
 <!--
 ---
 id: CopilotCLI-06
-title: !translate Connect to GitHub, Databases, and APIs
-description: !translate Configure MCP servers so GitHub Copilot CLI can connect to GitHub, local files, documentation, databases, and other live data sources.
-audience: Developers / Students / Terminal users
+title: !translate Conectar ao GitHub, Bancos de Dados e APIs
+description: !translate Configure servidores MCP para que o GitHub Copilot CLI possa se conectar ao GitHub, arquivos locais, documentação, bancos de dados e outras fontes de dados ao vivo.
+audience: Desenvolvedores / Estudantes / Usuários de terminal
 slug: connect-to-github-databases-and-apis
 weight: 7
 ---
 -->
 
-![Chapter 06: MCP Servers](assets/chapter-header.png)
+![Capítulo 06: Servidores MCP](assets/chapter-header.png)
 
 > **E se o Copilot pudesse ler suas issues do GitHub, checar seu banco de dados e criar PRs... tudo a partir do terminal?**
 
@@ -17,7 +17,7 @@ Até agora, o Copilot só consegue trabalhar com o que você fornece diretamente
 
 É isso que o MCP (Model Context Protocol) faz. Ele conecta o Copilot a serviços externos, dando acesso a dados ao vivo e do mundo real. Cada serviço conectado ao Copilot é chamado de "servidor MCP". Neste capítulo, você irá configurar alguns desses servidores e verá como tornam o Copilot muito mais útil.
 
-> 💡 **Já conhece MCP?** [Vá para o Início Rápido](#-use-the-built-in-github-mcp) para confirmar que está funcionando e começar a configurar servidores.
+> 💡 **Já conhece MCP?** [Vá para o início rápido](#-use-the-built-in-github-mcp) para confirmar que está funcionando e começar a configurar servidores.
 
 ## 🎯 Objetivos de Aprendizagem
 
@@ -35,28 +35,30 @@ Ao final deste capítulo, você será capaz de:
 
 ## 🧩 Analogia do mundo real: Extensões de navegador
 
-<img src="assets/browser-extensions-analogy.png" alt="MCP Servers are like Browser Extensions" width="800"/>
+<img src="assets/browser-extensions-analogy.png" alt="Servidores MCP são como extensões de navegador" width="800"/>
 
 Pense em servidores MCP como extensões de navegador. Seu navegador consegue exibir páginas por si só, mas extensões conectam-no a serviços extras:
 
-| Browser Extension | What It Connects To | MCP Equivalent |
+| Extensão de navegador | A que se conecta | Equivalente MCP |
 |-------------------|---------------------|----------------|
-| Password manager | Your password vault | **GitHub MCP** → your repos, issues, PRs |
-| Grammarly | Writing analysis service | **Context7 MCP** → library documentation |
-| File manager | Cloud storage | **Filesystem MCP** → local project files |
+| Gerenciador de senhas | Seu cofre de senhas | **GitHub MCP** → seus repositórios, issues, PRs |
+| Grammarly | Serviço de análise de escrita | **Context7 MCP** → documentação de bibliotecas |
+| Gerenciador de arquivos | Armazenamento em nuvem | **Filesystem MCP** → arquivos locais do projeto |
 
-Without extensions, your browser is still useful, but with them, it becomes a powerhouse. MCP servers do the same for Copilot. They connect it to real, live data sources so it can read your GitHub issues, explore your file system, fetch up-to-date documentation, and more.
+Sem extensões, seu navegador ainda é útil, mas com elas se torna uma ferramenta poderosa. Servidores MCP fazem o mesmo pelo Copilot. Eles o conectam a fontes de dados reais e ao vivo para que ele possa ler suas issues do GitHub, explorar seu sistema de arquivos, buscar documentação atualizada e muito mais.
 
 ***Servidores MCP conectam o Copilot ao mundo externo: GitHub, repositórios, documentação e mais***
 
-> 💡 **Insight principal**: Sem MCP, o Copilot só enxerga arquivos que você compartilha explicitamente com `@`. Com MCP, ele pode explorar proativamente seu projeto, checar seu repositório no GitHub e buscar documentação automaticamente.
+> 💡 **Insight principal**: sem MCP, o Copilot só enxerga arquivos que você compartilha explicitamente com `@`. Com MCP, ele pode explorar proativamente seu projeto, checar seu repositório no GitHub e buscar documentação automaticamente.
 
 ---
 
-<img src="assets/quick-start-mcp.png" alt="Power cable connecting with bright electrical spark surrounded by floating tech icons representing MCP server connections" width="800"/>
+<img src="assets/quick-start-mcp.png" alt="Cabo de energia se conectando com uma faísca elétrica brilhante cercado por ícones tecnológicos flutuantes representando conexões de servidores MCP" width="800"/>
 
-# Início Rápido: MCP em 30 segundos
+<a id="-use-the-built-in-github-mcp"></a>
+# Início rápido: MCP em 30 segundos
 
+<a id="github-server-built-in"></a>
 ## Comece com o GitHub MCP embutido
 Vamos ver o MCP em ação agora, antes de configurar nada.
 O servidor MCP do GitHub está incluído por padrão. Experimente:
@@ -91,7 +93,7 @@ Servidores MCP:
 <details>
 <summary>🎬 Veja em ação!</summary>
 
-![MCP Status Demo](assets/mcp-status-demo.gif)
+![Demo de status MCP](assets/mcp-status-demo.gif)
 
 *A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
@@ -126,9 +128,9 @@ O MCP torna o Copilot ciente do seu ambiente de desenvolvimento.
 
 ---
 
-# Configuring MCP Servers
+# Configurando servidores MCP
 
-<img src="assets/configuring-mcp-servers.png" alt="Hands adjusting knobs and sliders on a professional audio mixing board representing MCP server configuration" width="800"/>
+<img src="assets/configuring-mcp-servers.png" alt="Mãos ajustando botões e sliders em uma mesa de mixagem profissional representando configuração de servidores MCP" width="800"/>
 
 Agora que você viu o MCP em ação, vamos configurar servidores adicionais. Você pode adicionar servidores de duas maneiras: **pelo registro embutido** (mais fácil — configuração guiada diretamente na CLI) ou **editando o arquivo de configuração** manualmente (mais flexível). Comece pelo registro se não souber qual escolher.
 
@@ -144,7 +146,7 @@ copilot
 > /mcp search
 ```
 
-Copilot opens an interactive picker showing available servers. Select one, and the CLI walks you through any required configuration (API keys, paths, etc.) and adds it to your config automatically.
+O Copilot abre um seletor interativo mostrando servidores disponíveis. Selecione um, e a CLI orienta você por qualquer configuração necessária (chaves de API, caminhos etc.) e o adiciona automaticamente à sua configuração.
 
 > 💡 **Por que usar o registro?** É a forma mais fácil de começar — você não precisa saber o nome do pacote npm, os argumentos de comando ou a estrutura JSON. A CLI cuida de tudo isso para você.
 
@@ -152,9 +154,9 @@ Copilot opens an interactive picker showing available servers. Select one, and t
 
 ## Arquivo de configuração do MCP
 
-MCP servers are configured in `~/.copilot/mcp-config.json` (user-level, applies to all projects) or `.mcp.json` (project-level, placed in the root of your project). If you used `/mcp search` above, the CLI already created or updated this file for you, but it's useful to understand the format for customization.
+Servidores MCP são configurados em `~/.copilot/mcp-config.json` (nível de usuário, aplica-se a todos os projetos) ou `.mcp.json` (nível de projeto, colocado na raiz do projeto). Se você usou `/mcp search` acima, a CLI já criou ou atualizou esse arquivo para você, mas é útil entender o formato para personalização.
 
-> ⚠️ **Note**: `.vscode/mcp.json` is no longer supported as an MCP config source. If you have an existing `.vscode/mcp.json`, migrate it to `.mcp.json` in your project root. The CLI will show a migration hint if it detects an old config file.
+> ⚠️ **Observação**: `.vscode/mcp.json` não é mais suportado como fonte de configuração MCP. Se você tiver um `.vscode/mcp.json` existente, migre-o para `.mcp.json` na raiz do projeto. A CLI mostrará uma dica de migração se detectar um arquivo de configuração antigo.
 
 ```json
 {
@@ -172,21 +174,21 @@ MCP servers are configured in `~/.copilot/mcp-config.json` (user-level, applies 
 *A maioria dos servidores MCP é distribuída como pacotes npm e executada via o comando `npx`.*
 
 <details>
-<summary>💡 <strong>New to JSON?</strong> Click here to learn what each field means</summary>
+<summary>💡 <strong>Novo em JSON?</strong> Clique aqui para aprender o que cada campo significa</summary>
 
-| Field | What It Means |
+| Campo | O que significa |
 |-------|---------------|
-| `"mcpServers"` | Container for all your MCP server configurations |
-| `"server-name"` | A name you choose (e.g., "github", "filesystem") |
-| `"type": "local"` | The server runs on your machine |
-| `"command": "npx"` | The program to run (npx runs npm packages) |
-| `"args": [...]` | Arguments passed to the command |
-| `"tools": ["*"]` | Allow all tools from this server |
+| `"mcpServers"` | Container para todas as configurações dos seus servidores MCP |
+| `"server-name"` | Um nome que você escolhe (por exemplo, "github", "filesystem") |
+| `"type": "local"` | O servidor roda na sua máquina |
+| `"command": "npx"` | O programa a executar (npx executa pacotes npm) |
+| `"args": [...]` | Argumentos passados ao comando |
+| `"tools": ["*"]` | Permitir todas as ferramentas deste servidor |
 
-**Important JSON rules:**
-- Use double quotes `"` for strings (not single quotes)
-- No trailing commas after the last item
-- File must be valid JSON (use a [JSON validator](https://jsonlint.com/) if unsure)
+**Regras importantes de JSON:**
+- Use aspas duplas `"` para strings (não aspas simples)
+- Sem vírgulas finais após o último item
+- O arquivo deve ser JSON válido (use um [validador JSON](https://jsonlint.com/) se tiver dúvidas)
 
 </details>
 
@@ -196,17 +198,17 @@ MCP servers are configured in `~/.copilot/mcp-config.json` (user-level, applies 
 
 O servidor GitHub MCP é embutido e não requer configuração. Abaixo estão servidores adicionais que você pode adicionar. **Escolha o que mais lhe interessar ou percorra-os na ordem sugerida.**
 
-| I want to... | Jump to |
+| Quero... | Ir para |
 |---|---|
-| Let Copilot browse my project files | [Filesystem Server](#filesystem-server) |
-| Get up-to-date library documentation | [Context7 Server](#context7-server-documentation) |
-| Explore optional extras (custom servers, web_fetch) | [Beyond the Basics](#beyond-the-basics) |
+| Permitir que o Copilot navegue pelos arquivos do projeto | [Servidor Filesystem](#filesystem-server) |
+| Obter documentação atualizada de bibliotecas | [Servidor Context7](#context7-server-documentation) |
+| Explorar extras opcionais (servidores personalizados, web_fetch) | [Além do básico](#beyond-the-basics) |
 
 <details>
-<summary><strong>Filesystem Server</strong> - Let Copilot explore your project files</summary>
+<summary><strong>Servidor Filesystem</strong> - Permita que o Copilot explore os arquivos do seu projeto</summary>
 <a id="filesystem-server"></a>
 
-### Filesystem Server
+### Servidor Filesystem
 
 ```json
 {
@@ -221,19 +223,19 @@ O servidor GitHub MCP é embutido e não requer configuração. Abaixo estão se
 }
 ```
 
-> 💡 **O caminho `.`**: O `.` significa "diretório atual". O Copilot pode acessar arquivos relativos ao local onde foi iniciado. Em um Codespace, este é o diretório raiz do workspace. Você também pode usar um caminho absoluto como `/workspaces/copilot-cli-for-beginners` se preferir.
+> 💡 **O caminho `.`**: o `.` significa "diretório atual". O Copilot pode acessar arquivos relativos ao local onde foi iniciado. Em um Codespace, este é o diretório raiz do workspace. Você também pode usar um caminho absoluto como `/workspaces/copilot-cli-for-beginners` se preferir.
 
-Add this to your `~/.copilot/mcp-config.json` and restart Copilot.
+Adicione isto ao seu `~/.copilot/mcp-config.json` e reinicie o Copilot.
 
 </details>
 
 <details>
-<summary><strong>Context7 Server</strong> - Get up-to-date library docs</summary>
+<summary><strong>Servidor Context7</strong> - Obtenha documentação atualizada de bibliotecas</summary>
 <a id="context7-server-documentation"></a>
 
-### Context7 Server (Documentation)
+### Servidor Context7 (documentação)
 
-Context7 gives Copilot access to up-to-date documentation for popular frameworks and libraries. Instead of relying on training data that might be outdated, Copilot fetches the actual current documentation.
+O Context7 dá ao Copilot acesso a documentação atualizada de frameworks e bibliotecas populares. Em vez de depender de dados de treinamento que podem estar desatualizados, o Copilot busca a documentação atual real.
 
 ```json
 {
@@ -248,33 +250,34 @@ Context7 gives Copilot access to up-to-date documentation for popular frameworks
 }
 ```
 
-- ✅ **No API key required** 
-- ✅ **No account needed** 
-- ✅ **Your code stays local**
+- ✅ **Nenhuma chave de API necessária**
+- ✅ **Nenhuma conta necessária**
+- ✅ **Seu código permanece local**
 
-Add this to your `~/.copilot/mcp-config.json` and restart Copilot.
+Adicione isto ao seu `~/.copilot/mcp-config.json` e reinicie o Copilot.
 
 </details>
 
 <details>
-<summary><strong>Beyond the Basics</strong> - Custom servers and web access (optional)</summary>
+<summary><strong>Além do básico</strong> - Servidores personalizados e acesso web (opcional)</summary>
 <a id="beyond-the-basics"></a>
 
-These are optional extras for when you're comfortable with the core servers above.
+Estes são extras opcionais para quando você estiver confortável com os servidores principais acima.
 
-### Microsoft Learn MCP Server
+<a id="microsoft-learn-mcp-server"></a>
+### Servidor Microsoft Learn MCP
 
-Every MCP server you've seen so far (filesystem, Context7) runs locally on your machine. But MCP servers can also run remotely, meaning you just point Copilot CLI at a URL and it handles the rest. No `npx` or `python`, no local process, no dependencies to install.
+Todo servidor MCP que você viu até agora (filesystem, Context7) roda localmente na sua máquina. Mas servidores MCP também podem rodar remotamente, ou seja, você apenas aponta o Copilot CLI para uma URL e ele cuida do restante. Sem `npx` ou `python`, sem processo local, sem dependências para instalar.
 
-The [Microsoft Learn MCP Server](https://github.com/microsoftdocs/mcp) is a good example. It gives Copilot CLI direct access to official Microsoft documentation (Azure, Microsoft Foundry and other AI topics, .NET, Microsoft 365, and much more) so it can search docs, fetch full pages, and find official code samples instead of relying on a model's training data.
+O [Microsoft Learn MCP Server](https://github.com/microsoftdocs/mcp) é um bom exemplo. Ele dá ao Copilot CLI acesso direto à documentação oficial da Microsoft (Azure, Microsoft Foundry e outros tópicos de IA, .NET, Microsoft 365 e muito mais) para que ele possa pesquisar docs, buscar páginas completas e encontrar exemplos oficiais de código em vez de depender dos dados de treinamento de um modelo.
 
-- ✅ **No API key required** 
-- ✅ **No account needed** 
-- ✅ **No local install required**
+- ✅ **Nenhuma chave de API necessária**
+- ✅ **Nenhuma conta necessária**
+- ✅ **Nenhuma instalação local necessária**
 
-**Quick install with `/plugin install`:**
+**Instalação rápida com `/plugin install`:**
 
-Instead of editing your JSON config file manually, you can install it in one command:
+Em vez de editar manualmente seu arquivo JSON de configuração, você pode instalá-lo em um comando:
 
 ```bash
 copilot
@@ -282,11 +285,11 @@ copilot
 > /plugin install microsoftdocs/mcp
 ```
 
-This adds the server and its associated agent skills automatically. The skills installed include:
+Isso adiciona o servidor e suas Agent Skills associadas automaticamente. As skills instaladas incluem:
 
-- **microsoft-docs**: Concepts, tutorials, and factual lookups
-- **microsoft-code-reference**: API lookups, code samples, and troubleshooting
-- **microsoft-skill-creator**: A meta-skill for generating custom skills about Microsoft technologies
+- **microsoft-docs**: conceitos, tutoriais e consultas factuais
+- **microsoft-code-reference**: consultas de API, exemplos de código e solução de problemas
+- **microsoft-skill-creator**: uma meta-skill para gerar skills personalizadas sobre tecnologias Microsoft
 
 **Uso:**
 ```bash
@@ -295,13 +298,13 @@ copilot
 > Qual é a maneira recomendada para implantar um app Python no Azure App Service? Procure no Microsoft Learn.
 ```
 
-📚 Learn more: [Microsoft Learn MCP Server overview](https://learn.microsoft.com/training/support/mcp-get-started)
+📚 Saiba mais: [Visão geral do Microsoft Learn MCP Server](https://learn.microsoft.com/training/support/mcp-get-started)
 
-### Web Access with `web_fetch`
+### Acesso web com `web_fetch`
 
 O Copilot CLI inclui a ferramenta `web_fetch` embutida, que pode buscar conteúdo de qualquer URL. Isso é útil para recuperar READMEs, documentação de API ou notas de release sem sair do terminal. Nenhum servidor MCP adicional é necessário.
 
-You can control which URLs are accessible via `~/.copilot/config.json` (general Copilot settings), which is separate from `~/.copilot/mcp-config.json` (MCP server definitions).
+Você pode controlar quais URLs são acessíveis via `~/.copilot/config.json` (configurações gerais do Copilot), que é separado de `~/.copilot/mcp-config.json` (definições de servidores MCP).
 
 ```json
 {
@@ -325,23 +328,23 @@ copilot
 > Buscar e resumir o README em https://github.com/facebook/react
 ```
 
-### Building a Custom MCP Server
+### Criando um servidor MCP personalizado
 
-Want to connect Copilot to your own APIs, databases, or internal tools? You can build a custom MCP server in Python. This is completely optional since the pre-built servers (GitHub, filesystem, Context7) cover most use cases.
+Quer conectar o Copilot às suas próprias APIs, bancos de dados ou ferramentas internas? Você pode construir um servidor MCP personalizado em Python. Isso é completamente opcional, pois os servidores pré-criados (GitHub, filesystem, Context7) cobrem a maioria dos casos de uso.
 
-📖 See the [Custom MCP Server Guide](mcp-custom-server.md) for a complete walkthrough using the book app as an example.
+📖 Veja o [Guia de servidor MCP personalizado](mcp-custom-server.md) para um passo a passo completo usando o app de livros como exemplo.
 
-📚 For more background, see the [MCP for Beginners course](https://github.com/microsoft/mcp-for-beginners).
+📚 Para mais contexto, veja o curso [MCP for Beginners](https://github.com/microsoft/mcp-for-beginners).
 
 </details>
 
 <a id="complete-configuration-file"></a>
 
-### Complete Configuration File
+### Arquivo de configuração completo
 
-Here's a full `mcp-config.json` with filesystem and Context7 servers:
+Aqui está um `mcp-config.json` completo com servidores filesystem e Context7:
 
-> 💡 **Note:** GitHub MCP is built-in. You don't need to add it to your config file.
+> 💡 **Observação:** o GitHub MCP é embutido. Você não precisa adicioná-lo ao arquivo de configuração.
 
 ```json
 {
@@ -362,46 +365,46 @@ Here's a full `mcp-config.json` with filesystem and Context7 servers:
 }
 ```
 
-Save this as `~/.copilot/mcp-config.json` for global access or `.mcp.json` in the project root for project-specific configuration.
+Salve isto como `~/.copilot/mcp-config.json` para acesso global ou `.mcp.json` na raiz do projeto para configuração específica do projeto.
 
 ---
 
-# Using MCP Servers
+# Usando servidores MCP
 
-Now that you have MCP servers configured, let's see what they can do.
+Agora que você tem servidores MCP configurados, vamos ver o que eles podem fazer.
 
-<img src="assets/using-mcp-servers.png" alt="Using MCP Servers - Hub-and-spoke diagram showing a Developer CLI connected to GitHub, Filesystem, Context7, and Custom/Web Fetch servers" width="800" />
+<img src="assets/using-mcp-servers.png" alt="Usando servidores MCP — diagrama hub-and-spoke mostrando um CLI de desenvolvedor conectado a servidores GitHub, Filesystem, Context7 e Custom/Web Fetch" width="800" />
 
 ---
 
 ## Exemplos de uso do servidor
 
-**Pick a server to explore, or work through them in order.**
+**Escolha um servidor para explorar ou percorra-os em ordem.**
 
-| I want to try... | Jump to |
+| Quero tentar... | Ir para |
 |---|---|
-| GitHub repos, issues, and PRs | [GitHub Server](#github-server-built-in) |
+| Repositórios, issues e PRs do GitHub | [Servidor GitHub](#github-server-built-in) |
 | Navegando por arquivos do projeto | [Uso do servidor de sistema de arquivos](#filesystem-server-usage) |
 | Busca de documentação da biblioteca | [Uso do servidor Context7](#context7-server-usage) |
 | Servidor customizado, Microsoft Learn MCP e uso do web_fetch | [Além do básico: uso](#beyond-the-basics-usage) |
 
 <details>
-<summary><strong>GitHub Server (Built-in)</strong> - Access repos, issues, PRs, and more</summary>
+<summary><strong>Servidor GitHub (embutido)</strong> - Acesse repositórios, issues, PRs e mais</summary>
 <a id="github-server-built-in"></a>
 
-### GitHub Server (Built-in)
+### Servidor GitHub (embutido)
 
-The GitHub MCP server is **built-in**. If you logged into Copilot (which you did during initial setup), it already works. No configuration needed!
+O servidor GitHub MCP é **embutido**. Se você fez login no Copilot (o que fez durante a configuração inicial), ele já funciona. Nenhuma configuração necessária!
 
-> 💡 **Not working?** Run `/login` to re-authenticate with GitHub.
+> 💡 **Não está funcionando?** Execute `/login` para reautenticar com o GitHub.
 
 <details>
-<summary><strong>Authentication in Dev Containers</strong></summary>
+<summary><strong>Autenticação em dev containers</strong></summary>
 
-- **GitHub Codespaces** (recommended): Authentication is automatic. The `gh` CLI inherits your Codespace token. No action needed.
-- **Local dev container (Docker)**: Run `gh auth login` after the container starts, then restart Copilot.
+- **GitHub Codespaces** (recomendado): a autenticação é automática. O CLI `gh` herda seu token do Codespace. Nenhuma ação necessária.
+- **Dev container local (Docker)**: execute `gh auth login` depois que o container iniciar e reinicie o Copilot.
 
-**Troubleshooting authentication:**
+**Solução de problemas de autenticação:**
 ```bash
 # Check if you're authenticated
 gh auth status
@@ -416,13 +419,13 @@ copilot
 
 </details>
 
-| Feature | Example |
+| Funcionalidade | Exemplo |
 |---------|----------|
-| **Repository info** | View commits, branches, contributors |
-| **Issues** | List, create, search, and comment on issues |
-| **Pull requests** | View PRs, diffs, create PRs, check status |
-| **Code search** | Search code across repositories |
-| **Actions** | Query workflow runs and status |
+| **Informações do repositório** | Ver commits, branches e contribuidores |
+| **Issues** | Listar, criar, pesquisar e comentar em issues |
+| **Pull requests** | Ver PRs, diffs, criar PRs e verificar status |
+| **Busca de código** | Pesquisar código em repositórios |
+| **Actions** | Consultar execuções de workflow e status |
 
 ```bash
 copilot
@@ -450,19 +453,19 @@ Found 1 file:
 - samples/book-app-project/tests/test_books.py
 ```
 
-> 💡 **Working on your own fork?** If you forked this course repo, you can also try write operations like creating issues and pull requests. We'll practice that in the exercises below.
+> 💡 **Trabalhando em seu próprio fork?** Se você fez fork deste repositório do curso, também pode tentar operações de escrita como criar issues e pull requests. Praticaremos isso nos exercícios abaixo.
 
-> ⚠️ **Don't see results?** The GitHub MCP operates on the repository's remote (on github.com), not just local files. Make sure your repo has a remote: run `git remote -v` to check.
+> ⚠️ **Não vê resultados?** O GitHub MCP opera no remote do repositório (em github.com), não apenas em arquivos locais. Certifique-se de que seu repositório tenha um remote: execute `git remote -v` para verificar.
 
 </details>
 
 <details>
-<summary><strong>Filesystem Server</strong> - Browse and analyze project files</summary>
+<summary><strong>Servidor Filesystem</strong> - Navegue e analise arquivos do projeto</summary>
 <a id="filesystem-server-usage"></a>
 
-### Filesystem Server
+### Servidor Filesystem
 
-Once configured, the filesystem MCP provides tools that Copilot can use automatically:
+Depois de configurado, o filesystem MCP fornece ferramentas que o Copilot pode usar automaticamente:
 
 ```bash
 copilot
@@ -488,10 +491,10 @@ Found 2 functions without type hints:
 </details>
 
 <details>
-<summary><strong>Context7 Server</strong> - Look up library documentation</summary>
+<summary><strong>Servidor Context7</strong> - Consulte documentação de bibliotecas</summary>
 <a id="context7-server-usage"></a>
 
-### Context7 Server
+### Servidor Context7
 
 ```bash
 copilot
@@ -536,7 +539,7 @@ Best practices:
 
 ### Além do básico
 
-**Servidor MCP customizado**: se você construiu o servidor de busca de livros seguindo o [Guia de servidor MCP customizado](mcp-custom-server.md), pode consultar sua coleção de livros diretamente:
+**Servidor MCP customizado**: se você construiu o servidor de busca de livros seguindo o [Guia de servidor MCP personalizado](mcp-custom-server.md), pode consultar sua coleção de livros diretamente:
 
 ```bash
 copilot
@@ -544,7 +547,7 @@ copilot
 > Look up information about "1984" using the book lookup server. Search for books by George Orwell
 ```
 
-**Microsoft Learn MCP**: se você instalou o [Microsoft Learn MCP server](#microsoft-learn-mcp-server), pode consultar a documentação oficial da Microsoft diretamente:
+**Microsoft Learn MCP**: se você instalou o [servidor Microsoft Learn MCP](#microsoft-learn-mcp-server), pode consultar a documentação oficial da Microsoft diretamente:
 
 ```bash
 copilot
@@ -552,7 +555,7 @@ copilot
 > How do I configure managed identity for an Azure Function? Search Microsoft Learn.
 ```
 
-**Web Fetch**: Use the built-in `web_fetch` tool to pull in content from any URL:
+**Web Fetch**: use a ferramenta embutida `web_fetch` para trazer conteúdo de qualquer URL:
 
 ```bash
 copilot
@@ -564,27 +567,27 @@ copilot
 
 ---
 
-## Multi-Server Workflows
+## Fluxos de trabalho com vários servidores
 
-These workflows show why developers say "I never want to work without this again." Each example combines multiple MCP servers in a single session.
+Estes fluxos mostram por que desenvolvedores dizem "nunca mais quero trabalhar sem isso". Cada exemplo combina vários servidores MCP em uma única sessão.
 
-<img src="assets/issue-to-pr-workflow.png" alt="Issue to PR Workflow using MCP - Shows the complete flow from getting a GitHub issue through creating a pull request" width="800"/>
+<img src="assets/issue-to-pr-workflow.png" alt="Fluxo de issue para PR usando MCP — mostra o fluxo completo desde obter uma issue do GitHub até criar um pull request" width="800"/>
 
-*Complete MCP workflow: GitHub MCP retrieves repo data, Filesystem MCP finds code, Context7 MCP provides best practices, and Copilot handles analysis*
+*Fluxo MCP completo: GitHub MCP recupera dados do repositório, Filesystem MCP encontra código, Context7 MCP fornece melhores práticas e o Copilot cuida da análise*
 
-Each example below is self-contained. **Pick one that interests you, or read them all.**
+Cada exemplo abaixo é autocontido. **Escolha um que interesse ou leia todos.**
 
-| I want to see... | Jump to |
+| Quero ver... | Ir para |
 |---|---|
-| Multiple servers working together | [Multi-Server Exploration](#multi-server-exploration) |
-| Going from issue to PR in one session | [Issue-to-PR Workflow](#issue-to-pr-workflow) |
-| A quick project health check | [Health Dashboard](#health-dashboard) |
+| Vários servidores trabalhando juntos | [Exploração com vários servidores](#multi-server-exploration) |
+| Ir de issue a PR em uma sessão | [Fluxo issue para PR](#issue-to-pr-workflow) |
+| Uma verificação rápida de saúde do projeto | [Painel de saúde](#health-dashboard) |
 
 <details>
-<summary><strong>Multi-Server Exploration</strong> - Combine filesystem, GitHub, and Context7 in one session</summary>
+<summary><strong>Exploração com vários servidores</strong> - Combine filesystem, GitHub e Context7 em uma sessão</summary>
 <a id="multi-server-exploration"></a>
 
-#### Exploring the Book App with Multiple MCP Servers
+#### Explorando o Book App com vários servidores MCP
 
 ```bash
 copilot
@@ -628,25 +631,25 @@ Suggestions:
 <details>
 <summary>🎬 Veja o fluxo MCP em ação!</summary>
 
-![MCP Workflow Demo](assets/mcp-workflow-demo.gif)
+![Demo de fluxo MCP](assets/mcp-workflow-demo.gif)
 
 *A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
-**The result**: Code exploration → history review → best practices lookup → improvement plan. **All from one terminal session, using three MCP servers together.**
+**O resultado**: exploração de código → revisão de histórico → consulta de melhores práticas → plano de melhorias. **Tudo em uma sessão de terminal, usando três servidores MCP juntos.**
 
 </details>
 
 <details>
-<summary><strong>Issue-to-PR Workflow</strong> - Go from a GitHub issue to a pull request without leaving the terminal</summary>
+<summary><strong>Fluxo issue para PR</strong> - Vá de uma issue do GitHub a um pull request sem sair do terminal</summary>
 <a id="issue-to-pr-workflow"></a>
 
-#### The Issue-to-PR Workflow (On Your Own Repo)
+#### O fluxo issue para PR (no seu próprio repositório)
 
-This works best on your own fork or repository where you have write access:
+Isso funciona melhor em seu próprio fork ou repositório em que você tem acesso de escrita:
 
-> 💡 **Don't worry if you can't try this right now.** If you're on a read-only clone, you'll practice this in the assignment. For now, just read through to understand the flow.
+> 💡 **Não se preocupe se não puder tentar agora.** Se você estiver em um clone somente leitura, praticará isso na tarefa. Por enquanto, apenas leia para entender o fluxo.
 
 ```bash
 copilot
@@ -670,15 +673,15 @@ All 8 tests passed ✓
 ✓ Created PR #2: Add year validation to book app
 ```
 
-**Zero copy-paste. Zero context switching. One terminal session.**
+**Zero copiar e colar. Zero troca de contexto. Uma sessão de terminal.**
 
 </details>
 
 <details>
-<summary><strong>Health Dashboard</strong> - Get a quick project health check using multiple servers</summary>
+<summary><strong>Painel de saúde</strong> - Obtenha uma verificação rápida da saúde do projeto usando vários servidores</summary>
 <a id="health-dashboard"></a>
 
-#### Book App Health Dashboard
+#### Painel de saúde do Book App
 
 ```bash
 copilot
@@ -712,27 +715,27 @@ Recommendations:
 - All files well-sized (<100 lines) - good structure!
 ```
 
-**The result**: Multiple data sources aggregated in seconds. Manually, this would mean running grep, counting lines, checking git log, and browsing test files. Easily 15+ minutes of work.
+**O resultado**: várias fontes de dados agregadas em segundos. Manualmente, isso significaria executar grep, contar linhas, verificar git log e navegar por arquivos de teste. Facilmente 15+ minutos de trabalho.
 
 </details>
 
 ---
 
-# Practice
+# Prática
 
-<img src="../assets/practice.png" alt="Warm desk setup with monitor showing code, lamp, coffee cup, and headphones ready for hands-on practice" width="800"/>
+<img src="../assets/practice.png" alt="Ambiente de mesa aconchegante com monitor mostrando código, luminária, xícara de café e fones de ouvido prontos para prática" width="800"/>
 
-**🎉 You now know the essentials!** You understand MCP, you've seen how to configure servers, and you've seen real workflows in action. Now it's time to try it yourself.
+**🎉 Agora você conhece o essencial!** Você entende MCP, viu como configurar servidores e viu fluxos reais em ação. Agora é hora de tentar por conta própria.
 
 ---
 
-## ▶️ Try It Yourself
+## ▶️ Experimente você mesmo
 
-Now it's your turn! Complete these exercises to practice using MCP servers with the book app project.
+Agora é sua vez! Complete estes exercícios para praticar o uso de servidores MCP com o projeto do app de livros.
 
-### Exercise 1: Check Your MCP Status
+### Exercício 1: Verifique o status do MCP
 
-Start by seeing what MCP servers are available:
+Comece vendo quais servidores MCP estão disponíveis:
 
 ```bash
 copilot
@@ -740,13 +743,13 @@ copilot
 > /mcp show
 ```
 
-You should see the GitHub server listed as enabled. If not, run `/login` to authenticate.
+Você deve ver o servidor GitHub listado como habilitado. Caso contrário, execute `/login` para autenticar.
 
 ---
 
-### Exercise 2: Explore the Book App with Filesystem MCP
+### Exercício 2: Explore o Book App com Filesystem MCP
 
-If you've configured the filesystem server, use it to explore the book app:
+Se você configurou o servidor filesystem, use-o para explorar o app de livros:
 
 ```bash
 copilot
@@ -755,15 +758,15 @@ copilot
 > What functions are defined in each file?
 ```
 
-**Expected result**: Copilot lists `book_app.py`, `books.py`, and `utils.py` with their functions.
+**Resultado esperado**: o Copilot lista `book_app.py`, `books.py` e `utils.py` com suas funções.
 
-> 💡 **Don't have filesystem MCP configured yet?** Create the config file from the [Complete Configuration](#complete-configuration-file) section above. Then restart Copilot.
+> 💡 **Ainda não configurou o filesystem MCP?** Crie o arquivo de configuração a partir da seção [Configuração completa](#complete-configuration-file) acima. Depois reinicie o Copilot.
 
 ---
 
-### Exercise 3: Query Repository History with GitHub MCP
+### Exercício 3: Consulte o histórico do repositório com GitHub MCP
 
-Use the built-in GitHub MCP to explore this course repository:
+Use o GitHub MCP embutido para explorar este repositório do curso:
 
 ```bash
 copilot
@@ -773,15 +776,15 @@ copilot
 > What branches exist in this repository?
 ```
 
-**Expected result**: Copilot shows recent commit messages and branch names from the GitHub remote.
+**Resultado esperado**: o Copilot mostra mensagens de commit recentes e nomes de branch a partir do remote do GitHub.
 
-> ⚠️ **In a Codespace?** This works automatically. Authentication is inherited. If you're on a local clone, make sure `gh auth status` shows you're logged in.
+> ⚠️ **Em um Codespace?** Isso funciona automaticamente. A autenticação é herdada. Se você estiver em um clone local, certifique-se de que `gh auth status` mostre que você está logado.
 
 ---
 
-### Exercise 4: Combine Multiple MCP Servers
+### Exercício 4: Combine vários servidores MCP
 
-Now combine filesystem and GitHub MCP in a single session:
+Agora combine filesystem e GitHub MCP em uma única sessão:
 
 ```bash
 copilot
@@ -791,38 +794,38 @@ copilot
 > file was last modified.
 ```
 
-**Expected result**: Copilot reads the JSON file (filesystem MCP), lists the 5 books including "The Hobbit", "1984", "Dune", "To Kill a Mockingbird", and "Mysterious Book", then queries GitHub for commit history.
+**Resultado esperado**: o Copilot lê o arquivo JSON (filesystem MCP), lista os 5 livros incluindo "The Hobbit", "1984", "Dune", "To Kill a Mockingbird" e "Mysterious Book", e consulta o GitHub para obter o histórico de commits.
 
-**Self-Check**: You understand MCP when you can explain why "Check my repo's commit history" is better than manually running `git log` and pasting the output into your prompt.
+**Autoverificação**: você entende MCP quando consegue explicar por que "Check my repo's commit history" é melhor do que executar manualmente `git log` e colar a saída no seu prompt.
 
 ---
 
-## 📝 Assignment
+## 📝 Tarefa
 
-### Main Challenge: Book App MCP Exploration
+### Desafio principal: Exploração do Book App com MCP
 
-Practice using MCP servers together on the book app project. Complete these steps in a single Copilot session:
+Pratique usar servidores MCP juntos no projeto do app de livros. Complete estas etapas em uma única sessão do Copilot:
 
-1. **Verify MCP is working**: Run `/mcp show` and confirm at least the GitHub server is enabled
-2. **Set up filesystem MCP** (if not already done): Create `~/.copilot/mcp-config.json` with the filesystem server configuration
-3. **Explore the code**: Ask Copilot to use the filesystem server to:
-   - List all functions in `samples/book-app-project/books.py`
-   - Check which functions in `samples/book-app-project/utils.py` are missing type hints
-   - Read `samples/book-app-project/data.json` and identify any data quality issues (hint: look at the last entry)
-4. **Check repository activity**: Ask Copilot to use GitHub MCP to:
-   - List recent commits that touched files in `samples/book-app-project/`
-   - Check if there are any open issues or pull requests
-5. **Combine servers**: In a single prompt, ask Copilot to:
-   - Read the test file at `samples/book-app-project/tests/test_books.py`
-   - Compare the tested functions against all functions in `books.py`
-   - Summarize what test coverage is missing
+1. **Verifique se o MCP está funcionando**: execute `/mcp show` e confirme que pelo menos o servidor GitHub está habilitado
+2. **Configure o filesystem MCP** (se ainda não estiver feito): crie `~/.copilot/mcp-config.json` com a configuração do servidor filesystem
+3. **Explore o código**: peça ao Copilot para usar o servidor filesystem para:
+   - Listar todas as funções em `samples/book-app-project/books.py`
+   - Verificar quais funções em `samples/book-app-project/utils.py` estão sem type hints
+   - Ler `samples/book-app-project/data.json` e identificar problemas de qualidade de dados (dica: olhe a última entrada)
+4. **Verifique a atividade do repositório**: peça ao Copilot para usar o GitHub MCP para:
+   - Listar commits recentes que tocaram arquivos em `samples/book-app-project/`
+   - Verificar se há issues ou pull requests abertos
+5. **Combine servidores**: em um único prompt, peça ao Copilot para:
+   - Ler o arquivo de teste em `samples/book-app-project/tests/test_books.py`
+   - Comparar as funções testadas com todas as funções em `books.py`
+   - Resumir qual cobertura de testes está faltando
 
-**Success criteria**: You can seamlessly combine filesystem and GitHub MCP data in a single Copilot session, and you can explain what each MCP server contributed to the response.
+**Critérios de sucesso**: você consegue combinar dados de filesystem e GitHub MCP sem atrito em uma única sessão do Copilot e consegue explicar o que cada servidor MCP contribuiu para a resposta.
 
 <details>
-<summary>💡 Hints (click to expand)</summary>
+<summary>💡 Dicas (clique para expandir)</summary>
 
-**Step 1: Verify MCP**
+**Etapa 1: Verificar MCP**
 ```bash
 copilot
 > /mcp show
@@ -830,13 +833,13 @@ copilot
 # If not, run: /login
 ```
 
-**Step 2: Create the config file**
+**Etapa 2: Criar o arquivo de configuração**
 
-Use the JSON from the [Complete Configuration](#complete-configuration-file) section above and save it as `~/.copilot/mcp-config.json`.
+Use o JSON da seção [Configuração completa](#complete-configuration-file) acima e salve-o como `~/.copilot/mcp-config.json`.
 
-**Step 3: Data quality issue to look for**
+**Etapa 3: Problema de qualidade de dados a procurar**
 
-The last book in `data.json` is:
+O último livro em `data.json` é:
 ```json
 {
   "title": "Mysterious Book",
@@ -845,59 +848,59 @@ The last book in `data.json` is:
   "read": false
 }
 ```
-An empty author and year of 0. That's the data quality issue!
+Um autor vazio e ano 0. Esse é o problema de qualidade de dados!
 
-**Step 5: Test coverage comparison**
+**Etapa 5: Comparação de cobertura de testes**
 
-The tests in `test_books.py` cover: `add_book`, `mark_as_read`, `remove_book`, `get_unread_books`, and `find_book_by_title`. Functions like `load_books`, `save_books`, and `list_books` don't have direct tests. The CLI functions in `book_app.py` and helpers in `utils.py` have no tests at all.
+Os testes em `test_books.py` cobrem: `add_book`, `mark_as_read`, `remove_book`, `get_unread_books` e `find_book_by_title`. Funções como `load_books`, `save_books` e `list_books` não têm testes diretos. As funções CLI em `book_app.py` e os helpers em `utils.py` não têm testes.
 
-**If MCP isn't working:** Restart Copilot after editing the config file.
+**Se o MCP não estiver funcionando:** reinicie o Copilot depois de editar o arquivo de configuração.
 
 </details>
 
-### Bonus Challenge: Build a Custom MCP Server
+### Desafio bônus: Construir um servidor MCP personalizado
 
-Ready to go deeper? Follow the [Custom MCP Server Guide](mcp-custom-server.md) to build your own MCP server in Python that connects to any API.
+Pronto para ir mais fundo? Siga o [Guia de servidor MCP personalizado](mcp-custom-server.md) para construir seu próprio servidor MCP em Python que se conecta a qualquer API.
 
 ---
 
 <details>
-<summary>🔧 <strong>Common Mistakes & Troubleshooting</strong> (click to expand)</summary>
+<summary>🔧 <strong>Erros comuns e solução de problemas</strong> (clique para expandir)</summary>
 
-### Common Mistakes
+### Erros comuns
 
-| Mistake | What Happens | Fix |
+| Erro | O que acontece | Correção |
 |---------|--------------|-----|
-| Not knowing GitHub MCP is built-in | Trying to install/configure it manually | GitHub MCP is included by default. Just try: "List the recent commits in this repo" |
-| Looking for config in wrong location | Can't find or edit MCP settings | User-level config is in `~/.copilot/mcp-config.json`, project-level is `.mcp.json` in the project root |
-| Invalid JSON in config file | MCP servers fail to load | Use `/mcp show` to check configuration; validate JSON syntax |
-| Forgetting to authenticate MCP servers | "Authentication failed" errors | Some MCPs need separate auth. Check each server's requirements |
+| Não saber que o GitHub MCP é embutido | Tentar instalar/configurá-lo manualmente | O GitHub MCP está incluído por padrão. Basta tentar: "List the recent commits in this repo" |
+| Procurar configuração no local errado | Não consegue encontrar ou editar configurações MCP | A configuração de usuário fica em `~/.copilot/mcp-config.json`; a de projeto é `.mcp.json` na raiz do projeto |
+| JSON inválido no arquivo de configuração | Servidores MCP falham ao carregar | Use `/mcp show` para verificar a configuração; valide a sintaxe JSON |
+| Esquecer de autenticar servidores MCP | Erros "Authentication failed" (autenticação falhou) | Alguns MCPs precisam de autenticação separada. Verifique os requisitos de cada servidor |
 
-### Troubleshooting
+### Solução de problemas
 
-**"MCP server not found"** - Check that:
-1. The npm package exists: `npm view @modelcontextprotocol/server-github`
-2. Your configuration is valid JSON
-3. The server name matches your config
+**"MCP server not found" (servidor MCP não encontrado)** - Verifique se:
+1. O pacote npm existe: `npm view @modelcontextprotocol/server-github`
+2. Sua configuração é JSON válido
+3. O nome do servidor corresponde à sua configuração
 
-Use `/mcp show` to see the current configuration.
+Use `/mcp show` para ver a configuração atual.
 
-**"GitHub authentication failed"** - The built-in GitHub MCP uses your `/login` credentials. Try:
+**"GitHub authentication failed" (autenticação do GitHub falhou)** - o GitHub MCP embutido usa suas credenciais de `/login`. Tente:
 
 ```bash
 copilot
 > /login
 ```
 
-This will re-authenticate you with GitHub. If issues persist, check that your GitHub account has the necessary permissions for the repository you're accessing.
+Isso reautenticará você com o GitHub. Se os problemas persistirem, verifique se sua conta do GitHub tem as permissões necessárias para o repositório que está acessando.
 
-**"MCP server failed to start"** - Check the server logs:
+**"MCP server failed to start" (falha ao iniciar o servidor MCP)** - Verifique os logs do servidor:
 ```bash
 # Run the server command manually to see errors
 npx -y @modelcontextprotocol/server-github
 ```
 
-**MCP tools not available** - Make sure the server is enabled:
+**Ferramentas MCP não disponíveis** - Certifique-se de que o servidor está habilitado:
 ```bash
 copilot
 
@@ -905,35 +908,35 @@ copilot
 # Check if server is listed and enabled
 ```
 
-If a server is disabled, see the [additional `/mcp` commands](#-additional-mcp-commands) below for how to re-enable it.
+Se um servidor estiver desativado, veja os [comandos `/mcp` adicionais](#-additional-mcp-commands) abaixo para saber como reativá-lo.
 
 </details>
 
 ---
 
 <details>
-<summary>📚 <strong>Additional MCP Commands</strong> (click to expand)</summary>
+<summary>📚 <strong>Comandos MCP adicionais</strong> (clique para expandir)</summary>
 <a id="-additional-mcp-commands"></a>
 
-You can manage MCP servers in two ways: using **slash commands inside a chat session**, or using the **`copilot mcp` command directly in your terminal** (no chat session needed).
+Você pode gerenciar servidores MCP de duas formas: usando **comandos com barra dentro de uma sessão de chat** ou usando o **comando `copilot mcp` diretamente no terminal** (sem sessão de chat).
 
-### Option 1: Slash commands (inside a chat session)
+### Opção 1: Comandos com barra (dentro de uma sessão de chat)
 
-These work when you're already inside `copilot`:
+Estes funcionam quando você já está dentro de `copilot`:
 
 | Comando | O que faz |
 |---------|--------------|
-| `/mcp show` | Show all configured MCP servers and their status |
-| `/mcp add` | Interactive setup for adding a new server |
-| `/mcp edit <server-name>` | Edit an existing server configuration |
-| `/mcp enable <server-name>` | Enable a disabled server (persists across sessions) |
-| `/mcp disable <server-name>` | Disable a server (persists across sessions) |
-| `/mcp delete <server-name>` | Remove a server permanently |
-| `/mcp auth <server-name>` | Re-authenticate with an MCP server that uses OAuth (e.g., after switching accounts) |
+| `/mcp show` | Mostrar todos os servidores MCP configurados e seus status |
+| `/mcp add` | Configuração interativa para adicionar um novo servidor |
+| `/mcp edit <server-name>` | Editar a configuração de um servidor existente |
+| `/mcp enable <server-name>` | Habilitar um servidor desativado (persiste entre sessões) |
+| `/mcp disable <server-name>` | Desativar um servidor (persiste entre sessões) |
+| `/mcp delete <server-name>` | Remover um servidor permanentemente |
+| `/mcp auth <server-name>` | Reautenticar com um servidor MCP que usa OAuth (por exemplo, depois de trocar de conta) |
 
-### Option 2: `copilot mcp` command (from your terminal)
+### Opção 2: Comando `copilot mcp` (do seu terminal)
 
-You can also manage MCP servers directly from your terminal without starting a chat session first:
+Você também pode gerenciar servidores MCP diretamente do terminal sem iniciar uma sessão de chat primeiro:
 
 ```bash
 # List all configured MCP servers
@@ -948,38 +951,38 @@ copilot mcp disable context7
 
 > 💡 **Quando usar cada um?** Use os comandos `/mcp` dentro de uma sessão de chat quando já estiver nela. Use `copilot mcp` no terminal quando quiser verificar ou alterar rapidamente as configurações do servidor antes de iniciar uma sessão.
 
-For most of this course, `/mcp show` is all you need. The other commands become useful as you manage more servers over time.
+Para a maior parte deste curso, `/mcp show` é tudo que você precisa. Os outros comandos se tornam úteis conforme você gerencia mais servidores ao longo do tempo.
 
 </details>
 
 ---
 
-# Summary
+# Resumo
 
-## 🔑 Key Takeaways
+## 🔑 Principais aprendizados
 
-1. **MCP** connects Copilot to external services (GitHub, filesystem, documentation)
-2. **GitHub MCP is built-in** - no configuration needed, just `/login`
-3. **Filesystem and Context7** are configured via `~/.copilot/mcp-config.json`
-4. **Multi-server workflows** combine data from multiple sources in a single session
-5. **Manage servers two ways**: use `/mcp` slash commands inside chat, or `copilot mcp` from the terminal
-6. **Custom servers** let you connect any API (optional, covered in the appendix guide)
+1. **MCP** conecta o Copilot a serviços externos (GitHub, filesystem, documentação)
+2. **GitHub MCP é embutido** - não é necessária configuração, apenas `/login`
+3. **Filesystem e Context7** são configurados via `~/.copilot/mcp-config.json`
+4. **Fluxos com vários servidores** combinam dados de várias fontes em uma única sessão
+5. **Gerencie servidores de duas formas**: use comandos com barra `/mcp` dentro do chat ou `copilot mcp` no terminal
+6. **Servidores personalizados** permitem conectar qualquer API (opcional, coberto no guia do apêndice)
 
-> 📋 **Quick Reference**: See the [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference) for a complete list of commands and shortcuts.
-
----
-
-## ➡️ What's Next
-
-You now have all the building blocks: modes, context, workflows, agents, skills, and MCP. Time to put them all together.
-
-In **[Chapter 07: Putting It All Together](../07-putting-it-together/README.md)**, you'll learn:
-
-- Combining agents, skills, and MCP in unified workflows
-- Complete feature development from idea to merged PR
-- Automation with hooks
-- Best practices for team environments
+> 📋 **Referência rápida**: Veja a [referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/cli-command-reference) para uma lista completa de comandos e atalhos.
 
 ---
 
-**[← Back to Chapter 05](../05-skills/README.md)** | **[Continue to Chapter 07 →](../07-putting-it-together/README.md)**
+## ➡️ O que vem a seguir
+
+Agora você tem todos os blocos de construção: modos, contexto, fluxos de trabalho, agents, skills e MCP. Hora de juntar tudo.
+
+Em **[Capítulo 07: Colocando Tudo em Prática](../07-putting-it-together/README.md)**, você aprenderá:
+
+- Combinar agents, skills e MCP em fluxos unificados
+- Desenvolvimento completo de funcionalidades da ideia ao PR mesclado
+- Automação com hooks
+- Melhores práticas para ambientes de equipe
+
+---
+
+**[← Voltar ao Capítulo 05](../05-skills/README.md)** | **[Continue para o Capítulo 07 →](../07-putting-it-together/README.md)**

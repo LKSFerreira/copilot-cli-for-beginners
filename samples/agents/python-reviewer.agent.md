@@ -1,6 +1,6 @@
 ---
 name: python-reviewer
-description: Python code quality specialist for reviewing Python projects
+description: Especialista em qualidade de código Python para revisão de projetos Python
 tools: ["read", "edit", "search"]
 ---
 

@@ -1,19 +1,19 @@
 <!--
 ---
 id: CopilotCLI-05
-title: !translate Automate Repetitive Tasks
-description: !translate Create and use Agent Skills so GitHub Copilot CLI can apply task-specific instructions and team best practices automatically.
-audience: Developers / Students / Terminal users
+title: !translate Automatize Tarefas Repetitivas
+description: !translate Crie e use Agent Skills para que o GitHub Copilot CLI aplique automaticamente instruções específicas de tarefas e melhores práticas da equipe.
+audience: Desenvolvedores / Estudantes / Usuários de terminal
 slug: automate-repetitive-tasks
 weight: 6
 ---
 -->
 
-![Chapter 05: Skills System](assets/chapter-header.png)
+![Capítulo 05: Sistema de Skills](assets/chapter-header.png)
 
 > **E se o Copilot pudesse aplicar automaticamente as melhores práticas da sua equipe sem que você precise explicá-las toda vez?**
 
-Neste capítulo, você conhecerá as Agent Skills: pastas de instruções que o Copilot carrega automaticamente quando relevantes para sua tarefa. Enquanto agentes mudam *como* o Copilot pensa, skills ensinam *maneiras específicas de executar tarefas*. Você criará uma skill de auditoria de segurança que o Copilot aplica quando você pedir por segurança, construirá critérios de revisão padronizados pela equipe para garantir qualidade consistente do código e aprenderá como skills funcionam no Copilot CLI, VS Code e no agente Copilot na nuvem do GitHub.
+Neste capítulo, você conhecerá as Agent Skills: pastas de instruções que o Copilot carrega automaticamente quando relevantes para sua tarefa. Enquanto agents mudam *como* o Copilot pensa, skills ensinam *maneiras específicas de executar tarefas*. Você criará uma skill de auditoria de segurança que o Copilot aplica quando você pedir por segurança, construirá critérios de revisão padronizados pela equipe para garantir qualidade consistente do código e aprenderá como skills funcionam no Copilot CLI, VS Code e no agente Copilot na nuvem do GitHub.
 
 
 ## 🎯 Objetivos de Aprendizagem
@@ -31,30 +31,30 @@ Ao final deste capítulo, você será capaz de:
 
 ## 🧩 Analogia do mundo real: Ferramentas elétricas
 
-A general-purpose drill is useful, but specialized attachments make it powerful. 
-<img src="assets/power-tools-analogy.png" alt="Power Tools - Skills Extend Copilot's Capabilities" width="800"/>
+Uma furadeira de uso geral é útil, mas acessórios especializados a tornam poderosa.
+<img src="assets/power-tools-analogy.png" alt="Ferramentas elétricas — skills ampliam as capacidades do Copilot" width="800"/>
 
 
 As skills funcionam da mesma forma. Assim como trocar brocas para tarefas diferentes, você pode adicionar skills ao Copilot para trabalhos distintos:
 
-| Skill Attachment | Purpose |
+| Acessório de skill | Propósito |
 |------------|---------|
-| `commit` | Generate consistent commit messages |
-| `security-audit` | Check for OWASP vulnerabilities |
-| `generate-tests` | Create comprehensive pytest tests |
-| `code-checklist` | Apply team code quality standards |
+| `commit` | Gerar mensagens de commit consistentes |
+| `security-audit` | Verificar vulnerabilidades OWASP |
+| `generate-tests` | Criar testes pytest abrangentes |
+| `code-checklist` | Aplicar padrões de qualidade de código da equipe |
 
 
 
-*Skills are specialized attachments that extend what Copilot can do*
+*Skills são acessórios especializados que ampliam o que o Copilot consegue fazer*
 
 ---
 
-# Como as Skills Funcionam
+# Como as skills funcionam
 
-<img src="assets/how-skills-work.png" alt="Glowing RPG-style skill icons connected by light trails on a starfield background representing Copilot skills" width="800"/>
+<img src="assets/how-skills-work.png" alt="Ícones de skill brilhantes em estilo RPG conectados por trilhas de luz em um fundo estrelado representando skills do Copilot" width="800"/>
 
-Learn what skills are, why they matter, and how they differ from agents and MCP.
+Aprenda o que são skills, por que elas importam e como diferem de agents e MCP.
 
 ---
 
@@ -69,12 +69,12 @@ Learn what skills are, why they matter, and how they differ from agents and MCP.
 
    > 💡 **Skills embutidas**: O Copilot CLI inclui algumas skills por padrão. Por exemplo, a skill `customizing-copilot-cloud-agents-environment` fornece um guia para customizar o ambiente do agente Copilot na nuvem. Não é necessário criar ou instalar nada para usá-las. Execute `/skills list` para ver o que está disponível.
 
-2. **Look at a real skill file:** Check out our provided [code-checklist SKILL.md](../.github/skills/code-checklist/SKILL.md) to see the pattern. It's just YAML frontmatter plus markdown instructions.
+2. **Veja um arquivo real de skill:** consulte nossa [code-checklist SKILL.md](../.github/skills/code-checklist/SKILL.md) fornecida para ver o padrão. É apenas frontmatter YAML mais instruções em Markdown.
 
-3. **Understand the core concept:** Skills are task-specific instructions that Copilot loads *automatically* when your prompt matches the skill's description. You don't need to activate them, just ask naturally.
+3. **Entenda o conceito central:** skills são instruções específicas de tarefas que o Copilot carrega *automaticamente* quando seu prompt corresponde à descrição da skill. Você não precisa ativá-las, basta perguntar naturalmente.
 
 
-## Entendendo as Skills
+## Entendendo as skills
 
 Agent Skills são pastas que contêm instruções, scripts e recursos que o Copilot **carrega automaticamente quando relevantes** para sua tarefa. O Copilot analisa seu prompt, verifica se alguma skill corresponde e aplica as instruções relevantes automaticamente.
 
@@ -94,9 +94,9 @@ copilot
 # and checks against your team's standards
 ```
 
-> 💡 **Key Insight**: Skills are **automatically triggered** based on your prompt matching the skill's description. Just ask naturally and Copilot applies relevant skills behind the scenes. You can also invoke skills directly as well which you'll learn about next.
+> 💡 **Insight principal**: skills são **acionadas automaticamente** com base na correspondência entre seu prompt e a descrição da skill. Basta perguntar naturalmente e o Copilot aplica skills relevantes nos bastidores. Você também pode invocar skills diretamente, como aprenderá a seguir.
 
-> 🧰 **Ready-to-use templates**: Check out the [.github/skills](../.github/skills/) folder for simple copy-paste skills you can try out.
+> 🧰 **Templates prontos para usar**: confira a pasta [.github/skills](../.github/skills/) para skills simples de copiar e colar que você pode experimentar.
 
 ### Invocação direta via comando com barra
 
@@ -112,7 +112,7 @@ Embora o acionamento automático seja a forma principal de funcionamento das ski
 
 Isso dá controle explícito quando você quer garantir que uma skill específica seja usada.
 
-#### Combinando múltiplas Skills em uma única mensagem
+#### Combinando múltiplas skills em uma única mensagem
 
 Você pode invocar **mais de uma skill em uma única mensagem**, e o comando com barra da skill pode aparecer em qualquer lugar do seu prompt — não apenas no início. Isso é útil quando você quer realizar duas verificações diferentes de uma vez:
 
@@ -122,17 +122,17 @@ Você pode invocar **mais de uma skill em uma única mensagem**, e o comando com
 > Review the auth module /security-audit then /code-checklist the result
 ```
 
-Copilot will apply each named skill in the same response, saving you from sending multiple separate messages.
+O Copilot aplicará cada skill nomeada na mesma resposta, poupando você de enviar várias mensagens separadas.
 
-> 💡 **Tip**: Put the skill slash commands wherever they feel most natural in your sentence. You can put them at the start, middle, or end of your message.
+> 💡 **Dica**: coloque os comandos com barra de skill onde parecerem mais naturais na sua frase. Você pode colocá-los no início, no meio ou no fim da mensagem.
 
-> 📝 **Skills vs Agents Invocation**: Don't confuse skill invocation with agent invocation:
-> - **Skills**: `/skill-name <prompt>`, e.g., `/code-checklist Check this file`
-> - **Agents**: `/agent` (select from list) or `copilot --agent <name>` (command line)
+> 📝 **Skills vs invocação de agents**: não confunda invocação de skill com invocação de agent:
+> - **Skills**: `/skill-name <prompt>`, por exemplo `/code-checklist Check this file`
+> - **Agents**: `/agent` (selecionar da lista) ou `copilot --agent <name>` (linha de comando)
 >
-> If you have both a skill and an agent with the same name (e.g., "code-reviewer"), typing `/code-reviewer` invokes the **skill**, not the agent.
+> Se você tiver uma skill e um agent com o mesmo nome (por exemplo, "code-reviewer"), digitar `/code-reviewer` invoca a **skill**, não o agent.
 
-### Como saber se uma Skill foi utilizada?
+### Como saber se uma skill foi utilizada?
 
 Você pode perguntar diretamente ao Copilot:
 
@@ -148,27 +148,27 @@ As skills são apenas uma parte do modelo de extensibilidade do GitHub Copilot. 
 
 > *Não se preocupe com MCP por enquanto. Vamos cobrir isso no [Capítulo 06](../06-mcp-servers/). Está incluído aqui para você entender como as skills se encaixam no panorama geral.*
 
-<img src="assets/skills-agents-mcp-comparison.png" alt="Comparison diagram showing the differences between Agents, Skills, and MCP Servers and how they combine into your workflow" width="800"/>
+<img src="assets/skills-agents-mcp-comparison.png" alt="Diagrama de comparação mostrando as diferenças entre agents, skills e servidores MCP e como eles se combinam ao seu fluxo de trabalho" width="800"/>
 
 | Função | O que faz | Quando usar |
 |---------|--------------|-------------|
-| **Agents** | Changes how AI thinks | Need specialized expertise across many tasks |
-| **Skills** | Provides task-specific instructions | Specific, repeatable tasks with detailed steps |
-| **MCP** | Connects external services | Need live data from APIs |
+| **Agents** | Muda como a IA pensa | Precisa de expertise especializada em várias tarefas |
+| **Skills** | Fornece instruções específicas de tarefas | Tarefas específicas e repetíveis com etapas detalhadas |
+| **MCP** | Conecta serviços externos | Precisa de dados ao vivo de APIs |
 
-Use agents for broad expertise, skills for specific task instructions, and MCP for external data. An agent can use one or more skills during a conversation. For example, when you ask an agent to check your code, it might apply both a `security-audit` skill and a `code-checklist` skill automatically.
+Use agents para expertise ampla, skills para instruções específicas de tarefas e MCP para dados externos. Um agent pode usar uma ou mais skills durante uma conversa. Por exemplo, quando você pede a um agent para verificar seu código, ele pode aplicar automaticamente tanto uma skill `security-audit` quanto uma skill `code-checklist`.
 
-> 📚 **Learn More**: See the official [About Agent Skills](https://docs.github.com/copilot/concepts/agents/about-agent-skills) documentation for the complete reference on skill formats and best practices.
+> 📚 **Saiba mais**: veja a documentação oficial [About Agent Skills](https://docs.github.com/copilot/concepts/agents/about-agent-skills) para a referência completa sobre formatos de skill e melhores práticas.
 
 ---
 
-## From Manual Prompts to Automatic Expertise
+## De prompts manuais a expertise automática
 
-Before diving into how to create skills, let's see *why* they're worth learning. Once you see the consistency gains, the "how" will make more sense.
+Antes de mergulhar em como criar skills, vamos ver *por que* vale a pena aprendê-las. Depois que você vê os ganhos de consistência, o "como" faz mais sentido.
 
-### Before Skills: Inconsistent Reviews
+### Antes das skills: revisões inconsistentes
 
-Every code review, you might forget something:
+A cada revisão de código, você pode esquecer algo:
 
 ```bash
 copilot
@@ -177,7 +177,7 @@ copilot
 # Generic review - might miss your team's specific concerns
 ```
 
-Or you write a long prompt every time:
+Ou você escreve um prompt longo toda vez:
 
 ```bash
 > Review this code checking for bare except clauses, missing type hints,
@@ -185,11 +185,11 @@ Or you write a long prompt every time:
 > functions over 50 lines, print statements in production code...
 ```
 
-Time: **30+ seconds** to type. Consistency: **varies by memory**.
+Tempo: **30+ segundos** para digitar. Consistência: **varia conforme a memória**.
 
-### After Skills: Automatic Best Practices
+### Depois das skills: melhores práticas automáticas
 
-With a `code-checklist` skill installed, just ask naturally:
+Com uma skill `code-checklist` instalada, basta perguntar naturalmente:
 
 ```bash
 copilot
@@ -197,15 +197,15 @@ copilot
 > Check the book collection code for quality issues
 ```
 
-**What happens behind the scenes**:
-1. Copilot sees "code quality" and "issues" in your prompt
-2. Checks skill descriptions, finds your `code-checklist` skill matches
-3. Automatically loads your team's quality checklist
-4. Applies all checks without you listing them
+**O que acontece nos bastidores**:
+1. O Copilot vê "code quality" e "issues" no seu prompt
+2. Verifica descrições de skills, encontra sua skill `code-checklist` correspondente
+3. Carrega automaticamente a checklist de qualidade da sua equipe
+4. Aplica todas as verificações sem você listá-las
 
-<img src="assets/skill-auto-discovery-flow.png" alt="How Skills Auto-Trigger - 4-step flow showing how Copilot automatically matches your prompt to the right skill" width="800"/>
+<img src="assets/skill-auto-discovery-flow.png" alt="Como skills são acionadas automaticamente — fluxo de 4 etapas mostrando como o Copilot corresponde automaticamente seu prompt à skill certa" width="800"/>
 
-*Just ask naturally. Copilot matches your prompt to the right skill and applies it automatically.*
+*Basta perguntar naturalmente. O Copilot corresponde seu prompt à skill certa e a aplica automaticamente.*
 
 **Saída**:
 ```
@@ -231,14 +231,14 @@ copilot
 3 itens precisam de atenção antes do merge
 ```
 
-**The difference**: Your team's standards are applied automatically, every time, without typing them out.
+**A diferença**: os padrões da sua equipe são aplicados automaticamente, toda vez, sem que você precise digitá-los.
 
 ---
 
 <details>
 <summary>🎬 Veja em ação!</summary>
 
-![Skill Trigger Demo](assets/skill-trigger-demo.gif)
+![Demo de acionamento de skill](assets/skill-trigger-demo.gif)
 
 *A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
@@ -246,9 +246,9 @@ copilot
 
 ---
 
-## Consistency at Scale: Team PR Review Skill
+## Consistência em escala: skill de revisão de PR da equipe
 
-Imagine your team has a 10-point PR checklist. Without a skill, every developer must remember all 10 points, and someone always forgets one of them. With a `pr-review` skill, the entire team gets consistent reviews:
+Imagine que sua equipe tenha uma checklist de PR com 10 pontos. Sem uma skill, cada desenvolvedor precisa lembrar dos 10 pontos, e alguém sempre esquece um deles. Com uma skill `pr-review`, toda a equipe obtém revisões consistentes:
 
 ```bash
 copilot
@@ -256,7 +256,7 @@ copilot
 > Can you review this PR?
 ```
 
-Copilot automatically loads your team's `pr-review` skill and checks all 10 points:
+O Copilot carrega automaticamente a skill `pr-review` da sua equipe e verifica todos os 10 pontos:
 
 ```
 PR Review: feature/user-auth
@@ -280,34 +280,34 @@ PR Review: feature/user-auth
 - [FAIL] API changes need OpenAPI spec update
 ```
 
-**The power**: Every team member applies the same standards automatically. New hires don't need to memorize the checklist because the skill handles it.
+**O poder**: todos os membros da equipe aplicam os mesmos padrões automaticamente. Novos contratados não precisam memorizar a checklist porque a skill cuida disso.
 
 ---
 
-# Creating Custom Skills
+# Criando skills personalizadas
 
-<img src="assets/creating-managing-skills.png" alt="Human and robotic hands building a wall of glowing LEGO-like blocks representing skill creation and management" width="800"/>
+<img src="assets/creating-managing-skills.png" alt="Mãos humanas e robóticas construindo uma parede de blocos brilhantes tipo LEGO representando criação e gerenciamento de skills" width="800"/>
 
-Build your own skills from SKILL.md files.
+Crie suas próprias skills a partir de arquivos SKILL.md.
 
 ---
 
-## Skill Locations
+## Localizações de skills
 
-Skills are stored in `.github/skills/` (project-specific) or `~/.copilot/skills/` (user level).
+Skills são armazenadas em `.github/skills/` (específico do projeto) ou `~/.copilot/skills/` (nível de usuário).
 
-### How Copilot Finds Skills
+### Como o Copilot encontra skills
 
-Copilot automatically scans these locations for skills:
+O Copilot varre automaticamente estas localizações em busca de skills:
 
-| Location | Scope |
+| Localização | Escopo |
 |----------|-------|
-| `.github/skills/` | Project-specific (shared with team via git) |
-| `~/.copilot/skills/` | User-specific (your personal skills) |
+| `.github/skills/` | Específico do projeto (compartilhado com a equipe via git) |
+| `~/.copilot/skills/` | Específico do usuário (suas skills pessoais) |
 
-### Skill Structure
+### Estrutura de uma skill
 
-Each skill lives in its own folder with a `SKILL.md` file. You can optionally include scripts, examples, or other resources:
+Cada skill vive em sua própria pasta com um arquivo `SKILL.md`. Você pode opcionalmente incluir scripts, exemplos ou outros recursos:
 
 ```
 .github/skills/
@@ -319,11 +319,11 @@ Each skill lives in its own folder with a `SKILL.md` file. You can optionally in
         └── validate.sh
 ```
 
-> 💡 **Tip**: The directory name should match the `name` in your SKILL.md frontmatter (lowercase with hyphens).
+> 💡 **Dica**: o nome do diretório deve corresponder ao `name` no frontmatter do seu SKILL.md (letras minúsculas com hífens).
 
-### SKILL.md Format
+### Formato do SKILL.md
 
-Skills use a simple markdown format with YAML frontmatter:
+Skills usam um formato simples em Markdown com frontmatter YAML:
 
 ```markdown
 ---
@@ -362,19 +362,19 @@ Provide issues as a numbered list with severity:
 - [LOW] - Nice to have
 ```
 
-**YAML Properties:**
+**Propriedades YAML:**
 
-| Property | Required | Description |
+| Propriedade | Obrigatória | Descrição |
 |----------|----------|-------------|
-| `name` | **Yes** | Unique identifier (lowercase, hyphens for spaces) |
-| `description` | **Yes** | What the skill does and when Copilot should use it |
-| `license` | No | License that applies to this skill |
+| `name` | **Sim** | Identificador único (letras minúsculas, hífens para espaços) |
+| `description` | **Sim** | O que a skill faz e quando o Copilot deve usá-la |
+| `license` | Não | Licença que se aplica a esta skill |
 
-> 📖 **Official docs**: [About Agent Skills](https://docs.github.com/copilot/concepts/agents/about-agent-skills)
+> 📖 **Documentação oficial**: [About Agent Skills](https://docs.github.com/copilot/concepts/agents/about-agent-skills)
 
-### Creating Your First Skill
+### Criando sua primeira skill
 
-Let's build a security audit skill that checks for OWASP Top 10 vulnerabilities:
+Vamos criar uma skill de auditoria de segurança que verifica vulnerabilidades do OWASP Top 10:
 
 ```bash
 # Create skill directory
@@ -430,7 +430,7 @@ copilot
 # and automatically applies its OWASP checklist
 ```
 
-**Expected output** (your results will vary):
+**Saída esperada** (seus resultados variarão):
 
 ```
 Security Audit: book-app-project
@@ -449,9 +449,9 @@ Security Audit: book-app-project
 
 ---
 
-## Writing Good Skill Descriptions
+## Escrevendo boas descrições de skill
 
-The `description` field in your SKILL.md is crucial! It's how Copilot decides whether to load your skill:
+O campo `description` no seu SKILL.md é crucial! É assim que o Copilot decide se deve carregar sua skill:
 
 ```markdown
 ---
@@ -462,11 +462,11 @@ description: Use for security reviews, vulnerability scanning,
 ---
 ```
 
-> 💡 **Tip**: Include keywords that match how you naturally ask questions. If you say "security review," include "security review" in the description.
+> 💡 **Dica**: inclua palavras-chave que correspondam à forma como você naturalmente faz perguntas. Se você diz "security review", inclua "security review" na descrição.
 
-### Combining Skills with Agents
+### Combinando skills com agents
 
-Skills and agents work together. The agent provides expertise, the skill provides specific instructions:
+Skills e agents trabalham juntos. O agent fornece expertise; a skill fornece instruções específicas:
 
 ```bash
 # Start with a code-reviewer agent
@@ -479,29 +479,29 @@ copilot --agent code-reviewer
 
 ---
 
-# Managing and Sharing Skills
+# Gerenciando e compartilhando skills
 
-Discover installed skills, find community skills, and share your own.
+Descubra skills instaladas, encontre skills da comunidade e compartilhe as suas.
 
-<img src="assets/managing-sharing-skills.png" alt="Managing and Sharing Skills - showing the discover, use, create, and share cycle for CLI skills" width="800" />
+<img src="assets/managing-sharing-skills.png" alt="Gerenciando e compartilhando skills — mostrando o ciclo descobrir, usar, criar e compartilhar para skills do CLI" width="800" />
 
 ---
 
-## Managing Skills with the `/skills` Command
+## Gerenciando skills com o comando `/skills`
 
-Use the `/skills` command to manage your installed skills:
+Use o comando `/skills` para gerenciar suas skills instaladas:
 
 | Comando | O que faz |
 |---------|--------------|
-| `/skills list` | Show all installed skills |
-| `/skills info <name>` | Get details about a specific skill |
-| `/skills add <name>` | Enable a skill (from a repository or marketplace) |
-| `/skills remove <name>` | Disable or uninstall a skill |
-| `/skills reload` | Reload skills after editing SKILL.md files |
+| `/skills list` | Mostrar todas as skills instaladas |
+| `/skills info <name>` | Obter detalhes sobre uma skill específica |
+| `/skills add <name>` | Habilitar uma skill (de um repositório ou marketplace) |
+| `/skills remove <name>` | Desabilitar ou desinstalar uma skill |
+| `/skills reload` | Recarregar skills depois de editar arquivos SKILL.md |
 
-> 💡 **Remember**: You don't need to "activate" skills for each prompt. Once installed, skills are **automatically triggered** when your prompt matches their description. These commands are for managing which skills are available, not for using them.
+> 💡 **Lembre-se**: você não precisa "ativar" skills para cada prompt. Depois de instaladas, as skills são **acionadas automaticamente** quando seu prompt corresponde à descrição delas. Esses comandos servem para gerenciar quais skills estão disponíveis, não para usá-las.
 
-### Example: View Your Skills
+### Exemplo: ver suas skills
 
 ```bash
 copilot
@@ -527,7 +527,7 @@ Description: Security-focused code review checking OWASP Top 10 vulnerabilities
 <details>
 <summary>🎬 Veja em ação!</summary>
 
-![List Skills Demo](assets/list-skills-demo.gif)
+![Demo de lista de skills](assets/list-skills-demo.gif)
 
 *A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
@@ -537,7 +537,7 @@ Description: Security-focused code review checking OWASP Top 10 vulnerabilities
 
 ### Quando usar `/skills reload`
 
-After creating or editing a skill's SKILL.md file, run `/skills reload` to pick up the changes without restarting Copilot:
+Depois de criar ou editar o arquivo SKILL.md de uma skill, execute `/skills reload` para captar as mudanças sem reiniciar o Copilot:
 
 ```bash
 # Edit your skill file
@@ -546,17 +546,17 @@ After creating or editing a skill's SKILL.md file, run `/skills reload` to pick 
 Skills reloaded successfully.
 ```
 
-> 💡 **Good to know**: Skills remain effective even after using `/compact` to summarize your conversation history. No need to reload after compacting.
+> 💡 **Bom saber**: skills permanecem eficazes mesmo depois de usar `/compact` para resumir seu histórico de conversa. Não é necessário recarregar depois de compactar.
 
 ---
 
-## Finding and Using Community Skills
+## Encontrando e usando skills da comunidade
 
-### Using Plugins to Install Skills
+### Usando plugins para instalar skills
 
-> 💡 **What are plugins?** Plugins are installable packages that can bundle skills, agents, and MCP server configurations together. Think of them as "app store" extensions for Copilot CLI.
+> 💡 **O que são plugins?** Plugins são pacotes instaláveis que podem agrupar skills, agents e configurações de servidores MCP. Pense neles como extensões de "app store" para o Copilot CLI.
 
-The `/plugin` command lets you browse and install these packages:
+O comando `/plugin` permite navegar e instalar esses pacotes:
 
 ```bash
 copilot
@@ -571,23 +571,23 @@ copilot
 # Install a plugin from the marketplace
 ```
 
-To keep your local plugin catalog current, refresh it with:
+Para manter seu catálogo local de plugins atualizado, atualize-o com:
 
 ```bash
 copilot plugin marketplace update
 ```
 
-Plugins can bundle multiple capabilities together. A single plugin might include related skills, agents, and MCP server configurations that work together.
+Plugins podem agrupar várias capacidades. Um único plugin pode incluir skills, agents e configurações de servidores MCP relacionadas que trabalham juntas.
 
-### Community Skill Repositories
+### Repositórios de skills da comunidade
 
-Pre-made skills are also available from community repositories:
+Skills prontas também estão disponíveis em repositórios da comunidade:
 
-- **[Awesome Copilot](https://github.com/github/awesome-copilot)** - Official GitHub Copilot resources including skills documentation and examples
+- **[Awesome Copilot](https://github.com/github/awesome-copilot)** - Recursos oficiais do GitHub Copilot, incluindo documentação e exemplos de skills
 
-### Installing a Community Skill with GitHub CLI
+### Instalando uma skill da comunidade com GitHub CLI
 
-The easiest way to install a skill from a GitHub repository is using the `gh skill install` command (requires [GitHub CLI v2.90.0+](https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/)):
+A maneira mais fácil de instalar uma skill de um repositório do GitHub é usando o comando `gh skill install` (requer [GitHub CLI v2.90.0+](https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/)):
 
 ```bash
 # Browse and interactively select a skill from awesome-copilot
@@ -600,27 +600,27 @@ gh skill install github/awesome-copilot ai-ready
 gh skill install github/awesome-copilot ai-ready --scope user
 ```
 
-> ⚠️ **Review before installing**: Always read a skill's `SKILL.md` before installing it. Skills control what Copilot does, and a malicious skill could instruct it to run harmful commands or modify code in unexpected ways.
+> ⚠️ **Revise antes de instalar**: sempre leia o `SKILL.md` de uma skill antes de instalá-la. Skills controlam o que o Copilot faz, e uma skill maliciosa poderia instruí-lo a executar comandos prejudiciais ou modificar código de formas inesperadas.
 
 ---
 
-# Practice
+# Prática
 
-<img src="../assets/practice.png" alt="Warm desk setup with monitor showing code, lamp, coffee cup, and headphones ready for hands-on practice" width="800"/>
+<img src="../assets/practice.png" alt="Ambiente de mesa aconchegante com monitor mostrando código, luminária, xícara de café e fones de ouvido prontos para prática" width="800"/>
 
-Apply what you've learned by building and testing your own skills.
+Aplique o que você aprendeu criando e testando suas próprias skills.
 
 ---
 
-## ▶️ Try It Yourself
+## ▶️ Experimente você mesmo
 
-### Build More Skills
+### Criar mais skills
 
-Here are two more skills showing different patterns. Follow the same `mkdir` + `cat` workflow from "Creating Your First Skill" above or copy and paste the skills into the proper location. More examples are available in [.github/skills](../.github/skills).
+Aqui estão mais duas skills mostrando padrões diferentes. Siga o mesmo fluxo `mkdir` + `cat` de "Criando sua primeira skill" acima ou copie e cole as skills no local adequado. Mais exemplos estão disponíveis em [.github/skills](../.github/skills).
 
-### pytest Test Generation Skill
+### Skill de geração de testes pytest
 
-A skill that ensures consistent pytest structure across your codebase:
+Uma skill que garante estrutura pytest consistente em sua base de código:
 
 ```bash
 mkdir -p .github/skills/pytest-gen
@@ -657,9 +657,9 @@ Provide complete, runnable test file with proper imports.
 EOF
 ```
 
-### Team PR Review Skill
+### Skill de revisão de PR da equipe
 
-A skill that enforces consistent PR review standards across your team:
+Uma skill que impõe padrões consistentes de revisão de PR em sua equipe:
 
 ```bash
 mkdir -p .github/skills/pr-review
@@ -705,45 +705,45 @@ Provide results as:
 EOF
 ```
 
-### Go Further
+### Vá além
 
-1. **Skill Creation Challenge**: Create a `quick-review` skill that does a 3-point checklist:
-   - Bare except clauses
-   - Missing type hints
-   - Unclear variable names
+1. **Desafio de criação de skill**: crie uma skill `quick-review` que faça uma checklist de 3 pontos:
+   - Cláusulas bare except
+   - Type hints ausentes
+   - Nomes de variáveis pouco claros
 
-   Test it by asking: "Do a quick review of books.py"
+   Teste perguntando: "Do a quick review of books.py"
 
-2. **Skill Comparison**: Time yourself writing a detailed security review prompt manually. Then just ask "Check for security issues in this file" and let your security-audit skill load automatically. How much time did the skill save?
+2. **Comparação de skills**: cronometre quanto tempo leva para escrever manualmente um prompt detalhado de revisão de segurança. Depois apenas pergunte "Check for security issues in this file" e deixe sua skill security-audit carregar automaticamente. Quanto tempo a skill economizou?
 
-3. **Team Skill Challenge**: Think about your team's code review checklist. Could you encode it as a skill? Write down 3 things the skill should always check.
+3. **Desafio de skill da equipe**: pense na checklist de revisão de código da sua equipe. Você poderia codificá-la como uma skill? Anote 3 coisas que a skill sempre deve verificar.
 
-**Self-Check**: You understand skills when you can explain why the `description` field matters (it's how Copilot decides whether to load your skill).
+**Autoverificação**: você entende skills quando consegue explicar por que o campo `description` importa (é assim que o Copilot decide se carrega sua skill).
 
 ---
 
-## 📝 Assignment
+## 📝 Tarefa
 
-### Main Challenge: Build a Book Summary Skill
+### Desafio principal: Criar uma skill de resumo de livros
 
-The examples above created `pytest-gen` and `pr-review` skills. Now practice creating a completely different kind of skill: one for generating formatted output from data.
+Os exemplos acima criaram as skills `pytest-gen` e `pr-review`. Agora pratique criando um tipo completamente diferente de skill: uma para gerar saída formatada a partir de dados.
 
-1. List your current skills: Run Copilot and pass it `/skills list`. You can also use `ls .github/skills/` to see project skills or `ls ~/.copilot/skills/` for personal skills.
-2. Create a `book-summary` skill at `.github/skills/book-summary/SKILL.md` that generates a formatted markdown summary of the book collection
-3. Your skill should have:
-   - Clear name and description (description is crucial for matching!)
-   - Specific formatting rules (e.g., markdown table with title, author, year, read status)
-   - Output conventions (e.g., use ✅/❌ for read status, sort by year)
-4. Test the skill: `@samples/book-app-project/data.json Summarize the books in this collection`
-5. Verify the skill auto-triggers by checking `/skills list`
-6. Try invoking it directly with `/book-summary Summarize the books in this collection`
+1. Liste suas skills atuais: execute Copilot e passe `/skills list`. Você também pode usar `ls .github/skills/` para ver skills do projeto ou `ls ~/.copilot/skills/` para skills pessoais.
+2. Crie uma skill `book-summary` em `.github/skills/book-summary/SKILL.md` que gera um resumo Markdown formatado da coleção de livros
+3. Sua skill deve ter:
+   - Nome e descrição claros (description é crucial para correspondência!)
+   - Regras específicas de formatação (por exemplo, tabela Markdown com título, autor, ano e status de leitura)
+   - Convenções de saída (por exemplo, usar ✅/❌ para status de leitura, ordenar por ano)
+4. Teste a skill: `@samples/book-app-project/data.json Summarize the books in this collection`
+5. Verifique o acionamento automático da skill conferindo `/skills list`
+6. Tente invocá-la diretamente com `/book-summary Summarize the books in this collection`
 
-**Success criteria**: You have a working `book-summary` skill that Copilot automatically applies when you ask about the book collection.
+**Critérios de sucesso**: você tem uma skill `book-summary` funcionando que o Copilot aplica automaticamente quando você pergunta sobre a coleção de livros.
 
 <details>
-<summary>💡 Hints (click to expand)</summary>
+<summary>💡 Dicas (clique para expandir)</summary>
 
-**Starter template**: Create `.github/skills/book-summary/SKILL.md`:
+**Template inicial**: crie `.github/skills/book-summary/SKILL.md`:
 
 ```markdown
 ---
@@ -770,42 +770,42 @@ Example:
 **Total: 2 books (1 read, 1 unread)**
 ```
 
-**Test it:**
+**Teste:**
 ```bash
 copilot
 > @samples/book-app-project/data.json Summarize the books in this collection
 # The skill should auto-trigger based on the description match
 ```
 
-**If it doesn't trigger:** Try `/skills reload` then ask again.
+**Se ela não for acionada:** tente `/skills reload` e pergunte novamente.
 
 </details>
 
-### Bonus Challenge: Commit Message Skill
+### Desafio bônus: Skill de mensagem de commit
 
-1. Create a `commit-message` skill that generates conventional commit messages with a consistent format
-2. Test it by staging a change and asking: "Generate a commit message for my staged changes"
-3. Document your skill and share it on GitHub with the `copilot-skill` topic
+1. Crie uma skill `commit-message` que gera mensagens de commit convencionais com formato consistente
+2. Teste preparando uma mudança e perguntando: "Generate a commit message for my staged changes"
+3. Documente sua skill e compartilhe-a no GitHub com o tópico `copilot-skill`
 
 ---
 
 <details>
-<summary>🔧 <strong>Common Mistakes & Troubleshooting</strong> (click to expand)</summary>
+<summary>🔧 <strong>Erros comuns e solução de problemas</strong> (clique para expandir)</summary>
 
-### Common Mistakes
+### Erros comuns
 
-| Mistake | What Happens | Fix |
+| Erro | O que acontece | Correção |
 |---------|--------------|-----|
-| Naming the file something other than `SKILL.md` | Skill won't be recognized | The file must be named exactly `SKILL.md` |
-| Vague `description` field | Skill never gets loaded automatically | Description is the PRIMARY discovery mechanism. Use specific trigger words |
-| Missing `name` or `description` in frontmatter | Skill fails to load | Add both fields in YAML frontmatter |
-| Wrong folder location | Skill not found | Use `.github/skills/skill-name/` (project) or `~/.copilot/skills/skill-name/` (personal) |
+| Nomear o arquivo com algo diferente de `SKILL.md` | A skill não será reconhecida | O arquivo deve se chamar exatamente `SKILL.md` |
+| Campo `description` vago | A skill nunca é carregada automaticamente | Description é o mecanismo principal de descoberta. Use palavras de acionamento específicas |
+| `name` ou `description` ausentes no frontmatter | A skill falha ao carregar | Adicione ambos os campos no frontmatter YAML |
+| Localização da pasta errada | Skill não encontrada | Use `.github/skills/skill-name/` (projeto) ou `~/.copilot/skills/skill-name/` (pessoal) |
 
-### Troubleshooting
+### Solução de problemas
 
-**Skill not being used** - If Copilot isn't using your skill when expected:
+**Skill não está sendo usada** - Se o Copilot não estiver usando sua skill quando esperado:
 
-1. **Check the description**: Does it match how you're asking?
+1. **Verifique a descrição**: ela corresponde à forma como você está perguntando?
    ```markdown
    # Bad: Too vague
    description: Reviews code
@@ -815,7 +815,7 @@ copilot
      finding bugs, security issues, and best practice violations
    ```
 
-2. **Verify the file location**:
+2. **Verifique a localização do arquivo**:
    ```bash
    # Project skills
    ls .github/skills/
@@ -824,7 +824,7 @@ copilot
    ls ~/.copilot/skills/
    ```
 
-3. **Check SKILL.md format**: Frontmatter is required:
+3. **Verifique o formato do SKILL.md**: frontmatter é obrigatório:
    ```markdown
    ---
    name: skill-name
@@ -834,26 +834,26 @@ copilot
    # Instructions here
    ```
 
-**Skill not appearing** - Verify the folder structure:
+**Skill não aparece** - Verifique a estrutura de pastas:
 ```
 .github/skills/
 └── my-skill/           # Folder name
     └── SKILL.md        # Must be exactly SKILL.md (case-sensitive)
 ```
 
-Run `/skills reload` after creating or editing skills to ensure changes are picked up.
+Execute `/skills reload` depois de criar ou editar skills para garantir que as mudanças sejam captadas.
 
-**Testing if a skill loads** - Ask Copilot directly:
+**Testando se uma skill carrega** - Pergunte diretamente ao Copilot:
 ```bash
 > What skills do you have available for checking code quality?
 # Copilot will describe relevant skills it found
 ```
 
-**How do I know my skill is actually working?**
+**Como sei que minha skill está funcionando?**
 
-1. **Check the output format**: If your skill specifies an output format (like `[CRITICAL]` tags), look for that in the response
-2. **Ask directly**: After getting a response, ask "Did you use any skills for that?"
-3. **Compare with/without**: Try the same prompt with `--no-custom-instructions` to see the difference:
+1. **Verifique o formato de saída**: se sua skill especifica um formato de saída (como tags `[CRITICAL]`), procure isso na resposta
+2. **Pergunte diretamente**: depois de obter uma resposta, pergunte "Did you use any skills for that?"
+3. **Compare com/sem**: tente o mesmo prompt com `--no-custom-instructions` para ver a diferença:
    ```bash
    # With skills
    copilot --allow-all -p "Review @file.py for security issues"
@@ -861,37 +861,37 @@ Run `/skills reload` after creating or editing skills to ensure changes are pick
    # Without skills (baseline comparison)
    copilot --allow-all -p "Review @file.py for security issues" --no-custom-instructions
    ```
-4. **Check for specific checks**: If your skill includes specific checks (like "functions over 50 lines"), see if those appear in the output
+4. **Verifique verificações específicas**: se sua skill inclui verificações específicas (como "functions over 50 lines"), veja se elas aparecem na saída
 
 </details>
 
 ---
 
-# Summary
+# Resumo
 
-## 🔑 Key Takeaways
+## 🔑 Principais aprendizados
 
-1. **Skills are automatic**: Copilot loads them when your prompt matches the skill's description
-2. **Direct invocation**: You can also invoke skills directly with `/skill-name` as a slash command
-3. **SKILL.md format**: YAML frontmatter (name, description, optional license) plus markdown instructions
-4. **Location matters**: `.github/skills/` for project/team sharing, `~/.copilot/skills/` for personal use
-5. **Description is key**: Write descriptions that match how you naturally ask questions
+1. **Skills são automáticas**: o Copilot as carrega quando seu prompt corresponde à descrição da skill
+2. **Invocação direta**: você também pode invocar skills diretamente com `/skill-name` como comando com barra
+3. **Formato SKILL.md**: frontmatter YAML (name, description, license opcional) mais instruções em Markdown
+4. **Localização importa**: `.github/skills/` para compartilhamento em projeto/equipe, `~/.copilot/skills/` para uso pessoal
+5. **Description é a chave**: escreva descrições que correspondam à forma como você naturalmente faz perguntas
 
-> 📋 **Quick Reference**: See the [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference) for a complete list of commands and shortcuts.
-
----
-
-## ➡️ What's Next
-
-Skills extend what Copilot can do with auto-loaded instructions. But what about connecting to external services? That's where MCP comes in.
-
-In **[Chapter 06: MCP Servers](../06-mcp-servers/README.md)**, you'll learn:
-
-- What MCP (Model Context Protocol) is
-- Connecting to GitHub, filesystem, and documentation services
-- Configuring MCP servers
-- Multi-server workflows
+> 📋 **Referência rápida**: Veja a [referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/cli-command-reference) para uma lista completa de comandos e atalhos.
 
 ---
 
-**[← Back to Chapter 04](../04-agents-custom-instructions/README.md)** | **[Continue to Chapter 06 →](../06-mcp-servers/README.md)**
+## ➡️ O que vem a seguir
+
+Skills ampliam o que o Copilot consegue fazer com instruções carregadas automaticamente. Mas e quanto a conectar serviços externos? É aí que o MCP entra.
+
+Em **[Capítulo 06: Servidores MCP](../06-mcp-servers/README.md)**, você aprenderá:
+
+- O que é MCP (Model Context Protocol)
+- Como conectar ao GitHub, sistema de arquivos e serviços de documentação
+- Como configurar servidores MCP
+- Fluxos de trabalho com vários servidores
+
+---
+
+**[← Voltar ao Capítulo 04](../04-agents-custom-instructions/README.md)** | **[Continue para o Capítulo 06 →](../06-mcp-servers/README.md)**

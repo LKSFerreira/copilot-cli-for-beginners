@@ -1,6 +1,6 @@
 ---
 name: hello-world
-description: A minimal skill example - use when learning the skill format
+description: Exemplo mínimo de skill — use ao aprender o formato de skill
 ---
 
 # Skill Hello World
@@ -17,4 +17,4 @@ Responde com uma confirmação amigável de que as skills estão funcionando.
 
 ## Teste
 
-Peça ao Copilot: "Test my skills setup" ou "Use the hello world skill"
+Peça ao Copilot: "Testar minha configuração de skills" (Test my skills setup) ou "Usar a skill hello world" (Use the hello world skill).

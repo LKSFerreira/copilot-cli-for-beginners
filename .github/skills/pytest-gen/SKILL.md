@@ -1,6 +1,6 @@
 ---
 name: pytest-gen
-description: Generate comprehensive pytest tests - use when generating tests, creating test suites, or testing Python code
+description: Gerar testes pytest abrangentes — use ao gerar testes, criar suítes de testes ou testar código Python
 ---
 
 # Geração de testes com pytest

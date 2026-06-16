@@ -1,6 +1,6 @@
 ---
 name: pytest-helper
-description: Testing specialist for Python projects using pytest
+description: Especialista em testes para projetos Python com pytest
 tools: ["read", "edit", "search", "execute"]
 ---
 

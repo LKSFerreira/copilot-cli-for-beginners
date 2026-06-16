@@ -1,6 +1,6 @@
 ---
 name: hello-world
-description: A minimal agent example - responds with friendly, encouraging messages
+description: Exemplo mínimo de agent — responde com mensagens amigáveis e encorajadoras
 ---
 
 # Agente Hello World

@@ -1,6 +1,6 @@
 ---
 name: commit-message
-description: Generate conventional commit messages - use when creating commits, writing commit messages, or asking for git commit help
+description: Gerar mensagens de commit convencionais — use ao criar commits, escrever mensagens de commit ou pedir ajuda com git commit
 ---
 
 # Skill de Mensagens de Commit

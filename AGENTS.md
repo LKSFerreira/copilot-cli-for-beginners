@@ -6,19 +6,19 @@ Curso voltado para iniciantes que ensina o GitHub Copilot CLI. Conteúdo educaci
 
 ## Estrutura
 
-| Path | Purpose |
-|------|---------|
-| `00-07/` | Chapters: analogy → concepts → hands-on → assignment → next |
-| `samples/book-app-project/` | **Primary sample**: Python CLI book collection app used throughout all chapters |
-| `samples/book-app-project-cs/` | C# version of the book collection app |
-| `samples/book-app-project-js/` | JavaScript version of the book collection app |
-| `samples/book-app-buggy/` | **Intentional bugs** for debugging exercises (Ch 03) |
-| `samples/agents/` | Agent template examples (python-reviewer, pytest-helper, hello-world) |
-| `samples/skills/` | Skill template examples (code-checklist, pytest-gen, commit-message, hello-world) |
-| `samples/mcp-configs/` | MCP server configuration examples |
-| `samples/buggy-code/` | **Optional extra**: Security-focused buggy code (JS and Python) |
-| `samples/src/` | **Optional extra**: Legacy JS/React samples from earlier course version |
-| `appendices/` | Supplementary reference material |
+| Path | Propósito |
+|------|-----------|
+| `00-07/` | Capítulos: analogia → conceitos → prática → tarefa → próximo passo |
+| `samples/book-app-project/` | **Amostra principal**: app CLI de coleção de livros em Python usado em todos os capítulos |
+| `samples/book-app-project-cs/` | Versão em C# do app de coleção de livros |
+| `samples/book-app-project-js/` | Versão em JavaScript do app de coleção de livros |
+| `samples/book-app-buggy/` | **Bugs intencionais** para exercícios de depuração (Cap. 03) |
+| `samples/agents/` | Exemplos de modelos de agents (python-reviewer, pytest-helper, hello-world) |
+| `samples/skills/` | Exemplos de modelos de skills (code-checklist, pytest-gen, commit-message, hello-world) |
+| `samples/mcp-configs/` | Exemplos de configuração de servidores MCP |
+| `samples/buggy-code/` | **Extra opcional**: código buggy com foco em segurança (JS e Python) |
+| `samples/src/` | **Extra opcional**: amostras legadas em JS/React de versão anterior do curso |
+| `appendices/` | Material de referência suplementar |
 
 ## Fazer (Boas práticas)
 

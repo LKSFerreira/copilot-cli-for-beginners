@@ -1,20 +1,20 @@
 <!--
 ---
 id: CopilotCLI-ROOT
-title: !translate GitHub Copilot CLI for Beginners
-description: !translate Learn to supercharge your development workflow with AI-powered command-line assistance from your terminal.
-audience: Developers / Students / Terminal users
+title: !translate GitHub Copilot CLI para Iniciantes
+description: !translate Aprenda a potencializar seu fluxo de desenvolvimento com assistência de linha de comando baseada em IA diretamente do terminal.
+audience: Desenvolvedores / Estudantes / Usuários de terminal
 slug: copilot-cli-for-beginners
 weight: 0
 ---
 -->
 
-![GitHub Copilot CLI for Beginners](./assets/copilot-banner.png)
+![GitHub Copilot CLI para Iniciantes](./assets/copilot-banner.png)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)&ensp;
-[![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/github/copilot-cli-for-beginners?hide_repo_select=true&ref=main&quickstart=true)&ensp;
-[![Official Copilot CLI documentation](https://img.shields.io/badge/GitHub-CLI_Documentation-00a3ee?style=flat-square&logo=github)](https://docs.github.com/en/copilot/how-tos/copilot-cli)&ensp;
-[![Join AI Foundry Discord](https://img.shields.io/badge/Discord-AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![Licença: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)&ensp;
+[![Abrir projeto no GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/github/copilot-cli-for-beginners?hide_repo_select=true&ref=main&quickstart=true)&ensp;
+[![Documentação oficial do Copilot CLI](https://img.shields.io/badge/GitHub-CLI_Documentation-00a3ee?style=flat-square&logo=github)](https://docs.github.com/en/copilot/how-tos/copilot-cli)&ensp;
+[![Entrar no Discord da AI Foundry](https://img.shields.io/badge/Discord-AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 🎯 [O que você vai aprender](#what-youll-learn) &ensp; ✅ [Pré-requisitos](#prerequisites) &ensp; 🤖 [Família Copilot](#understanding-the-github-copilot-family) &ensp; 📚 [Estrutura do curso](#course-structure) &ensp; 📋 [Referência de comandos](#-github-copilot-cli-command-reference)
 
@@ -26,58 +26,58 @@ O GitHub Copilot CLI traz assistência por IA diretamente ao seu terminal. Em ve
 
 Pense nele como um colega experiente disponível 24/7 que pode ler seu código, explicar padrões confusos e ajudar você a trabalhar mais rápido!
 
-> 📘 **Prefer a web experience?** You can follow this course right here on GitHub, or view it on [Awesome Copilot](https://awesome-copilot.github.com/learning-hub/cli-for-beginners/) for a more traditional browsing experience.
+> 📘 **Prefere a experiência web?** Você pode acompanhar este curso aqui mesmo no GitHub ou vê-lo em [Awesome Copilot](https://awesome-copilot.github.com/learning-hub/cli-for-beginners/) para uma experiência de navegação mais tradicional.
 
-This course is designed for:
+Este curso foi criado para:
 
-- **Software Developers** who want to use AI from the command line
-- **Terminal users** who prefer keyboard-driven workflows over IDE integrations
-- **Teams looking to standardize** AI-assisted code review and development practices
+- **Desenvolvedores de software** que querem usar IA pela linha de comando
+- **Usuários de terminal** que preferem fluxos orientados por teclado a integrações com IDE
+- **Equipes que buscam padronizar** práticas de revisão de código e desenvolvimento assistidas por IA
 
 <a name="what-youll-learn"></a>
 ## 🎯 O que você vai aprender
 
 Este curso prático leva você do zero à produtividade com o GitHub Copilot CLI. Você trabalhará com um único app Python de coleção de livros ao longo de todos os capítulos, melhorando-o progressivamente com fluxos de trabalho assistidos por IA. Ao final, você usará com confiança a IA para revisar código, gerar testes, depurar problemas e automatizar fluxos — tudo a partir do terminal.
 
-**No AI experience required.** If you can use a terminal, you can learn this.
+**Não é necessária experiência com IA.** Se você sabe usar um terminal, consegue aprender.
 
-**Perfect for:** Developers, students, and anyone who has experience with software development.
+**Perfeito para:** desenvolvedores, estudantes e qualquer pessoa com experiência em desenvolvimento de software.
 
 <a name="prerequisites"></a>
 ## ✅ Pré-requisitos
 
-Before starting, ensure you have:
+Antes de começar, garanta que você tem:
 
-- **GitHub account**: [Create one free](https://github.com/signup)<br>
-- **GitHub Copilot access**: [Free offering](https://github.com/features/copilot/plans), [Monthly subscription](https://github.com/features/copilot/plans), or [Free for students/teachers](https://education.github.com/pack)<br>
-- **Terminal basics**: Comfortable with `cd`, `ls`, running commands
+- **Conta GitHub**: [Crie uma gratuitamente](https://github.com/signup)<br>
+- **Acesso ao GitHub Copilot**: [Oferta gratuita](https://github.com/features/copilot/plans), [assinatura mensal](https://github.com/features/copilot/plans) ou [gratuito para estudantes/professores](https://education.github.com/pack)<br>
+- **Noções básicas de terminal**: familiaridade com `cd`, `ls` e execução de comandos
 
 <a name="understanding-the-github-copilot-family"></a>
 ## 🤖 Entendendo a família GitHub Copilot
 
-GitHub Copilot has evolved into a family of AI-powered tools. Here's where each one lives:
+O GitHub Copilot evoluiu para uma família de ferramentas com IA. Veja onde cada uma atua:
 
-| Product | Where It Runs | Description |
+| Produto | Onde é executado | Descrição |
 |---------|---------------|----------|
-| [**GitHub Copilot CLI**](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started)<br>(this course) | Your terminal |  Terminal-native AI coding assistant  |
-| [**GitHub Copilot**](https://docs.github.com/copilot) | VS Code, Visual Studio, JetBrains, etc. | Agent mode, chat, inline suggestions  |
-| [**Copilot on GitHub.com**](https://github.com/copilot) | GitHub | Immersive chat about your repos, create agents, and more |
-| [**GitHub Copilot cloud agent**](https://docs.github.com/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks) | GitHub  | Assign issues to agents, get PRs back |
+| [**GitHub Copilot CLI**](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started)<br>(este curso) | Seu terminal | Assistente de codificação com IA nativo do terminal |
+| [**GitHub Copilot**](https://docs.github.com/copilot) | VS Code, Visual Studio, JetBrains etc. | Modo agent, chat e sugestões inline |
+| [**Copilot on GitHub.com**](https://github.com/copilot) | GitHub | Chat imersivo sobre seus repositórios, criação de agents e mais |
+| [**GitHub Copilot cloud agent**](https://docs.github.com/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks) | GitHub | Atribua issues a agents e receba PRs de volta |
 
-This course focuses on **GitHub Copilot CLI**, bringing AI assistance directly to your terminal.
+Este curso foca no **GitHub Copilot CLI**, trazendo assistência por IA diretamente para o seu terminal.
 
 <a name="course-structure"></a>
 ## 📚 Estrutura do curso
 
-![GitHub Copilot CLI Learning Path](assets/learning-path.png)
+![Caminho de aprendizado do GitHub Copilot CLI](assets/learning-path.png)
 
-| Chapter | Title | What You'll Build |
+| Capítulo | Título | O que você vai construir |
 |:-------:|-------|-------------------|
 | 00 | 🚀 [Início Rápido](./00-quick-start/README.md) | Instalação e verificação |
 | 01 | 👋 [Primeiros Passos](./01-setup-and-first-steps/README.md) | Demos ao vivo + três modos de interação |
 | 02 | 🔍 [Contexto e Conversas](./02-context-conversations/README.md) | Análise de projetos com múltiplos arquivos |
 | 03 | ⚡ [Fluxos de Desenvolvimento](./03-development-workflows/README.md) | Revisão de código, depuração, geração de testes |
-| 04 | 🤖 [Criar Assistentes de IA Especializados](./04-agents-custom-instructions/README.md) | Agentes personalizados para seu fluxo de trabalho |
+| 04 | 🤖 [Criar Assistentes de IA Especializados](./04-agents-custom-instructions/README.md) | Agents personalizados para seu fluxo de trabalho |
 | 05 | 🛠️ [Automatize Tarefas Repetitivas](./05-skills/README.md) | Skills que carregam automaticamente |
 | 06 | 🔌 [Conectar ao GitHub, Bancos de Dados & APIs](./06-mcp-servers/README.md) | Integração com servidores MCP |
 | 07 | 🎯 [Colocando Tudo em Prática](./07-putting-it-together/README.md) | Fluxos de trabalho completos |
@@ -95,6 +95,7 @@ Cada capítulo segue o mesmo padrão:
 
 **Os exemplos de código são executáveis.** Todo bloco de texto do Copilot neste curso pode ser copiado e executado no seu terminal.
 
+<a id="-github-copilot-cli-command-reference"></a>
 ## 📋 Referência de comandos do GitHub Copilot CLI
 
 A **[referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/cli-command-reference)** ajuda você a encontrar comandos e atalhos de teclado para usar o Copilot CLI de forma eficaz.
@@ -117,6 +118,6 @@ A **[referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/c
 3. Faça suas alterações
 4. Envie um pull request
 
-## License
+## Licença
 
-Este projeto é licenciado sob os termos da licença open source MIT. Consulte o arquivo [LICENSE](./LICENSE) para os termos completos.
+Este projeto é licenciado sob os termos da licença de código aberto MIT. Consulte o arquivo [LICENSE](./LICENSE) para os termos completos.

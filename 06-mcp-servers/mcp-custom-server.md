@@ -1,9 +1,9 @@
 <!--
 ---
 id: CopilotCLI-06-Custom-MCP-Server
-title: !translate Building a Custom MCP Server
-description: !translate Build a simple custom MCP server in Python to connect GitHub Copilot CLI to your own APIs.
-audience: Developers / Students / Terminal users
+title: !translate Construindo um servidor MCP personalizado
+description: !translate Crie um servidor MCP personalizado simples em Python para conectar o GitHub Copilot CLI às suas próprias APIs.
+audience: Desenvolvedores / Estudantes / Usuários de terminal
 slug: building-a-custom-mcp-server
 weight: 61
 ---
@@ -18,13 +18,13 @@ weight: 61
 > - Compreensão de padrões `async`/`await`
 > - `pip` disponível no seu sistema (incluído neste dev container)
 >
-> **[← Voltar ao Capítulo 06: MCP Servers](README.md)**
+> **[← Voltar ao Capítulo 06: Servidores MCP](README.md)**
 
 ---
 
 Quer conectar o Copilot às suas próprias APIs? Veja como construir um servidor MCP simples em Python que consulta informações sobre livros, integrando-se ao projeto do app de livros usado ao longo deste curso.
 
-## Project Setup
+## Configuração do projeto
 
 ```bash
 mkdir book-lookup-mcp-server
@@ -34,9 +34,9 @@ pip install mcp
 
 > 💡 **O que é o pacote `mcp`?** É o SDK oficial em Python para construir servidores MCP. Ele cuida dos detalhes do protocolo para que você possa focar nas suas ferramentas.
 
-## Server Implementation
+## Implementação do servidor
 
-Create a file called `server.py`:
+Crie um arquivo chamado `server.py`:
 
 ```python
 # server.py
@@ -118,9 +118,9 @@ if __name__ == "__main__":
 
 > 💡 **Por que decorators?** O decorator `@mcp.tool()` é tudo que você precisa. O SDK MCP lê automaticamente o nome da sua função, as anotações de tipo e o docstring para gerar o esquema da ferramenta. Nenhum JSON schema manual é necessário!
 
-## Configuration
+## Configuração
 
-Add to your `~/.copilot/mcp-config.json`:
+Adicione ao seu `~/.copilot/mcp-config.json`:
 
 ```json
 {
@@ -166,22 +166,22 @@ copilot
 [Shows all books in the database with ISBNs]
 ```
 
-## Next Steps
+## Próximos passos
 
-Once you've built a basic server, you can:
+Depois de construir um servidor básico, você pode:
 
-1. **Add more tools** - Each `@mcp.tool()` function becomes a tool Copilot can call
-2. **Connect real APIs** - Replace the mock `BOOKS_DB` with actual API calls or database queries
-3. **Add authentication** - Handle API keys and tokens securely
-4. **Share your server** - Publish to PyPI so others can install it with `pip`
+1. **Adicionar mais ferramentas** - Cada função `@mcp.tool()` se torna uma ferramenta que o Copilot pode chamar
+2. **Conectar APIs reais** - Substitua o `BOOKS_DB` de exemplo por chamadas reais de API ou consultas de banco de dados
+3. **Adicionar autenticação** - Lidar com chaves de API e tokens de forma segura
+4. **Compartilhar seu servidor** - Publique no PyPI para que outras pessoas possam instalá-lo com `pip`
 
-## Resources
+## Recursos
 
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
 - [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
-- [Example MCP Servers](https://github.com/modelcontextprotocol/servers)
+- [Exemplo de servidores MCP](https://github.com/modelcontextprotocol/servers)
 - [MCP for Beginners Course](https://github.com/microsoft/mcp-for-beginners)
 
 ---
 
-**[← Back to Chapter 06: MCP Servers](README.md)**
+**[← Voltar ao Capítulo 06: Servidores MCP](README.md)**

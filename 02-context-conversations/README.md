@@ -1,15 +1,15 @@
 <!--
 ---
 id: CopilotCLI-02
-title: !translate Context and Conversations
-description: !translate Use file and directory context, resume previous sessions, and write effective multi-turn conversations with GitHub Copilot CLI.
-audience: Developers / Students / Terminal users
+title: !translate Contexto e Conversas
+description: !translate Use contexto de arquivos e diretórios, retome sessões anteriores e escreva conversas multitorno eficazes com o GitHub Copilot CLI.
+audience: Desenvolvedores / Estudantes / Usuários de terminal
 slug: context-and-conversations
 weight: 3
 ---
 -->
 
-![Chapter 02: Context and Conversations](assets/chapter-header.png)
+![Capítulo 02: Contexto e Conversas](assets/chapter-header.png)
 
 > **E se a IA pudesse ver todo o seu código, e não apenas um arquivo por vez?**
 
@@ -31,11 +31,11 @@ Ao final deste capítulo, você será capaz de:
 
 ## 🧩 Analogia do mundo real: Trabalhando com um colega
 
-<img src="assets/colleague-context-analogy.png" alt="Context Makes the Difference - Without vs With Context" width="800"/>
+<img src="assets/colleague-context-analogy.png" alt="Contexto faz a diferença — sem contexto versus com contexto" width="800"/>
 
 *Assim como seus colegas, o Copilot CLI não é um leitor de mentes. Fornecer mais informações ajuda tanto humanos quanto o Copilot a oferecer suporte mais direcionado!*
 
-Imagine explaining a bug to a colleague:
+Imagine explicar um bug a um colega:
 
 > **Sem contexto**: "O app de livros não funciona."
 
@@ -45,11 +45,11 @@ Para fornecer contexto ao Copilot CLI, use *a sintaxe `@`* para apontar o Copilo
 
 ---
 
-# Essencial: Contexto Básico
+# Essencial: Contexto básico
 
-<img src="assets/essential-basic-context.png" alt="Glowing code blocks connected by light trails representing how context flows through Copilot CLI conversations" width="800"/>
+<img src="assets/essential-basic-context.png" alt="Blocos de código brilhantes conectados por trilhas de luz representando como o contexto flui nas conversas do Copilot CLI" width="800"/>
 
-This section covers everything you need to work effectively with context. Master these basics first.
+Esta seção cobre tudo que você precisa para trabalhar bem com contexto. Domine estes fundamentos primeiro.
 
 ---
 
@@ -83,11 +83,11 @@ copilot
 
 | Padrão | O que faz | Exemplo de uso |
 |---------|--------------|-------------|
-| `@file.py` | Reference a single file | `Review @samples/book-app-project/books.py` |
-| `@folder/` | Reference all files in a directory | `Review @samples/book-app-project/` |
-| `@file1.py @file2.py` | Reference multiple files | `Compare @samples/book-app-project/book_app.py @samples/book-app-project/books.py` |
+| `@file.py` | Referencia um único arquivo | `Review @samples/book-app-project/books.py` |
+| `@folder/` | Referencia todos os arquivos em um diretório | `Review @samples/book-app-project/` |
+| `@file1.py @file2.py` | Referencia vários arquivos | `Compare @samples/book-app-project/book_app.py @samples/book-app-project/books.py` |
 
-### Reference a Single File
+### Referenciar um único arquivo
 
 ```bash
 copilot
@@ -100,7 +100,7 @@ copilot
 <details>
 <summary>🎬 Veja em ação!</summary>
 
-![File Context Demo](assets/file-context-demo.gif)
+![Demo de contexto de arquivo](assets/file-context-demo.gif)
 
 *A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
@@ -108,7 +108,7 @@ copilot
 
 ---
 
-### Reference Multiple Files
+### Referenciar vários arquivos
 
 ```bash
 copilot
@@ -116,7 +116,7 @@ copilot
 > Compare @samples/book-app-project/book_app.py and @samples/book-app-project/books.py for consistency
 ```
 
-### Reference an Entire Directory
+### Referenciar um diretório inteiro
 
 ```bash
 copilot
@@ -126,13 +126,13 @@ copilot
 
 ---
 
-## Cross-File Intelligence
+## Inteligência entre arquivos
 
-This is where context becomes a superpower. Single-file analysis is useful. Cross-file analysis is transformative.
+É aqui que o contexto se torna um superpoder. A análise de arquivo único é útil. A análise entre arquivos é transformadora.
 
-<img src="assets/cross-file-intelligence.png" alt="Cross-File Intelligence - comparing single-file vs cross-file analysis showing how analyzing files together reveals bugs, data flow, and patterns invisible in isolation" width="800"/>
+<img src="assets/cross-file-intelligence.png" alt="Inteligência entre arquivos — comparando análise de arquivo único com análise entre arquivos, mostrando como analisar arquivos juntos revela bugs, fluxo de dados e padrões invisíveis isoladamente" width="800"/>
 
-### Demo: Find Bugs That Span Multiple Files
+### Demo: Encontre bugs que atravessam vários arquivos
 
 ```bash
 copilot
@@ -142,7 +142,7 @@ copilot
 > How do these files work together? What's the data flow?
 ```
 
-> 💡 **Advanced Option**: For security-focused cross-file analysis, try the Python security examples:
+> 💡 **Opção avançada**: Para análise entre arquivos com foco em segurança, experimente os exemplos Python de segurança:
 > ```bash
 > > @samples/buggy-code/python/user_service.py @samples/buggy-code/python/payment_processor.py
 > > Find security vulnerabilities that span BOTH files
@@ -153,7 +153,7 @@ copilot
 <details>
 <summary>🎬 Veja em ação!</summary>
 
-![Multi-File Demo](assets/multi-file-demo.gif)
+![Demo de vários arquivos](assets/multi-file-demo.gif)
 
 *A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
@@ -187,14 +187,14 @@ Cross-Module Analysis
    Pattern: No unified approach to error handling across modules
 ```
 
-**Why this matters**: A single-file review would miss the bigger picture. Only cross-file analysis reveals:
-- **Duplicate code** that should be consolidated
-- **Data flow patterns** showing how components interact
-- **Architectural issues** that affect maintainability
+**Por que isso importa**: uma revisão de arquivo único perderia o panorama geral. Apenas a análise entre arquivos revela:
+- **Código duplicado** que deveria ser consolidado
+- **Padrões de fluxo de dados** mostrando como componentes interagem
+- **Problemas arquiteturais** que afetam a manutenibilidade
 
 ---
 
-### Demo: Understand a Codebase in 60 Seconds
+### Demo: Entenda uma base de código em 60 segundos
 
 <img src="assets/codebase-understanding.png" alt="Comparação em tela dividida mostrando revisão manual levando 1 hora versus análise assistida por IA levando 10 segundos" width="800" />
 
@@ -221,13 +221,13 @@ search books stored in a JSON file. The biggest quality issues are:
 Priority fix: Consolidate duplicate display functions and add input validation.
 ```
 
-**Resultado**: O que levaria uma hora de leitura de código é comprimido em 10 segundos. Você sabe exatamente onde focar.
+**Resultado**: o que levaria uma hora de leitura de código é comprimido em 10 segundos. Você sabe exatamente onde focar.
 
 ---
 
-## Practical Examples
+## Exemplos práticos
 
-### Example 1: Code Review with Context
+### Exemplo 1: Revisão de código com contexto
 
 ```bash
 copilot
@@ -243,7 +243,7 @@ copilot
 # Now reviewing book_app.py, but still aware of books.py context
 ```
 
-### Example 2: Understanding a Codebase
+### Exemplo 2: Entendendo uma base de código
 
 ```bash
 copilot
@@ -262,15 +262,15 @@ copilot
 ```
 
 <details>
-<summary>🎬 See a multi-turn conversation in action!</summary>
+<summary>🎬 Veja uma conversa multitorno em ação!</summary>
 
-![Multi-Turn Demo](assets/multi-turn-demo.gif)
+![Demo multitorno](assets/multi-turn-demo.gif)
 
 *A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
-### Example 3: Multi-File Refactoring
+### Exemplo 3: Refatoração em vários arquivos
 
 ```bash
 copilot
@@ -283,13 +283,13 @@ copilot
 
 ---
 
-## Session Management
+## Gerenciamento de sessões
 
-Sessions are automatically saved as you work. You can resume previous sessions to continue where you left off.
+As sessões são salvas automaticamente enquanto você trabalha. Você pode retomar sessões anteriores para continuar de onde parou.
 
-### Sessions Auto-Save
+### Sessões são salvas automaticamente
 
-Every conversation is automatically saved. Just exit normally:
+Toda conversa é salva automaticamente. Basta sair normalmente:
 
 ```bash
 copilot
@@ -301,14 +301,14 @@ copilot
 > /exit
 ```
 
-### Resume the Most Recent Session
+### Retomar a sessão mais recente
 
 ```bash
 # Continue where you left off
 copilot --continue
 ```
 
-### Resume a Specific Session
+### Retomar uma sessão específica
 
 ```bash
 # Pick from a list of sessions interactively
@@ -324,19 +324,19 @@ copilot --resume=abc123
 copilot --resume="my book app review"
 ```
 
-> 💡 **How do I find a session ID?** You don't need to memorize them. Running `copilot --resume` without an ID shows an interactive list of your previous sessions, their names, IDs, and when they were last active. Just pick the one you want.
+> 💡 **Como encontro um ID de sessão?** Você não precisa memorizá-los. Executar `copilot --resume` sem ID mostra uma lista interativa das sessões anteriores, seus nomes, IDs e quando foram ativas pela última vez. Basta escolher a desejada.
 >
-> **What about multiple terminals?** Each terminal window is its own session with its own context. If you have Copilot CLI open in three terminals, that's three separate sessions. Running `--resume` from any terminal lets you browse all of them. The `--continue` flag grabs the session from the current working directory first; if none exists there, it picks the most recently active session.
+> **E vários terminais?** Cada janela de terminal é sua própria sessão, com seu próprio contexto. Se você tiver o Copilot CLI aberto em três terminais, são três sessões separadas. Executar `--resume` de qualquer terminal permite navegar por todas elas. A flag `--continue` pega primeiro a sessão do diretório de trabalho atual; se não houver nenhuma ali, escolhe a sessão ativa mais recente.
 >
-> **Can I switch sessions without restarting?** Yes. Use the `/resume` slash command from inside an active session:
+> **Posso trocar de sessão sem reiniciar?** Sim. Use o comando com barra `/resume` dentro de uma sessão ativa:
 > ```
 > > /resume
 > # Shows a list of sessions to switch to
 > ```
 
-### Organize Your Sessions
+### Organize suas sessões
 
-Give sessions meaningful names so you can find them later. You can name a session when you start it, or rename it at any time while inside the session:
+Dê nomes significativos às sessões para encontrá-las depois. Você pode nomear uma sessão ao iniciá-la ou renomeá-la a qualquer momento dentro da sessão:
 
 ```bash
 # Name a session right when you start it
@@ -349,13 +349,13 @@ copilot
 # Session renamed for easier identification
 ```
 
-Once a session is named, you can resume it directly by name without browsing through a list:
+Depois que uma sessão é nomeada, você pode retomá-la diretamente pelo nome sem navegar por uma lista:
 
 ```bash
 copilot --resume=book-app-review
 ```
 
-To clean up sessions you no longer need, use `/session delete` from inside a session:
+Para limpar sessões que você não precisa mais, use `/session delete` dentro de uma sessão:
 
 ```bash
 copilot
@@ -365,9 +365,9 @@ copilot
 > /session delete-all        # Deletes all sessions (use with care!)
 ```
 
-### Persistent Memory Across Sessions
+### Memória persistente entre sessões
 
-Sessions save your conversation history, but **memory** goes one step further and lets Copilot CLI remember preferences and facts *across all sessions*, not just within a single one.
+As sessões salvam seu histórico de conversa, mas a **memória** vai um passo além e permite que o Copilot CLI lembre preferências e fatos *em todas as sessões*, não apenas dentro de uma única sessão.
 
 ```bash
 copilot
@@ -382,13 +382,13 @@ copilot
 # Disables memory (useful if you prefer a fresh slate each time)
 ```
 
-For example, if you tell Copilot CLI "I always prefer pytest for Python testing", it can remember that preference and apply it automatically in future sessions. All without you having to repeat it.
+Por exemplo, se você disser ao Copilot CLI "I always prefer pytest for Python testing", ele pode lembrar dessa preferência e aplicá-la automaticamente em sessões futuras. Tudo isso sem você precisar repetir.
 
-> 💡 **Memory vs. Sessions**: Sessions save conversation history so you can resume a specific task. Memory saves reusable repository facts and user preferences that Copilot can apply in future work. Think of sessions as task notebooks, and memory as reusable context Copilot can carry forward.
+> 💡 **Memória vs. sessões**: sessões salvam o histórico da conversa para que você possa retomar uma tarefa específica. Memória salva fatos reutilizáveis do repositório e preferências do usuário que o Copilot pode aplicar em trabalhos futuros. Pense em sessões como cadernos de tarefas e em memória como contexto reutilizável que o Copilot leva adiante.
 
-### Check and Manage Context
+### Verificar e gerenciar contexto
 
-As you add files and conversation, Copilot CLI's [context window](../GLOSSARY.md#context-window) fills up. Several commands are available to help you stay in control:
+À medida que você adiciona arquivos e conversa, a [janela de contexto](../GLOSSARY.md#context-window) do Copilot CLI se enche. Vários comandos estão disponíveis para ajudar você a manter o controle:
 
 ```bash
 copilot
@@ -408,17 +408,17 @@ Uso de contexto: 62k/200k tokens (31%)
 
 > 💡 **Quando usar `/clear` ou `/new`**: Se você estava revisando books.py e quer mudar para discutir utils.py, execute /new primeiro (ou /clear se não precisar do histórico da sessão). Caso contrário, contexto antigo pode confundir as respostas.
 
-> 💡 **Made a mistake or want to try a different approach?** Use `/rewind` (or press Esc twice) to open a **timeline picker** that lets you roll back to any earlier point in your conversation, not just the most recent one. This is useful when you went down the wrong path and want to backtrack without starting over entirely.
+> 💡 **Cometeu um erro ou quer tentar uma abordagem diferente?** Use `/rewind` (ou pressione Esc duas vezes) para abrir um **seletor de linha do tempo** que permite voltar a qualquer ponto anterior da conversa, não apenas ao mais recente. Isso é útil quando você seguiu pelo caminho errado e quer retroceder sem começar tudo de novo.
 
 ---
 
-### Pick Up Where You Left Off
+### Retome de onde parou
 
-<img src="assets/session-persistence-timeline.png" alt="Timeline showing how GitHub Copilot CLI sessions persist across days - start on Monday, resume on Wednesday with full context restored" width="800"/>
+<img src="assets/session-persistence-timeline.png" alt="Linha do tempo mostrando como as sessões do GitHub Copilot CLI persistem por dias — iniciar na segunda-feira, retomar na quarta-feira com contexto completo restaurado" width="800"/>
 
-*Sessions auto-save when you exit. Resume days later with full context: files, issues, and progress all remembered.*
+*As sessões são salvas automaticamente quando você sai. Retome dias depois com contexto completo: arquivos, problemas e progresso lembrados.*
 
-Imagine this workflow across multiple days:
+Imagine este fluxo ao longo de vários dias:
 
 ```bash
 # Monday: Start book app review with a name right from the beginning
@@ -457,33 +457,33 @@ Issue #1 (duplicate functions) was fixed on Monday.
 > Let's tackle issue #2 next
 ```
 
-**What makes this powerful**: Days later, Copilot CLI remembers:
-- The exact file you were working on
-- The numbered list of issues
-- Which ones you've already addressed
-- The context of your conversation
+**O que torna isso poderoso**: dias depois, o Copilot CLI lembra:
+- O arquivo exato em que você estava trabalhando
+- A lista numerada de problemas
+- Quais deles você já resolveu
+- O contexto da sua conversa
 
-No re-explaining. No re-reading files. Just continue working.
-
----
-
-**🎉 You now know the essentials!** The `@` syntax, session management (`--name`/`--continue`/`--resume`/`/rename`), and context commands (`/context`/`/clear`) are enough to be highly productive. Everything below is optional. Return to it when you're ready.
+Sem reexplicar. Sem reler arquivos. Apenas continue trabalhando.
 
 ---
 
-# Optional: Going Deeper
+**🎉 Agora você conhece o essencial!** A sintaxe `@`, o gerenciamento de sessões (`--name`/`--continue`/`--resume`/`/rename`) e os comandos de contexto (`/context`/`/clear`) são suficientes para ser altamente produtivo. Tudo abaixo é opcional. Volte a isso quando estiver pronto.
 
-<img src="assets/optional-going-deeper.png" alt="Abstract crystal cave in blue and purple tones representing deeper exploration of context concepts" width="800"/>
+---
 
-These topics build on the essentials above. **Pick what interests you, or skip ahead to [Practice](#practice).**
+# Opcional: Indo mais fundo
 
-| I want to learn about... | Jump to |
+<img src="assets/optional-going-deeper.png" alt="Caverna de cristal abstrata em tons de azul e roxo representando exploração mais profunda dos conceitos de contexto" width="800"/>
+
+Estes tópicos se baseiam no essencial acima. **Escolha o que interessa ou avance para [Prática](#practice).**
+
+| Quero aprender sobre... | Ir para |
 |---|---|
-| Wildcard patterns and advanced session commands | [Additional @ Patterns & Session Commands](#additional-patterns) |
-| Building on context across multiple prompts | [Context-Aware Conversations](#context-aware-conversations) |
-| Token limits and `/compact` | [Understanding Context Windows](#understanding-context-windows) |
-| How to pick the right files to reference | [Choosing What to Reference](#choosing-what-to-reference) |
-| Analyzing screenshots and mockups | [Working with Images](#working-with-images) |
+| Padrões curinga e comandos avançados de sessão | [Padrões @ adicionais e comandos de sessão](#additional-patterns) |
+| Construir sobre contexto em vários prompts | [Conversas conscientes de contexto](#context-aware-conversations) |
+| Limites de tokens e `/compact` | [Entendendo janelas de contexto](#understanding-context-windows) |
+| Como escolher os arquivos certos para referenciar | [Escolhendo o que referenciar](#choosing-what-to-reference) |
+| Analisar capturas de tela e mockups | [Trabalhando com imagens](#working-with-images) |
 
 <details>
 <summary><strong>Padrões @ adicionais e comandos de sessão</strong></summary>
@@ -491,7 +491,7 @@ These topics build on the essentials above. **Pick what interests you, or skip a
 
 ### Padrões @ adicionais
 
-Para usuários avançados, o Copilot CLI suporta padrões curinga e referências a imagens:
+Para usuários avançados, o Copilot CLI oferece suporte a padrões curinga e referências a imagens:
 
 | Padrão | O que faz |
 |---------|--------------|
@@ -505,7 +505,7 @@ copilot
 > Find all TODO comments in @samples/book-app-project/**/*.py
 ```
 
-### View Session Info
+### Ver informações da sessão
 
 ```bash
 copilot
@@ -517,7 +517,7 @@ copilot
 # Shows session metrics and statistics
 ```
 
-### Share Your Session
+### Compartilhar sua sessão
 
 ```bash
 copilot
@@ -536,14 +536,14 @@ copilot
 </details>
 
 <details>
-<summary><strong>Context-Aware Conversations</strong></summary>
+<summary><strong>Conversas conscientes de contexto</strong></summary>
 <a id="context-aware-conversations"></a>
 
-### Context-Aware Conversations
+### Conversas conscientes de contexto
 
-The magic happens when you have multi-turn conversations that build on each other.
+A mágica acontece quando você tem conversas multitorno que se constroem umas sobre as outras.
 
-#### Example: Progressive Enhancement
+#### Exemplo: Aprimoramento progressivo
 
 ```bash
 copilot
@@ -571,25 +571,25 @@ Copilot CLI: "Based on the class with types and error handling..."
 [Generates comprehensive tests]
 ```
 
-Notice how each prompt builds on the previous work. This is the power of context.
+Observe como cada prompt se baseia no trabalho anterior. Este é o poder do contexto.
 
 </details>
 
 <details>
-<summary><strong>Understanding Context Windows</strong></summary>
+<summary><strong>Entendendo janelas de contexto</strong></summary>
 <a id="understanding-context-windows"></a>
 
-### Understanding Context Windows
+### Entendendo janelas de contexto
 
-You already know `/context` and `/clear` from the essentials. Here's the deeper picture of how context windows work.
+Você já conhece `/context` e `/clear` do essencial. Aqui está o panorama mais profundo de como as janelas de contexto funcionam.
 
-Every AI has a "context window," which is the amount of text it can consider at once.
+Toda IA tem uma "janela de contexto", que é a quantidade de texto que ela consegue considerar de uma vez.
 
-<img src="assets/context-window-visualization.png" alt="Context Window Visualization" width="800"/>
+<img src="assets/context-window-visualization.png" alt="Visualização da janela de contexto" width="800"/>
 
-*The context window is like a desk: it can only hold so much at once. Files, conversation history, and system prompts all take space.*
+*A janela de contexto é como uma mesa: ela só consegue comportar certa quantidade de coisa por vez. Arquivos, histórico de conversa e prompts do sistema ocupam espaço.*
 
-#### What Happens at the Limit
+#### O que acontece no limite
 
 ```bash
 copilot
@@ -611,9 +611,9 @@ Uso de contexto: 120,000 / 128,000 tokens (94%)
 Context limit reached. Older context will be summarized.
 ```
 
-#### The `/compact` Command
+#### O comando `/compact`
 
-When your context is getting full but you don't want to lose the conversation, `/compact` summarizes your history to free up tokens:
+Quando seu contexto está ficando cheio, mas você não quer perder a conversa, `/compact` resume seu histórico para liberar tokens:
 
 ```bash
 copilot
@@ -638,64 +638,64 @@ copilot
 
 | Situação | Ação | Por quê |
 |-----------|--------|-----|
-| Starting new topic | `/clear` | Removes irrelevant context |
-| Went down wrong path | `/rewind` | Roll back to any earlier point |
-| Long conversation | `/compact` | Summarizes history, frees tokens |
-| Need specific file | `@file.py` not `@folder/` | Loads only what you need |
-| Hitting limits | `/new` or `/clear` | Fresh context |
-| Multiple topics | Use `/rename` per topic | Easy to resume right session |
+| Iniciando novo tópico | `/clear` | Remove contexto irrelevante |
+| Seguiu pelo caminho errado | `/rewind` | Volta a qualquer ponto anterior |
+| Conversa longa | `/compact` | Resume o histórico, libera tokens |
+| Precisa de arquivo específico | `@file.py` em vez de `@folder/` | Carrega apenas o necessário |
+| Atingindo limites | `/new` ou `/clear` | Contexto novo |
+| Múltiplos tópicos | Use `/rename` por tópico | Fácil retomar a sessão certa |
 
-#### Best Practices for Large Codebases
+#### Melhores práticas para bases de código grandes
 
-1. **Be specific**: `@samples/book-app-project/books.py` instead of `@samples/book-app-project/`
-2. **Clear context between topics**: Use `/new` or `/clear` when switching focus
-3. **Use `/compact`**: Summarize conversation to free up context
-4. **Use multiple sessions**: One session per feature or topic
+1. **Seja específico**: `@samples/book-app-project/books.py` em vez de `@samples/book-app-project/`
+2. **Limpe o contexto entre tópicos**: Use `/new` ou `/clear` ao mudar de foco
+3. **Use `/compact`**: Resuma a conversa para liberar contexto
+4. **Use várias sessões**: uma sessão por funcionalidade ou tópico
 
 </details>
 
 <details>
-<summary><strong>Choosing What to Reference</strong></summary>
+<summary><strong>Escolhendo o que referenciar</strong></summary>
 <a id="choosing-what-to-reference"></a>
 
-### Choosing What to Reference
+### Escolhendo o que referenciar
 
-Not all files are equal when it comes to context. Here's how to choose wisely:
+Nem todos os arquivos têm o mesmo valor quando se trata de contexto. Veja como escolher com sabedoria:
 
-#### File Size Considerations
+#### Considerações sobre tamanho do arquivo
 
-| File Size | Approximate [Tokens](../GLOSSARY.md#token) | Strategy |
+| Tamanho do arquivo | [Tokens](../GLOSSARY.md#token) aproximados | Estratégia |
 |-----------|-------------------|----------|
-| Small (<100 lines) | ~500-1,500 tokens | Reference freely |
-| Medium (100-500 lines) | ~1,500-7,500 tokens | Reference specific files |
-| Large (500+ lines) | 7,500+ tokens | Be selective, use specific files |
-| Very Large (1000+ lines) | 15,000+ tokens | Consider splitting or targeting sections |
+| Pequeno (<100 linhas) | ~500-1.500 tokens | Referencie livremente |
+| Médio (100-500 linhas) | ~1.500-7.500 tokens | Referencie arquivos específicos |
+| Grande (500+ linhas) | 7.500+ tokens | Seja seletivo, use arquivos específicos |
+| Muito grande (1000+ linhas) | 15.000+ tokens | Considere dividir ou mirar seções |
 
-**Concrete examples:**
-- The book app's 4 Python files combined ≈ 2,000-3,000 tokens
-- A typical Python module (200 lines) ≈ 3,000 tokens
-- A Flask API file (400 lines) ≈ 6,000 tokens
-- Your package.json ≈ 200-500 tokens
-- A short prompt + response ≈ 500-1,500 tokens
+**Exemplos concretos:**
+- Os 4 arquivos Python do app de livros combinados ≈ 2.000-3.000 tokens
+- Um módulo Python típico (200 linhas) ≈ 3.000 tokens
+- Um arquivo Flask API (400 linhas) ≈ 6.000 tokens
+- Seu package.json ≈ 200-500 tokens
+- Um prompt + resposta curtos ≈ 500-1.500 tokens
 
-> 💡 **Quick estimate for code:** Multiply lines of code by ~15 to get approximate tokens. Keep in mind this is only an estimate.
+> 💡 **Estimativa rápida para código:** multiplique linhas de código por ~15 para obter tokens aproximados. Lembre-se de que isso é apenas uma estimativa.
 
-#### What to Include vs. Exclude
+#### O que incluir vs. excluir
 
-**High value** (include these):
-- Entry points (`book_app.py`, `main.py`, `app.py`)
-- The specific files you're asking about
-- Files directly imported by your target file
-- Configuration files (`requirements.txt`, `pyproject.toml`)
-- Data models or dataclasses
+**Alto valor** (inclua estes):
+- Pontos de entrada (`book_app.py`, `main.py`, `app.py`)
+- Os arquivos específicos sobre os quais você está perguntando
+- Arquivos importados diretamente pelo arquivo-alvo
+- Arquivos de configuração (`requirements.txt`, `pyproject.toml`)
+- Modelos de dados ou dataclasses
 
-**Lower value** (consider excluding):
-- Generated files (compiled output, bundled assets)
-- Node modules or vendor directories
-- Large data files or fixtures
-- Files unrelated to your question
+**Valor menor** (considere excluir):
+- Arquivos gerados (saída compilada, assets empacotados)
+- Node modules ou diretórios vendor
+- Arquivos de dados grandes ou fixtures
+- Arquivos não relacionados à sua pergunta
 
-#### The Specificity Spectrum
+#### O espectro da especificidade
 
 ```
 Less specific ────────────────────────► More specific
@@ -715,7 +715,7 @@ Less specific ──────────────────────
 - Revisão de código de um arquivo em particular
 - Perguntar sobre uma única função
 
-#### Practical Example: Staged Context Loading
+#### Exemplo prático: carregamento de contexto em etapas
 
 ```bash
 copilot
@@ -733,17 +733,17 @@ copilot
 > @samples/book-app-project/book_app.py @samples/book-app-project/books.py How does the CLI use the BookCollection?
 ```
 
-This staged approach keeps context focused and efficient.
+Esta abordagem em etapas mantém o contexto focado e eficiente.
 
 </details>
 
 <details>
-<summary><strong>Working with Images</strong></summary>
+<summary><strong>Trabalhando com imagens</strong></summary>
 <a id="working-with-images"></a>
 
-### Working with Images
+### Trabalhando com imagens
 
-You can include images in your conversations using the `@` syntax, or simply **paste from your clipboard** (Cmd+V / Ctrl+V). Copilot CLI can analyze screenshots, mockups, and diagrams to help with UI debugging, design implementation, and error analysis.
+Você pode incluir imagens em suas conversas usando a sintaxe `@`, ou simplesmente **colar da área de transferência** (Cmd+V / Ctrl+V). O Copilot CLI pode analisar capturas de tela, mockups e diagramas para ajudar com depuração de UI, implementação de design e análise de erros.
 
 ```bash
 copilot
@@ -753,25 +753,26 @@ copilot
 > @assets/mockup.png Write the HTML and CSS to match this design. Place it in a new file called index.html and put the CSS in styles.css.
 ```
 
-> 📖 **Learn more**: See [Additional Context Features](../appendices/additional-context.md#working-with-images) for supported formats, practical use cases, and tips for combining images with code.
+> 📖 **Saiba mais**: veja [Recursos adicionais de contexto](../appendices/additional-context.md#working-with-images) para formatos suportados, casos de uso práticos e dicas para combinar imagens com código.
 
 </details>
 
 ---
 
-# Practice
+<a id="practice"></a>
+# Prática
 
-<img src="../assets/practice.png" alt="Warm desk setup with monitor showing code, lamp, coffee cup, and headphones ready for hands-on practice" width="800"/>
+<img src="../assets/practice.png" alt="Ambiente de mesa aconchegante com monitor mostrando código, luminária, xícara de café e fones de ouvido prontos para prática" width="800"/>
 
-Time to apply your context and session management skills.
+Hora de aplicar suas habilidades de contexto e gerenciamento de sessões.
 
 ---
 
-## ▶️ Try It Yourself
+## ▶️ Experimente você mesmo
 
-### Full Project Review
+### Revisão completa do projeto
 
-The course includes sample files you can review directly. Start copilot and run the prompt shown next:
+O curso inclui arquivos de exemplo que você pode revisar diretamente. Inicie o copilot e execute o prompt a seguir:
 
 ```bash
 copilot
@@ -784,9 +785,9 @@ copilot
 # - Inconsistent error handling
 ```
 
-> 💡 **Want to try with your own files?** Create a small Python project (`mkdir -p my-project/src`), add some .py files, then use `@my-project/src/` to review them. You can ask copilot to create sample code for you if you'd like!
+> 💡 **Quer tentar com seus próprios arquivos?** Crie um pequeno projeto Python (`mkdir -p my-project/src`), adicione alguns arquivos .py e use `@my-project/src/` para revisá-los. Você pode pedir ao Copilot para criar código de exemplo se quiser!
 
-### Session Workflow
+### Fluxo de sessão
 
 ```bash
 copilot
@@ -808,45 +809,45 @@ copilot --continue
 
 ---
 
-After completing the demos, try these variations:
+Depois de concluir as demos, experimente estas variações:
 
-1. **Cross-File Challenge**: Analyze how book_app.py and books.py work together:
+1. **Desafio entre arquivos**: Analise como book_app.py e books.py trabalham juntos:
    ```bash
    copilot
    > @samples/book-app-project/book_app.py @samples/book-app-project/books.py
    > What's the relationship between these files? Are there any code smells?
    ```
 
-2. **Session Challenge**: Start a session, name it with `/rename my-first-session`, work on something, exit with `/exit`, then run `copilot --continue`. Does it remember what you were doing?
+2. **Desafio de sessão**: Inicie uma sessão, nomeie-a com `/rename my-first-session`, trabalhe em algo, saia com `/exit`, depois execute `copilot --continue`. Ela lembra o que você estava fazendo?
 
-3. **Context Challenge**: Run `/context` mid-session. How many tokens are you using? Try `/compact` and check again. (See [Understanding Context Windows](#understanding-context-windows) in Going Deeper for more on `/compact`.)
+3. **Desafio de contexto**: Execute `/context` no meio da sessão. Quantos tokens você está usando? Tente `/compact` e verifique novamente. (Veja [Entendendo janelas de contexto](#understanding-context-windows) em Indo mais fundo para saber mais sobre `/compact`.)
 
-**Self-Check**: You understand context when you can explain why `@folder/` is more powerful than opening each file individually.
+**Autoverificação**: você entende contexto quando consegue explicar por que `@folder/` é mais poderoso do que abrir cada arquivo individualmente.
 
 ---
 
-## 📝 Assignment
+## 📝 Tarefa
 
-### Main Challenge: Trace the Data Flow
+### Desafio principal: Rastrear o fluxo de dados
 
-The hands-on examples focused on code quality reviews and input validation. Now practice the same context skills on a different task, tracing how data moves through the app:
+Os exemplos práticos focaram em revisões de qualidade de código e validação de entrada. Agora pratique as mesmas habilidades de contexto em uma tarefa diferente: rastrear como os dados se movem pelo app:
 
-1. Start an interactive session: `copilot`
-2. Reference `books.py` and `book_app.py` together:
+1. Inicie uma sessão interativa: `copilot`
+2. Referencie `books.py` e `book_app.py` juntos:
    `@samples/book-app-project/books.py @samples/book-app-project/book_app.py Trace how a book goes from user input to being saved in data.json. What functions are involved at each step?`
-3. Bring in the data file for additional context:
+3. Traga o arquivo de dados para contexto adicional:
    `@samples/book-app-project/data.json What happens if this JSON file is missing or corrupted? Which functions would fail?`
-4. Ask for a cross-file improvement:
+4. Peça uma melhoria entre arquivos:
    `@samples/book-app-project/books.py @samples/book-app-project/utils.py Suggest a consistent error-handling strategy that works across both files.`
-5. Rename the session: `/rename data-flow-analysis`
-6. Exit with `/exit`, then resume with `copilot --continue` and ask a follow-up question about the data flow
+5. Renomeie a sessão: `/rename data-flow-analysis`
+6. Saia com `/exit`, depois retome com `copilot --continue` e faça uma pergunta de acompanhamento sobre o fluxo de dados
 
-**Success criteria**: You can trace data across multiple files, resume a named session, and get cross-file suggestions.
+**Critérios de sucesso**: você consegue rastrear dados em vários arquivos, retomar uma sessão nomeada e obter sugestões entre arquivos.
 
 <details>
-<summary>💡 Hints (click to expand)</summary>
+<summary>💡 Dicas (clique para expandir)</summary>
 
-**Getting started:**
+**Para começar:**
 ```bash
 cd /path/to/copilot-cli-for-beginners
 copilot
@@ -856,41 +857,41 @@ copilot
 > /exit
 ```
 
-Then resume with: `copilot --continue`
+Depois retome com: `copilot --continue`
 
-**Useful commands:**
-- `@file.py` - Reference a single file
-- `@folder/` - Reference all files in a folder (note the trailing `/`)
-- `/context` - Check how much context you're using
-- `/rename <name>` - Name your session for easy resuming
+**Comandos úteis:**
+- `@file.py` - Referencia um único arquivo
+- `@folder/` - Referencia todos os arquivos em uma pasta (observe a `/` final)
+- `/context` - Verifica quanto contexto você está usando
+- `/rename <name>` - Nomeia sua sessão para facilitar a retomada
 
 </details>
 
-### Bonus Challenge: Context Limits
+### Desafio bônus: Limites de contexto
 
-1. Reference all the book app files at once with `@samples/book-app-project/`
-2. Ask several detailed questions about different files (`books.py`, `utils.py`, `book_app.py`, `data.json`)
-3. Run `/context` to see usage. How quickly does it fill up?
-4. Practice using `/compact` to reclaim space, then continue the conversation
-5. Try being more specific with file references (e.g., `@samples/book-app-project/books.py` instead of the whole folder) and see how it affects context usage
+1. Referencie todos os arquivos do app de livros de uma vez com `@samples/book-app-project/`
+2. Faça várias perguntas detalhadas sobre arquivos diferentes (`books.py`, `utils.py`, `book_app.py`, `data.json`)
+3. Execute `/context` para ver o uso. Quão rápido ele se enche?
+4. Pratique usar `/compact` para recuperar espaço e continue a conversa
+5. Tente ser mais específico com referências de arquivos (por exemplo, `@samples/book-app-project/books.py` em vez da pasta inteira) e veja como isso afeta o uso de contexto
 
 ---
 
 <details>
-<summary>🔧 <strong>Common Mistakes & Troubleshooting</strong> (click to expand)</summary>
+<summary>🔧 <strong>Erros comuns e solução de problemas</strong> (clique para expandir)</summary>
 
-### Common Mistakes
+### Erros comuns
 
-| Mistake | What Happens | Fix |
+| Erro | O que acontece | Correção |
 |---------|--------------|-----|
-| Forgetting `@` before filenames | Copilot CLI treats "books.py" as plain text | Use `@samples/book-app-project/books.py` to reference files |
-| Expecting sessions to persist automatically | Starting `copilot` fresh loses all previous context | Use `--continue` (last session) or `--resume` (pick a session) |
-| Referencing files outside current directory | "Permission denied" or "File not found" errors | Use `/add-dir /path/to/directory` to grant access |
-| Not using `/clear` when switching topics | Old context confuses responses about the new topic | Run `/clear` before starting a different task |
+| Esquecer `@` antes dos nomes de arquivo | O Copilot CLI trata "books.py" como texto simples | Use `@samples/book-app-project/books.py` para referenciar arquivos |
+| Esperar que sessões persistam automaticamente | Iniciar `copilot` do zero perde todo o contexto anterior | Use `--continue` (última sessão) ou `--resume` (escolher uma sessão) |
+| Referenciar arquivos fora do diretório atual | Erros "Permission denied" ou "File not found" | Use `/add-dir /path/to/directory` para conceder acesso |
+| Não usar `/clear` ao mudar de tópico | Contexto antigo confunde respostas sobre o novo tópico | Execute `/clear` antes de iniciar uma tarefa diferente |
 
-### Troubleshooting
+### Solução de problemas
 
-**"File not found" errors** - Make sure you're in the correct directory:
+**Erros "File not found"** - Certifique-se de estar no diretório correto:
 
 ```bash
 pwd  # Check current directory
@@ -902,7 +903,7 @@ copilot
 > Review @samples/book-app-project/books.py
 ```
 
-**"Permission denied"** - Add the directory to your allowed list:
+**"Permission denied"** - Adicione o diretório à sua lista de permissões:
 
 ```bash
 copilot --add-dir /path/to/directory
@@ -911,45 +912,45 @@ copilot --add-dir /path/to/directory
 > /add-dir /path/to/directory
 ```
 
-**Context fills up too quickly**:
-- Be more specific with file references
-- Use `/clear` between different topics
-- Split work across multiple sessions
+**O contexto enche rápido demais**:
+- Seja mais específico com referências de arquivos
+- Use `/clear` entre tópicos diferentes
+- Divida o trabalho em várias sessões
 
 </details>
 
 ---
 
-# Summary
+# Resumo
 
-## 🔑 Key Takeaways
+## 🔑 Principais aprendizados
 
-1. **`@` syntax** gives Copilot CLI context about files, directories, and images
-2. **Multi-turn conversations** build on each other as context accumulates
-3. **Sessions auto-save**: name them at startup with `--name`, resume by name with `--resume=<name>`, or use `--continue` to pick up the most recent session
-4. **Context windows** have limits: manage them with `/clear`, `/compact`, `/context`, `/new`, and `/rewind`. Use `/compact focus on <topic>` to shape what gets kept in the summary
-5. **Persistent memory** (`/memory`) lets Copilot CLI remember preferences and facts across *all* sessions — not just the current one
-6. **Permission flags** (`--add-dir`, `--allow-all`) control multi-directory access. Use them wisely!
-7. **Image references** (`@screenshot.png`) help debug UI issues visually
+1. A sintaxe **`@`** dá ao Copilot CLI contexto sobre arquivos, diretórios e imagens
+2. **Conversas multitorno** se constroem umas sobre as outras à medida que o contexto se acumula
+3. **Sessões são salvas automaticamente**: nomeie-as na inicialização com `--name`, retome pelo nome com `--resume=<name>` ou use `--continue` para pegar a sessão mais recente
+4. **Janelas de contexto** têm limites: gerencie-as com `/clear`, `/compact`, `/context`, `/new` e `/rewind`. Use `/compact focus on <topic>` para moldar o que será mantido no resumo
+5. **Memória persistente** (`/memory`) permite que o Copilot CLI lembre preferências e fatos em *todas* as sessões — não apenas na atual
+6. **Flags de permissão** (`--add-dir`, `--allow-all`) controlam acesso a múltiplos diretórios. Use-as com sabedoria!
+7. **Referências de imagem** (`@screenshot.png`) ajudam a depurar problemas de UI visualmente
 
-> 📚 **Official Documentation**: [Use Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli) for the complete reference on context, sessions, and working with files.
+> 📚 **Documentação oficial**: [Use Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli) para a referência completa sobre contexto, sessões e trabalho com arquivos.
 
-> 📋 **Quick Reference**: See the [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference) for a complete list of commands and shortcuts.
-
----
-
-## ➡️ What's Next
-
-Now that you can give Copilot CLI context, let's put it to work on real development tasks. The context techniques you just learned (file references, cross-file analysis, and session management) are the foundation for the powerful workflows in the next chapter.
-
-In **[Chapter 03: Development Workflows](../03-development-workflows/README.md)**, you'll learn:
-
-- Code review workflows
-- Refactoring patterns
-- Debugging assistance
-- Test generation
-- Git integration
+> 📋 **Referência rápida**: Veja a [referência de comandos do GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/cli-command-reference) para uma lista completa de comandos e atalhos.
 
 ---
 
-**[← Back to Chapter 01](../01-setup-and-first-steps/README.md)** | **[Continue to Chapter 03 →](../03-development-workflows/README.md)**
+## ➡️ O que vem a seguir
+
+Agora que você consegue dar contexto ao Copilot CLI, vamos colocá-lo para trabalhar em tarefas reais de desenvolvimento. As técnicas de contexto que você acabou de aprender (referências de arquivos, análise entre arquivos e gerenciamento de sessões) são a base para os fluxos de trabalho poderosos do próximo capítulo.
+
+Em **[Capítulo 03: Fluxos de Desenvolvimento](../03-development-workflows/README.md)**, você aprenderá:
+
+- Fluxos de revisão de código
+- Padrões de refatoração
+- Assistência para depuração
+- Geração de testes
+- Integração com Git
+
+---
+
+**[← Voltar ao Capítulo 01](../01-setup-and-first-steps/README.md)** | **[Continue para o Capítulo 03 →](../03-development-workflows/README.md)**

@@ -8,24 +8,24 @@ Esta pasta contém arquivos de código de exemplo. São apenas amostras e não t
 
 ```
 src/
-├── api/           # API route handlers
-│   ├── auth.js    # Authentication endpoints
-│   └── users.js   # User CRUD endpoints
-├── auth/          # Client-side auth handlers
-│   ├── login.js   # Login form logic
-│   └── register.js # Registration form logic
-├── components/    # React components
-│   ├── Button.jsx # Reusable button
-│   └── Header.jsx # App header with nav
-├── models/        # Data models
-│   └── User.js    # User model
-├── services/      # Business logic
+├── api/           # Handlers de rotas da API
+│   ├── auth.js    # Endpoints de autenticação
+│   └── users.js   # Endpoints CRUD de usuários
+├── auth/          # Handlers de autenticação no lado do cliente
+│   ├── login.js   # Lógica do formulário de login
+│   └── register.js # Lógica do formulário de registro
+├── components/    # Componentes React
+│   ├── Button.jsx # Botão reutilizável
+│   └── Header.jsx # Cabeçalho do app com navegação
+├── models/        # Modelos de dados
+│   └── User.js    # Modelo de usuário
+├── services/      # Lógica de negócio
 │   ├── productService.js
 │   └── userService.js
-├── utils/         # Helper functions
+├── utils/         # Funções auxiliares
 │   └── helpers.js
-├── index.js       # App entry point
-└── refactor-me.js # Beginner refactoring practice (Chapter 03)
+├── index.js       # Ponto de entrada do app
+└── refactor-me.js # Prática de refatoração para iniciantes (Capítulo 03)
 ```
 
 ## Uso

@@ -1,6 +1,6 @@
 ---
 name: code-checklist
-description: Team code quality checklist - use for checking Python code quality, bugs, security issues, and best practices
+description: Checklist de qualidade de código da equipe — use para verificar qualidade de código Python, bugs, problemas de segurança e melhores práticas
 ---
 
 # Skill de Checklist de Código
