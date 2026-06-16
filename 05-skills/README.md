@@ -11,31 +11,31 @@ weight: 6
 
 ![Chapter 05: Skills System](assets/chapter-header.png)
 
-> **What if Copilot could automatically apply your team's best practices without you having to explain them every time?**
+> **E se o Copilot pudesse aplicar automaticamente as melhores práticas da sua equipe sem que você precise explicá-las toda vez?**
 
-In this chapter, you'll learn about Agent Skills: folders of instructions that Copilot automatically loads when relevant to your task. While agents change *how* Copilot thinks, skills teach Copilot *specific ways to complete tasks*. You'll create a security audit skill that Copilot applies whenever you ask about security, build team-standard review criteria that ensure consistent code quality, and learn how skills work across Copilot CLI, VS Code, and the GitHub Copilot cloud agent.
+Neste capítulo, você conhecerá as Agent Skills: pastas de instruções que o Copilot carrega automaticamente quando relevantes para sua tarefa. Enquanto agentes mudam *como* o Copilot pensa, skills ensinam *maneiras específicas de executar tarefas*. Você criará uma skill de auditoria de segurança que o Copilot aplica quando você pedir por segurança, construirá critérios de revisão padronizados pela equipe para garantir qualidade consistente do código e aprenderá como skills funcionam no Copilot CLI, VS Code e no agente Copilot na nuvem do GitHub.
 
 
-## 🎯 Learning Objectives
+## 🎯 Objetivos de Aprendizagem
 
-By the end of this chapter, you'll be able to:
+Ao final deste capítulo, você será capaz de:
 
-- Understand how Agent Skills work and when to use them
-- Create custom skills with SKILL.md files
-- Use community skills from shared repositories
-- Know when to use skills vs agents vs MCP
+- Entender como Agent Skills funcionam e quando usá-las
+- Criar skills personalizadas com arquivos SKILL.md
+- Usar skills da comunidade a partir de repositórios compartilhados
+- Saber quando usar skills vs agents vs MCP
 
-> ⏱️ **Estimated Time**: ~55 minutes (20 min reading + 35 min hands-on)
+> ⏱️ **Tempo estimado**: ~55 minutos (20 min leitura + 35 min prático)
 
 ---
 
-## 🧩 Real-World Analogy: Power Tools
+## 🧩 Analogia do mundo real: Ferramentas elétricas
 
 A general-purpose drill is useful, but specialized attachments make it powerful. 
 <img src="assets/power-tools-analogy.png" alt="Power Tools - Skills Extend Copilot's Capabilities" width="800"/>
 
 
-Skills work the same way. Just like swapping drill bits for different jobs, you can add skills to Copilot for different tasks:
+As skills funcionam da mesma forma. Assim como trocar brocas para tarefas diferentes, você pode adicionar skills ao Copilot para trabalhos distintos:
 
 | Skill Attachment | Purpose |
 |------------|---------|
@@ -50,7 +50,7 @@ Skills work the same way. Just like swapping drill bits for different jobs, you 
 
 ---
 
-# How Skills Work
+# Como as Skills Funcionam
 
 <img src="assets/how-skills-work.png" alt="Glowing RPG-style skill icons connected by light trails on a starfield background representing Copilot skills" width="800"/>
 
@@ -58,25 +58,25 @@ Learn what skills are, why they matter, and how they differ from agents and MCP.
 
 ---
 
-## *New to Skills?* Start Here!
+## *Novo em Skills?* Comece aqui!
 
-1. **See what skills are already available:**
+1. **Veja quais skills já estão disponíveis:**
    ```bash
    copilot
    > /skills list
    ```
-   This shows all skills Copilot can find, including any **built-in skills** that ship with the CLI itself, plus skills from your project and personal folders.
+   Isso mostra todas as skills que o Copilot consegue encontrar, incluindo **skills embutidas** que acompanham o CLI, além das skills do seu projeto e da sua pasta pessoal.
 
-   > 💡 **Built-in skills**: The Copilot CLI comes with skills pre-installed out of the box. For example, the `customizing-copilot-cloud-agents-environment` skill provides a guide for customizing the Copilot cloud agent's environment. You don't need to create or install anything to use these. Run `/skills list` to see what's available.
+   > 💡 **Skills embutidas**: O Copilot CLI inclui algumas skills por padrão. Por exemplo, a skill `customizing-copilot-cloud-agents-environment` fornece um guia para customizar o ambiente do agente Copilot na nuvem. Não é necessário criar ou instalar nada para usá-las. Execute `/skills list` para ver o que está disponível.
 
 2. **Look at a real skill file:** Check out our provided [code-checklist SKILL.md](../.github/skills/code-checklist/SKILL.md) to see the pattern. It's just YAML frontmatter plus markdown instructions.
 
 3. **Understand the core concept:** Skills are task-specific instructions that Copilot loads *automatically* when your prompt matches the skill's description. You don't need to activate them, just ask naturally.
 
 
-## Understanding Skills
+## Entendendo as Skills
 
-Agent Skills are folders containing instructions, scripts, and resources that Copilot **automatically loads when relevant** to your task. Copilot reads your prompt, checks if any skills match, and applies the relevant instructions automatically.
+Agent Skills são pastas que contêm instruções, scripts e recursos que o Copilot **carrega automaticamente quando relevantes** para sua tarefa. O Copilot analisa seu prompt, verifica se alguma skill corresponde e aplica as instruções relevantes automaticamente.
 
 ```bash
 copilot
@@ -98,9 +98,9 @@ copilot
 
 > 🧰 **Ready-to-use templates**: Check out the [.github/skills](../.github/skills/) folder for simple copy-paste skills you can try out.
 
-### Direct Slash Command Invocation
+### Invocação direta via comando com barra
 
-While auto-triggering is the primary way skills work, you can also **invoke skills directly** using their name as a slash command:
+Embora o acionamento automático seja a forma principal de funcionamento das skills, você também pode **invocar skills diretamente** usando seu nome como um comando com barra:
 
 ```bash
 > /generate-tests Create tests for the user authentication module
@@ -110,11 +110,11 @@ While auto-triggering is the primary way skills work, you can also **invoke skil
 > /security-audit Check the API endpoints for vulnerabilities
 ```
 
-This gives you explicit control when you want to ensure a specific skill is used.
+Isso dá controle explícito quando você quer garantir que uma skill específica seja usada.
 
-#### Combining Multiple Skills in One Message
+#### Combinando múltiplas Skills em uma única mensagem
 
-You can invoke **more than one skill in a single message**, and the skill slash command can appear anywhere in your prompt — not just at the beginning. This is handy when you want two different checks done in one go:
+Você pode invocar **mais de uma skill em uma única mensagem**, e o comando com barra da skill pode aparecer em qualquer lugar do seu prompt — não apenas no início. Isso é útil quando você quer realizar duas verificações diferentes de uma vez:
 
 ```bash
 > Check @samples/book-app-project/book_app.py with /code-checklist and also run /generate-tests for it
@@ -132,9 +132,9 @@ Copilot will apply each named skill in the same response, saving you from sendin
 >
 > If you have both a skill and an agent with the same name (e.g., "code-reviewer"), typing `/code-reviewer` invokes the **skill**, not the agent.
 
-### How Do I Know a Skill Was Used?
+### Como saber se uma Skill foi utilizada?
 
-You can ask Copilot directly:
+Você pode perguntar diretamente ao Copilot:
 
 ```bash
 > What skills did you use for that response?
@@ -144,9 +144,9 @@ You can ask Copilot directly:
 
 ### Skills vs Agents vs MCP
 
-Skills are just one piece of GitHub Copilot's extensibility model. Here's how they compare to agents and MCP servers.
+As skills são apenas uma parte do modelo de extensibilidade do GitHub Copilot. Veja como elas se comparam a agents e servidores MCP.
 
-> *Don't worry about MCP quite yet. We'll cover it in [Chapter 06](../06-mcp-servers/). It's included here so you can see how skills fit into the overall picture.*
+> *Não se preocupe com MCP por enquanto. Vamos cobrir isso no [Capítulo 06](../06-mcp-servers/). Está incluído aqui para você entender como as skills se encaixam no panorama geral.*
 
 <img src="assets/skills-agents-mcp-comparison.png" alt="Comparison diagram showing the differences between Agents, Skills, and MCP Servers and how they combine into your workflow" width="800"/>
 
