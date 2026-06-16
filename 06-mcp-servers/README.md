@@ -11,33 +11,33 @@ weight: 7
 
 ![Chapter 06: MCP Servers](assets/chapter-header.png)
 
-> **What if Copilot could read your GitHub issues, check your database, and create PRs... all from the terminal?**
+> **E se o Copilot pudesse ler suas issues do GitHub, checar seu banco de dados e criar PRs... tudo a partir do terminal?**
 
 So far, Copilot can only work with what you give it directly: files you reference with `@`, conversation history, and its own training data. But what if it could reach out on its own to check your GitHub repository, browse your project files, or look up the latest documentation for a library?
 
-That's what MCP (Model Context Protocol) does. It's a way to connect Copilot to external services so it has access to live, real-world data. Each service Copilot connects to is called an "MCP server." In this chapter, you'll set up a few of these connections and see how they make Copilot dramatically more useful.
+É isso que o MCP (Model Context Protocol) faz. Ele conecta o Copilot a serviços externos, dando acesso a dados ao vivo e do mundo real. Cada serviço conectado ao Copilot é chamado de "servidor MCP". Neste capítulo, você irá configurar alguns desses servidores e verá como tornam o Copilot muito mais útil.
 
-> 💡 **Already familiar with MCP?** [Jump to the quick start](#-use-the-built-in-github-mcp) to confirm it's working and start configuring servers.
+> 💡 **Já conhece MCP?** [Vá para o quick start](#-use-the-built-in-github-mcp) para confirmar que está funcionando e começar a configurar servidores.
 
-## 🎯 Learning Objectives
+## 🎯 Objetivos de Aprendizagem
 
 By the end of this chapter, you'll be able to:
 
-- Understand what MCP is and why it matters
-- Manage MCP servers using `/mcp` commands
-- Configure MCP servers for GitHub, filesystem, and documentation
-- Use MCP-powered workflows with the book app project
-- Know when and how to build a custom MCP server (optional)
+- Entender o que é MCP e por que importa
+- Gerenciar servidores MCP usando os comandos `/mcp`
+- Configurar servidores MCP para GitHub, sistema de arquivos e documentação
+- Usar fluxos de trabalho com MCP no projeto do book app
+- Saber quando e como construir um servidor MCP customizado (opcional)
 
 > ⏱️ **Estimated Time**: ~50 minutes (15 min reading + 35 min hands-on)
 
 ---
 
-## 🧩 Real-World Analogy: Browser Extensions
+## 🧩 Analogia do mundo real: Extensões de navegador
 
 <img src="assets/browser-extensions-analogy.png" alt="MCP Servers are like Browser Extensions" width="800"/>
 
-Think of MCP servers like browser extensions. Your browser on its own can display web pages, but extensions connect it to extra services:
+Pense em servidores MCP como extensões de navegador. Seu navegador consegue exibir páginas por si só, mas extensões conectam-no a serviços extras:
 
 | Browser Extension | What It Connects To | MCP Equivalent |
 |-------------------|---------------------|----------------|
@@ -55,38 +55,38 @@ Without extensions, your browser is still useful, but with them, it becomes a po
 
 <img src="assets/quick-start-mcp.png" alt="Power cable connecting with bright electrical spark surrounded by floating tech icons representing MCP server connections" width="800"/>
 
-# Quick Start: MCP in 30 Seconds
+# Quick Start: MCP em 30 segundos
 
-## Get started with the built-in GitHub MCP server
-Let's see MCP in action right now, before configuring anything.
-The GitHub MCP server is included by default. Try this:
+## Comece com o GitHub MCP embutido
+Vamos ver o MCP em ação agora, antes de configurar nada.
+O servidor MCP do GitHub está incluído por padrão. Experimente:
 
 ```bash
 copilot
 > List the recent commits in this repository
 ```
 
-If Copilot returns real commit data, you've just seen MCP in action. That's the GitHub MCP server reaching out to GitHub on your behalf. But GitHub is just *one* server. This chapter shows you how to add more (filesystem access, up-to-date documentation, and others) so Copilot can do even more.
+Se o Copilot retornar dados reais de commits, você acabou de ver o MCP em ação. Esse é o servidor GitHub MCP consultando o GitHub em seu nome. Mas o GitHub é apenas *um* servidor. Este capítulo mostra como adicionar mais (acesso ao sistema de arquivos, documentação atualizada e outros) para que o Copilot possa fazer ainda mais.
 
 ---
 
-## The `/mcp show` Command
+## O comando `/mcp show`
 
-Use `/mcp show` to see which MCP servers are configured and whether they're enabled:
+Use `/mcp show` para ver quais servidores MCP estão configurados e se estão habilitados:
 
 ```bash
 copilot
 
 > /mcp show
 
-MCP Servers:
-✓ github (enabled) - GitHub integration
-✓ filesystem (enabled) - File system access
+Servidores MCP:
+✓ github (habilitado) - Integração com o GitHub
+✓ filesystem (habilitado) - Acesso ao sistema de arquivos
 ```
 
-> 💡 **Only seeing the GitHub server?** That's expected! If you haven't added any additional MCP servers yet, GitHub is the only one listed. You'll add more in the next section.
+> 💡 **Vendo apenas o servidor GitHub?** Isso é esperado! Se você não adicionou outros servidores MCP ainda, o GitHub será o único listado. Você adicionará mais na próxima seção.
 
-> 📚 **Want to see all MCP management commands?** You can manage servers with `/mcp` slash commands inside chat, or with `copilot mcp` directly from your terminal. See the [full command reference](#-additional-mcp-commands) at the end of this chapter.
+> 📚 **Quer ver todos os comandos de gerenciamento de MCP?** Você pode gerenciar servidores com comandos `/mcp` dentro do chat, ou com `copilot mcp` diretamente no terminal. Veja a [referência completa de comandos](#-additional-mcp-commands) no final deste capítulo.
 
 <details>
 <summary>🎬 See it in action!</summary>
@@ -99,30 +99,30 @@ MCP Servers:
 
 ---
 
-## What Changes with MCP?
+## O que muda com o MCP?
 
-Here's the difference MCP makes in practice:
+Veja a diferença que o MCP faz na prática:
 
-**Without MCP:**
+**Sem MCP:**
 ```bash
-> What's in GitHub issue #42?
+> O que há na issue #42 do GitHub?
 
-"I don't have access to GitHub. You'll need to copy and paste the issue content."
+"Não tenho acesso ao GitHub. Você precisará copiar e colar o conteúdo da issue."
 ```
 
-**With MCP:**
+**Com MCP:**
 ```bash
-> What's in GitHub issue #42 of this repository?
+> O que há na issue #42 deste repositório?
 
-Issue #42: Login fails with special characters
+Issue #42: Falha de login com caracteres especiais
 Status: Open
 Labels: bug, priority-high
-Description: Users report that passwords containing...
+Descrição: Usuários relatam que senhas contendo...
 ```
 
-MCP makes Copilot aware of your actual development environment.
+O MCP torna o Copilot ciente do seu ambiente de desenvolvimento.
 
-> 📚 **Official Documentation**: [About MCP](https://docs.github.com/copilot/concepts/context/mcp) for a deeper look at how MCP works with GitHub Copilot.
+> 📚 **Documentação oficial**: [About MCP](https://docs.github.com/copilot/concepts/context/mcp) para um olhar mais profundo sobre como o MCP funciona com o GitHub Copilot.
 
 ---
 
@@ -134,7 +134,7 @@ Now that you've seen MCP in action, let's set up additional servers. You can add
 
 ---
 
-## Installing MCP Servers from the Registry
+## Instalando servidores MCP a partir do registro
 
 The CLI has a built-in MCP server registry that lets you discover and install popular servers with a guided setup — no JSON editing required.
 
@@ -150,7 +150,7 @@ Copilot opens an interactive picker showing available servers. Select one, and t
 
 ---
 
-## MCP Configuration File
+## Arquivo de configuração do MCP
 
 MCP servers are configured in `~/.copilot/mcp-config.json` (user-level, applies to all projects) or `.mcp.json` (project-level, placed in the root of your project). If you used `/mcp search` above, the CLI already created or updated this file for you, but it's useful to understand the format for customization.
 
@@ -169,7 +169,7 @@ MCP servers are configured in `~/.copilot/mcp-config.json` (user-level, applies 
 }
 ```
 
-*Most MCP servers are distributed as npm packages and run via the `npx` command.*
+*A maioria dos servidores MCP é distribuída como pacotes npm e executada via o comando `npx`.*
 
 <details>
 <summary>💡 <strong>New to JSON?</strong> Click here to learn what each field means</summary>
@@ -192,7 +192,7 @@ MCP servers are configured in `~/.copilot/mcp-config.json` (user-level, applies 
 
 ---
 
-## Adding MCP Servers
+## Adicionando servidores MCP
 
 The GitHub MCP server is built-in and requires no setup. Below are additional servers you can add. **Pick what interests you, or work through them in order.**
 
