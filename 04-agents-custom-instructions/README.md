@@ -435,6 +435,7 @@ O Copilot examinará seu projeto e criará arquivos de instrução sob medida. V
 | `AGENTS.md` | Raiz do projeto ou aninhada | **Padrão cross-platform** - funciona com Copilot e outros assistentes de IA |
 | `.github/copilot-instructions.md` | Projeto | Específico do GitHub Copilot |
 | `.github/instructions/*.instructions.md` | Projeto | Instruções granulares e específicas por tópico |
+| `~/.copilot/instructions/**/*.instructions.md` | Usuário (todos os projetos) | Instruções pessoais que se aplicam em todos os seus repositórios |
 | `CLAUDE.md`, `GEMINI.md` | Raiz do projeto | Suportados para compatibilidade |
 
 > 🎯 **Está começando agora?** Use `AGENTS.md` para instruções do projeto. Você pode explorar os outros formatos depois, conforme necessário.

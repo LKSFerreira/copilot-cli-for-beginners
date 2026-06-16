@@ -407,6 +407,7 @@ Isso é tudo para começar! Conforme você ficar confortável, pode explorar com
 | `/env` | Mostrar detalhes do ambiente carregado — quais instruções, servidores MCP, skills, agents e plugins estão ativos |
 | `/init` | Inicializar as instruções do Copilot para o repositório |
 | `/mcp` | Gerenciar a configuração do servidor MCP |
+| `/settings` | Abrir um diálogo interativo para navegar e editar todas as configurações do usuário em um só lugar |
 | `/skills` | Gerenciar skills para capacidades adicionais |
 
 > 💡 Agents são abordados no [Capítulo 04](../04-agents-custom-instructions/README.md), skills no [Capítulo 05](../05-skills/README.md) e servidores MCP no [Capítulo 06](../06-mcp-servers/README.md).
@@ -471,6 +472,7 @@ Isso é tudo para começar! Conforme você ficar confortável, pode explorar com
 
 | Comando | O que faz |
 |---------|--------------|
+| `/app` | Abrir o aplicativo do GitHub (ou o fallback no navegador) diretamente do CLI |
 | `/changelog` | Exibe o changelog das versões do CLI |
 | `/feedback` | Enviar feedback ao GitHub |
 | `/help` | Mostra todos os comandos disponíveis |
