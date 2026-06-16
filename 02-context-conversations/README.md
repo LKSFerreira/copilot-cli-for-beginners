@@ -425,7 +425,7 @@ Imagine este fluxo ao longo de vários dias:
 copilot --name book-app-review
 
 > @samples/book-app-project/books.py
-> Review and number all code quality issues
+> Revise e numere todos os problemas de qualidade de código
 
 Quality Issues Found:
 1. Duplicate display functions (book_app.py & utils.py) - MEDIUM
@@ -434,7 +434,7 @@ Quality Issues Found:
 4. No type hints on all functions - LOW
 5. Missing error logging - LOW
 
-> Fix issue #1 (duplicate functions)
+> Corrija a issue #1 (funções duplicadas)
 # Work on the fix...
 
 > /exit
@@ -444,7 +444,7 @@ Quality Issues Found:
 # Wednesday: Resume exactly where you left off, by name
 copilot --resume=book-app-review
 
-> What issues remain unfixed from our book app review?
+> Quais problemas permaneceram não corrigidos da nossa revisão do app de livros?
 
 Remaining issues from our book-app-review session:
 2. No input validation for empty strings - MEDIUM
@@ -454,7 +454,7 @@ Remaining issues from our book-app-review session:
 
 Issue #1 (duplicate functions) was fixed on Monday.
 
-> Let's tackle issue #2 next
+> Vamos abordar a issue #2 em seguida
 ```
 
 **O que torna isso poderoso**: dias depois, o Copilot CLI lembra:
@@ -502,7 +502,7 @@ Para usuários avançados, o Copilot CLI oferece suporte a padrões curinga e re
 ```bash
 copilot
 
-> Find all TODO comments in @samples/book-app-project/**/*.py
+> Encontre todos os comentários TODO em @samples/book-app-project/**/*.py
 ```
 
 ### Ver informações da sessão
@@ -555,17 +555,17 @@ Copilot CLI: "The class looks functional, but I notice:
 2. No validation for empty title/author
 3. Could benefit from better error handling"
 
-> Add type hints to all methods
+> Adicione type hints a todos os métodos
 
 Copilot CLI: "Here's the class with complete type hints..."
 [Shows typed version]
 
-> Now improve error handling
+> Agora melhore o tratamento de erros
 
 Copilot CLI: "Building on the typed version, here's improved error handling..."
 [Adds validation and proper exceptions]
 
-> Generate tests for this final version
+> Gere testes para esta versão final
 
 Copilot CLI: "Based on the class with types and error handling..."
 [Generates comprehensive tests]
@@ -797,14 +797,14 @@ copilot
 
 [Copilot CLI suggests validation approach]
 
-> Implement that fix
-> Now consolidate the duplicate display functions in @samples/book-app-project/
+> Implemente essa correção
+>> Agora consolide as funções de exibição duplicadas em @samples/book-app-project/
 > /exit
 
 # Later - resume where you left off
 copilot --continue
 
-> Generate tests for the changes we made
+> Gere testes para as mudanças que fizemos
 ```
 
 ---
@@ -900,7 +900,7 @@ ls   # List files
 # Then start copilot and use relative paths
 copilot
 
-> Review @samples/book-app-project/books.py
+> Revise @samples/book-app-project/books.py
 ```
 
 **"Permission denied"** - Adicione o diretório à sua lista de permissões:

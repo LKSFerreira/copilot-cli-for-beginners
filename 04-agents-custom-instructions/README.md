@@ -98,7 +98,7 @@ copilot
 # Explore and Task agents are invoked automatically when relevant:
 > Execute a suite de testes        # Usa Task agent
 
-> Explore how book data is loaded    # Uses Explore agent
+> Explore como os dados do livro são carregados    # Usa Explore agent
 ```
 
 E o Agent Task? Ele atua nos bastidores para gerenciar e acompanhar atividades, retornando resultados de forma clara e concisa:
@@ -325,7 +325,7 @@ O verdadeiro poder surge quando especialistas trabalham juntos em uma funcionali
 ```bash
 copilot
 
-> I want to add a "search by year range" feature to the book app
+> Quero adicionar um recurso de "pesquisa por intervalo de ano" ao app de livros
 
 # Use python-reviewer for design
 > /agent
@@ -633,13 +633,13 @@ EOF
 
 # Now use them
 copilot --agent reviewer
-> Review @samples/book-app-project/books.py
+> Revise @samples/book-app-project/books.py
 
 # Or switch agents
 copilot
 > /agent
 # Select "documentor"
-> Document @samples/book-app-project/books.py
+> Documente @samples/book-app-project/books.py
 ```
 
 ---

@@ -529,7 +529,7 @@ copilot
 
 > Revise @samples/book-app-project/book_app.py - o que poderia melhorar?
 
-> Refactor the if/elif chain into a more maintainable structure
+> Refatore a cadeia if/elif em uma estrutura mais mantível
 
 > Adicione type hints em todas as funções de handler
 

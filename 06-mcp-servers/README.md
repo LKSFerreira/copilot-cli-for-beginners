@@ -525,7 +525,7 @@ Best practices:
 - Use monkeypatch for modifying environment
 - Scope fixtures appropriately (function, class, module, session)
 
-> How can I apply this to the book app's test file?
+> Como posso aplicar isso ao arquivo de teste do app de livros?
 
 # Copilot now knows the official pytest patterns
 # and can apply them to samples/book-app-project/tests/test_books.py
@@ -619,7 +619,7 @@ From Python Documentation:
 - Consider atomic writes to prevent data corruption
 
 # Step 4: Synthesize a recommendation
-> Based on the book app code and these best practices,
+> Com base no código do app de livros e nessas melhores práticas,
 > what improvements would you suggest?
 
 Suggestions:
@@ -789,7 +789,7 @@ Agora combine filesystem e GitHub MCP em uma única sessão:
 ```bash
 copilot
 
-> Read samples/book-app-project/data.json and tell me what books are
+> Leia samples/book-app-project/data.json e me diga quais livros estão
 > in the collection. Then check the recent commits to see when this
 > file was last modified.
 ```

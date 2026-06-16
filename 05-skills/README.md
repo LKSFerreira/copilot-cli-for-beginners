@@ -253,7 +253,7 @@ Imagine que sua equipe tenha uma checklist de PR com 10 pontos. Sem uma skill, c
 ```bash
 copilot
 
-> Can you review this PR?
+> Você pode revisar este PR?
 ```
 
 O Copilot carrega automaticamente a skill `pr-review` da sua equipe e verifica todos os 10 pontos:
@@ -845,7 +845,7 @@ Execute `/skills reload` depois de criar ou editar skills para garantir que as m
 
 **Testando se uma skill carrega** - Pergunte diretamente ao Copilot:
 ```bash
-> What skills do you have available for checking code quality?
+> Quais skills você tem disponíveis para verificar qualidade de código?
 # Copilot will describe relevant skills it found
 ```
 

@@ -131,7 +131,7 @@ copilot
 
 # Copilot CLI provides detailed review
 
-> The user input handling - are there any edge cases I'm missing?
+> O tratamento de entrada do usuário - há algum caso extremo que estou perdendo?
 
 # Copilot CLI shows potential issues with empty strings, special characters
 
@@ -237,7 +237,7 @@ Referencie vários arquivos com `@` em um único prompt para que o Copilot CLI p
 copilot
 
 > @samples/book-app-project/utils.py @samples/book-app-project/book_app.py
-> The utils.py file has print statements mixed with logic. Refactor to separate display functions from data processing.
+> O arquivo utils.py tem instruções print misturadas com lógica. Refatore para separar funções de exibição do processamento de dados.
 ```
 
 ### Melhorar o tratamento de erros
@@ -248,7 +248,7 @@ Forneça dois arquivos relacionados e descreva a preocupação transversal para 
 copilot
 
 > @samples/book-app-project/utils.py @samples/book-app-project/books.py
-> These files have inconsistent error handling. Suggest a unified approach using custom exceptions.
+> Esses arquivos têm tratamento de erro inconsistente. Sugira uma abordagem unificada usando exceções customizadas.
 ```
 
 ### Adicionar documentação
@@ -276,7 +276,7 @@ copilot
 
 # Get tests first
 
-> Now refactor the BookCollection class to use a context manager for file operations
+> Agora refatore a classe BookCollection para usar um context manager para operações de arquivo
 
 # Refactor with confidence - tests verify behavior is preserved
 ```
@@ -334,7 +334,7 @@ copilot
 
 > @samples/book-app-buggy/books_buggy.py
 >
-> Users report: "Finding books by author name doesn't work for partial names"
+> Usuários relatam: "Encontrar livros por nome de autor não funciona para nomes parciais"
 > Depure por que isso acontece
 ```
 
@@ -382,7 +382,7 @@ Cole um stack trace diretamente no seu prompt junto com uma referência de arqui
 ```bash
 copilot
 
-> I'm getting this error:
+> Estou recebendo este erro:
 > AttributeError: 'NoneType' object has no attribute 'title'
 >     at show_books (book_app.py:19)
 >
@@ -407,9 +407,9 @@ Referencie vários arquivos e peça ao Copilot CLI que siga o fluxo de dados ent
 ```bash
 copilot
 
-> Users report that the book list numbering starts at 0 instead of 1.
+> Usuários relatam que a numeração da lista de livros começa em 0 em vez de 1.
 > @samples/book-app-buggy/book_app_buggy.py @samples/book-app-buggy/books_buggy.py
-> Trace through the list display flow and identify where the issue occurs
+> Trace pelo fluxo de exibição da lista e identifique onde o problema ocorre
 ```
 
 ### Entendendo problemas de dados
@@ -420,7 +420,7 @@ Inclua um arquivo de dados junto com o código que o lê para que o Copilot CLI 
 copilot
 
 > @samples/book-app-project/data.json @samples/book-app-project/books.py
-> Sometimes the JSON file gets corrupted and the app crashes. How should we handle this gracefully?
+> Às vezes o arquivo JSON fica corrompido e o app trava. Como devemos lidar com isso graciosamente?
 ```
 
 </details>
@@ -738,7 +738,7 @@ copilot
 > @samples/book-app-project/books.py Analyze and identify the likely cause
 
 # 2. Debug the issue and fix (continuing in same session)
-> Based on the analysis, show me the find_by_author function and explain the issue
+> Com base na análise, mostre-me a função find_by_author e explique o problema
 
 > Corrija a função find_by_author para lidar com correspondências de nomes parciais
 
@@ -837,7 +837,7 @@ copilot
 > @samples/book-app-project/books.py Review the remove_book() function. What edge cases are not handled?
 
 # Step 2: Refactor
-> Improve remove_book() to use case-insensitive matching and return a clear message when the book isn't found. Show me the before and after code.
+> Melhore remove_book() para usar correspondência case-insensitive e retorne uma mensagem clara quando o livro não for encontrado. Mostre-me o código antes e depois.
 
 # Step 3: Test
 > Gere testes pytest para a função remove_book() melhorada, incluindo:

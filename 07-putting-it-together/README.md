@@ -58,8 +58,7 @@ Em vez de alternar entre seu editor, terminal, test runner e GitHub UI e perder 
 # Start Copilot in interactive mode
 copilot
 
-> I need to add a "list unread" command to the book app that shows only
-> books where read is False. What files need to change?
+> Preciso adicionar um comando "list unread" que mostre apenas livros não lidos. Quais arquivos precisam ser alterados?
 
 # Copilot creates high-level plan...
 
@@ -90,7 +89,7 @@ copilot
 # IMPLEMENT
 > Adicione um método get_unread_books a BookCollection em books.py
 > Adicione uma opção de comando "list unread" em book_app.py
-> Update the help text in the show_help function
+> Atualize o texto de ajuda na função show_help
 
 # TEST
 > Gere testes abrangentes para o novo recurso
@@ -168,7 +167,7 @@ copilot
 # Select "pytest-helper"
 
 > Gere testes pytest para find_by_author com correspondências parciais
-> Include test cases: partial name, case variations, no matches
+> Inclua casos de teste: nome parcial, variações de maiúsculas, sem correspondências
 
 # PHASE 7: Commit and PR
 > Gere uma mensagem de commit para esta correção
@@ -276,7 +275,7 @@ copilot
 > Liste issues abertas rotuladas como "good first issue"
 
 # FASE 5: Começar a contribuir
-> Pick the simplest open issue and outline a plan to fix it
+> Escolha a issue aberta mais simples e esboce um plano para corrigi-la
 ```
 
 Este fluxo combina contexto com `@`, agents e MCP em uma única sessão de integração, exatamente o padrão de integração visto anteriormente neste capítulo.
