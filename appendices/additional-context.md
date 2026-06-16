@@ -27,11 +27,11 @@ Você pode incluir imagens nas suas conversas usando a sintaxe `@`. O Copilot po
 ```bash
 copilot
 
-> @screenshot.png What's happening in this UI?
+> @screenshot.png O que está acontecendo nesta interface?
 
 # Copilot analyzes the image and responds
 
-> @mockup.png @current-design.png Compare these two designs
+> @mockup.png @current-design.png Compare esses dois designs
 
 # You can also drag and drop images or paste from clipboard
 ```
@@ -49,27 +49,27 @@ copilot
 
 **1. Depuração de interface de usuário**
 ```bash
-> @bug-screenshot.png The button doesn't align properly. What CSS might cause this?
+> @bug-screenshot.png O botão não se alinha corretamente. Qual CSS pode estar causando isso?
 ```
 
 **2. Implementação de design**
 ```bash
-> @figma-export.png Write the HTML and Tailwind CSS to match this design
+> @figma-export.png Escreva o HTML e Tailwind CSS para corresponder a este design
 ```
 
 **3. Análise de erro**
 ```bash
-> @error-screenshot.png What does this error mean and how do I fix it?
+> @error-screenshot.png O que este erro significa e como faço para corrigi-lo?
 ```
 
 **4. Revisão de arquitetura**
 ```bash
-> @whiteboard-diagram.png Convert this architecture diagram to a Mermaid diagram I can put in docs
+> @whiteboard-diagram.png Converta este diagrama de arquitetura em um diagrama Mermaid que eu possa colocar na documentação
 ```
 
 **5. Comparação antes/depois**
 ```bash
-> @before.png @after.png What changed between these two versions of the UI?
+> @before.png @after.png O que mudou entre essas duas versões da interface?
 ```
 
 ### Combinando imagens com código
@@ -80,7 +80,7 @@ As imagens ficam ainda mais úteis quando combinadas com contexto de código:
 copilot
 
 > @screenshot-of-bug.png @src/components/Header.jsx
-> The header looks wrong in the screenshot. What's causing it in the code?
+> O header parece estar errado na screenshot. O que está causando isso no código?
 ```
 
 ### Dicas para imagens

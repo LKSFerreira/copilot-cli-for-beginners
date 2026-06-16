@@ -1,5 +1,5 @@
 {
-  "name": "GitHub Copilot CLI for Beginners",
+  "name": "GitHub Copilot CLI para Iniciantes",
   "image": "mcr.microsoft.com/devcontainers/python:2-3.13-bullseye",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},

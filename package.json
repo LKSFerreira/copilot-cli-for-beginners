@@ -1,7 +1,7 @@
 {
   "name": "github-copilot-cli-course",
   "version": "1.0.0",
-  "description": "GitHub Copilot CLI for Beginners - Course Materials",
+  "description": "GitHub Copilot CLI para Iniciantes - Materiais de Curso",
   "scripts": {
     "generate:headers": "python3 .github/scripts/generate-chapter-headers.py",
     "scan:demos": "node .github/scripts/scan-demos.js",
@@ -17,7 +17,7 @@
     "github-copilot",
     "cli",
     "tutorial",
-    "course"
+    "curso"
   ],
   "author": "Microsoft Corporation",
   "license": "MIT"
