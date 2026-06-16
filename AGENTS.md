@@ -1,8 +1,10 @@
 # AGENTS.md
 
-Beginner-friendly course teaching GitHub Copilot CLI. Educational content, not software.
+(Tradução pt-BR aplicada apenas ao conteúdo explicativo — títulos e instruções; nomes técnicos e paths preservados)
 
-## Structure
+Curso voltado para iniciantes que ensina o GitHub Copilot CLI. Conteúdo educacional, não um produto de software.
+
+## Estrutura
 
 | Path | Purpose |
 |------|---------|
@@ -18,19 +20,19 @@ Beginner-friendly course teaching GitHub Copilot CLI. Educational content, not s
 | `samples/src/` | **Optional extra**: Legacy JS/React samples from earlier course version |
 | `appendices/` | Supplementary reference material |
 
-## Do
+## Fazer (Boas práticas)
 
-- Keep explanations beginner-friendly; explain AI/ML jargon when used
-- Ensure bash examples are copy-paste ready
-- Tone: friendly, encouraging, practical
-- Use `samples/book-app-project/` paths in all primary examples
-- Use Python/pytest context for code examples
+- Mantenha explicações amigáveis para iniciantes; explique jargões de AI/ML quando usados
+- Garanta que exemplos em bash sejam prontos para copiar e colar
+- Tom: amigável, encorajador e prático
+- Use caminhos em `samples/book-app-project/` em todos os exemplos principais
+- Use contexto Python/pytest para exemplos de código
 
-## Don't
+## Não Fazer
 
-- Fix bugs in `samples/book-app-buggy/` or `samples/buggy-code/` — they're intentional
-- Add chapters without updating README.md course table
-- Assume readers know AI/ML terminology
+- Corrigir bugs em `samples/book-app-buggy/` ou `samples/buggy-code/` — são intencionais
+- Adicionar capítulos sem atualizar a tabela do curso em README.md
+- Assumir que os leitores conhecem a terminologia de AI/ML
 
 ## Build
 
