@@ -9,16 +9,16 @@ weight: 61
 ---
 -->
 
-# Building a Custom MCP Server
+# Construindo um servidor MCP personalizado
 
-> ⚠️ **This content is completely optional.** You can be highly productive with Copilot CLI using only the pre-built MCP servers (GitHub, filesystem, Context7). This guide is for developers who want to connect Copilot to custom internal APIs. See the [MCP for Beginners course](https://github.com/microsoft/mcp-for-beginners) for more details.
+> ⚠️ **Este conteúdo é totalmente opcional.** Você pode ser altamente produtivo com o Copilot CLI usando apenas os servidores MCP pré-instalados (GitHub, filesystem, Context7). Este guia é para desenvolvedores que desejam conectar o Copilot a APIs internas personalizadas. Veja o [curso MCP for Beginners](https://github.com/microsoft/mcp-for-beginners) para mais detalhes.
 >
-> **Prerequisites:**
-> - Comfortable with Python
-> - Understanding of `async`/`await` patterns
-> - `pip` available on your system (included in this dev container)
+> **Pré-requisitos:**
+> - Confortável com Python
+> - Compreensão de padrões `async`/`await`
+> - `pip` disponível no seu sistema (incluído neste dev container)
 >
-> **[← Back to Chapter 06: MCP Servers](README.md)**
+> **[← Voltar ao Capítulo 06: MCP Servers](README.md)**
 
 ---
 
@@ -107,16 +107,16 @@ if __name__ == "__main__":
     mcp.run()
 ```
 
-**What's happening here:**
+**O que está acontecendo aqui:**
 
-| Part | What It Does |
+| Parte | O que faz |
 |------|-------------|
-| `FastMCP("book-lookup")` | Creates a server named "book-lookup" |
-| `@mcp.tool()` | Registers a function as a tool Copilot can call |
-| Type hints + docstrings | Tell Copilot what each tool does and what parameters it needs |
-| `mcp.run()` | Starts the server and listens for requests |
+| `FastMCP("book-lookup")` | Cria um servidor chamado "book-lookup" |
+| `@mcp.tool()` | Registra uma função como uma ferramenta que o Copilot pode chamar |
+| Anotações de tipo + docstrings | Informam ao Copilot o que cada ferramenta faz e quais parâmetros precisa |
+| `mcp.run()` | Inicia o servidor e escuta por requisições |
 
-> 💡 **Why decorators?** The `@mcp.tool()` decorator is all you need. The MCP SDK automatically reads your function's name, type hints, and docstring to generate the tool schema. No manual JSON schema needed!
+> 💡 **Por que decorators?** O decorator `@mcp.tool()` é tudo que você precisa. O SDK MCP lê automaticamente o nome da sua função, as anotações de tipo e o docstring para gerar o esquema da ferramenta. Nenhum JSON schema manual é necessário!
 
 ## Configuration
 
@@ -135,12 +135,12 @@ Add to your `~/.copilot/mcp-config.json`:
 }
 ```
 
-## Usage
+## Uso
 
 ```bash
 copilot
 
-> Look up the book with ISBN 978-0-547-92822-7
+> Procure o livro com ISBN 978-0-547-92822-7
 
 {
   "title": "The Hobbit",

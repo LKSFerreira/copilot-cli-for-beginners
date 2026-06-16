@@ -15,7 +15,7 @@ weight: 2
 
 Este capítulo é onde a mágica começa! Você verá por que desenvolvedores descrevem o GitHub Copilot CLI como ter um engenheiro sênior a um toque de distância. A IA encontrará bugs de segurança em segundos, explicará código complexo em linguagem simples e gerará scripts funcionais instantaneamente. Em seguida, você dominará os três modos de interação (Interativo, Plano e Programático) para saber exatamente qual usar em cada tarefa.
 
-> ⚠️ **Pré-requisitos**: Certifique-se de ter concluído **[Capítulo 00: Quick Start](../00-quick-start/README.md)** primeiro. Você precisará do GitHub Copilot CLI instalado e autenticado antes de executar as demos abaixo.
+> ⚠️ **Pré-requisitos**: Certifique-se de ter concluído **[Capítulo 00: Início Rápido](../00-quick-start/README.md)** primeiro. Você precisará do GitHub Copilot CLI instalado e autenticado antes de executar as demos abaixo.
 
 ## 🎯 Objetivos de Aprendizagem
 
@@ -31,9 +31,9 @@ Ao final deste capítulo, você será capaz de:
 
 # Sua primeira experiência com o Copilot CLI
 
-<img src="assets/first-copilot-experience.png" alt="Developer sitting at a desk with code on the monitor and glowing particles representing AI assistance" width="800"/>
+<img src="assets/first-copilot-experience.png" alt="Desenvolvedor sentado à mesa com código no monitor e partículas brilhantes representando assistência de IA" width="800"/>
 
-Jump right in and see what Copilot CLI can do.
+Comece agora e veja o que o Copilot CLI pode fazer.
 
 ---
 
@@ -95,36 +95,36 @@ Once inside the interactive Copilot CLI session, run the following:
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Code Review Demo](assets/code-review-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
 ---
 
-**The takeaway**: A professional code review in seconds. Manual review would take...well...more time than that!
+**Resumo**: Uma revisão de código profissional em segundos. A revisão manual levaria... bem... muito mais tempo!
 
 ---
 
-### Demo 2: Explain Confusing Code
+### Demonstração 2: Explicar código confuso
 
-Ever stared at code wondering what it does? Try this in your Copilot CLI session:
+Já ficou olhando para um código sem entender o que ele faz? Tente isto na sua sessão do Copilot CLI:
 
 ```
-> Explain what @samples/book-app-project/books.py does in simple terms
+> Explique em termos simples o que faz @samples/book-app-project/books.py
 ```
 
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Explain Code Demo](assets/explain-code-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -176,11 +176,11 @@ Need a function you'd otherwise spend 15 minutes googling? Still in your session
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Generate Code Demo](assets/generate-code-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -212,7 +212,7 @@ You've just seen what Copilot CLI can do. Now let's understand *how* to use thes
 
 Think of using GitHub Copilot CLI like going out to eat. From planning the trip to placing your order, different situations call for different approaches:
 
-| Mode | Dining Analogy | When to Use |
+| Modo | Analogia (refeição) | Quando usar |
 |------|----------------|-------------|
 | **Plan** | GPS route to the restaurant | Complex tasks - map out the route, review stops, agree on the plan, then drive |
 | **Interactive** | Talking to the waiter | Exploration and iteration - ask questions, customize, get real-time feedback |
@@ -315,7 +315,7 @@ Step 2: Implement the handler function
 
 Step 3: Update help text
   - Add "mark" to available commands list
-  - Document the command usage
+  - Documentar o uso do comando
 
 Step 4: Test the flow
   - Add a book
@@ -376,15 +376,15 @@ copilot --allow-all -p "Review @myfile.py for issues"
 
 These commands are great to learn initially as you're getting started with Copilot CLI:
 
-| Command | What It Does | When to Use |
+| Comando | O que faz | Quando usar |
 |---------|--------------|-------------|
-| `/ask` | Ask a quick question without it affecting your conversation history | When you want a quick answer without derailing your current task |
-| `/clear` | Clear conversation and start fresh | When switching topics |
-| `/help` | Show all available commands | When you forget a command |
-| `/model` | Show or switch AI model | When you want to change the AI model |
-| `/plan` | Plan your work out before coding | For more complex features |
-| `/research` | Deep research using GitHub and web sources | When you need to investigate a topic before coding |
-| `/exit` | End the session | When you're done |
+| `/ask` | Faça uma pergunta rápida sem afetar o histórico da conversa | Quando você quer uma resposta rápida sem atrapalhar a tarefa atual |
+| `/clear` | Limpa a conversa e inicia do zero | Ao mudar de assunto |
+| `/help` | Mostra todos os comandos disponíveis | Quando você esquecer um comando |
+| `/model` | Mostra ou alterna o modelo de IA | Quando quiser mudar o modelo de IA |
+| `/plan` | Planeje seu trabalho antes de codar | Para funcionalidades mais complexas |
+| `/research` | Pesquisa profunda usando GitHub e fontes web | Quando precisar investigar um tópico antes de codar |
+| `/exit` | Encerra a sessão | Quando terminar |
 
 > 💡 **`/ask` vs regular chat**: Normally every message you send becomes part of the ongoing conversation and affects future responses. `/ask` is an "off the record" shortcut — perfect for quick one-off questions like `/ask What does YAML mean?` without polluting your session context.
 
@@ -395,85 +395,85 @@ That's it for getting started! As you become comfortable, you can explore additi
 > 📚 **Official Documentation**: [CLI command reference](https://docs.github.com/copilot/reference/cli-command-reference) for the complete list of commands and flags.
 
 <details>
-<summary>📚 <strong>Additional Commands</strong> (click to expand)</summary>
+<summary>📚 <strong>Comandos adicionais</strong> (clique para expandir)</summary>
 
-> 💡 The essential commands above cover a lot of what you'll do on a daily use. This reference is here for when you're ready to explore more.
+> 💡 Os comandos essenciais acima cobrem grande parte do uso diário. Esta referência serve quando estiver pronto para explorar mais.
 
-### Agent Environment
+### Ambiente de agentes
 
-| Command | What It Does |
-|---------|--------------|
-| `/agent` | Browse and select from available agents |
-| `/env` | Show loaded environment details — what instructions, MCP servers, skills, agents, and plugins are active |
-| `/init` | Initialize Copilot instructions for your repository |
-| `/mcp` | Manage MCP server configuration |
-| `/skills` | Manage skills for enhanced capabilities |
+| Comando | O que faz |
+|---------|-----------|
+| `/agent` | Navegar e selecionar entre agentes disponíveis |
+| `/env` | Mostrar detalhes do ambiente carregado — quais instruções, servidores MCP, skills, agentes e plugins estão ativos |
+| `/init` | Inicializar as instruções do Copilot para o repositório |
+| `/mcp` | Gerenciar a configuração do servidor MCP |
+| `/skills` | Gerenciar skills para capacidades adicionais |
 
-> 💡 Agents are covered in [Chapter 04](../04-agents-custom-instructions/README.md), skills are covered in [Chapter 05](../05-skills/README.md), and MCP servers are covered in [Chapter 06](../06-mcp-servers/README.md).
+> 💡 Agentes são abordados no [Capítulo 04](../04-agents-custom-instructions/README.md), skills no [Capítulo 05](../05-skills/README.md) e servidores MCP no [Capítulo 06](../06-mcp-servers/README.md).
 
-### Models and Subagents
+### Modelos e subagentes
 
-| Command | What It Does |
-|---------|--------------|
-| `/delegate` | Hand off task to GitHub Copilot cloud agent |
-| `/fleet` | Split a complex task into parallel subtasks for faster completion |
-| `/model` | Show or switch AI model |
-| `/tasks` | View background subagents and detached shell sessions |
+| Comando | O que faz |
+|---------|-----------|
+| `/delegate` | Delegar tarefa para um agente em nuvem do GitHub Copilot |
+| `/fleet` | Dividir uma tarefa complexa em subtarefas paralelas para acelerar a execução |
+| `/model` | Mostrar ou trocar o modelo de IA |
+| `/tasks` | Ver subagentes de background e sessões shell destacadas |
 
-### Code
+### Código
 
-| Command | What It Does |
-|---------|--------------|
-| `/diff` | Review the changes made in the current directory |
-| `/pr` | Operate on pull requests for the current branch |
-| `/research` | Run deep research investigation using GitHub and web sources |
-| `/review` | Run the code-review agent to analyze changes |
-| `/terminal-setup` | Enable multiline input support (shift+enter and ctrl+enter) |
+| Comando | O que faz |
+|---------|-----------|
+| `/diff` | Revisar mudanças feitas no diretório atual |
+| `/pr` | Operar sobre pull requests do branch atual |
+| `/research` | Realizar investigação aprofundada usando GitHub e fontes web |
+| `/review` | Executar o agente de revisão de código para analisar mudanças |
+| `/terminal-setup` | Habilitar suporte a entrada multilinha (shift+enter e ctrl+enter) |
 
-### Permissions
+### Permissões
 
-| Command | What It Does |
-|---------|--------------|
-| `/add-dir <directory>` | Add a directory to allowed list |
-| `/allow-all [on\|off\|show]` | Auto-approve all permission prompts; use `on` to enable, `off` to disable, `show` to check current status |
-| `/yolo` | Quick alias for `/allow-all on` — auto-approves all permission prompts. |
-| `/cwd`, `/cd [directory]` | View or change working directory |
+| Comando | O que faz |
+|---------|-----------|
+| `/add-dir <directory>` | Adicionar um diretório à lista permitida |
+| `/allow-all [on\|off\|show]` | Aprovar automaticamente todos os prompts de permissão; use `on` para habilitar, `off` para desabilitar, `show` para verificar o estado |
+| `/yolo` | Atalho rápido para `/allow-all on` — aprova automaticamente todos os prompts de permissão |
+| `/cwd`, `/cd [directory]` | Ver ou mudar o diretório de trabalho |
 | `/list-dirs` | Show all allowed directories |
 
 > ⚠️ **Use with caution**: `/allow-all` and `/yolo` skip confirmation prompts. Great for trusted projects, but be careful with untrusted code.
 
 ### Session
 
-| Command | What It Does |
+| Comando | O que faz |
 |---------|--------------|
-| `/clear` | Abandons the current session (no history saved) and starts a fresh conversation |
-| `/compact` | Summarize conversation to reduce context usage (optionally add focus instructions, e.g. `/compact focus on the bug list`) |
-| `/context` | Show context window token usage and visualization |
-| `/keep-alive` | Prevent your system from sleeping while Copilot CLI is active — handy for long-running tasks on a laptop |
-| `/memory [on\|off\|show]` | Enable, disable, or view persistent memory — facts and preferences remembered across all sessions |
-| `/new` | Ends the current session (saving it to history for search/resume) and starts a fresh conversation. |
-| `/resume` | Switch to a different session (optionally specify session ID or name) |
-| `/rename` | Rename the current session (omit the name to auto-generate one) |
-| `/rewind` | Open a timeline picker to roll back to any earlier point in the conversation |
-| `/usage` | Display session usage metrics and statistics, including quota progress bars |
-| `/session` | Show session info and workspace summary; use `/session delete`, `/session delete <id>`, or `/session delete-all` to remove sessions |
-| `/share` | Export session as a markdown file, GitHub gist, or self-contained HTML file |
+| `/clear` | Encerra a sessão atual (sem salvar histórico) e inicia uma nova conversa |
+| `/compact` | Resume a conversa para reduzir o uso de contexto (opcionalmente adicione instruções de foco, por exemplo `/compact focus on the bug list`) |
+| `/context` | Mostra o uso da janela de contexto e uma visualização dos tokens |
+| `/keep-alive` | Evita que o seu sistema entre em suspensão enquanto o Copilot CLI está ativo — útil para tarefas longas em um laptop |
+| `/memory [on\|off\|show]` | Ativa, desativa ou mostra a memória persistente — fatos e preferências lembradas entre sessões |
+| `/new` | Encerra a sessão atual (salvando-a no histórico para busca/retomada) e inicia uma nova conversa |
+| `/resume` | Alterna para outra sessão (opcional: especifique ID ou nome da sessão) |
+| `/rename` | Renomeia a sessão atual (omitir o nome para gerar automaticamente) |
+| `/rewind` | Abre um seletor de linha do tempo para retroceder a qualquer ponto anterior da conversa |
+| `/usage` | Exibe métricas e estatísticas de uso da sessão, incluindo barras de cota |
+| `/session` | Mostra informações da sessão e resumo do workspace; use `/session delete`, `/session delete <id>` ou `/session delete-all` para remover sessões |
+| `/share` | Exporta a sessão como um arquivo markdown, gist do GitHub ou arquivo HTML autocontido |
 
 ### Display
 
-| Command | What It Does |
+| Comando | O que faz |
 |---------|--------------|
-| `/statusline` (or `/footer`) | Customize which items appear in the status bar at the bottom of the session (directory, branch, effort, context window, quota) |
-| `/theme` | View or set terminal theme |
-| `/voice` | Dictate your prompt using local speech-to-text — speak naturally instead of typing |
+| `/statusline` (ou `/footer`) | Personalize quais itens aparecem na barra de status na parte inferior da sessão (diretório, branch, esforço, janela de contexto, cota) |
+| `/theme` | Ver ou definir o tema do terminal |
+| `/voice` | Dite seu prompt usando reconhecimento de fala local — fale naturalmente em vez de digitar |
 
 ### Help and Feedback
 
-| Command | What It Does |
+| Comando | O que faz |
 |---------|--------------|
-| `/changelog` | Display changelog for CLI versions |
-| `/feedback` | Submit feedback to GitHub |
-| `/help` | Show all available commands |
+| `/changelog` | Exibe o changelog das versões do CLI |
+| `/feedback` | Enviar feedback ao GitHub |
+| `/help` | Mostra todos os comandos disponíveis |
 
 ### Quick Shell Commands
 

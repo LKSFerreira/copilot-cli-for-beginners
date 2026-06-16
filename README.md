@@ -16,11 +16,11 @@ weight: 0
 [![Official Copilot CLI documentation](https://img.shields.io/badge/GitHub-CLI_Documentation-00a3ee?style=flat-square&logo=github)](https://docs.github.com/en/copilot/how-tos/copilot-cli)&ensp;
 [![Join AI Foundry Discord](https://img.shields.io/badge/Discord-AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-🎯 [What You'll Learn](#what-youll-learn) &ensp; ✅ [Prerequisites](#prerequisites) &ensp; 🤖 [Copilot Family](#understanding-the-github-copilot-family) &ensp; 📚 [Course Structure](#course-structure) &ensp; 📋 [Command Reference](#-github-copilot-cli-command-reference)
+🎯 [O que você vai aprender](#what-youll-learn) &ensp; ✅ [Pré-requisitos](#prerequisites) &ensp; 🤖 [Família Copilot](#understanding-the-github-copilot-family) &ensp; 📚 [Estrutura do curso](#course-structure) &ensp; 📋 [Referência de comandos](#-github-copilot-cli-command-reference)
 
-# GitHub Copilot CLI for Beginners
+# GitHub Copilot CLI para Iniciantes
 
-> **✨ Learn to supercharge your development workflow with AI-powered command-line assistance.**
+> **✨ Aprenda a potencializar seu fluxo de desenvolvimento com assistência por IA diretamente no terminal.**
 
 GitHub Copilot CLI brings AI assistance directly to your terminal. Instead of switching to a browser or code editor, you can ask questions, generate full-featured applications, review code, generate tests, and debug issues without leaving your command line.
 
@@ -34,7 +34,8 @@ This course is designed for:
 - **Terminal users** who prefer keyboard-driven workflows over IDE integrations
 - **Teams looking to standardize** AI-assisted code review and development practices
 
-## 🎯 What You'll Learn
+<a name="what-youll-learn"></a>
+## 🎯 O que você vai aprender
 
 This hands-on course takes you from zero to productive with GitHub Copilot CLI. You'll work with a single Python book collection app throughout all chapters, progressively improving it using AI-assisted workflows. By the end, you'll confidently use AI to review code, generate tests, debug issues, and automate workflows: all from your terminal.
 
@@ -42,7 +43,8 @@ This hands-on course takes you from zero to productive with GitHub Copilot CLI. 
 
 **Perfect for:** Developers, students, and anyone who has experience with software development.
 
-## ✅ Prerequisites
+<a name="prerequisites"></a>
+## ✅ Pré-requisitos
 
 Before starting, ensure you have:
 
@@ -50,7 +52,8 @@ Before starting, ensure you have:
 - **GitHub Copilot access**: [Free offering](https://github.com/features/copilot/plans), [Monthly subscription](https://github.com/features/copilot/plans), or [Free for students/teachers](https://education.github.com/pack)<br>
 - **Terminal basics**: Comfortable with `cd`, `ls`, running commands
 
-## 🤖 Understanding the GitHub Copilot Family
+<a name="understanding-the-github-copilot-family"></a>
+## 🤖 Entendendo a família GitHub Copilot
 
 GitHub Copilot has evolved into a family of AI-powered tools. Here's where each one lives:
 
@@ -63,22 +66,24 @@ GitHub Copilot has evolved into a family of AI-powered tools. Here's where each 
 
 This course focuses on **GitHub Copilot CLI**, bringing AI assistance directly to your terminal.
 
-## 📚 Course Structure
+<a name="course-structure"></a>
+## 📚 Estrutura do curso
 
 ![GitHub Copilot CLI Learning Path](assets/learning-path.png)
 
 | Chapter | Title | What You'll Build |
 |:-------:|-------|-------------------|
-| 00 | 🚀 [Quick Start](./00-quick-start/README.md) | Installation and verification |
-| 01 | 👋 [First Steps](./01-setup-and-first-steps/README.md) | Live demos + three interaction modes |
-| 02 | 🔍 [Context and Conversations](./02-context-conversations/README.md) | Multi-file project analysis |
-| 03 | ⚡ [Development Workflows](./03-development-workflows/README.md) | Code review, debug, test generation |
-| 04 | 🤖 [Create Specialized AI Assistants](./04-agents-custom-instructions/README.md) | Custom agents for your workflow |
-| 05 | 🛠️ [Automate Repetitive Tasks](./05-skills/README.md) | Skills that load automatically |
-| 06 | 🔌 [Connect to GitHub, Databases & APIs](./06-mcp-servers/README.md) | MCP server integration |
-| 07 | 🎯 [Putting It All Together](./07-putting-it-together/README.md) | Complete feature workflows |
+| 00 | 🚀 [Início Rápido](./00-quick-start/README.md) | Instalação e verificação |
+| 01 | 👋 [Primeiros Passos](./01-setup-and-first-steps/README.md) | Demos ao vivo + três modos de interação |
+| 02 | 🔍 [Contexto e Conversas](./02-context-conversations/README.md) | Análise de projetos com múltiplos arquivos |
+| 03 | ⚡ [Fluxos de Desenvolvimento](./03-development-workflows/README.md) | Revisão de código, depuração, geração de testes |
+| 04 | 🤖 [Criar Assistentes de IA Especializados](./04-agents-custom-instructions/README.md) | Agentes personalizados para seu fluxo de trabalho |
+| 05 | 🛠️ [Automatize Tarefas Repetitivas](./05-skills/README.md) | Skills que carregam automaticamente |
+| 06 | 🔌 [Conectar ao GitHub, Bancos de Dados & APIs](./06-mcp-servers/README.md) | Integração com servidores MCP |
+| 07 | 🎯 [Colocando Tudo em Prática](./07-putting-it-together/README.md) | Fluxos de trabalho completos |
 
-## 📖 How This Course Works
+<a name="how-this-course-works"></a>
+## 📖 Como este curso funciona
 
 Each chapter follows the same pattern:
 
@@ -90,16 +95,18 @@ Each chapter follows the same pattern:
 
 **Code examples are runnable.** Every copilot text block in this course can be copied and run in your terminal.
 
-## 📋 GitHub Copilot CLI Command Reference
+## 📋 Referência de comandos do GitHub Copilot CLI
 
 The **[GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference)** helps you find commands and keyboard shortcuts to help you use Copilot CLI effectively.
 
-## 🙋 Getting Help
+<a name="getting-help"></a>
+## 🙋 Obter ajuda
 
 - 🐛 **Found a bug?** [Open an Issue](https://github.com/github/copilot-cli-for-beginners/issues)
 - 📚 **Official Docs:** [GitHub Copilot CLI Documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
 
-## Contributing
+<a name="contributing"></a>
+## Como contribuir
 
 > **Note**: The code used in the course is designed to generate specific types of output during reviews, explanations, and debugging so we aren't able to accept PRs that change the existing code.
 

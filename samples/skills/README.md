@@ -1,79 +1,79 @@
-# Sample Skills
+# Skills de Exemplo
 
-Ready-to-use skill templates for GitHub Copilot CLI. Copy any skill folder to start using it immediately.
+Modelos de skills prontos para uso para o GitHub Copilot CLI. Copie qualquer pasta de skill para começar a usá-la imediatamente.
 
-## Quick Start
+## Início Rápido
 
 ```bash
-# Copy a skill to your personal skills folder
+# Copie uma skill para a pasta de skills pessoal
 cp -r hello-world ~/.copilot/skills/
 
-# Or copy to your project for team sharing
+# Ou copie para o projeto para compartilhamento em equipe
 cp -r code-checklist .github/skills/
 ```
 
-## Available Skills
+## Skills Disponíveis
 
-| Skill | Description | Best For |
-|-------|-------------|----------|
-| `hello-world` | Minimal example (learning the format) | First-time skill creators |
-| `code-checklist` | Python code quality checklist (PEP 8, type hints, validation) | Consistent quality checks |
-| `pytest-gen` | Generate comprehensive pytest tests | Structured test generation |
-| `commit-message` | Conventional commit messages | Standardized git history |
+| Skill | Descrição | Mais indicado para |
+|-------|-----------|--------------------|
+| `hello-world` | Exemplo mínimo (aprender o formato) | Criadores de skills pela primeira vez |
+| `code-checklist` | Lista de verificação de qualidade de código Python (PEP 8, type hints, validação) | Verificações de qualidade consistentes |
+| `pytest-gen` | Gera testes pytest abrangentes | Geração estruturada de testes |
+| `commit-message` | Mensagens de commit convencionais | Histórico Git padronizado |
 
-## How Skills Work
+## Como as Skills Funcionam
 
-Skills are **automatically triggered** when your prompt matches the skill's `description` field. You don't need to invoke them manually.
+As skills são **acionadas automaticamente** quando sua mensagem corresponde ao campo `description` da skill. Não é necessário invocá-las manualmente.
 
 ```bash
 copilot
 
-> Check this code for quality issues
-# Copilot detects this matches "code-checklist" skill and loads it automatically
+> Verifique este código por problemas de qualidade
+# O Copilot detecta que isto corresponde à skill "code-checklist" e a carrega automaticamente
 
-> Generate a commit message
-# Copilot loads the "commit-message" skill
+> Gere uma mensagem de commit
+# O Copilot carrega a skill "commit-message"
 ```
 
-You can also invoke skills directly:
+Também é possível invocar as skills diretamente:
 ```bash
-> /code-checklist Check books.py
-> /pytest-gen Generate tests for BookCollection
+> /code-checklist Verifique books.py
+> /pytest-gen Gere testes para BookCollection
 > /commit-message
 ```
 
-## Skill Structure
+## Estrutura da Skill
 
-Each skill is a folder containing a `SKILL.md` file:
+Cada skill é uma pasta contendo um arquivo `SKILL.md`:
 
 ```
 skill-name/
-└── SKILL.md    # Required: Contains frontmatter + instructions
+└── SKILL.md    # Obrigatório: contém frontmatter + instruções
 ```
 
-The `SKILL.md` file has YAML frontmatter with `name` and `description` (both required):
+O arquivo `SKILL.md` possui frontmatter YAML com `name` e `description` (ambos obrigatórios):
 
 ```markdown
 ---
 name: my-skill
-description: What this skill does and when to use it
+description: O que esta skill faz e quando usá-la
 ---
 
-# Skill Instructions
+# Instruções da Skill
 
-Your instructions here...
+Suas instruções aqui...
 ```
 
-## Finding More Skills
+## Encontrando Mais Skills
 
-- **[github/awesome-copilot](https://github.com/github/awesome-copilot)** - Official GitHub resources with community skills
-- **`/plugin marketplace`** - Browse and install skills from within Copilot CLI
+- **[github/awesome-copilot](https://github.com/github/awesome-copilot)** - Recursos oficiais do GitHub com skills da comunidade
+- **`/plugin marketplace`** - Navegue e instale skills a partir do Copilot CLI
 
-## Creating Your Own
+## Criando Sua Própria Skill
 
-1. Create a folder: `mkdir ~/.copilot/skills/my-skill`
-2. Create `SKILL.md` with frontmatter
-3. Add your instructions
-4. Test by asking Copilot something that matches your description
+1. Crie uma pasta: `mkdir ~/.copilot/skills/my-skill`
+2. Crie `SKILL.md` com frontmatter
+3. Adicione suas instruções
+4. Teste pedindo ao Copilot algo que corresponda à sua descrição
 
-See [Chapter 05: Skills](../../05-skills/README.md) for detailed guidance.
+Veja [Capítulo 05: Skills](../../05-skills/README.md) para orientações detalhadas.

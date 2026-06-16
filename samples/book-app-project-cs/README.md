@@ -1,31 +1,31 @@
-# Book Collection App
+# App de Coleção de Livros
 
-*(This README is intentionally rough so you can improve it with GitHub Copilot CLI)*
+*(Este README é propositalmente simples para que você possa melhorá-lo com o GitHub Copilot CLI)*
 
-A C# console app for managing books you have or want to read.
-It can add, remove, and list books. Also mark them as read.
-
----
-
-## Current Features
-
-* Reads books from a JSON file (our database)
-* Input checking is weak in some areas
-* Some tests exist but probably not enough
+Um app console em C# para gerenciar livros que você possui ou deseja ler.
+Ele pode adicionar, remover e listar livros. Também marcar livros como lidos.
 
 ---
 
-## Files
+## Funcionalidades atuais
 
-* `Program.cs` - Main CLI entry point
-* `Models/Book.cs` - Book model class
-* `Services/BookCollection.cs` - BookCollection class with data logic
-* `data.json` - Sample book data
-* `Tests/BookCollectionTests.cs` - xUnit tests
+* Lê livros a partir de um arquivo JSON (nosso 'banco de dados')
+* A validação de entrada é fraca em algumas áreas
+* Alguns testes existem, mas provavelmente não são suficientes
 
 ---
 
-## Running the App
+## Arquivos
+
+* `Program.cs` - Ponto de entrada do CLI
+* `Models/Book.cs` - Classe modelo Book
+* `Services/BookCollection.cs` - Classe BookCollection com a lógica de dados
+* `data.json` - Dados de exemplo dos livros
+* `Tests/BookCollectionTests.cs` - Testes (xUnit)
+
+---
+
+## Executando o app
 
 ```bash
 dotnet run -- list
@@ -35,7 +35,7 @@ dotnet run -- remove
 dotnet run -- help
 ```
 
-## Running Tests
+## Executando os testes
 
 ```bash
 cd Tests
@@ -44,8 +44,8 @@ dotnet test
 
 ---
 
-## Notes
+## Notas
 
-* Not production-ready (obviously)
-* Some code could be improved
-* Could add more commands later
+* Não é pronto para produção (obviamente)
+* Parte do código pode ser melhorada
+* Podem ser adicionados mais comandos futuramente

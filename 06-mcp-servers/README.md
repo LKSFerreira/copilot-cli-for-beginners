@@ -13,11 +13,11 @@ weight: 7
 
 > **E se o Copilot pudesse ler suas issues do GitHub, checar seu banco de dados e criar PRs... tudo a partir do terminal?**
 
-So far, Copilot can only work with what you give it directly: files you reference with `@`, conversation history, and its own training data. But what if it could reach out on its own to check your GitHub repository, browse your project files, or look up the latest documentation for a library?
+Até agora, o Copilot só consegue trabalhar com o que você fornece diretamente: arquivos referenciados com `@`, histórico de conversas e seus próprios dados de treinamento. Mas e se ele pudesse consultar por conta própria o seu repositório no GitHub, navegar pelos arquivos do projeto ou buscar a documentação mais recente de uma biblioteca?
 
 É isso que o MCP (Model Context Protocol) faz. Ele conecta o Copilot a serviços externos, dando acesso a dados ao vivo e do mundo real. Cada serviço conectado ao Copilot é chamado de "servidor MCP". Neste capítulo, você irá configurar alguns desses servidores e verá como tornam o Copilot muito mais útil.
 
-> 💡 **Já conhece MCP?** [Vá para o quick start](#-use-the-built-in-github-mcp) para confirmar que está funcionando e começar a configurar servidores.
+> 💡 **Já conhece MCP?** [Vá para o Início Rápido](#-use-the-built-in-github-mcp) para confirmar que está funcionando e começar a configurar servidores.
 
 ## 🎯 Objetivos de Aprendizagem
 
@@ -47,15 +47,15 @@ Pense em servidores MCP como extensões de navegador. Seu navegador consegue exi
 
 Without extensions, your browser is still useful, but with them, it becomes a powerhouse. MCP servers do the same for Copilot. They connect it to real, live data sources so it can read your GitHub issues, explore your file system, fetch up-to-date documentation, and more.
 
-***MCP servers connect Copilot to the outside world: GitHub, repositories, documentation, and more***
+***Servidores MCP conectam o Copilot ao mundo externo: GitHub, repositórios, documentação e mais***
 
-> 💡 **Key insight**: Without MCP, Copilot can only see files you explicitly share with `@`. With MCP, it can proactively explore your project, check your GitHub repo, and look up documentation, all automatically.
+> 💡 **Insight principal**: Sem MCP, o Copilot só enxerga arquivos que você compartilha explicitamente com `@`. Com MCP, ele pode explorar proativamente seu projeto, checar seu repositório no GitHub e buscar documentação automaticamente.
 
 ---
 
 <img src="assets/quick-start-mcp.png" alt="Power cable connecting with bright electrical spark surrounded by floating tech icons representing MCP server connections" width="800"/>
 
-# Quick Start: MCP em 30 segundos
+# Início Rápido: MCP em 30 segundos
 
 ## Comece com o GitHub MCP embutido
 Vamos ver o MCP em ação agora, antes de configurar nada.
@@ -89,11 +89,11 @@ Servidores MCP:
 > 📚 **Quer ver todos os comandos de gerenciamento de MCP?** Você pode gerenciar servidores com comandos `/mcp` dentro do chat, ou com `copilot mcp` diretamente no terminal. Veja a [referência completa de comandos](#-additional-mcp-commands) no final deste capítulo.
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![MCP Status Demo](assets/mcp-status-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -288,18 +288,18 @@ This adds the server and its associated agent skills automatically. The skills i
 - **microsoft-code-reference**: API lookups, code samples, and troubleshooting
 - **microsoft-skill-creator**: A meta-skill for generating custom skills about Microsoft technologies
 
-**Usage:**
+**Uso:**
 ```bash
 copilot
 
-> What's the recommended way to deploy a Python app to Azure App Service? Search Microsoft Learn.
+> Qual é a maneira recomendada para implantar um app Python no Azure App Service? Procure no Microsoft Learn.
 ```
 
 📚 Learn more: [Microsoft Learn MCP Server overview](https://learn.microsoft.com/training/support/mcp-get-started)
 
 ### Web Access with `web_fetch`
 
-Copilot CLI includes a built-in `web_fetch` tool that can fetch content from any URL. This is useful for pulling in READMEs, API docs, or release notes without leaving your terminal. No MCP server needed.
+O Copilot CLI inclui a ferramenta `web_fetch` embutida, que pode buscar conteúdo de qualquer URL. Isso é útil para recuperar READMEs, documentação de API ou notas de release sem sair do terminal. Nenhum servidor MCP adicional é necessário.
 
 You can control which URLs are accessible via `~/.copilot/config.json` (general Copilot settings), which is separate from `~/.copilot/mcp-config.json` (MCP server definitions).
 
@@ -318,11 +318,11 @@ You can control which URLs are accessible via `~/.copilot/config.json` (general 
 }
 ```
 
-**Usage:**
+**Uso:**
 ```bash
 copilot
 
-> Fetch and summarize the README from https://github.com/facebook/react
+> Buscar e resumir o README em https://github.com/facebook/react
 ```
 
 ### Building a Custom MCP Server
@@ -374,16 +374,16 @@ Now that you have MCP servers configured, let's see what they can do.
 
 ---
 
-## Server Usage Examples
+## Exemplos de uso do servidor
 
 **Pick a server to explore, or work through them in order.**
 
 | I want to try... | Jump to |
 |---|---|
 | GitHub repos, issues, and PRs | [GitHub Server](#github-server-built-in) |
-| Browsing project files | [Filesystem Server Usage](#filesystem-server-usage) |
-| Library documentation lookup | [Context7 Server Usage](#context7-server-usage) |
-| Custom server, Microsoft Learn MCP and web_fetch usage | [Beyond the Basics Usage](#beyond-the-basics-usage) |
+| Navegando por arquivos do projeto | [Uso do servidor de sistema de arquivos](#filesystem-server-usage) |
+| Busca de documentação da biblioteca | [Uso do servidor Context7](#context7-server-usage) |
+| Servidor customizado, Microsoft Learn MCP e uso do web_fetch | [Além do básico: uso](#beyond-the-basics-usage) |
 
 <details>
 <summary><strong>GitHub Server (Built-in)</strong> - Access repos, issues, PRs, and more</summary>
@@ -531,12 +531,12 @@ Best practices:
 </details>
 
 <details>
-<summary><strong>Beyond the Basics</strong> - Custom server and web_fetch usage</summary>
+<summary><strong>Além do básico</strong> — Servidor customizado e uso do web_fetch</summary>
 <a id="beyond-the-basics-usage"></a>
 
-### Beyond the Basics
+### Além do básico
 
-**Custom MCP Server**: If you built the book-lookup server from the [Custom MCP Server Guide](mcp-custom-server.md), you can query your book collection directly:
+**Servidor MCP customizado**: se você construiu o servidor de busca de livros seguindo o [Guia de servidor MCP customizado](mcp-custom-server.md), pode consultar sua coleção de livros diretamente:
 
 ```bash
 copilot
@@ -544,7 +544,7 @@ copilot
 > Look up information about "1984" using the book lookup server. Search for books by George Orwell
 ```
 
-**Microsoft Learn MCP**: If you installed the [Microsoft Learn MCP server](#microsoft-learn-mcp-server), you can look up official Microsoft documentation directly:
+**Microsoft Learn MCP**: se você instalou o [Microsoft Learn MCP server](#microsoft-learn-mcp-server), pode consultar a documentação oficial da Microsoft diretamente:
 
 ```bash
 copilot
@@ -626,11 +626,11 @@ Suggestions:
 ```
 
 <details>
-<summary>🎬 See the MCP workflow in action!</summary>
+<summary>🎬 Veja o fluxo MCP em ação!</summary>
 
 ![MCP Workflow Demo](assets/mcp-workflow-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -921,7 +921,7 @@ You can manage MCP servers in two ways: using **slash commands inside a chat ses
 
 These work when you're already inside `copilot`:
 
-| Command | What It Does |
+| Comando | O que faz |
 |---------|--------------|
 | `/mcp show` | Show all configured MCP servers and their status |
 | `/mcp add` | Interactive setup for adding a new server |
@@ -946,7 +946,7 @@ copilot mcp enable filesystem
 copilot mcp disable context7
 ```
 
-> 💡 **When to use which?** Use `/mcp` slash commands when you're already in a chat session. Use `copilot mcp` from the terminal when you want to quickly check or change your server settings before starting a session.
+> 💡 **Quando usar cada um?** Use os comandos `/mcp` dentro de uma sessão de chat quando já estiver nela. Use `copilot mcp` no terminal quando quiser verificar ou alterar rapidamente as configurações do servidor antes de iniciar uma sessão.
 
 For most of this course, `/mcp show` is all you need. The other commands become useful as you manage more servers over time.
 

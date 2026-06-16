@@ -73,7 +73,7 @@ Never used or made an agent? Here's all you need to know to get started for this
 **You've already used some built-in agents in Chapter 03 Development Workflow!**
 <br>`/plan` and `/review` are actually built-in agents. Now you know what's happening under the hood. Here's the full list:
 
-| Agent | How to Invoke | What It Does |
+| Agente | Como invocar | O que faz |
 |-------|---------------|--------------|
 | **Plan** | `/plan` or `Shift+Tab` (cycle modes) | Creates step-by-step implementation plans before coding |
 | **Code-review** | `/review` | Reviews staged/unstaged changes with focused, actionable feedback |
@@ -346,11 +346,11 @@ copilot
 **The key insight**: You're the architect directing specialists. They handle the details, you handle the vision.
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Python Reviewer Demo](assets/python-reviewer-demo.gif)
 
-*Demo output varies - your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia — seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -428,7 +428,7 @@ Copilot will scan your project and create tailored instruction files. You can ed
 
 ### Instruction File Formats
 
-| File | Scope | Notes |
+| Arquivo | Escopo | Notas |
 |------|-------|-------|
 | `AGENTS.md` | Project root or nested | **Cross-platform standard** - works with Copilot and other AI assistants |
 | `.github/copilot-instructions.md` | Project | GitHub Copilot specific |
@@ -537,14 +537,14 @@ You are a Python specialist focused on code quality and best practices.
 - Input validation completeness
 ```
 
-### YAML Properties
+### Propriedades YAML
 
 | Property | Required | Description |
 |----------|----------|-------------|
-| `name` | No | Display name (defaults to filename) |
-| `description` | **Yes** | What the agent does - helps Copilot understand when to suggest it |
-| `tools` | No | List of allowed tools (omit = all tools available). See tool aliases below. |
-| `target` | No | Limit to `vscode` or `github-copilot` only |
+| `name` | No | Nome exibido (padrão: nome do arquivo) |
+| `description` | **Yes** | O que o agente faz — ajuda o Copilot a entender quando sugeri-lo |
+| `tools` | No | Lista de ferramentas permitidas (omit = todas as ferramentas disponíveis). Veja os aliases de ferramentas abaixo. |
+| `target` | No | Limitar a `vscode` ou `github-copilot` apenas |
 
 ### Tool Aliases
 
@@ -620,13 +620,13 @@ description: Technical writer for clear and complete documentation
 
 # Documentation Agent
 
-You are a technical writer who creates clear documentation.
+Você é um redator técnico que cria documentação clara.
 
-**Documentation standards:**
-- Start with a one-sentence summary
-- Include usage examples
-- Document parameters and return values
-- Note any gotchas or limitations
+**Padrões de documentação:**
+- Comece com um resumo de uma frase
+- Inclua exemplos de uso
+- Documente parâmetros e valores de retorno
+- Observe armadilhas ou limitações
 EOF
 
 # Now use them
@@ -702,13 +702,13 @@ You review Python code for error handling consistency.
 description: Technical writer for clear Python documentation
 ---
 
-You are a technical writer who creates clear Python documentation.
+Você é um redator técnico que cria documentação clara em Python.
 
-**Standards:**
-- Google-style docstrings
-- Include parameter types and return values
-- Add usage examples for public methods
-- Note any exceptions raised
+**Padrões:**
+- Docstrings no estilo Google
+- Incluir tipos de parâmetros e valores de retorno
+- Adicionar exemplos de uso para métodos públicos
+- Anotar quaisquer exceções levantadas
 ```
 
 **Testing your agents:**
@@ -813,7 +813,7 @@ In **[Chapter 05: Skills System](../05-skills/README.md)**, you'll learn:
 - Installing community skills
 - Creating custom skills with SKILL.md files
 - The difference between agents, skills, and MCP
-- When to use each one
+- Quando usar cada um
 
 ---
 

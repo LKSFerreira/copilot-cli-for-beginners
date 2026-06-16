@@ -1,106 +1,106 @@
-# Sample Agent Definitions
+# Modelos de Agentes de Exemplo
 
-This folder contains some simple agent templates for GitHub Copilot CLI intended to help you get started using agents.
+Esta pasta contém alguns modelos simples de agentes para o GitHub Copilot CLI, pensados para ajudar você a começar a usar agentes.
 
-## Quick Start
+## Início Rápido
 
 ```bash
-# Copy an agent to your personal agents folder
+# Copie um agente para a pasta de agentes pessoal
 cp hello-world.agent.md ~/.copilot/agents/
 
-# Or copy to your project for team sharing
+# Ou copie para o projeto para compartilhamento em equipe
 cp python-reviewer.agent.md .github/agents/
 ```
 
-## Sample Files in This Folder
+## Arquivos de Exemplo nesta Pasta
 
-| File | Description | Best For |
+| Arquivo | Descrição | Mais indicado para |
 |------|-------------|----------|
-| `hello-world.agent.md` | Minimal example (11 lines) | Learning the format |
-| `python-reviewer.agent.md` | Python code quality reviewer | Code reviews, PEP 8, type hints |
-| `pytest-helper.agent.md` | Pytest testing specialist | Test generation, fixtures, edge cases |
+| `hello-world.agent.md` | Exemplo mínimo (11 linhas) | Aprender o formato |
+| `python-reviewer.agent.md` | Revisor de qualidade de código Python | Revisões de código, PEP 8, anotações de tipo |
+| `pytest-helper.agent.md` | Especialista em pytest | Geração de testes, fixtures, casos-limite |
 
-## Finding More Agents
+## Encontrando Mais Agentes
 
-- **[github/awesome-copilot](https://github.com/github/awesome-copilot)** - Official GitHub resources with community agents and instructions
+- **[github/awesome-copilot](https://github.com/github/awesome-copilot)** - Recursos oficiais do GitHub com agentes da comunidade e instruções
 
 ---
 
-## Agent File Format
+## Formato de Arquivo de Agente
 
-Each agent file requires YAML frontmatter with at least a `description` field:
+Cada arquivo de agente requer frontmatter YAML com ao menos o campo `description`:
 
 ```markdown
 ---
 name: my-agent
-description: Brief description of what this agent does
-tools: ["read", "edit", "search"]  # Optional: limit available tools
+description: Breve descrição do que este agente faz
+tools: ["read", "edit", "search"]  # Opcional: limitar ferramentas disponíveis
 ---
 
-# Agent Name
+# Nome do Agente
 
-Agent instructions go here...
+Instruções do agente vão aqui...
 ```
 
-**Available YAML Properties:**
+**Propriedades YAML disponíveis:**
 
-| Property | Required | Description |
+| Propriedade | Obrigatória | Descrição |
 |----------|----------|-------------|
-| `description` | **Yes** | What the agent does |
-| `name` | No | Display name (defaults to filename) |
-| `tools` | No | List of allowed tools (omit = all). See aliases below. |
-| `target` | No | Limit to `vscode` or `github-copilot` only |
+| `description` | **Sim** | O que o agente faz |
+| `name` | Não | Nome exibido (padrão = nome do arquivo) |
+| `tools` | Não | Lista de ferramentas permitidas (omitindo = todas). Veja aliases abaixo. |
+| `target` | Não | Limita para `vscode` ou `github-copilot` apenas |
 
-**Tool Aliases**: `read`, `edit`, `search`, `execute` (shell), `web`, `agent`
+**Aliases de Ferramentas**: `read`, `edit`, `search`, `execute` (shell), `web`, `agent`
 
-> 💡 **Note**: The `model` property works in VS Code but is not yet supported in Copilot CLI.
+> 💡 **Observação**: a propriedade `model` funciona no VS Code, mas ainda não é suportada pelo Copilot CLI.
 >
-> 📖 **Official docs**: [Custom agents configuration](https://docs.github.com/copilot/reference/custom-agents-configuration)
+> 📖 **Documentação oficial**: [Custom agents configuration](https://docs.github.com/copilot/reference/custom-agents-configuration)
 
-## Agent File Locations
+## Locais de Arquivo de Agente
 
-Agents can be stored in:
-- `~/.copilot/agents/` - Global agents available in all projects
-- `.github/agents/` - Project-specific agents
-- `.agent.md` files - VS Code-compatible format
+Os agentes podem ser armazenados em:
+- `~/.copilot/agents/` - Agentes globais disponíveis em todos os projetos
+- `.github/agents/` - Agentes específicos do projeto
+- Arquivos com extensão `.agent.md` - Formato compatível com VS Code
 
-Each agent is a separate file with the `.agent.md` extension.
+Cada agente é um arquivo separado com extensão `.agent.md`.
 
 ---
 
-## Usage Examples
+## Exemplos de Uso
 
 ```bash
-# Start with a specific agent
+# Iniciar com um agente específico
 copilot --agent python-reviewer
 
-# Or select an agent interactively during a session
+# Ou selecionar um agente interativamente durante a sessão
 copilot
 > /agent
-# Select "python-reviewer" from the list
+# Selecione "python-reviewer" na lista
 
-# The agent's expertise applies to your prompts
-> @samples/book-app-project/books.py Review this code for quality issues
+# A especialidade do agente será aplicada às suas mensagens
+> @samples/book-app-project/books.py Revise este código por problemas de qualidade
 
-# Switch to a different agent
+# Trocar para outro agente
 > /agent
-# Select "pytest-helper"
+# Selecione "pytest-helper"
 
-> @samples/book-app-project/tests/test_books.py What additional tests should we add?
+> @samples/book-app-project/tests/test_books.py Que testes adicionais devemos adicionar?
 ```
 
 ---
 
-## Creating Your Own Agents
+## Criando Seus Próprios Agentes
 
-1. Create a new file in `~/.copilot/agents/` with `.agent.md` extension
-2. Add YAML frontmatter with at least a `description` field
-3. Add a descriptive header (e.g., `# Security Agent`)
-4. Define the agent's expertise, standards, and behaviors
-5. Use the agent with `/agent` or `--agent <name>`
+1. Crie um novo arquivo em `~/.copilot/agents/` com extensão `.agent.md`
+2. Adicione frontmatter YAML com ao menos o campo `description`
+3. Acrescente um cabeçalho descritivo (por exemplo, `# Agente de Segurança`)
+4. Defina a especialidade, padrões e comportamentos do agente
+5. Use o agente com `/agent` ou `--agent <nome>`
 
-**Tips for effective agents:**
-- Be specific about expertise areas
-- Include code standards and patterns
-- Define what the agent checks for
-- Include output format preferences
+**Dicas para agentes eficazes:**
+- Seja específico sobre as áreas de especialidade
+- Inclua padrões e padrões de código
+- Defina o que o agente deve checar
+- Inclua preferências de formato de saída

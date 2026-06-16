@@ -150,7 +150,7 @@ As skills são apenas uma parte do modelo de extensibilidade do GitHub Copilot. 
 
 <img src="assets/skills-agents-mcp-comparison.png" alt="Comparison diagram showing the differences between Agents, Skills, and MCP Servers and how they combine into your workflow" width="800"/>
 
-| Feature | What It Does | When to Use |
+| Função | O que faz | Quando usar |
 |---------|--------------|-------------|
 | **Agents** | Changes how AI thinks | Need specialized expertise across many tasks |
 | **Skills** | Provides task-specific instructions | Specific, repeatable tasks with detailed steps |
@@ -236,11 +236,11 @@ copilot
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Skill Trigger Demo](assets/skill-trigger-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -491,7 +491,7 @@ Discover installed skills, find community skills, and share your own.
 
 Use the `/skills` command to manage your installed skills:
 
-| Command | What It Does |
+| Comando | O que faz |
 |---------|--------------|
 | `/skills list` | Show all installed skills |
 | `/skills info <name>` | Get details about a specific skill |
@@ -525,17 +525,17 @@ Description: Security-focused code review checking OWASP Top 10 vulnerabilities
 ---
 
 <details>
-<summary>See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![List Skills Demo](assets/list-skills-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
 ---
 
-### When to Use `/skills reload`
+### Quando usar `/skills reload`
 
 After creating or editing a skill's SKILL.md file, run `/skills reload` to pick up the changes without restarting Copilot:
 
@@ -828,7 +828,7 @@ copilot
    ```markdown
    ---
    name: skill-name
-   description: What the skill does and when to use it
+   description: O que esta skill faz e quando usá-la
    ---
 
    # Instructions here

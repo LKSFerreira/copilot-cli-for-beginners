@@ -9,7 +9,7 @@ weight: 1
 ---
 -->
 
-![Chapter 00: Quick Start](assets/chapter-header.png)
+![Capítulo 00: Início Rápido](assets/chapter-header.png)
 
 Bem-vindo! Neste capítulo, você instalará o GitHub Copilot CLI (Interface de Linha de Comando), fará login com sua conta GitHub e verificará se tudo funciona. Este é um capítulo de configuração rápida. Assim que estiver em funcionamento, as demos começam no Capítulo 01!
 
@@ -21,42 +21,42 @@ Ao final deste capítulo, você terá:
 - Conectado com sua conta GitHub
 - Verificado que funciona com um teste simples
 
-> ⏱️ **Estimated Time**: ~10 minutes (5 min reading + 5 min hands-on)
+> ⏱️ **Tempo estimado**: ~10 minutos (5 min leitura + 5 min prática)
 
 ---
 
 ## ✅ Pré-requisitos
 
 - **Conta GitHub** com acesso ao Copilot. [Veja opções de assinatura](https://github.com/features/copilot/plans). Estudantes/professores podem acessar o Copilot Pro gratuitamente via [GitHub Education](https://education.github.com/pack).
-- **Terminal basics**: Comfortable with commands like `cd` and `ls`
+- **Conceitos básicos de terminal**: Confortável com comandos como `cd` e `ls`
 
 ### O que significa "Acesso ao Copilot"
 
 O GitHub Copilot CLI requer uma assinatura ativa do Copilot. Você pode verificar seu status em [github.com/settings/copilot](https://github.com/settings/copilot). Você deve ver uma das opções:
 
-- **Copilot Individual** - Personal subscription
-- **Copilot Business** - Through your organization
-- **Copilot Enterprise** - Through your enterprise
-- **GitHub Education** - Free for verified students/teachers
+- **Copilot Individual** - Assinatura pessoal
+- **Copilot Business** - Através da sua organização
+- **Copilot Enterprise** - Através da sua empresa
+- **GitHub Education** - Gratuito para estudantes/professores verificados
 
-If you see "You don't have access to GitHub Copilot," you'll need to use the free option, subscribe to a plan, or join an organization that provides access.
+Se você vir "You don't have access to GitHub Copilot", será necessário usar a opção gratuita, assinar um plano ou ingressar em uma organização que forneça acesso.
 
 ---
 
 ## Instalação
 
-> ⏱️ **Time estimate**: Installation takes 2-5 minutes. Authentication adds another 1-2 minutes.
+> ⏱️ **Estimativa de tempo**: A instalação leva 2–5 minutos. A autenticação acrescenta mais 1–2 minutos.
 
 ### GitHub Codespaces (Zero Setup)
 
 Se você não quiser instalar nenhum dos pré-requisitos, pode usar o GitHub Codespaces, que já vem com o GitHub Copilot CLI pronto para uso (é necessário fazer login) e pré-instala Python e pytest.
 
-1. [Fork this repository](https://github.com/github/copilot-cli-for-beginners/fork) to your GitHub account
-2. Select **Code** > **Codespaces** > **Create codespace on main**
-3. Wait a few minutes for the container to build
-4. You're ready to go! The terminal will open automatically in the Codespace environment.
+1. [Faça um fork deste repositório](https://github.com/github/copilot-cli-for-beginners/fork) para sua conta no GitHub
+2. Selecione **Code** > **Codespaces** > **Create codespace on main**
+3. Aguarde alguns minutos até o container ser criado
+4. Pronto! O terminal abrirá automaticamente no ambiente do Codespace.
 
-> 💡 **Verify in Codespace**: Run `cd samples/book-app-project && python book_app.py help` to confirm Python and the sample app are working.
+> 💡 **Verifique no Codespace**: Execute `cd samples/book-app-project && python book_app.py help` para confirmar que o Python e o app de exemplo estão funcionando.
 
 ### Instalação Local
 
@@ -178,11 +178,11 @@ Após receber uma resposta, você pode sair do CLI:
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Hello Demo](assets/hello-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 

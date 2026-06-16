@@ -81,7 +81,7 @@ copilot
 
 ### Padrões básicos com @
 
-| Pattern | What It Does | Example Use |
+| Padrão | O que faz | Exemplo de uso |
 |---------|--------------|-------------|
 | `@file.py` | Reference a single file | `Review @samples/book-app-project/books.py` |
 | `@folder/` | Reference all files in a directory | `Review @samples/book-app-project/` |
@@ -98,11 +98,11 @@ copilot
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![File Context Demo](assets/file-context-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -151,11 +151,11 @@ copilot
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Multi-File Demo](assets/multi-file-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -266,7 +266,7 @@ copilot
 
 ![Multi-Turn Demo](assets/multi-turn-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -394,7 +394,7 @@ As you add files and conversation, Copilot CLI's [context window](../GLOSSARY.md
 copilot
 
 > /context
-Context usage: 62k/200k tokens (31%)
+Uso de contexto: 62k/200k tokens (31%)
 
 > /clear
 # Abandons the current session (no history saved) and starts a fresh conversation
@@ -406,7 +406,7 @@ Context usage: 62k/200k tokens (31%)
 # Opens a timeline picker allowing you to roll back to an earlier point in your conversation
 ```
 
-> 💡 **When to use `/clear` or `/new`**: If you've been reviewing books.py and want to switch to discussing utils.py, run /new first (or /clear if you don't need the session history). Otherwise stale context from the old topic may confuse responses.
+> 💡 **Quando usar `/clear` ou `/new`**: Se você estava revisando books.py e quer mudar para discutir utils.py, execute /new primeiro (ou /clear se não precisar do histórico da sessão). Caso contrário, contexto antigo pode confundir as respostas.
 
 > 💡 **Made a mistake or want to try a different approach?** Use `/rewind` (or press Esc twice) to open a **timeline picker** that lets you roll back to any earlier point in your conversation, not just the most recent one. This is useful when you went down the wrong path and want to backtrack without starting over entirely.
 
@@ -486,18 +486,18 @@ These topics build on the essentials above. **Pick what interests you, or skip a
 | Analyzing screenshots and mockups | [Working with Images](#working-with-images) |
 
 <details>
-<summary><strong>Additional @ Patterns & Session Commands</strong></summary>
+<summary><strong>Padrões @ adicionais e comandos de sessão</strong></summary>
 <a id="additional-patterns"></a>
 
-### Additional @ Patterns
+### Padrões @ adicionais
 
-For power users, Copilot CLI supports wildcard patterns and image references:
+Para usuários avançados, o Copilot CLI suporta padrões curinga e referências a imagens:
 
-| Pattern | What It Does |
+| Padrão | O que faz |
 |---------|--------------|
-| `@folder/*.py` | All .py files in folder |
-| `@**/test_*.py` | Recursive wildcard: find all test files anywhere |
-| `@image.png` | Image file for UI review |
+| `@folder/*.py` | Todos os arquivos .py na pasta |
+| `@**/test_*.py` | Coringa recursivo: encontra todos os arquivos de teste em qualquer lugar |
+| `@image.png` | Arquivo de imagem para revisão na interface |
 
 ```bash
 copilot
@@ -596,13 +596,13 @@ copilot
 
 > /context
 
-Context usage: 45,000 / 128,000 tokens (35%)
+Uso de contexto: 45,000 / 128,000 tokens (35%)
 
 # As you add more files and conversation, this grows
 
 > @large-codebase/
 
-Context usage: 120,000 / 128,000 tokens (94%)
+Uso de contexto: 120,000 / 128,000 tokens (94%)
 
 # Warning: Approaching context limit
 
@@ -623,20 +623,20 @@ copilot
 # Your key findings and decisions are preserved
 ```
 
-You can also give `/compact` optional focus instructions to shape what gets prioritized in the summary:
+Também é possível fornecer instruções de foco opcionais ao `/compact` para definir o que deve ser priorizado no resumo:
 
 ```bash
 copilot
 
 > /compact focus on the list of bugs we found and decisions made
-# Summarizes history, keeping bug list and decisions prominent
+# Resume o histórico, mantendo a lista de bugs e decisões em destaque
 ```
 
-> 💡 **When to use focus instructions**: If your conversation covered many topics, focus instructions help `/compact` retain the parts most relevant to your next steps so you don't lose the thread.
+> 💡 **Quando usar instruções de foco**: Se sua conversa cobriu muitos tópicos, instruções de foco ajudam o `/compact` a reter as partes mais relevantes para seus próximos passos, evitando perder o fio da conversa.
 
-#### Context Efficiency Tips
+#### Dicas de eficiência de contexto
 
-| Situation | Action | Why |
+| Situação | Ação | Por quê |
 |-----------|--------|-----|
 | Starting new topic | `/clear` | Removes irrelevant context |
 | Went down wrong path | `/rewind` | Roll back to any earlier point |
@@ -705,15 +705,15 @@ Less specific ──────────────────────
         (uses more context)                      (preserves context)
 ```
 
-**When to go broad** (`@samples/book-app-project/`):
-- Initial codebase exploration
-- Finding patterns across many files
-- Architecture reviews
+**Quando usar abordagem ampla** (`@samples/book-app-project/`):
+- Exploração inicial da base de código
+- Encontrar padrões em vários arquivos
+- Revisões de arquitetura
 
-**When to go specific** (`@samples/book-app-project/books.py`):
-- Debugging a particular issue
-- Code review of a specific file
-- Asking about a single function
+**Quando ser específico** (`@samples/book-app-project/books.py`):
+- Depuração de um problema específico
+- Revisão de código de um arquivo em particular
+- Perguntar sobre uma única função
 
 #### Practical Example: Staged Context Loading
 

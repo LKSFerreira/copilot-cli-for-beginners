@@ -1,10 +1,10 @@
-# Sample Source Code (Legacy - Optional Reference)
+# Código Fonte de Exemplo (Legado - Referência Opcional)
 
-> **Note**: The primary sample for this course is the **Python book collection app** in `../book-app-project/`. These JS/React files are from an earlier version of the course and are kept as optional extra reference material for learners who want JS examples.
+> **Observação**: O exemplo principal deste curso é o **app de coleção de livros em Python** em `../book-app-project/`. Estes arquivos JS/React vêm de uma versão anterior do curso e são mantidos como material de referência opcional para quem deseja exemplos em JS.
 
-This folder contains sample source files. These are only samples and not intended to be a full running application.
+Esta pasta contém arquivos de código de exemplo. São apenas amostras e não têm a intenção de formar uma aplicação completa em execução.
 
-## Structure
+## Estrutura
 
 ```
 src/
@@ -28,32 +28,32 @@ src/
 └── refactor-me.js # Beginner refactoring practice (Chapter 03)
 ```
 
-## Usage
+## Uso
 
-These files are referenced in course examples using the `@` syntax:
-
-```bash
-copilot
-
-> Explain what @samples/src/utils/helpers.js does
-> Review @samples/src/api/ for security issues
-> Compare @samples/src/auth/login.js and @samples/src/auth/register.js
-```
-
-## Refactoring Practice
-
-The `refactor-me.js` file is specifically designed for Chapter 03's refactoring exercises:
+Estes arquivos são referenciados nos exemplos do curso usando a sintaxe `@`:
 
 ```bash
 copilot
 
-> @samples/src/refactor-me.js Rename the variable 'x' to something more descriptive
-> @samples/src/refactor-me.js This function is too long. Split it into smaller functions.
-> @samples/src/refactor-me.js Remove any unused variables
+> Explique o que @samples/src/utils/helpers.js faz
+> Revise @samples/src/api/ em busca de problemas de segurança
+> Compare @samples/src/auth/login.js com @samples/src/auth/register.js
 ```
 
-## Notes
+## Prática de Refatoração
 
-- Files contain intentional TODOs and minor issues for Copilot to find during reviews
-- This is demo code that's not designed to actually run. NOT production-ready
-- Used for learning the `@` file reference syntax
+O arquivo `refactor-me.js` foi projetado especificamente para os exercícios de refatoração do Capítulo 03:
+
+```bash
+copilot
+
+> @samples/src/refactor-me.js Renomeie a variável 'x' para algo mais descritivo
+> @samples/src/refactor-me.js Esta função é muito longa. Divida-a em funções menores.
+> @samples/src/refactor-me.js Remova variáveis não utilizadas
+```
+
+## Notas
+
+- Os arquivos contêm TODOs intencionais e pequenas falhas para o Copilot encontrar durante as revisões
+- Este código de demonstração não foi concebido para execução plena. NÃO é pronto para produção
+- Usado para aprender a sintaxe de referência de arquivo `@`

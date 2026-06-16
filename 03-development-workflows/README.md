@@ -86,11 +86,11 @@ copilot
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Code Review Demo](assets/code-review-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -219,11 +219,11 @@ copilot
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Refactor Demo](assets/refactor-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -262,7 +262,7 @@ copilot
 > - Include parameter types and descriptions
 > - Document return values
 > - Note any exceptions raised
-> - Add usage examples
+> - Adicionar exemplos de uso
 ```
 
 ### Safe Refactoring with Tests
@@ -315,11 +315,11 @@ copilot
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Fix Bug Demo](assets/fix-bug-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -459,11 +459,11 @@ copilot
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Test Generation Demo](assets/test-gen-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 
@@ -531,19 +531,19 @@ copilot
 > - Special characters in author names
 ```
 
-### Running Tests
+### Executando os testes
 
-Ask Copilot CLI a plain-English question about your toolchain. It can generate the right shell command for you.
+Peça ao Copilot CLI uma pergunta em linguagem natural sobre sua cadeia de ferramentas. Ele pode gerar o comando de shell correto para você.
 
 ```bash
 copilot
 
-> How do I run the tests? Show me the pytest command.
+> Como executo os testes? Mostre o comando pytest.
 
-# Copilot CLI responds:
+# Copilot CLI responde:
 # cd samples/book-app-project && python -m pytest tests/
-# Or for verbose output: python -m pytest tests/ -v
-# To see print statements: python -m pytest tests/ -s
+# Ou para saída detalhada: python -m pytest tests/ -v
+# Para ver os print(): python -m pytest tests/ -s
 ```
 
 ### Test for Specific Scenarios
@@ -613,11 +613,11 @@ copilot -p "Generate a conventional commit message for: $(git diff --staged)"
 ---
 
 <details>
-<summary>🎬 See it in action!</summary>
+<summary>🎬 Veja em ação!</summary>
 
 ![Git Integration Demo](assets/git-integration-demo.gif)
 
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+*A saída da demo varia. Seu modelo, ferramentas e respostas podem diferir do que é mostrado aqui.*
 
 </details>
 

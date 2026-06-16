@@ -271,7 +271,7 @@ copilot
 # PHASE 4: Find something to work on (MCP provides GitHub access)
 > List open issues labeled "good first issue"
 
-# PHASE 5: Start contributing
+# FASE 5: Começar a contribuir
 > Pick the simplest open issue and outline a plan to fix it
 ```
 
@@ -407,7 +407,7 @@ After completing the demos, try these variations:
 
 3. **Your Production Workflow**: Design your own workflow for a common task you do. Write it down as a checklist. What parts could be automated with skills, agents, or hooks?
 
-**Self-Check**: You've completed the course when you can explain to a colleague how agents, skills, and MCP work together - and when to use each.
+**Autoavaliação**: Você concluiu o curso quando conseguir explicar a um colega como agentes, skills e MCP funcionam juntos — e quando usar cada um.
 
 ---
 
@@ -490,14 +490,14 @@ Congratulations! You've learned:
 
 | Chapter | What You Learned |
 |---------|-------------------|
-| 00 | Copilot CLI installation and Quick Start |
-| 01 | Three modes of interaction |
-| 02 | Context management with @ syntax |
-| 03 | Development workflows |
-| 04 | Specialized agents |
-| 05 | Extensible skills |
-| 06 | External connections with MCP |
-| 07 | Unified production workflows |
+| 00 | Instalação do Copilot CLI e Início Rápido |
+| 01 | Três modos de interação |
+| 02 | Gerenciamento de contexto com a sintaxe @ |
+| 03 | Fluxos de desenvolvimento |
+| 04 | Agentes especializados |
+| 05 | Skills extensíveis |
+| 06 | Conexões externas com MCP |
+| 07 | Fluxos de produção unificados |
 
 You're now equipped to use GitHub Copilot CLI as a genuine force multiplier in your development workflow.
 

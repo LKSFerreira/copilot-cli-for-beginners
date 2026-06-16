@@ -1,31 +1,31 @@
-# Buggy Code Samples
+# Exemplos de Código com Bugs
 
-This folder contains intentionally buggy code for practicing code review and debugging with GitHub Copilot CLI.
+Esta pasta contém código propositalmente com bugs para praticar revisão de código e depuração com o GitHub Copilot CLI.
 
-## Folder Structure
+## Estrutura da Pasta
 
 ```
 buggy-code/
-├── js/                    # JavaScript examples
-│   ├── userService.js     # User management with 8 bugs
-│   └── paymentProcessor.js # Payment handling with 8 bugs
-└── python/                # Python examples
-    ├── user_service.py    # User management with 10 bugs
-    └── payment_processor.py # Payment handling with 12 bugs
+├── js/                    # Exemplos em JavaScript
+│   ├── userService.js     # Gerenciamento de usuários com 8 bugs
+│   └── paymentProcessor.js # Processamento de pagamentos com 8 bugs
+└── python/                # Exemplos em Python
+    ├── user_service.py    # Gerenciamento de usuários com 10 bugs
+    └── payment_processor.py # Processamento de pagamentos com 12 bugs
 ```
 
-## Quick Start
+## Início Rápido
 
 ### JavaScript
 
 ```bash
 copilot
 
-# Security audit
-> Review @samples/buggy-code/js/userService.js for security issues
+# Auditoria de segurança
+> Revise @samples/buggy-code/js/userService.js em busca de problemas de segurança
 
-# Find all bugs
-> Find all bugs in @samples/buggy-code/js/paymentProcessor.js
+# Encontrar todos os bugs
+> Encontre todos os bugs em @samples/buggy-code/js/paymentProcessor.js
 ```
 
 ### Python
@@ -33,42 +33,42 @@ copilot
 ```bash
 copilot
 
-# Security audit
-> Review @samples/buggy-code/python/user_service.py for security issues
+# Auditoria de segurança
+> Revise @samples/buggy-code/python/user_service.py em busca de problemas de segurança
 
-# Find all bugs
-> Find all bugs in @samples/buggy-code/python/payment_processor.py
+# Encontrar todos os bugs
+> Encontre todos os bugs em @samples/buggy-code/python/payment_processor.py
 ```
 
-## Bug Categories
+## Categorias de Bugs
 
-### Common to Both Languages
+### Comum a Ambas as Linguagens
 
-| Bug Type | Description |
+| Tipo de Bug | Descrição |
 |----------|-------------|
-| SQL Injection | User input directly in SQL queries |
-| Hardcoded Secrets | API keys and passwords in source code |
-| Race Conditions | Shared state without proper synchronization |
-| Sensitive Data Logging | Passwords and card numbers in logs |
-| Missing Input Validation | No checks on user-provided data |
-| No Error Handling | Missing try/catch or try/except blocks |
-| Weak Password Comparison | Plain text or timing-vulnerable comparisons |
-| Missing Auth Checks | Operations without authorization verification |
+| SQL Injection | Entrada do usuário diretamente em consultas SQL |
+| Segredos Hardcoded | Chaves de API e senhas no código fonte |
+| Condições de Corrida | Estado compartilhado sem sincronização adequada |
+| Registro de Dados Sensíveis | Senhas e números de cartão em logs |
+| Falta de Validação de Entrada | Sem checagens dos dados fornecidos pelo usuário |
+| Falta de Tratamento de Erros | Ausência de try/catch ou try/except |
+| Comparação Fraca de Senhas | Texto puro ou comparações vulneráveis a timing |
+| Falta de Verificação de Autorização | Operações sem verificação de autorização |
 
-### Python-Specific Bugs
+### Bugs Específicos de Python
 
-| Bug Type | Description |
+| Tipo de Bug | Descrição |
 |----------|-------------|
-| Pickle Deserialization | `pickle.loads()` on untrusted data |
-| eval() Injection | User input passed to `eval()` |
-| Unsafe YAML Loading | `yaml.load()` without safe loader |
-| Shell Injection | User input in `os.system()` calls |
-| Weak Hashing | MD5 for password hashing |
-| Insecure Random | `random` module for security purposes |
+| Desserialização com pickle | `pickle.loads()` em dados não confiáveis |
+| Injeção via eval() | Entrada do usuário passada para `eval()` |
+| Carregamento YAML inseguro | `yaml.load()` sem loader seguro |
+| Injeção de Shell | Entrada do usuário em chamadas `os.system()` |
+| Hashing Fraco | MD5 para hashing de senhas |
+| Random Inseguro | Uso do módulo `random` para fins de segurança |
 
-## Practice Exercises
+## Exercícios Práticos
 
-1. **Security Audit**: Run a comprehensive security review and list all vulnerabilities by severity
-2. **Fix One Bug**: Pick a critical bug, get the fix from Copilot, understand why it works
-3. **Generate Tests**: Create tests that would catch these bugs before deployment
-4. **Refactor Safely**: Fix the SQL injection bugs while maintaining functionality
+1. **Auditoria de Segurança**: Faça uma revisão de segurança completa e liste todas as vulnerabilidades por severidade
+2. **Corrigir Um Bug**: Escolha um bug crítico, obtenha a correção sugerida pelo Copilot e entenda por que ela funciona
+3. **Gerar Testes**: Crie testes que capturem esses bugs antes do deploy
+4. **Refatorar com Segurança**: Corrija os bugs de SQL injection mantendo a funcionalidade
